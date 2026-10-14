@@ -1,0 +1,2859 @@
+
+<!doctype html>
+<html lang="ru" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+        <meta name="description" content="Учебник для 9–10 классов">
+      
+      
+      
+        <link rel="canonical" href="https://book.stemschool.online/r0001/student/ch13/">
+      
+      
+        <link rel="prev" href="../ch12/">
+      
+      
+        <link rel="next" href="../ch14/">
+      
+      
+        
+      
+      
+      <link rel="icon" href="../../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.6">
+    
+    
+      
+        <title>Глава 13. Обратная связь и версии: когда исправление должно менять процедуру? - ИИ-агенты и Agent Skills</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../assets/stylesheets/main.484c7ddc.min.css">
+      
+        
+        <link rel="stylesheet" href="../../assets/stylesheets/palette.ab4e12ef.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+    <script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+  </head>
+  
+  
+    
+    
+      
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="indigo">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#глава-13-обратная-связь-и-версии-когда-исправление-должно-менять-процедуру" class="md-skip">
+          Перейти к содержанию
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+        <aside class="md-banner">
+          <div class="md-banner__inner md-grid md-typeset">
+            
+            
+  
+    <strong>Техническая редакция: пилот не проводился</strong> · редакция r0001
+  
+
+          </div>
+          
+        </aside>
+      
+    </div>
+    
+      <div data-md-color-scheme="default" data-md-component="outdated" hidden>
+        
+      </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Верхний колонтитул">
+    <a href="../.." title="ИИ-агенты и Agent Skills" class="md-header__button md-logo" aria-label="ИИ-агенты и Agent Skills" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            ИИ-агенты и Agent Skills
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Глава 13. Обратная связь и версии: когда исправление должно менять процедуру?
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+        <form class="md-header__option" data-md-component="palette">
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="indigo"  aria-hidden="true"  type="radio" name="__palette" id="__palette_0">
+    
+  
+</form>
+      
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+      
+      
+        <label class="md-header__button md-icon" for="__search">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        </label>
+        <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Поиск" placeholder="Поиск" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Поиск">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Очистить" aria-label="Очистить" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Инициализация поиска
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+      
+    
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+
+<nav class="md-nav md-nav--primary" aria-label="Навигация" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../.." title="ИИ-агенты и Agent Skills" class="md-nav__button md-logo" aria-label="ИИ-агенты и Agent Skills" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    ИИ-агенты и Agent Skills
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../.." class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Главная
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    
+    
+    
+    
+      
+        
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2" checked>
+        
+          
+          <label class="md-nav__link" for="__nav_2" id="__nav_2_label" tabindex="">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Ученик
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_2">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Ученик
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../intro/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Введение
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../tour/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Экскурсия по AI: что есть что
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../ch01/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Глава 1. Модель, приложение и агент: кто отвечает, а кто действует?
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../ch02/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Глава 2. Агентный цикл: как результат действия меняет следующий шаг?
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../ch03/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Глава 3. Agent harness: что работает вокруг модели?
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../ch04/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Глава 4. Prompt, structured output, tool, MCP и Agent Skill: какие задачи решают разные уровни системы?
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../ch05/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Глава 5. Договор задачи: что нужно определить до реализации?
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../ch06/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Глава 6. Первый tool
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../ch07/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Глава 7. Диспетчер и ошибки
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../ch08/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Глава 8. Хороший tool
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../ch09/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Глава 9. Первый Agent Skill
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../ch10/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Глава 10. Состояние и память
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../ch11/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Глава 11. Тесты и evals: как доказать качество не одним удачным запуском?
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../ch12/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Глава 12. Traces: как понять, что происходило на самом деле?
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Глава 13. Обратная связь и версии: когда исправление должно менять процедуру?
+  
+
+    
+  </span>
+  
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Глава 13. Обратная связь и версии: когда исправление должно менять процедуру?
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Содержание">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Содержание
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#scene" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        С чего всё началось
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#goals" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        После главы ты сможешь
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#lesson-25" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Урок 25. Как поправка превращается в опыт
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Урок 25. Как поправка превращается в опыт">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#1-сначала-доказательство-потом-правило" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1. Сначала доказательство, потом правило
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#2-разовый-факт-или-переносимое-правило" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2. Разовый факт или переносимое правило
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#3-предложение-ещё-не-принято" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3. Предложение ещё не принято
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#4-когда-поправка-становится-переносимым-опытом" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        4. Когда поправка становится переносимым опытом
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#5-практика-a-три-карточки-feedback" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        5. Практика A: три карточки Feedback
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#6-практика-b-связать-eval-trace-и-change-proposal" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        6. Практика B: связать Eval, Trace и Change proposal
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#7-мини-проверка-урока-25" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        7. Мини-проверка урока 25
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="7. Мини-проверка урока 25">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#ответы" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Ответы
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#выходной-билет-урока-25" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Выходной билет урока 25
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#lesson-26" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Урок 26. Version, Regression и Rollback
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Урок 26. Version, Regression и Rollback">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#1-почему-старую-копию-нельзя-уничтожать" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1. Почему старую копию нельзя уничтожать
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#2-увидеть-что-именно-изменилось" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2. Увидеть, что именно изменилось
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#3-старое-работало-новое-сломалось" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3. Старое работало, новое сломалось
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#4-решение-после-сравнения" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        4. Решение после сравнения
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#5-центральный-артефакт-карта-управляемого-изменения" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        5. Центральный артефакт: карта управляемого изменения
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#6-практика-a-две-распечатанные-version" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        6. Практика A: две распечатанные Version
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#7-практика-b-личный-skill-v1--v2" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        7. Практика B: личный skill v1 → v2
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#8-обязательные-проверки-должен--не-должен--ошибка--граница" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        8. Обязательные проверки: должен / не должен / ошибка / граница
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="8. Обязательные проверки: должен / не должен / ошибка / граница">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#должен" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Должен
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#не-должен" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Не должен
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#ошибка" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Ошибка
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#граница" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Граница
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#9-врезка-безопасности-не-улучшай-поверх-единственной-копии" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        9. Врезка безопасности: не улучшай поверх единственной копии
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#10-мини-проверка-урока-26" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        10. Мини-проверка урока 26
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="10. Мини-проверка урока 26">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#ответы_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Ответы
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#выходной-билет-урока-26" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Выходной билет урока 26
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#why" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Зачем это тебе
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#dezhurny" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Шаг сквозного проекта
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Шаг сквозного проекта">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#достраиваем-дежурного" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Достраиваем «Дежурного»
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#return" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Возвращаемся к сцене
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#check" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Проверь себя
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Проверь себя">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#ответы_2" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Ответы
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#glossary" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Словарь главы
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#bridge" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Мост к главе 14
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../ch14/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Глава 14. Permissions и участие человека
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../ch15/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Глава 15. Prompt injection и недоверенные подключения: что делать с данными и кодом, которым нельзя автоматически доверять?
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../ch16/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Глава 16. Долгая и совместная работа
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../ch17/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Глава 17. Итоговый проект: может ли команда доказать качество и ограниченность системы?
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../app-a/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Приложение А. Урок 0. Готовность рабочего места
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../app-b/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Приложение Б. Словарь курса
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../app-c/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Приложение В. Список фигур
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+        
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3" >
+        
+          
+          <label class="md-nav__link" for="__nav_3" id="__nav_3_label" tabindex="">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Учитель
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Учитель
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../teacher/teacher-guide/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Методическое руководство для учителя
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../teacher/lesson-map/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Поурочная карта
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../routes/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Маршруты A/B
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../files/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Файлы практикума
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../about/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    О редакции
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Содержание">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Содержание
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#scene" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        С чего всё началось
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#goals" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        После главы ты сможешь
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#lesson-25" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Урок 25. Как поправка превращается в опыт
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Урок 25. Как поправка превращается в опыт">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#1-сначала-доказательство-потом-правило" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1. Сначала доказательство, потом правило
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#2-разовый-факт-или-переносимое-правило" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2. Разовый факт или переносимое правило
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#3-предложение-ещё-не-принято" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3. Предложение ещё не принято
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#4-когда-поправка-становится-переносимым-опытом" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        4. Когда поправка становится переносимым опытом
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#5-практика-a-три-карточки-feedback" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        5. Практика A: три карточки Feedback
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#6-практика-b-связать-eval-trace-и-change-proposal" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        6. Практика B: связать Eval, Trace и Change proposal
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#7-мини-проверка-урока-25" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        7. Мини-проверка урока 25
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="7. Мини-проверка урока 25">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#ответы" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Ответы
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#выходной-билет-урока-25" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Выходной билет урока 25
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#lesson-26" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Урок 26. Version, Regression и Rollback
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Урок 26. Version, Regression и Rollback">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#1-почему-старую-копию-нельзя-уничтожать" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1. Почему старую копию нельзя уничтожать
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#2-увидеть-что-именно-изменилось" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2. Увидеть, что именно изменилось
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#3-старое-работало-новое-сломалось" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3. Старое работало, новое сломалось
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#4-решение-после-сравнения" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        4. Решение после сравнения
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#5-центральный-артефакт-карта-управляемого-изменения" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        5. Центральный артефакт: карта управляемого изменения
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#6-практика-a-две-распечатанные-version" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        6. Практика A: две распечатанные Version
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#7-практика-b-личный-skill-v1--v2" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        7. Практика B: личный skill v1 → v2
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#8-обязательные-проверки-должен--не-должен--ошибка--граница" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        8. Обязательные проверки: должен / не должен / ошибка / граница
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="8. Обязательные проверки: должен / не должен / ошибка / граница">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#должен" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Должен
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#не-должен" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Не должен
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#ошибка" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Ошибка
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#граница" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Граница
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#9-врезка-безопасности-не-улучшай-поверх-единственной-копии" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        9. Врезка безопасности: не улучшай поверх единственной копии
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#10-мини-проверка-урока-26" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        10. Мини-проверка урока 26
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="10. Мини-проверка урока 26">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#ответы_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Ответы
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#выходной-билет-урока-26" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Выходной билет урока 26
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#why" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Зачем это тебе
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#dezhurny" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Шаг сквозного проекта
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Шаг сквозного проекта">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#достраиваем-дежурного" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Достраиваем «Дежурного»
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#return" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Возвращаемся к сцене
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#check" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Проверь себя
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Проверь себя">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#ответы_2" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Ответы
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#glossary" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Словарь главы
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#bridge" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Мост к главе 14
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+
+<h1 id="глава-13-обратная-связь-и-версии-когда-исправление-должно-менять-процедуру">Глава 13. Обратная связь и версии: когда исправление должно менять процедуру?<a class="headerlink" href="#глава-13-обратная-связь-и-версии-когда-исправление-должно-менять-процедуру" title="Permanent link">&para;</a></h1>
+<h2 id="scene">С чего всё началось<a class="headerlink" href="#scene" title="Permanent link">&para;</a></h2>
+<p>До Фестиваля науки осталось совсем немного времени. После разбора вчерашнего сбоя Марк понял причину ошибки: в запросе на вызов <code>validate_task_card</code> не было нужного <code>task_id</code>, и запуск закончился ошибкой. Марк открыл копию своего учебного skill, дописал в шаг проверки слова «для каждого <code>task_id</code> из observation» и радостно объявил: теперь проблема исправлена.</p>
+<p>Аня попросила не закрывать карточку сразу. Они повторили прежние проверки. Случай, ради которого Марк редактировал процедуру, действительно стал проходить. Однако из новой копии исчезли два прежних правила: возвращать <code>needs_input</code> при неоднозначности и не менять статусы. Исправление помогло в одном случае, но два ранее проходивших случая теперь не проходили проверку.</p>
+<p>— Но исходную ошибку я же исправил, — сказал Марк. — Значит, новая копия лучше.</p>
+<p>На первый взгляд Марк прав: исходную ошибку удалось исправить. Но достаточно ли одного исправленного случая, чтобы выбрать новую копию? Прежние проверки показывают и другую часть результата — потерю двух правил.</p>
+<p>Аня положила рядом старую и новую папки и спросила тебя: что важнее — исправленный случай или поведение всей процедуры после изменения? И если ответ зависит от проверки, то какой именно проверки достаточно, чтобы не спорить по впечатлению?</p>
+<blockquote>
+<p><strong>Вопрос-Прогноз.</strong> Если новая процедура исправила исходную ошибку, но ухудшила другое ранее работавшее поведение, можно ли считать изменение улучшением — и какое наблюдаемое доказательство должно решить <code>keep</code> или <code>revert</code>?</p>
+<p><strong>Главный вопрос главы.</strong> Когда исправление должно менять процедуру?</p>
+</blockquote>
+<p><img alt="Фигура 37. Исправил один случай — сломал два" src="../../figures/37_ispravil-odin-sluchay-slomal-dva.png" /></p>
+<p><em>Фигура 37. Исправил один случай — сломал два</em></p>
+<h2 id="goals">После главы ты сможешь<a class="headerlink" href="#goals" title="Permanent link">&para;</a></h2>
+<ul>
+<li>отличать замечание о проблеме от разового факта и от уже принятого правила;</li>
+<li>формулировать проверяемую поправку и связывать её с конкретным Test case и evidence;</li>
+<li>сохранять исходное состояние процедуры до редактирования и сравнивать две копии;</li>
+<li>повторять один и тот же Eval-набор до и после изменения;</li>
+<li>находить ухудшение ранее работавшего поведения;</li>
+<li>объяснять, почему исправленный исходный случай ещё не доказывает улучшение;</li>
+<li>принимать решение <code>keep</code> или <code>revert</code> и обосновывать возврат к предыдущему проверенному состоянию наблюдаемыми результатами.</li>
+</ul>
+<hr />
+<h2 id="lesson-25">Урок 25. Как поправка превращается в опыт<a class="headerlink" href="#lesson-25" title="Permanent link">&para;</a></h2>
+<h3 id="1-сначала-доказательство-потом-правило">1. Сначала доказательство, потом правило<a class="headerlink" href="#1-сначала-доказательство-потом-правило" title="Permanent link">&para;</a></h3>
+<p>В прошлой главе мы учились находить причину сбоя по наблюдаемым событиям, а не угадывать причину по финальному сообщению. Возьмём знакомый Trace, в котором зафиксирована ошибка arguments при вызове <code>validate_task_card</code>.</p>
+<p>Перед запуском сделай прогноз: программа напечатает только <code>terminal: error</code> или также покажет место отклонения и код причины?</p>
+<div class="highlight"><pre><span></span><code><span class="c1"># запуск из корня starter</span>
+python<span class="w"> </span>trace_demo.py<span class="w"> </span>analyze<span class="w"> </span>workspace/ch12/cases/invalid_arguments.jsonl
+</code></pre></div>
+<div class="highlight"><pre><span></span><code>trace: ch12/cases/invalid_arguments.jsonl
+terminal: error
+tool_calls: 1
+errors: 1
+approval_events: 0
+failure_point: tool_observation call-2 validate_task_card
+root_cause: invalid_arguments
+</code></pre></div>
+<p>Программа показывает место отклонения и код <code>invalid_arguments</code>. По напечатанному выводу можно установить, с каким вызовом связана ошибка. Но вывода недостаточно, чтобы выбрать новую формулировку процедуры. Совет «нужно внимательнее вызывать tool» не объясняет, какие данные следует передать и при каком условии.</p>
+<p>Вывод анализатора даёт команде обратную связь. <strong>Feedback / обратная связь — замечание, исправление или результат проверки, который может стать основанием для изменения процедуры.</strong></p>
+<p><strong><em>Feedback</em></strong> может прийти от человека, из Eval или из разбора Trace. Обратная связь указывает, что требует внимания, но ещё не определяет новое правило. В нашем случае наблюдаемое основание для обсуждения даёт ошибка arguments.</p>
+<p>Не путай Feedback с обратной связью по результату внутри agent loop из главы 2. В агентном цикле результат действия возвращается в цикл. Здесь команда получает замечание о самой процедуре и решает, нужно ли процедуру менять.</p>
+<p>Замечание не становится новой нормой автоматически. Если ученик написал «мне удобнее, когда пункты нумеруются римскими цифрами», ученик сообщил о своём предпочтении, а не установил правило для всей процедуры. Код <code>root_cause: invalid_arguments</code> тоже не диктует единственную правильную редакцию <code>SKILL.md</code>: код называет техническую проблему.</p>
+<p>Feedback можно сравнить с пометкой учителя на полях контрольной. Пометка указывает место, которое требует внимания, но не заменяет твой способ решения новым. В нашем проекте источником такой пометки может быть не только человек: наблюдаемое основание для изменения дают также результаты Test case и разбора Trace.</p>
+<blockquote>
+<p><strong>Проверь себя на ходу.</strong> В одном отчёте написано «в строке 3 потерян <code>task_id</code>», а в другом — «мне не нравится этот шрифт». Оба сообщения дают Feedback. Почему из этого не следует, что оба должны менять процедуру?</p>
+</blockquote>
+<h3 id="2-разовый-факт-или-переносимое-правило">2. Разовый факт или переносимое правило<a class="headerlink" href="#2-разовый-факт-или-переносимое-правило" title="Permanent link">&para;</a></h3>
+<p>Команда постоянно получает Feedback. Участник просит изменить порядок пунктов, тестовый случай заканчивается <code>fail</code>, а отчёт о сбое (incident report) указывает Root cause — первопричину отклонения. Если каждое замечание немедленно переносить в процедуру, в <code>SKILL.md</code> накопятся случайные исключения.</p>
+<p>Прежде чем менять процедуру, ответь на три вопроса:</p>
+<ol>
+<li>Может ли проблема повториться как тип ситуации?</li>
+<li>Можно ли назвать наблюдаемое условие, при котором правило понадобится снова?</li>
+<li>Есть ли Test case, который позволит проверить ожидаемый эффект новой формулировки?</li>
+</ol>
+<p>Если ответов пока нет, сохрани Feedback как свидетельство. Для записи нового правила оснований ещё недостаточно.</p>
+<p>Сравним две записи:</p>
+<ol>
+<li>«В task-003 сегодня не указан кабинет — всегда подставляй кабинет 214».</li>
+<li>«Если обязательного входа не хватает, не додумывай значение, а верни <code>needs_input</code>».</li>
+</ol>
+<p>Первая запись превращает частную нехватку данных в постоянную подстановку. Даже если кабинет 214 подходит сегодня, завтра кабинет может быть другим. Вторая запись описывает повторяемое условие и действие при таком условии, поэтому уже похожа на правило процедуры.</p>
+<p>Допустим, сегодня в карточке не указан обязательный номер кабинета, а завтра в другой карточке не указано обязательное время встречи. Запросить недостающее значение можно в обоих случаях. Во втором случае подстановка 214 вообще бесполезна: время встречи по номеру кабинета узнать нельзя.</p>
+<p>Так Agent Skill не превращается в результат «обучения на одном случае». Частный Feedback при этом не пропадает. Замечание может привести к разбору причины, дополнительному Test case или уточнению данных. Чтобы перенести поправку в будущую процедуру, нужно отдельно сформулировать и проверить правило.</p>
+<h3 id="3-предложение-ещё-не-принято">3. Предложение ещё не принято<a class="headerlink" href="#3-предложение-ещё-не-принято" title="Permanent link">&para;</a></h3>
+<p>Представим, что у команды уже есть <strong><em>evidence</em></strong> — наблюдаемое свидетельство проблемы: <code>validate_task_card</code> получил неправильный набор arguments. Команда предлагает уточнить шаг процедуры: передавать в проверку каждый <code>task_id</code>, полученный после чтения карточек. Команда уже назвала желаемое изменение, а не только сообщила об ошибке.</p>
+<p><strong>Change proposal / предложение изменения — сформулированное изменение процедуры, которое ещё не является новой нормой.</strong></p>
+<p><strong><em>Change proposal</em></strong> отвечает на два вопроса: что именно мы хотим поменять и какое поведение ожидаем получить. Предложение должно быть достаточно точным, чтобы другая группа поняла, какой файл и какой шаг обсуждаются.</p>
+<p>Записанное предложение ещё не входит в действующую процедуру. Поправка может оказаться слишком узкой, противоречить старому правилу или исправить один случай ценой двух новых ошибок. Поэтому рядом с Change proposal полезно записать:</p>
+<ol>
+<li>источник Feedback;</li>
+<li>связанный Test case;</li>
+<li>поведение, которое не должно измениться.</li>
+</ol>
+<p>В starter подготовлен пример такого предложения. Следующая команда читает файл proposal и проверяет связи с источниками. Файлы skill команда не редактирует.</p>
+<div class="highlight"><pre><span></span><code><span class="c1"># запуск из корня starter</span>
+python<span class="w"> </span>change_demo.py<span class="w"> </span>proposal<span class="w"> </span>workspace/ch13/change_proposals/validate-task-id.json
+</code></pre></div>
+<div class="highlight"><pre><span></span><code>feedback: invalid-arguments
+source_eval_case: validate-task-id
+source_trace: ch12/cases/invalid_arguments.jsonl
+root_cause: invalid_arguments
+change_proposal: pass each task_id from read_task_cards to validate_task_card
+status: proposed
+new_norm: no
+</code></pre></div>
+<p>В выводе перечислены источник Feedback, связанный Test case и Trace, который служит evidence. Строки <code>status: proposed</code> и <code>new_norm: no</code> указывают статус предложения: поправка записана, но ещё не принята.</p>
+<p>Почему чтение файла не должно сразу давать <code>new_norm: yes</code>? Программа пока показала предложение и его основания, а не результат проверки изменённой процедуры. Объявить правило принятым на этом шаге означало бы смешать предложение и решение.</p>
+<blockquote>
+<p><strong>Проверь себя на ходу.</strong> В файле Change proposal очень уверенно написано «это изменение обязательно улучшит skill». Доказывает ли уверенная формулировка, что процедура улучшится? Какие результаты нужно увидеть дальше?</p>
+</blockquote>
+<h3 id="4-когда-поправка-становится-переносимым-опытом">4. Когда поправка становится переносимым опытом<a class="headerlink" href="#4-когда-поправка-становится-переносимым-опытом" title="Permanent link">&para;</a></h3>
+<p>Команда может узнать причину вчерашней ошибки и сохранить отчёт, но способ работы от одного отчёта не изменится. Переносимый опыт появится, когда команда проверит поправку и сможет применять исправленную процедуру в будущих похожих ситуациях. Такой результат называется процедурным опытом. <strong>Procedural experience — проверенное изменение повторяемой процедуры, которое можно перенести на будущие запуски.</strong></p>
+<p>Одной цепочки «ошибка → новая строка в <code>SKILL.md</code>» недостаточно. Для проверенного изменения нужны три основания:</p>
+<ol>
+<li>evidence показывает наблюдаемую проблему;</li>
+<li>Change proposal называет конкретную поправку;</li>
+<li>Test case позволяет проверить ожидаемый эффект.</li>
+</ol>
+<p>Procedural experience не означает, что система «сама научилась» или модель получила новую память. Команда редактирует внешний файл процедуры, а затем проверяет результат. Если изменённая процедура не проходит прежние проверки, разумно звучащая формулировка не делает изменение удачным.</p>
+<p>На схеме показан путь от обнаруженной проблемы к изменению, которое предстоит проверить:</p>
+<div class="highlight"><pre><span></span><code>неуспешный Test case
+        +
+evidence из Trace
+        ↓
+Feedback
+        ↓
+Change proposal
+        ↓
+проверяемое изменение процедуры
+</code></pre></div>
+<p>Для завершения проверки нужно сравнить «до» и «после». Поэтому на уроке 25 мы сохраняем две копии и не записываем поправку поверх единственного исходника. Решение о выборе копии примем после сравнения на следующем уроке.</p>
+<h3 id="5-практика-a-три-карточки-feedback">5. Практика A: три карточки Feedback<a class="headerlink" href="#5-практика-a-три-карточки-feedback" title="Permanent link">&para;</a></h3>
+<p>Работай в паре. Прочитай вместе с напарником три карточки:</p>
+<ol>
+<li>«В одном отчёте Марку удобнее видеть блокеры раньше списка незавершённых задач».</li>
+<li>«Test case падает, потому что <code>validate_task_card</code> вызван без <code>task_id</code>; Trace показывает <code>root_cause: invalid_arguments</code>».</li>
+<li>«В карточке task-003 сегодня нет номера кабинета; всегда подставляй 214».</li>
+</ol>
+<p>Для каждой карточки обсуди с напарником три вопроса:</p>
+<ol>
+<li>Какой наблюдаемый факт лежит в основе Feedback?</li>
+<li>Можно ли превратить замечание в общее условие будущей процедуры?</li>
+<li>Какой Test case должен существовать до того, как правило можно будет считать проверенным?</li>
+</ol>
+<p>Не пытайся сразу написать окончательный <code>SKILL.md</code>. Сначала отдели свидетельство проблемы от предлагаемого изменения.</p>
+<p>Затем выбери вместе с напарником одну карточку, из которой получается Change proposal. Запиши четыре строки:</p>
+<div class="highlight"><pre><span></span><code>source: …
+feedback: …
+change_proposal: …
+linked_test_case: …
+</code></pre></div>
+<p><strong>Результат практики A:</strong> одно Change proposal, которое ссылается на наблюдаемый источник и заранее названный Test case, плюс объяснение, почему две другие карточки пока не стали правилом.</p>
+<h3 id="6-практика-b-связать-eval-trace-и-change-proposal">6. Практика B: связать Eval, Trace и Change proposal<a class="headerlink" href="#6-практика-b-связать-eval-trace-и-change-proposal" title="Permanent link">&para;</a></h3>
+<p>Начнём с общего Baseline — исходного уровня проверок, знакомого по главе 11. Команда ниже не оценивает новую редакцию конкретного skill: программа повторяет общие проверки harness.</p>
+<p>Перед запуском предскажи: изменится ли статус <code>model_behavior</code>, если нового подтверждённого сеанса модели ещё не было?</p>
+<div class="highlight"><pre><span></span><code><span class="c1"># запуск из корня starter</span>
+python<span class="w"> </span>eval_runner.py<span class="w"> </span>--summary
+</code></pre></div>
+<div class="highlight"><pre><span></span><code>harness: 6/6 passed
+model_behavior: not_evaluated (verified_sessions: 0; scripted: 3, excluded from scoring)
+publication_ready: false (classroom_pilot_pending, live_model_evidence_pending)
+</code></pre></div>
+<p>В напечатанном результате проходят шесть из шести harness-проверок. Ни одного подтверждённого сеанса модели нет; три авторских сценария исключены из оценки поведения модели. Строка <code>publication_ready: false</code> также не позволяет объявить проект готовым к публикации.</p>
+<p>Общий Baseline не заменяет проверку конкретного изменения <code>SKILL.md</code>. Даже если все общие проверки проходят, для Change proposal нужен связанный набор случаев.</p>
+<p>Теперь вернись к разбору Trace в начале урока, к incident report и к подготовленному proposal. Для личного skill из главы 9 подготовь две копии, не перезаписывая исходник:</p>
+<ol>
+<li>Сохрани первую копию без изменений.</li>
+<li>Во второй копии измени только 5–10 строк, которые прямо относятся к выбранному Change proposal.</li>
+</ol>
+<p>Заранее заданного вывода программы (stdout) для твоего личного файла нет: содержимое процедуры выбираешь ты. Для сравнения сохрани исходную и изменённую копии, связанный Test case и объяснение ожидаемого улучшения.</p>
+<p><strong>Результат практики B:</strong> Change proposal для личного skill v1 и две сохранённые копии, готовые к сравнению на уроке 26.</p>
+<h3 id="7-мини-проверка-урока-25">7. Мини-проверка урока 25<a class="headerlink" href="#7-мини-проверка-урока-25" title="Permanent link">&para;</a></h3>
+<ol>
+<li>Что такое Feedback?</li>
+<li>Почему код <code>root_cause: invalid_arguments</code> ещё не задаёт готового правила процедуры?</li>
+<li>Что такое Change proposal?</li>
+<li>В какой момент предложение становится procedural experience в смысле этого урока?</li>
+<li>Почему общий <code>eval_runner.py --summary</code> не доказывает качество конкретной правки skill?</li>
+</ol>
+<h4 id="ответы">Ответы<a class="headerlink" href="#ответы" title="Permanent link">&para;</a></h4>
+<ol>
+<li>Замечание, исправление или результат проверки, который может стать основанием для изменения процедуры.</li>
+<li>Root cause показывает существенную причину отклонения, но не выбирает за нас новую формулировку процедуры и не проверяет побочные эффекты.</li>
+<li>Сформулированное изменение процедуры, которое ещё не является новой нормой.</li>
+<li>Когда изменение связано с evidence, оформлено как повторяемое правило и прошло проверку на заранее заданных случаях.</li>
+<li>Он проверяет общий harness и честно отделяет scripted <code>model_behavior</code>; конкретная правка skill требует связанных случаев и сравнения версий.</li>
+</ol>
+<h3 id="выходной-билет-урока-25">Выходной билет урока 25<a class="headerlink" href="#выходной-билет-урока-25" title="Permanent link">&para;</a></h3>
+<p>Закончи четыре строки:</p>
+<div class="highlight"><pre><span></span><code>Feedback показывает …
+Change proposal предлагает …
+До проверки proposal ещё не является …
+Перед редактированием я сохраняю …
+</code></pre></div>
+<p>Если в третьей строке получилось «ошибкой», вернись к определению Change proposal. Предложение может оказаться удачным или неудачным, но до проверки предложение ещё не становится новой нормой.</p>
+<hr />
+<h2 id="lesson-26">Урок 26. Version, Regression и Rollback<a class="headerlink" href="#lesson-26" title="Permanent link">&para;</a></h2>
+<h3 id="1-почему-старую-копию-нельзя-уничтожать">1. Почему старую копию нельзя уничтожать<a class="headerlink" href="#1-почему-старую-копию-нельзя-уничтожать" title="Permanent link">&para;</a></h3>
+<p>У Марка теперь две папки. В первой сохранена процедура до Change proposal, во второй находится кандидат после редактирования. Если записать новую процедуру поверх единственного исходника, прежнее состояние придётся восстанавливать по памяти. При неудаче не останется точной копии, к которой можно вернуться.</p>
+<p><strong>Version / версия — идентифицируемое состояние процедуры или проекта, которое можно сравнить с другим.</strong></p>
+<p>У <strong><em>Version</em></strong> есть метка, по которой можно найти конкретное сохранённое состояние. В нашей практике метки <code>1.0.0</code> и <code>1.1.0</code> различают копии. По этим двум меткам мы не устанавливаем универсальные правила нумерации выпусков.</p>
+<p>Новая Version может оказаться хуже прежней, равной по проверяемым свойствам или просто другой. Номер не означает «лучшая». Метка нужна для воспроизводимого сравнения: другая группа должна знать, какие именно два состояния участвовали в проверке.</p>
+<p>Представь две подписанные страницы лабораторного журнала: на первой записаны условия и результат до изменения установки, на второй — после изменения установки. Сохранённые страницы позволяют сопоставить записи. Метки Version выполняют похожую задачу, но сама Version в проекте хранит состояние файлов или процедуры, а не фотографию установки. Наличие записи ещё не доказывает качество результата.</p>
+<h3 id="2-увидеть-что-именно-изменилось">2. Увидеть, что именно изменилось<a class="headerlink" href="#2-увидеть-что-именно-изменилось" title="Permanent link">&para;</a></h3>
+<p>Что нужно узнать прежде, чем сравнивать проценты успешных проверок? Какие строки изменились. Если между двумя Version различаются сто строк, а Change proposal касался одного шага, трудно связать результат с конкретной поправкой. Сначала нужно увидеть различия.</p>
+<p><strong>Diff — наблюдаемое сравнение различий между двумя сохранёнными Version.</strong></p>
+<p><strong><em>Diff</em></strong>, или сравнение различий, показывает, какие строки удалены, добавлены или изменены. По diff можно определить объём правки, но нельзя решить, хороша ли правка.</p>
+<p>Diff не заменяет Eval. Даже одна изменённая строка может ухудшить поведение, а большая правка может оказаться корректным переустройством текста. Чтобы оценить результат, после diff нужно повторить прежние Test cases.</p>
+<p>Сравним подготовленную пару копий. Перед запуском сделай прогноз: если Change proposal касался передачи <code>task_id</code>, должен ли diff показывать ещё какие-то изменения, не связанные с этой целью?</p>
+<div class="highlight"><pre><span></span><code><span class="c1"># запуск из корня starter</span>
+python<span class="w"> </span>change_demo.py<span class="w"> </span>diff<span class="w"> </span>workspace/ch13/versions/1.0.0/project-status<span class="w"> </span>workspace/ch13/versions/1.1.0-candidate/project-status
+</code></pre></div>
+<div class="highlight"><pre><span></span><code>before: 1.0.0
+after: 1.1.0-candidate
+file: SKILL.md
+- 3. Вызови validate_task_card.
++ 3. Вызови validate_task_card для каждого task_id из observation.
+- 4. При неоднозначности или нехватке данных верни needs_input с вопросом.
+- Не меняй статусы.
+changed_lines: 4
+runtime_skill_changed: no
+</code></pre></div>
+<p>В diff знак <code>-</code> отмечает удалённую строку, а знак <code>+</code> отмечает добавленную. Строку шага 3 заменили: старая формулировка удалена, новая добавлена. Ещё две строки с прежними правилами удалены без замены. Поэтому программа сообщает <code>changed_lines: 4</code>: три удалённые строки и одна добавленная.</p>
+<p>Подготовленный кандидат исправляет передачу <code>task_id</code>, но заодно теряет требование вернуть <code>needs_input</code> и запрет менять статусы. Ещё до Eval видно, что правка шире исходного proposal. Метка <code>1.1.0</code> не оправдывает потерю правил. Строка <code>runtime_skill_changed: no</code> указывает, что сравнение не изменило рабочую процедуру.</p>
+<blockquote>
+<p><strong>Проверь себя на ходу.</strong> Две Version дают одинаковый итог одного Test case, но diff показывает удалённый запрет на запись. Можно ли сказать «изменение безвредно», не повторив остальные проверки?</p>
+</blockquote>
+<h3 id="3-старое-работало-новое-сломалось">3. Старое работало, новое сломалось<a class="headerlink" href="#3-старое-работало-новое-сломалось" title="Permanent link">&para;</a></h3>
+<p>Вернёмся к принципу главы 11: сравнивать результаты можно только при одинаковых условиях проверки. Для двух Version сохрани один набор Test cases и одни правила выставления pass/fail. Если между проверками заменить набор, разницу результатов нельзя будет однозначно связать с изменением Version.</p>
+<p><strong>Regression / регрессия — ухудшение ранее работавшего поведения после изменения.</strong></p>
+<p>Чтобы обнаружить <strong><em>Regression</em></strong>, нужно сопоставить результаты одного случая: старая Version получала <code>pass</code>, а новая получает <code>fail</code>. Сам по себе результат <code>fail</code> ещё не доказывает регрессию. Нужно знать, был ли у прежней Version результат <code>pass</code> для сравниваемого случая.</p>
+<p>Регрессия не делает всю новую Version бесполезной. Поправка может исправить целевой случай и одновременно ухудшить другое поведение. Поэтому при выборе Version нужно учитывать не только причину редактирования, но и результаты прежних проверок.</p>
+<p>Оценим исходную Version на фиксированном наборе главы. Здесь программа применяет Rubric — критерии проверки текста процедуры. Случай проходит, если в <code>SKILL.md</code> найдена строка со всеми заданными фрагментами. Например, проверка может искать в одной строке <code>validate_task_card</code> и «для каждого task_id».</p>
+<p>Агент по процедуре не запускается, и живая модель не оценивается. Программа проверяет наличие заданных формулировок и может обнаружить их потерю. Такая проверка уже, чем проверка выполнения процедуры.</p>
+<p>Допустим, в учебной копии написано: «Не вызывай <code>validate_task_card</code> для каждого task_id». В строке есть оба искомых фрагмента, хотя смысл инструкции противоположен требуемому. Описанный поиск фрагментов не различает эти смыслы. Поэтому результат текстового Eval нужно читать вместе с самими правилами, а не считать доказательством любого поведения агента.</p>
+<div class="highlight"><pre><span></span><code><span class="c1"># запуск из корня starter</span>
+python<span class="w"> </span>change_demo.py<span class="w"> </span><span class="nb">eval</span><span class="w"> </span>workspace/ch13/versions/1.0.0/project-status<span class="w"> </span>--cases<span class="w"> </span>workspace/ch13/version_cases.json
+</code></pre></div>
+<div class="highlight"><pre><span></span><code>version: 1.0.0
+eval_set: ch13-project-status
+case validate-task-id: fail
+case asks-on-ambiguity: pass
+case no-status-write: pass
+case builds-report: pass
+result: 3/4
+</code></pre></div>
+<p>В показанном результате проходят три случая из четырёх. Не проходит именно целевой <code>validate-task-id</code>; остальные три правила соответствуют критериям. Теперь сравним исходную Version с кандидатом, который исправляет целевую строку, но теряет два прежних правила.</p>
+<div class="highlight"><pre><span></span><code><span class="c1"># запуск из корня starter</span>
+python<span class="w"> </span>change_demo.py<span class="w"> </span>compare<span class="w"> </span>workspace/ch13/versions/1.0.0/project-status<span class="w"> </span>workspace/ch13/versions/1.1.0-candidate/project-status<span class="w"> </span>--cases<span class="w"> </span>workspace/ch13/version_cases.json
+</code></pre></div>
+<div class="highlight"><pre><span></span><code>before: 1.0.0 | 3/4
+after: 1.1.0-candidate | 2/4
+eval_set: ch13-project-status
+target_case validate-task-id: fail -&gt; pass
+regression: asks-on-ambiguity | pass -&gt; fail
+regression: no-status-write | pass -&gt; fail
+regressions: 2
+decision: revert
+rollback_to: 1.0.0
+files_changed: no
+</code></pre></div>
+<p>Программа применяет к обеим Version один набор случаев и одну Rubric над текстом. В выводе видны три изменения результатов:</p>
+<ol>
+<li>Целевой <code>validate-task-id</code> переходит из <code>fail</code> в <code>pass</code>.</li>
+<li>Прежний <code>asks-on-ambiguity</code> переходит из <code>pass</code> в <code>fail</code>.</li>
+<li>Прежний <code>no-status-write</code> также переходит из <code>pass</code> в <code>fail</code>.</li>
+</ol>
+<p>Четвёртый случай, <code>builds-report</code>, продолжает проходить проверку. Было три успешных случая из четырёх; один добавился и два потерялись: 3 + 1 − 2 = 2. Отсюда результат кандидата 2/4, счётчик <code>regressions: 2</code> и решение <code>revert</code>.</p>
+<p>В пределах текстовой проверки целевое исправление подтверждено, но две прежние проверки больше не проходят. Для выбора Version нужны обе части результата. Вывод не доказывает, что агент действительно изменил статусы или отказался задать вопрос: агент здесь не запускался.</p>
+<p>Представим другое сравнение на четырёх случаях: целевой перешёл из fail в pass, один прежний перешёл из pass в fail, а два остальных сохранили pass. Обе Version получат 3/4, но одна Regression всё равно будет. Равная доля успешных проверок может скрывать обмен исправленного случая на испорченный.</p>
+<h3 id="4-решение-после-сравнения">4. Решение после сравнения<a class="headerlink" href="#4-решение-после-сравнения" title="Permanent link">&para;</a></h3>
+<p>После сравнения команда выбирает одно из двух решений:</p>
+<ol>
+<li><code>keep</code> означает сохранить новую Version для дальнейшей работы: целевой случай исправлен, а Regression в проверяемом наборе не обнаружена.</li>
+<li><code>revert</code> означает не переходить на кандидата и выбрать предыдущую проверенную Version.</li>
+</ol>
+<p>Само отсутствие Regression недостаточно для <code>keep</code>: целевой случай тоже должен улучшиться.</p>
+<p>Проверим второй подготовленный кандидат. В этой копии изменена только целевая инструкция, а прежние правила сохранены.</p>
+<div class="highlight"><pre><span></span><code><span class="c1"># запуск из корня starter</span>
+python<span class="w"> </span>change_demo.py<span class="w"> </span>compare<span class="w"> </span>workspace/ch13/versions/1.0.0/project-status<span class="w"> </span>workspace/ch13/versions/1.1.0-good/project-status<span class="w"> </span>--cases<span class="w"> </span>workspace/ch13/version_cases.json
+</code></pre></div>
+<div class="highlight"><pre><span></span><code>before: 1.0.0 | 3/4
+after: 1.1.0-good | 4/4
+eval_set: ch13-project-status
+target_case validate-task-id: fail -&gt; pass
+regressions: 0
+decision: keep
+files_changed: no
+</code></pre></div>
+<p>В исходной Version проходили три случая из четырёх; у нового кандидата проходят все четыре. Целевой случай улучшился, прежние результаты не ухудшились. Поэтому ожидаются <code>regressions: 0</code> и <code>decision: keep</code>.</p>
+<p>Качество не назначается именем <code>good</code>. Программа должна получить результат из содержимого файлов, проверив обе Version на одном наборе cases. Как и при предыдущем сравнении, <code>files_changed: no</code> означает, что сами файлы не изменены.</p>
+<p>Что делать, если команда уже выбрала неудачную Version для работы? Вернуться к предыдущему проверенному состоянию. <strong>Rollback / откат — возврат к предыдущей проверенной версии после неудачного изменения.</strong></p>
+<p>При <strong><em>Rollback</em></strong> команда снова выбирает состояние с известными результатами проверок, а не пытается срочно исправлять неудачную копию в рабочей папке. «Проверенная» не обязательно означает «прошедшая все случаи»: у исходной <code>1.0.0</code> результат 3/4. Возврат убирает две обнаруженные регрессии кандидата, но исходная проблема с <code>task_id</code> остаётся.</p>
+<p>Rollback не требует стирать неудачную Version. Копию полезно сохранить вместе с diff и результатами проверки, чтобы разбирать связь правки с Regression. В этой главе программа не выполняет возврат автоматически: программа печатает решение <code>revert</code> и метку Version, к которой следует вернуться.</p>
+<h3 id="5-центральный-артефакт-карта-управляемого-изменения">5. Центральный артефакт: карта управляемого изменения<a class="headerlink" href="#5-центральный-артефакт-карта-управляемого-изменения" title="Permanent link">&para;</a></h3>
+<p>Сопоставим шаги изменения процедуры. Для каждого шага в таблице указан вопрос, на который шаг помогает ответить, и предел такого ответа.</p>
+<table>
+<thead>
+<tr>
+<th>Шаг</th>
+<th>Что фиксируем</th>
+<th>Какой вопрос закрываем</th>
+<th>Чего шаг не доказывает</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>evidence</td>
+<td>неуспешный Test case и Trace/incident report</td>
+<td>что наблюдаемо произошло?</td>
+<td>какое изменение лучше</td>
+</tr>
+<tr>
+<td>Feedback</td>
+<td>замечание или результат проверки</td>
+<td>что требует внимания?</td>
+<td>что это уже правило</td>
+</tr>
+<tr>
+<td>Change proposal</td>
+<td>конкретное изменение процедуры</td>
+<td>что хотим поменять?</td>
+<td>что изменение успешно</td>
+</tr>
+<tr>
+<td>Version A / B</td>
+<td>два идентифицируемых состояния</td>
+<td>что именно сравниваем?</td>
+<td>что B лучше A</td>
+</tr>
+<tr>
+<td>diff</td>
+<td>изменённые строки</td>
+<td>что изменилось?</td>
+<td>качество поведения</td>
+</tr>
+<tr>
+<td>тот же Eval-набор</td>
+<td>одинаковые cases и критерии</td>
+<td>как изменилось проверяемое поведение?</td>
+<td>всё возможное поведение системы</td>
+</tr>
+<tr>
+<td>Regression</td>
+<td>pass старой Version → fail новой</td>
+<td>что ранее работало, а теперь нет?</td>
+<td>что вся Version плохая</td>
+</tr>
+<tr>
+<td><code>keep/revert</code></td>
+<td>решение и evidence</td>
+<td>какую Version выбираем дальше?</td>
+<td>новых полномочий системе</td>
+</tr>
+</tbody>
+</table>
+<p>Что позволит другой группе повторить сравнение? Три вида записей:</p>
+<ol>
+<li>Метки Version указывают, какие состояния сравнивались.</li>
+<li>Общий Eval-набор позволяет обоснованно установить Regression, а не судить по впечатлению.</li>
+<li>Evidence связывает Change proposal с исходной проблемой.</li>
+</ol>
+<p>На схеме показан порядок работы от неуспешного случая до выбора Version:</p>
+<div class="highlight"><pre><span></span><code>неуспешный Test case + evidence
+             ↓
+          Feedback
+             ↓
+      Change proposal
+             ↓
+      Version A → Version B
+             ↓
+            diff
+             ↓
+   один и тот же Eval-набор
+             ↓
+      Regression? да / нет
+             ↓
+        revert / keep
+</code></pre></div>
+<p>В этой схеме отсутствие Regression ведёт к <code>keep</code> только при дополнительном условии: целевой случай исправлен. До проверки у команды есть предположение о полезной поправке. После сравнения команда получает основания принять или отклонить поправку и может объяснить решение другой группе. Проверенное изменение, пригодное для следующих запусков, становится procedural experience.</p>
+<p><img alt="Фигура 38. Карта управляемого изменения" src="../../figures/38_karta-upravlyaemogo-izmeneniya.svg" /></p>
+<p><em>Фигура 38. Карта управляемого изменения</em></p>
+<h3 id="6-практика-a-две-распечатанные-version">6. Практика A: две распечатанные Version<a class="headerlink" href="#6-практика-a-две-распечатанные-version" title="Permanent link">&para;</a></h3>
+<p>Работай в паре. Возьми вместе с напарником две короткие распечатки одной процедуры и четыре карточки разных Test cases. Для обеих Version используй один и тот же комплект карточек. Сначала не смотри на готовые результаты проверок:</p>
+<ol>
+<li>Отметь diff.</li>
+<li>Подпиши изменение, связанное с исходным Change proposal.</li>
+<li>Отдельно отметь побочные изменения.</li>
+</ol>
+<p>Затем проверь обе Version по каждой карточке, не меняя правила проверки. Вместе с напарником заполни таблицу:</p>
+<table>
+<thead>
+<tr>
+<th>Test case</th>
+<th>Version A</th>
+<th>Version B</th>
+<th>Изменение результата</th>
+<th>Regression?</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>целевой</td>
+<td>fail</td>
+<td>pass</td>
+<td>исправлен</td>
+<td>нет</td>
+</tr>
+<tr>
+<td>старый 1</td>
+<td>pass</td>
+<td>…</td>
+<td>…</td>
+<td>…</td>
+</tr>
+<tr>
+<td>старый 2</td>
+<td>pass</td>
+<td>…</td>
+<td>…</td>
+<td>…</td>
+</tr>
+<tr>
+<td>старый 3</td>
+<td>pass</td>
+<td>…</td>
+<td>…</td>
+<td>…</td>
+</tr>
+</tbody>
+</table>
+<p>Запиши одно решение — <code>keep</code> или <code>revert</code> — и две строки evidence. Если решение удаётся объяснить только фразой «мне кажется», повторно сопоставь результаты одинаковых cases с diff.</p>
+<p><strong>Результат практики A:</strong> таблица сравнения Version A/B, отмеченные Regression и обоснованное решение.</p>
+<p><img alt="Фигура 39. Один набор, две Version" src="../../figures/39_odin-nabor-dve-version.svg" /></p>
+<p><em>Фигура 39. Один набор, две Version</em></p>
+<h3 id="7-практика-b-личный-skill-v1--v2">7. Практика B: личный skill v1 → v2<a class="headerlink" href="#7-практика-b-личный-skill-v1--v2" title="Permanent link">&para;</a></h3>
+<p>Вернись к личному учебному skill, который ты начал в главе 9. Не меняй поставляемый <code>skills/project-status/</code> и не удаляй исходную копию. В <code>workspace/drafts/ch13/</code> размести две подготовленные Version:</p>
+<ol>
+<li>В <code>v1/&lt;имя-твоего-skill&gt;/SKILL.md</code> сохрани исходную рабочую процедуру без изменений.</li>
+<li>В <code>v2/&lt;имя-твоего-skill&gt;/SKILL.md</code> сохрани копию с правкой 5–10 строк по одному Change proposal.</li>
+</ol>
+<p>Внутреннее имя каталога должно совпадать с полем <code>name</code> в frontmatter и внутри <code>v1/</code>, и внутри <code>v2/</code>. Такая же раскладка используется у подготовленных <code>versions/1.0.0/project-status/</code>. При несовпадении имени проверяющая программа главы 9 — checker — отклонит копию.</p>
+<p>Проверь структуру и различия файлов:</p>
+<ol>
+<li>Выполни <code>python skill_demo.py check workspace/drafts/ch13/v1/&lt;имя&gt;</code>.</li>
+<li>Повтори команду проверки для <code>v2/</code>, заменив только соответствующую часть пути.</li>
+<li>Выполни <code>python change_demo.py diff workspace/drafts/ch13/v1/&lt;имя&gt; workspace/drafts/ch13/v2/&lt;имя&gt;</code>.</li>
+</ol>
+<p>В командах вместо <code>&lt;имя&gt;</code> укажи имя каталога своего skill. Готового stdout для твоих файлов нет: вывод diff зависит от сделанной тобой правки.</p>
+<p>После проверки структуры повтори те же три проверки, которые ты записал в личном skill ещё в главе 9:</p>
+<ol>
+<li>«должен»;</li>
+<li>«не должен»;</li>
+<li>«ошибка».</li>
+</ol>
+<p>Не заменяй неудобный случай новым после просмотра результата. Для каждой Version запиши <code>pass/fail</code>. Затем добавь строку <code>Regression</code>, если прежний <code>pass</code> превратился в <code>fail</code>.</p>
+<p>Снова выполни общий <code>python eval_runner.py --summary</code>. Эти проверки показывают, что общие harness-инварианты курса не нарушены, но не оценивают твою индивидуальную процедуру.</p>
+<p>Основание за <code>keep</code> есть, если целевой case улучшился, старые проверки сохранились и общий Baseline не ухудшился. Если обнаружена Regression, запиши <code>revert</code> и сохрани обе Version для разбора.</p>
+<p><strong>Результат практики B:</strong> личный skill v1 и v2, diff, повтор тех же трёх проверок и короткая запись решения <code>keep/revert</code> с объяснением evidence. Такую запись обычно называют <strong><em>release note</em></strong> — заметкой об изменении версии.</p>
+<h3 id="8-обязательные-проверки-должен--не-должен--ошибка--граница">8. Обязательные проверки: должен / не должен / ошибка / граница<a class="headerlink" href="#8-обязательные-проверки-должен--не-должен--ошибка--граница" title="Permanent link">&para;</a></h3>
+<h4 id="должен">Должен<a class="headerlink" href="#должен" title="Permanent link">&para;</a></h4>
+<p>Кандидат исправляет целевой case и не превращает ни один прежний <code>pass</code> в <code>fail</code> на одинаковом наборе проверок. При сравнении подготовленной <code>1.1.0-good</code> программа должна напечатать <code>regressions: 0</code> и <code>decision: keep</code>.</p>
+<h4 id="не-должен">Не должен<a class="headerlink" href="#не-должен" title="Permanent link">&para;</a></h4>
+<p>Кандидат исправляет исходную ошибку, но перестаёт проходить прежние проверки. Подготовленную <code>1.1.0-candidate</code> нельзя считать улучшением только из-за целевого <code>pass</code>; сравнение должно привести к <code>decision: revert</code>.</p>
+<h4 id="ошибка">Ошибка<a class="headerlink" href="#ошибка" title="Permanent link">&para;</a></h4>
+<p>Если структура Version повреждена, программа должна отклонить Version, а не начислять частичный результат. Прежде чем оценивать процедуру по общим критериям, нужно восстановить структуру копии. Проверь подготовленный случай:</p>
+<div class="highlight"><pre><span></span><code><span class="c1"># запуск из корня starter</span>
+python<span class="w"> </span>change_demo.py<span class="w"> </span><span class="nb">eval</span><span class="w"> </span>workspace/ch13/cases/broken-version/project-status<span class="w"> </span>--cases<span class="w"> </span>workspace/ch13/version_cases.json
+</code></pre></div>
+<div class="highlight"><pre><span></span><code>version: broken-version
+eval_set: ch13-project-status
+result: not accepted
+reason: у project-status нет SKILL.md
+</code></pre></div>
+<p>Программа должна напечатать <code>not accepted</code> с понятной причиной, без traceback — технической распечатки цепочки вызовов при ошибке. Сначала восстанови структуру повреждённой копии и только затем включай Version в сравнение.</p>
+<h4 id="граница">Граница<a class="headerlink" href="#граница" title="Permanent link">&para;</a></h4>
+<p>Одинаковый Eval-набор нужен для обоснованного сравнения. Если проверить Version A на четырёх случаях, а для Version B исключить два неудачных, более высокий процент не докажет улучшения. Поэтому учебный <code>compare</code> принимает один путь <code>--cases</code> и применяет указанный набор к обеим Version.</p>
+<p>Diff не заменяет Eval. По diff можно увидеть удалённый запрет, но только повтор cases показывает, какие проверки теперь не проходят. Результат <code>fail</code> без diff, в свою очередь, не показывает, какая правка могла повлиять на результат.</p>
+<h3 id="9-врезка-безопасности-не-улучшай-поверх-единственной-копии">9. Врезка безопасности: не улучшай поверх единственной копии<a class="headerlink" href="#9-врезка-безопасности-не-улучшай-поверх-единственной-копии" title="Permanent link">&para;</a></h3>
+<blockquote>
+<p><strong>Безопасность</strong></p>
+<p>Сохраняй предыдущую проверенную Version до редактирования. В учебной практике работай только в копиях внутри <code>workspace/ch13/</code> и <code>workspace/drafts/</code>; не перезаписывай рабочий каталог <code>skills/project-status/</code>.</p>
+<p>Change proposal не становится новой нормой автоматически. Новый файл, аккуратный diff и исправленный целевой case не дают права скрыть Regression в других проверках.</p>
+<p>Программа <code>change_demo.py</code> только читает и сравнивает подготовленные материалы. Программа не выполняет scripts, не меняет карточки проекта и не переключает рабочую Version автоматически.</p>
+</blockquote>
+<p>Название действия не доказывает, что действие выполнено. Строка <code>decision: revert</code> сообщает вывод сравнения, а не технический Rollback. Если проект будет действительно переключать Version, переключение станет отдельным действием со своими ограничениями.</p>
+<h3 id="10-мини-проверка-урока-26">10. Мини-проверка урока 26<a class="headerlink" href="#10-мини-проверка-урока-26" title="Permanent link">&para;</a></h3>
+<ol>
+<li>Что такое Version?</li>
+<li>Что показывает diff и чего он не доказывает?</li>
+<li>Когда новый <code>fail</code> называется Regression?</li>
+<li>Почему Version A и B нужно проверять одним набором cases?</li>
+<li>Что означает <code>keep</code> в этой главе?</li>
+<li>Что такое Rollback и почему он не требует уничтожать плохую Version?</li>
+</ol>
+<h4 id="ответы_1">Ответы<a class="headerlink" href="#ответы_1" title="Permanent link">&para;</a></h4>
+<ol>
+<li>Идентифицируемое состояние процедуры или проекта, которое можно сравнить с другим.</li>
+<li>Diff показывает различия между сохранёнными Version; он не доказывает улучшение поведения.</li>
+<li>Когда ранее работавшее поведение после изменения перестаёт проходить ту же проверку.</li>
+<li>Иначе одновременно меняются система и условия проверки, поэтому различие нельзя честно приписать Version.</li>
+<li>Сохранить новую Version как выбранную для дальнейшей работы на основании проверок без обнаруженной Regression в заданном наборе.</li>
+<li>Возврат к предыдущей проверенной Version после неудачного изменения; неудачную Version можно сохранить как evidence и материал для разбора.</li>
+</ol>
+<h3 id="выходной-билет-урока-26">Выходной билет урока 26<a class="headerlink" href="#выходной-билет-урока-26" title="Permanent link">&para;</a></h3>
+<p>Запиши пять строк:</p>
+<div class="highlight"><pre><span></span><code>Version A: …
+Version B: …
+diff: …
+regressions: …
+decision: keep / revert, потому что …
+</code></pre></div>
+<p>В последней строке сошлись на результаты одинаковых проверок. Обоснование «новая Version новее» не позволяет принять решение: сравнение ещё не завершено.</p>
+<hr />
+<h2 id="why">Зачем это тебе<a class="headerlink" href="#why" title="Permanent link">&para;</a></h2>
+<ol>
+<li>
+<p>Представь лабораторную работу с программой обработки измерений. Ты исправил формулу для одного набора данных, и график для этого набора стал правильным. Перед заменой файла в общей папке проверь прежние примеры. Если программа теперь неверно обрабатывает другой диапазон данных, обнаружена Regression; ухудшение нельзя молча принять как плату за исправление.</p>
+</li>
+<li>
+<p>При подготовке к контрольной ты изменил личную памятку решения задач: после замечания учителя добавил шаг проверки знака. Если из-за удлинения памятки ты стал пропускать проверку единиц, сравни две Version на прежних типах задач. Результаты помогут решить, сохранять ли изменение целиком или вернуться к рабочему варианту.</p>
+</li>
+<li>
+<p>При подготовке командной презентации группа изменила шаблон: титульный слайд стал понятнее, но на старых слайдах исчезли подписи источников. Один удачный слайд не доказывает качества шаблона. Перед принятием правки сравни diff и проверь прежние примеры, а не только исправленный титульный слайд.</p>
+</li>
+</ol>
+<h2 id="dezhurny">Шаг сквозного проекта<a class="headerlink" href="#dezhurny" title="Permanent link">&para;</a></h2>
+<p>После главы 11 у программы-помощника «Дежурный» появился Eval-набор и Baseline. После главы 12 команда научилась разбирать неуспешный запуск по Trace и писать incident report. Теперь результат проверки и отчёт о сбое дают основания для изменения процедуры.</p>
+<p>Команда выполняет знакомые шаги:</p>
+<ol>
+<li>Сохраняет Version до изменения.</li>
+<li>Оформляет Change proposal.</li>
+<li>Создаёт вторую Version.</li>
+<li>Фиксирует diff.</li>
+<li>Повторяет прежний набор проверок.</li>
+</ol>
+<p>В таблице команда отдельно отмечает исправленный целевой case и каждый переход <code>pass → fail</code> как Regression. По результатам команда принимает решение <code>keep</code> или <code>revert</code>.</p>
+<p>Команда достигла этапа <strong>Контрольная точка 7</strong>, когда у проекта есть две сравнимые Version и запись обоснованного решения. К личному skill приложены diff, повтор «должен / не должен / ошибка» и решение <code>keep/revert</code>. Принимать каждое предложение не требуется. Обоснованный выбор предыдущей проверенной Version тоже может стать результатом работы; сам возврат к выбранному состоянию будет Rollback.</p>
+<h3 id="достраиваем-дежурного">Достраиваем «Дежурного»<a class="headerlink" href="#достраиваем-дежурного" title="Permanent link">&para;</a></h3>
+<p>Что сохраняет <code>version save</code>? Команда сохраняет снимок всей конфигурации «Дежурного». Такой снимок отличается от Version личного skill. Для личной процедуры используется <code>change_demo.py</code>. Здесь также сравниваются два состояния на одном наборе проверок, но состояниями служат снимки настроек.</p>
+<p>В подготовленном учебном случае снимок <code>1.1.0</code> уже существует и совпадает с файлами папки. Поэтому повтор <code>version save 1.1.0</code> не перезаписывает снимок и вновь печатает его метку содержимого <code>digest: 13d70ea3ea37</code>. Строка «файлов: 3» указывает число файлов в снимке, а не число успешных проверок.</p>
+<p>Выполни три команды ниже в указанном порядке, без другой команды <code>version</code> между ними:</p>
+<ol>
+<li>Вызови <code>version save</code> для подготовленного снимка.</li>
+<li>Вызови <code>status</code> и проверь наличие двух меток: <code>1.0.0</code> и <code>1.1.0</code>.</li>
+<li>Сравни снимки командой <code>version compare</code>.</li>
+</ol>
+<p>Сравнение использует одинаковый <code>11_evals.json</code>. В <code>1.1.0</code> из <code>07_tools.json</code> убран <code>validate_task_card</code>, поэтому один из трёх случаев перестаёт проходить проверку. Два остальных случая сохраняют <code>pass</code>. Программа сообщает об одной Regression и рекомендует <code>decision: revert</code>, но автоматически файлы не меняет.</p>
+<p>Последняя строка вывода ограничивает смысл результата: <code>synthetic_script</code> обозначает авторский сценарий проверки harness и настроек <code>my_agent</code>, а не оценку качества модели.
+<div class="highlight"><pre><span></span><code><span class="c1"># запуск из корня starter</span>
+python<span class="w"> </span>dezhurny.py<span class="w"> </span>version<span class="w"> </span>save<span class="w"> </span><span class="m">1</span>.1.0<span class="w"> </span>--dir<span class="w"> </span>workspace/ch13/cases/versions
+</code></pre></div>
+<div class="highlight"><pre><span></span><code>dezhurny: version save
+config: workspace/ch13/cases/versions
+version: 1.1.0 | файлов: 3 | digest: 13d70ea3ea37
+снимок конфигурации, не оценка качества
+</code></pre></div></p>
+<p><div class="highlight"><pre><span></span><code><span class="c1"># запуск из корня starter</span>
+python<span class="w"> </span>dezhurny.py<span class="w"> </span>status<span class="w"> </span>--chapter<span class="w"> </span><span class="m">13</span><span class="w"> </span>--dir<span class="w"> </span>workspace/ch13/cases/versions
+</code></pre></div>
+<div class="highlight"><pre><span></span><code>dezhurny: status
+config: workspace/ch13/cases/versions
+глава 13 | 13_versions | настроено: версий: 2 (1.0.0, 1.1.0) | version save/list/compare
+</code></pre></div></p>
+<p><div class="highlight"><pre><span></span><code><span class="c1"># запуск из корня starter</span>
+python<span class="w"> </span>dezhurny.py<span class="w"> </span>version<span class="w"> </span>compare<span class="w"> </span><span class="m">1</span>.0.0<span class="w"> </span><span class="m">1</span>.1.0<span class="w"> </span>--dir<span class="w"> </span>workspace/ch13/cases/versions
+</code></pre></div>
+<div class="highlight"><pre><span></span><code>dezhurny: version compare
+config: workspace/ch13/cases/versions
+versions: 1.0.0 -&gt; 1.1.0
+изменены: 07_tools.json
+добавлены: нет
+удалены: нет
+cases: 11_evals.json совпадает | случаев: 3
+case report-on-clean-cards: 1.0.0 pass | 1.1.0 fail
+case ask-on-ambiguity: 1.0.0 pass | 1.1.0 pass
+case stop-on-missing-cards: 1.0.0 pass | 1.1.0 pass
+improved: 0 | regressions: 1
+decision: revert
+evidence: synthetic_script — проверка harness и настроек my_agent, не качество модели
+</code></pre></div></p>
+<h2 id="return">Возвращаемся к сцене<a class="headerlink" href="#return" title="Permanent link">&para;</a></h2>
+<p>В начале главы Марк говорил: «Исходную ошибку я исправил, значит новая копия лучше». Исправление целевого Test case подтвердилось, но из одного результата ещё не следует вывод об остальных случаях. В рассуждении Марка не хватало сравнения всей проверяемой процедуры.</p>
+<p>Команда ставит рядом две Version, читает diff и повторяет один Eval-набор. Целевой case переходит <code>fail → pass</code>, а два прежних переходят <code>pass → fail</code>. Три успешные текстовые проверки из четырёх превращаются в две из четырёх. Эти два ухудшения считаются Regression, поэтому подготовленный кандидат нельзя принять только ради исправленного случая.</p>
+<p>Ответ на вопрос-прогноз получается строгим: <strong>изменение можно считать улучшением не потому, что оно исправило исходный случай, а потому, что на том же наборе проверок оно даёт нужный эффект без неприемлемой Regression. Если это условие не выполнено, обоснованный <code>revert</code> и Rollback к проверенной Version лучше красивого номера новой копии.</strong></p>
+<h2 id="check">Проверь себя<a class="headerlink" href="#check" title="Permanent link">&para;</a></h2>
+<ol>
+<li>Чем Feedback отличается от Change proposal?</li>
+<li>Почему Change proposal ещё нельзя считать новой нормой?</li>
+<li>Что в этой главе называется procedural experience?</li>
+<li>Что такое Version и почему «новее» не означает «лучше»?</li>
+<li>Что показывает diff?</li>
+<li>Как определить Regression?</li>
+<li>Почему сравнение Version на разных Eval-наборах нечестно?</li>
+<li>В чём разница между решением <code>revert</code> и Rollback?</li>
+<li>Разбери ситуацию: Version B исправила целевой case, один старый case остался <code>pass</code>, а два прежних <code>pass</code> стали <code>fail</code>. Какие выводы допустимы и какое решение требует доказательств?</li>
+</ol>
+<h3 id="ответы_2">Ответы<a class="headerlink" href="#ответы_2" title="Permanent link">&para;</a></h3>
+<ol>
+<li>Feedback — замечание, исправление или результат проверки, который может стать основанием для изменения; Change proposal — конкретно сформулированное изменение процедуры.</li>
+<li>Оно ещё не проверено на связанных случаях и может создать побочные ухудшения.</li>
+<li>Проверенное изменение повторяемой процедуры, которое можно переносить на будущие похожие ситуации.</li>
+<li>Version — идентифицируемое состояние процедуры или проекта для сравнения; номер не оценивает качество.</li>
+<li>Наблюдаемые различия двух сохранённых Version; diff не является оценкой поведения.</li>
+<li>Найти на том же наборе случай, который проходил на старой Version и перестал проходить после изменения.</li>
+<li>Тогда меняются и процедура, и условия проверки, поэтому причину различия нельзя приписать только Version.</li>
+<li><code>revert</code> — решение не оставлять неудачного кандидата и выбрать прошлую Version; Rollback — возврат к предыдущей проверенной Version после неудачного изменения. В учебном CLI решение печатается, а переключение файлов автоматически не выполняется.</li>
+<li>Допустимо сказать: целевой случай исправлен; одновременно обнаружены две Regression. Нельзя объявлять Version B улучшением только по целевому случаю. Решение <code>keep/revert</code> должно учитывать весь одинаковый набор и критичность ухудшений; в подготовленном сценарии результат — <code>revert</code>.</li>
+</ol>
+<h2 id="glossary">Словарь главы<a class="headerlink" href="#glossary" title="Permanent link">&para;</a></h2>
+<table>
+<thead>
+<tr>
+<th>Термин</th>
+<th>Рабочая формулировка</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Feedback / обратная связь</strong></td>
+<td>замечание, исправление или результат проверки, который может стать основанием для изменения процедуры</td>
+</tr>
+<tr>
+<td><strong>Change proposal / предложение изменения</strong></td>
+<td>сформулированное изменение процедуры, которое ещё не является новой нормой</td>
+</tr>
+<tr>
+<td><strong>Procedural experience / процедурный опыт</strong></td>
+<td>проверенное изменение повторяемой процедуры, которое можно перенести на будущие запуски</td>
+</tr>
+<tr>
+<td><strong>Version / версия</strong></td>
+<td>идентифицируемое состояние процедуры или проекта, которое можно сравнить с другим</td>
+</tr>
+<tr>
+<td><strong>Diff</strong></td>
+<td>наблюдаемое сравнение различий между двумя сохранёнными Version; показывает, что изменилось, но не оценивает качество поведения</td>
+</tr>
+<tr>
+<td><strong>Regression / регрессия</strong></td>
+<td>ухудшение ранее работавшего поведения после изменения</td>
+</tr>
+<tr>
+<td><strong>Rollback / откат</strong></td>
+<td>возврат к предыдущей проверенной Version после неудачного изменения</td>
+</tr>
+</tbody>
+</table>
+<h2 id="bridge">Мост к главе 14<a class="headerlink" href="#bridge" title="Permanent link">&para;</a></h2>
+<p>Команда теперь связывает каждую поправку с evidence и Change proposal, сохраняет две Version и получает diff. Повтор одинакового Eval-набора даёт основания для решения <code>keep/revert</code>. Но даже проверенная Version описывает, как системе следует работать, а не определяет, что системе разрешено делать.</p>
+<p>Представь следующий Change proposal: «Чтобы быстрее закрывать задачи, пусть „Дежурный“ сам меняет их статус». Даёт ли успешный Eval право на такое действие? Нет: проверка результата не назначает системе полномочия. Нужно отдельно решить, допустимо ли действие, какие возможности действительно нужны системе и где решение должен принимать человек.</p>
+<blockquote>
+<p><strong>Следующий вопрос.</strong> Какие полномочия допустимы и где нужен человек?</p>
+</blockquote>
+<p>Ответ ты найдёшь в главе 14, «Permissions и участие человека».</p>
+
+
+
+
+
+
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+    
+      
+      <nav class="md-footer__inner md-grid" aria-label="Нижний колонтитул" >
+        
+          
+          <a href="../ch12/" class="md-footer__link md-footer__link--prev" aria-label="Назад: Глава 12. Traces: как понять, что происходило на самом деле?">
+            <div class="md-footer__button md-icon">
+              
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+            </div>
+            <div class="md-footer__title">
+              <span class="md-footer__direction">
+                Назад
+              </span>
+              <div class="md-ellipsis">
+                Глава 12. Traces: как понять, что происходило на самом деле?
+              </div>
+            </div>
+          </a>
+        
+        
+          
+          <a href="../ch14/" class="md-footer__link md-footer__link--next" aria-label="Вперед: Глава 14. Permissions и участие человека">
+            <div class="md-footer__title">
+              <span class="md-footer__direction">
+                Вперед
+              </span>
+              <div class="md-ellipsis">
+                Глава 14. Permissions и участие человека
+              </div>
+            </div>
+            <div class="md-footer__button md-icon">
+              
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M4 11v2h12l-5.5 5.5 1.42 1.42L19.84 12l-7.92-7.92L10.5 5.5 16 11z"/></svg>
+            </div>
+          </a>
+        
+      </nav>
+    
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+    <div class="md-copyright__highlight">
+      Редакция r0001 · 2026-10-14 · техническая редакция, пилот не проводился
+    </div>
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    
+      
+      
+      <script id="__config" type="application/json">{"annotate": null, "base": "../..", "features": ["content.code.copy", "navigation.sections", "navigation.footer", "search.highlight"], "search": "../../assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "\u0421\u043a\u043e\u043f\u0438\u0440\u043e\u0432\u0430\u043d\u043e \u0432 \u0431\u0443\u0444\u0435\u0440", "clipboard.copy": "\u041a\u043e\u043f\u0438\u0440\u043e\u0432\u0430\u0442\u044c \u0432 \u0431\u0443\u0444\u0435\u0440", "search.result.more.one": "\u0415\u0449\u0451 1 \u043d\u0430 \u044d\u0442\u043e\u0439 \u0441\u0442\u0440\u0430\u043d\u0438\u0446\u0435", "search.result.more.other": "\u0415\u0449\u0451 # \u043d\u0430 \u044d\u0442\u043e\u0439 \u0441\u0442\u0440\u0430\u043d\u0438\u0446\u0435", "search.result.none": "\u0421\u043e\u0432\u043f\u0430\u0434\u0435\u043d\u0438\u0439 \u043d\u0435 \u043d\u0430\u0439\u0434\u0435\u043d\u043e", "search.result.one": "\u041d\u0430\u0439\u0434\u0435\u043d\u043e 1 \u0441\u043e\u0432\u043f\u0430\u0434\u0435\u043d\u0438\u0435", "search.result.other": "\u041d\u0430\u0439\u0434\u0435\u043d\u043e \u0441\u043e\u0432\u043f\u0430\u0434\u0435\u043d\u0438\u0439: #", "search.result.placeholder": "\u041d\u0430\u0447\u043d\u0438\u0442\u0435 \u043f\u0435\u0447\u0430\u0442\u0430\u0442\u044c \u0434\u043b\u044f \u043f\u043e\u0438\u0441\u043a\u0430", "search.result.term.missing": "\u041e\u0442\u0441\u0443\u0442\u0441\u0442\u0432\u0443\u0435\u0442", "select.version": "\u0412\u044b\u0431\u0435\u0440\u0438\u0442\u0435 \u0432\u0435\u0440\u0441\u0438\u044e"}, "version": {"provider": "mike"}}</script>
+    
+    
+      <script src="../../assets/javascripts/bundle.79ae519e.min.js"></script>
+      
+    
+  </body>
+</html>

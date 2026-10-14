@@ -1,0 +1,2863 @@
+
+<!doctype html>
+<html lang="ru" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+        <meta name="description" content="Учебник для 9–10 классов">
+      
+      
+      
+        <link rel="canonical" href="https://book.stemschool.online/r0001/student/ch05/">
+      
+      
+        <link rel="prev" href="../ch04/">
+      
+      
+        <link rel="next" href="../ch06/">
+      
+      
+        
+      
+      
+      <link rel="icon" href="../../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.6">
+    
+    
+      
+        <title>Глава 5. Договор задачи: что нужно определить до реализации? - ИИ-агенты и Agent Skills</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../assets/stylesheets/main.484c7ddc.min.css">
+      
+        
+        <link rel="stylesheet" href="../../assets/stylesheets/palette.ab4e12ef.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+    <script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+  </head>
+  
+  
+    
+    
+      
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="indigo">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#глава-5-договор-задачи-что-нужно-определить-до-реализации" class="md-skip">
+          Перейти к содержанию
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+        <aside class="md-banner">
+          <div class="md-banner__inner md-grid md-typeset">
+            
+            
+  
+    <strong>Техническая редакция: пилот не проводился</strong> · редакция r0001
+  
+
+          </div>
+          
+        </aside>
+      
+    </div>
+    
+      <div data-md-color-scheme="default" data-md-component="outdated" hidden>
+        
+      </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Верхний колонтитул">
+    <a href="../.." title="ИИ-агенты и Agent Skills" class="md-header__button md-logo" aria-label="ИИ-агенты и Agent Skills" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            ИИ-агенты и Agent Skills
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Глава 5. Договор задачи: что нужно определить до реализации?
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+        <form class="md-header__option" data-md-component="palette">
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="indigo"  aria-hidden="true"  type="radio" name="__palette" id="__palette_0">
+    
+  
+</form>
+      
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+      
+      
+        <label class="md-header__button md-icon" for="__search">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        </label>
+        <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Поиск" placeholder="Поиск" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Поиск">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Очистить" aria-label="Очистить" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Инициализация поиска
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+      
+    
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+
+<nav class="md-nav md-nav--primary" aria-label="Навигация" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../.." title="ИИ-агенты и Agent Skills" class="md-nav__button md-logo" aria-label="ИИ-агенты и Agent Skills" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    ИИ-агенты и Agent Skills
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../.." class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Главная
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    
+    
+    
+    
+      
+        
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2" checked>
+        
+          
+          <label class="md-nav__link" for="__nav_2" id="__nav_2_label" tabindex="">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Ученик
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_2">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Ученик
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../intro/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Введение
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../tour/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Экскурсия по AI: что есть что
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../ch01/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Глава 1. Модель, приложение и агент: кто отвечает, а кто действует?
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../ch02/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Глава 2. Агентный цикл: как результат действия меняет следующий шаг?
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../ch03/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Глава 3. Agent harness: что работает вокруг модели?
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../ch04/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Глава 4. Prompt, structured output, tool, MCP и Agent Skill: какие задачи решают разные уровни системы?
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Глава 5. Договор задачи: что нужно определить до реализации?
+  
+
+    
+  </span>
+  
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Глава 5. Договор задачи: что нужно определить до реализации?
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Содержание">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Содержание
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#scene" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        С чего всё началось
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#goals" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        После главы ты сможешь
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#lesson-9" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Урок 9. От просьбы к договору задачи
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Урок 9. От просьбы к договору задачи">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#1-почему-одной-просьбы-мало" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1. Почему одной просьбы мало
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#2-зачем-вообще-выполняется-работа" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2. Зачем вообще выполняется работа
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#3-что-должно-существовать-в-конце" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3. Что должно существовать в конце
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#4-что-дано-до-начала-работы" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        4. Что дано до начала работы
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#5-что-нельзя-делать-даже-ради-полезной-цели" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        5. Что нельзя делать даже ради полезной цели
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#6-как-перестать-спорить-после-результата" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        6. Как перестать спорить после результата
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#7-где-нельзя-честно-выбрать-один-ответ" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        7. Где нельзя честно выбрать один ответ
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#8-центральный-артефакт-технический-паспорт-проекта-версии-01" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        8. Центральный артефакт: технический паспорт проекта версии 0.1
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#9-практика-a-паспорт-на-бумаге" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        9. Практика A: паспорт на бумаге
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#10-практика-b-тот-же-договор-в-task_specjson" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        10. Практика B: тот же договор в task_spec.json
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#11-мини-проверка-урока-9" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        11. Мини-проверка урока 9
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="11. Мини-проверка урока 9">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#ответы" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Ответы
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#выходной-билет-урока-9" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Выходной билет урока 9
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#lesson-10" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Урок 10. Когда агент не нужен
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Урок 10. Когда агент не нужен">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#1-три-способа-решить-одну-маленькую-задачу" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1. Три способа решить одну маленькую задачу
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#2-одинаковый-вход--одинаковый-результат" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2. Одинаковый вход — одинаковый результат
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#3-когда-достаточно-обычного-кода-когда-нужна-модель-когда-нужен-агентный-цикл" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3. Когда достаточно обычного кода, когда нужна модель, когда нужен агентный цикл
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#4-что-будет-если-система-ошибётся" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        4. Что будет, если система ошибётся
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#5-неопределённость-и-цена-ошибки--разные-оси" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        5. Неопределённость и цена ошибки — разные оси
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#6-от-большой-задачи-к-отдельным-операциям" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        6. От большой задачи к отдельным операциям
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#7-что-дежурный-намеренно-не-делает" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        7. Что «Дежурный» намеренно не делает
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#8-практика-a-двенадцать-карточек-решений" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        8. Практика A: двенадцать карточек решений
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#9-практика-b-имена-функций-и-входные-значения-без-реализации" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        9. Практика B: имена функций и входные значения без реализации
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#10-обязательные-проверки-должен--не-должен--ошибка--граница" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        10. Обязательные проверки: должен / не должен / ошибка / граница
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="10. Обязательные проверки: должен / не должен / ошибка / граница">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#должен" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Должен
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#не-должен" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Не должен
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#ошибка" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Ошибка
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#граница" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Граница
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#11-врезка-безопасности-границы-записываются-до-кода" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        11. Врезка безопасности: границы записываются до кода
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#12-мини-проверка-урока-10" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        12. Мини-проверка урока 10
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="12. Мини-проверка урока 10">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#ответы_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Ответы
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#выходной-билет-урока-10" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Выходной билет урока 10
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#why" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Зачем это тебе
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#dezhurny" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Шаг сквозного проекта
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Шаг сквозного проекта">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#достраиваем-дежурного" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Достраиваем «Дежурного»
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#return" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Возвращаемся к трём просьбам
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#check" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Проверь себя
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Проверь себя">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#ответы_2" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Ответы
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#glossary" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Словарь главы
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#bridge" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Мост к главе 6
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../ch06/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Глава 6. Первый tool
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../ch07/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Глава 7. Диспетчер и ошибки
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../ch08/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Глава 8. Хороший tool
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../ch09/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Глава 9. Первый Agent Skill
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../ch10/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Глава 10. Состояние и память
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../ch11/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Глава 11. Тесты и evals: как доказать качество не одним удачным запуском?
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../ch12/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Глава 12. Traces: как понять, что происходило на самом деле?
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../ch13/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Глава 13. Обратная связь и версии: когда исправление должно менять процедуру?
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../ch14/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Глава 14. Permissions и участие человека
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../ch15/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Глава 15. Prompt injection и недоверенные подключения: что делать с данными и кодом, которым нельзя автоматически доверять?
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../ch16/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Глава 16. Долгая и совместная работа
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../ch17/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Глава 17. Итоговый проект: может ли команда доказать качество и ограниченность системы?
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../app-a/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Приложение А. Урок 0. Готовность рабочего места
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../app-b/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Приложение Б. Словарь курса
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../app-c/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Приложение В. Список фигур
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+        
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3" >
+        
+          
+          <label class="md-nav__link" for="__nav_3" id="__nav_3_label" tabindex="">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Учитель
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Учитель
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../teacher/teacher-guide/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Методическое руководство для учителя
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../teacher/lesson-map/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Поурочная карта
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../routes/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Маршруты A/B
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../files/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Файлы практикума
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../about/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    О редакции
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Содержание">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Содержание
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#scene" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        С чего всё началось
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#goals" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        После главы ты сможешь
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#lesson-9" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Урок 9. От просьбы к договору задачи
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Урок 9. От просьбы к договору задачи">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#1-почему-одной-просьбы-мало" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1. Почему одной просьбы мало
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#2-зачем-вообще-выполняется-работа" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2. Зачем вообще выполняется работа
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#3-что-должно-существовать-в-конце" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3. Что должно существовать в конце
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#4-что-дано-до-начала-работы" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        4. Что дано до начала работы
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#5-что-нельзя-делать-даже-ради-полезной-цели" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        5. Что нельзя делать даже ради полезной цели
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#6-как-перестать-спорить-после-результата" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        6. Как перестать спорить после результата
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#7-где-нельзя-честно-выбрать-один-ответ" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        7. Где нельзя честно выбрать один ответ
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#8-центральный-артефакт-технический-паспорт-проекта-версии-01" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        8. Центральный артефакт: технический паспорт проекта версии 0.1
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#9-практика-a-паспорт-на-бумаге" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        9. Практика A: паспорт на бумаге
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#10-практика-b-тот-же-договор-в-task_specjson" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        10. Практика B: тот же договор в task_spec.json
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#11-мини-проверка-урока-9" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        11. Мини-проверка урока 9
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="11. Мини-проверка урока 9">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#ответы" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Ответы
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#выходной-билет-урока-9" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Выходной билет урока 9
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#lesson-10" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Урок 10. Когда агент не нужен
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Урок 10. Когда агент не нужен">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#1-три-способа-решить-одну-маленькую-задачу" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1. Три способа решить одну маленькую задачу
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#2-одинаковый-вход--одинаковый-результат" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2. Одинаковый вход — одинаковый результат
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#3-когда-достаточно-обычного-кода-когда-нужна-модель-когда-нужен-агентный-цикл" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3. Когда достаточно обычного кода, когда нужна модель, когда нужен агентный цикл
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#4-что-будет-если-система-ошибётся" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        4. Что будет, если система ошибётся
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#5-неопределённость-и-цена-ошибки--разные-оси" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        5. Неопределённость и цена ошибки — разные оси
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#6-от-большой-задачи-к-отдельным-операциям" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        6. От большой задачи к отдельным операциям
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#7-что-дежурный-намеренно-не-делает" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        7. Что «Дежурный» намеренно не делает
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#8-практика-a-двенадцать-карточек-решений" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        8. Практика A: двенадцать карточек решений
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#9-практика-b-имена-функций-и-входные-значения-без-реализации" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        9. Практика B: имена функций и входные значения без реализации
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#10-обязательные-проверки-должен--не-должен--ошибка--граница" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        10. Обязательные проверки: должен / не должен / ошибка / граница
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="10. Обязательные проверки: должен / не должен / ошибка / граница">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#должен" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Должен
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#не-должен" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Не должен
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#ошибка" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Ошибка
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#граница" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Граница
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#11-врезка-безопасности-границы-записываются-до-кода" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        11. Врезка безопасности: границы записываются до кода
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#12-мини-проверка-урока-10" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        12. Мини-проверка урока 10
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="12. Мини-проверка урока 10">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#ответы_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Ответы
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#выходной-билет-урока-10" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Выходной билет урока 10
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#why" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Зачем это тебе
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#dezhurny" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Шаг сквозного проекта
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Шаг сквозного проекта">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#достраиваем-дежурного" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Достраиваем «Дежурного»
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#return" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Возвращаемся к трём просьбам
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#check" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Проверь себя
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Проверь себя">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#ответы_2" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Ответы
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#glossary" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Словарь главы
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#bridge" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Мост к главе 6
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+
+<h1 id="глава-5-договор-задачи-что-нужно-определить-до-реализации">Глава 5. Договор задачи: что нужно определить до реализации?<a class="headerlink" href="#глава-5-договор-задачи-что-нужно-определить-до-реализации" title="Permanent link">&para;</a></h1>
+<h2 id="scene">С чего всё началось<a class="headerlink" href="#scene" title="Permanent link">&para;</a></h2>
+<p>На доске проектного бюро три новые карточки. Редакционная группа пишет Ане: «Сделай сводку по проекту». Лабораторная группа просит: «Покажи все блокеры» — препятствия, из-за которых задачи остановлены. А Марк, который спешит на репетицию, бросает через плечо: «Просто скажи, всё ли нормально».</p>
+<p>Три просьбы звучат похоже: каждая требует что-то сообщить о состоянии проекта. Но ожидаемые продукты уже расходятся. Редакционной группе может понадобиться абзац для учителя, лабораторной — список конкретных задач, а Марку — одно слово «да» или «нет». Если передать просьбы «Дежурному» как есть, программа будет вынуждена сама додумывать эти различия. Даже связный ответ не снимет спор: кто решил, что именно считать правильным результатом?</p>
+<p>Аня перечитывает просьбы и не выбирает ни одну. «Пока мы не договорились, что считать готовой работой, любой ответ будет спорным», — говорит она. Марк предлагает не усложнять:</p>
+<p>— Мы же уже знаем prompt, tools и Agent Skill. Давайте выберем подходящий механизм и начнём писать.</p>
+<p>Но глава 4 подвела нас к обратному порядку: сначала нужно понять задачу, а уже потом выбирать механизм. Иначе можно правильно применить знакомый способ и получить систему, которая аккуратно решает не ту задачу. Поэтому сейчас мы не запускаем новый tool и не подключаем живую модель. До главы 6 «Дежурный» остаётся учебной системой с уже знакомым <code>planner_stub</code>; наша работа — записать задачу так, чтобы код потом не угадывал наши намерения.</p>
+<blockquote>
+<p><strong>Вопрос-Прогноз.</strong> Какие сведения нужно записать до реализации, чтобы две разные команды одинаково поняли, что им дано, какой продукт считать готовым и какое действие запрещено? Составь свой список из пяти–семи пунктов. В конце главы сравним его с техническим паспортом проекта.</p>
+<p><strong>Главный вопрос главы.</strong> Что нужно определить до выбора tools и написания кода, чтобы задача была проверяемой и не требовала от программы угадывать намерения людей?</p>
+</blockquote>
+<p><img alt="Фигура 12. Три просьбы, три ожидания" src="../../figures/12_tri-prosby-tri-ozhidaniya.png" /></p>
+<p><em>Фигура 12. Три просьбы, три ожидания</em></p>
+<h2 id="goals">После главы ты сможешь<a class="headerlink" href="#goals" title="Permanent link">&para;</a></h2>
+<ul>
+<li>превращать расплывчатую просьбу в проверяемое описание работы;</li>
+<li>отличать то, что должно получиться в конце, от действия вроде «обработать» или «проанализировать»;</li>
+<li>объяснять, почему данные всей задачи не равны сведениям, доступным модели в конкретном обращении;</li>
+<li>заранее замечать случаи, где данных или правил не хватает для одного обоснованного ответа;</li>
+<li>сравнивать последствия разных ошибок и по ним сужать самостоятельность системы;</li>
+<li>распознавать проверки с заранее заданными правилами, для которых agent loop не нужен;</li>
+<li>составлять технический паспорт проекта и карту четырёх будущих tools без их реализации.</li>
+</ul>
+<hr />
+<h2 id="lesson-9">Урок 9. От просьбы к договору задачи<a class="headerlink" href="#lesson-9" title="Permanent link">&para;</a></h2>
+<h3 id="1-почему-одной-просьбы-мало">1. Почему одной просьбы мало<a class="headerlink" href="#1-почему-одной-просьбы-мало" title="Permanent link">&para;</a></h3>
+<p>Фраза «сделай сводку» задаёт направление, но не задаёт саму работу достаточно точно. За какой период нужна сводка? Какие карточки читать? Достаточно ли списка заблокированных задач? Что делать, если карточка испорчена или на доске оказались две карточки с одним номером? Можно ли менять статусы во время подготовки отчёта? Пока на эти вопросы нет общего ответа, просьба допускает несколько разных толкований.</p>
+<p>Представим, что эту просьбу независимо получили три разработчика. Один посчитает все незавершённые задачи, другой покажет только <code>blocked</code>, третий добавит совет от модели. Ни один из них не обязан считать свою программу ошибочной: исходная просьба не выбрала между этими вариантами. Получатся три «сводки», но три разные работы.</p>
+<p><strong>Договор задачи (task contract) — согласованная и записанная до реализации постановка задачи: зачем выполняется работа, какие сведения даны, что должно получиться, что запрещено и как проверить готовность.</strong> Проще говоря, договор превращает просьбу в проверяемое соглашение, которое разные участники читают одинаково. В нём ещё нет обязанности использовать модель, tool или agent loop: способ реализации выбирают после того, как стало ясно, что именно требуется.</p>
+<p>Слово «договор» здесь не юридическое. Команда заранее фиксирует общий смысл полей, чтобы после появления кода не выяснять задним числом, что каждый ожидал своё. В инженерных документах то же самое часто называют постановкой задачи; в нашем курсе мы говорим «договор задачи», чтобы подчеркнуть: запись согласована с теми, кто будет принимать результат. Проверка проста: если после чтения договора два человека по-разному отвечают на вопрос «готово или нет?», договор пока недостаточно точен.</p>
+<h3 id="2-зачем-вообще-выполняется-работа">2. Зачем вообще выполняется работа<a class="headerlink" href="#2-зачем-вообще-выполняется-работа" title="Permanent link">&para;</a></h3>
+<p>Вернёмся к просьбе «сделай сводку». Зачем нужна эта сводка и какую пользу от неё ждут? Сам глагол «сделай» ответа не даёт. Для проектного бюро полезнее назвать назначение результата: «дать координатору краткую картину состояния проекта, чтобы он увидел заблокированные задачи и следующий шаг».</p>
+<p><strong>Цель — польза от работы: какое изменение или решение должен поддержать итоговый результат.</strong> Простыми словами, цель отвечает на вопрос «зачем мы это делаем?». Она не перечисляет строки кода и не назначает механизм: «использовать Agent Skill» не цель, а возможный способ организации работы.</p>
+<p>Цель можно сравнить с адресом на конверте: без адреса письмо можно упаковать безупречно и всё равно отправить не туда. Здесь сходство только в назначении. В программе цель не «ведёт» данные и ничего не выполняет сама; она помогает людям проверить, что выбранный результат поддерживает нужное решение.</p>
+<p>Для «Дежурного» рабочая цель главы 5:</p>
+<blockquote>
+<p>Дать проектному бюро проверяемый черновик статус-сводки по локальным карточкам, не изменяя сами карточки.</p>
+</blockquote>
+<p>Фраза «не изменяя сами карточки» сразу проводит границу: результат должен помочь бюро разобраться в состоянии проекта, но подготовка сводки не должна превращаться в изменение этого состояния.</p>
+<h3 id="3-что-должно-существовать-в-конце">3. Что должно существовать в конце<a class="headerlink" href="#3-что-должно-существовать-в-конце" title="Permanent link">&para;</a></h3>
+<p>Теперь сравни две формулировки:</p>
+<div class="highlight"><pre><span></span><code>1. Обработать карточки проекта.
+2. Подготовить черновик сводки с полями summary, blocked_tasks, next_step.
+</code></pre></div>
+<p>На первый взгляд обе строки могут показаться описанием результата: в обеих сказано, что нужно сделать. Но первая называет только действие. После «обработать карточки» непонятно, что именно должно остаться у команды и что предъявлять для проверки. Вторая строка называет продукт, который можно увидеть и сверить. Поля <code>summary</code>, <code>blocked_tasks</code>, <code>next_step</code> уже появились в главе 4 как выбранная структура итоговой сводки; здесь мы используем это решение, а не переопределяем structured output.</p>
+<p><strong>Результат — конкретный продукт или набор данных, который должен быть получен после выполнения задачи.</strong> Проще говоря, это ответ на вопрос «что у нас будет в руках или в файле, когда работа закончена?». В результате нет скрытого обещания, каким способом его получили: один и тот же формат можно собрать обычным кодом, моделью или несколькими шагами системы.</p>
+<blockquote>
+<p><strong>Проверь себя на ходу.</strong> Что из двух формулировок является результатом: «проверить обязательные поля» или «список карточек, прошедших проверку, и список найденных ошибок»? Почему?</p>
+</blockquote>
+<p>Здесь легко спутать действие и продукт. Формулировки «проанализировать», «обработать», «проверить» называют ход работы, но не отвечают на вопрос, что команда получит в конце. Поэтому после такого глагола задавай ещё один вопрос: «Что именно будет предъявлено для приёмки?» Ответом может быть отчёт, список, запись, решение или сообщение об ошибке.</p>
+<h3 id="4-что-дано-до-начала-работы">4. Что дано до начала работы<a class="headerlink" href="#4-что-дано-до-начала-работы" title="Permanent link">&para;</a></h3>
+<p>У проекта есть доска задач с карточками. Означает ли это, что все карточки автоматически доступны модели? Нет. В главах 1 и 4 мы уже разделяли наличие данных у приложения и сведения, переданные модели в конкретном обращении. Поэтому наличие файла на диске, обнаруженный resource и активный контекст нельзя считать одним и тем же.</p>
+<p><strong>Вход — данные и условия, которые доступны задаче к моменту начала работы.</strong> В нашем проекте входом являются локальные карточки задач и правила их допустимых полей. Это описание задачи целиком, а не только того, что прямо сейчас передано модели.</p>
+<p>Как провести границу? Вход описывает данные всей задачи, а активный контекст — только сведения, доступные модели в конкретном обращении. Harness может прочитать данные, сохранить часть в состоянии и передать модели лишь нужный фрагмент. Поэтому запись «вход = всё, что знает модель» смешала бы два разных уровня системы.</p>
+<p>Допустим, приложению доступны 40 карточек проекта, а для одного обращения модели нужны сведения только о двух. Тогда все 40 карточек относятся ко входу задачи, но в активный контекст этого обращения попадут сведения только о двух. Числа здесь условные; пример показывает не размер контекста, а различие между данными задачи и тем, что передано модели сейчас.</p>
+<p>В техническом паспорте «Дежурного» вход формулируем так: «локальные карточки задач проекта, доступные приложению в разрешённой рабочей области». Мы не передаём модели путь к папке: конфигурация остаётся внутри приложения, как было установлено раньше.</p>
+<h3 id="5-что-нельзя-делать-даже-ради-полезной-цели">5. Что нельзя делать даже ради полезной цели<a class="headerlink" href="#5-что-нельзя-делать-даже-ради-полезной-цели" title="Permanent link">&para;</a></h3>
+<p>Представь предложение Марка: «Чтобы сводка была аккуратнее, пусть программа сразу исправляет неправильные статусы». Это выглядит как удобное продолжение той же работы. Но после первой записи в карточку задача меняется: программа уже не только читает данные и готовит отчёт, но и изменяет общее состояние проекта.</p>
+<p><strong>Ограничение — правило, которое сужает допустимые способы выполнения задачи или запрещает определённые действия.</strong> Простыми словами, это граница «можно / нельзя» внутри договора. Для главы 5 важны как минимум три ограничения: карточки читаются без автоматического изменения; внешняя отправка не выполняется; изменение статуса без отдельного решения человека запрещено.</p>
+<p>Что произойдёт, если просто написать в паспорте «запись запрещена»? Технического запрета от этой строки не появится: она не создаёт permissions и не превращается в sandbox. Ограничение сообщает разработчику требование, а harness и код должны действительно не допустить запрещённое действие. В главе 3 мы уже видели пример, где программа проверяла политику чтения и записи. Текст договора и технический механизм должны соответствовать друг другу, но выполняют разную работу.</p>
+<blockquote>
+<p><strong>Проверь себя на ходу.</strong> В паспорте написано «не менять карточки». Доказывает ли эта фраза, что программа технически не умеет записывать файл? Что ещё должно существовать в системе?</p>
+</blockquote>
+<h3 id="6-как-перестать-спорить-после-результата">6. Как перестать спорить после результата<a class="headerlink" href="#6-как-перестать-спорить-после-результата" title="Permanent link">&para;</a></h3>
+<p>В главе 2 мы уже спрашивали, когда должен закончиться конкретный запуск: по observation и состоянию <code>decide</code> выбирала <code>success</code>, <code>needs_input</code>, <code>error</code> или <code>limit</code>. Теперь вопрос другой: когда команда имеет право принять сам <strong>продукт</strong> работы? Ответ нужно записать заранее, до реализации.</p>
+<p><strong>Критерий готовности — наблюдаемое условие, по которому команда может проверить, что требуемый результат получен в согласованной форме и не нарушает ограничения задачи.</strong> Проще говоря: это фраза «готово, когда…», которую можно проверить без чтения мыслей автора программы. Критерий готовности не равен самому терминалу <code>success</code>: терминал относится к конкретному запуску, а критерий — к приёмке продукта задачи.</p>
+<p>Для нашей сводки критерий можно записать так: «готово, когда результат содержит <code>summary</code>, <code>blocked_tasks</code>, <code>next_step</code>; сведения о блокерах опираются на прочитанные карточки; при недостающих или неоднозначных данных система не придумывает ответ; карточки проекта не изменены».</p>
+<p>Здесь три поля — ещё не весь критерий. Представим, что <code>summary</code>, <code>blocked_tasks</code>, <code>next_step</code> заполнены, но во время подготовки программа изменила статус одной карточки. Формат результата соблюдён, а договор всё равно нарушен. Поэтому критерий готовности проверяет и продукт, и существенные ограничения.</p>
+<h3 id="7-где-нельзя-честно-выбрать-один-ответ">7. Где нельзя честно выбрать один ответ<a class="headerlink" href="#7-где-нельзя-честно-выбрать-один-ответ" title="Permanent link">&para;</a></h3>
+<p>Допустим, у карточки нет обязательного поля <code>status</code>. Или на доске две карточки с одним и тем же номером, но разными статусами. Что должна выбрать программа? Ни один вариант нельзя обосновать только прочитанными данными: информации или правила выбора не хватает.</p>
+<p><strong>Неопределённость — ситуация, в которой имеющихся данных или правил недостаточно, чтобы обоснованно получить один требуемый результат или выбрать один следующий шаг.</strong> Простыми словами, у системы нет достаточного основания для уверенного продолжения. Неопределённость не равна любой сложности и не означает, что обязательно нужна модель: иногда правильный ответ — просто остановиться и запросить уточнение.</p>
+<p>Неопределённость не исчезает, даже если от программы ждут готовую сводку. Поэтому в договоре заранее записывают, как действовать при нехватке основания. Для «Дежурного» правило простое: не угадывать отсутствующее значение и не выбирать одну из двух конфликтующих карточек молча. Такой случай должен стать видимым для человека.</p>
+<h3 id="8-центральный-артефакт-технический-паспорт-проекта-версии-01">8. Центральный артефакт: технический паспорт проекта версии 0.1<a class="headerlink" href="#8-центральный-артефакт-технический-паспорт-проекта-версии-01" title="Permanent link">&para;</a></h3>
+<p>Теперь отдельные решения можно собрать в один документ. Что он должен удержать вместе? Цель, вход, результат, критерий готовности, ограничения и правило для неопределённости. Это не код и не описание Agent Skill: паспорт фиксирует задачу до реализации.</p>
+<table>
+<thead>
+<tr>
+<th>Поле</th>
+<th>Договор проекта «Дежурный», версия 0.1</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Цель</strong></td>
+<td>дать бюро проверяемый черновик статуса проекта и показать блокеры</td>
+</tr>
+<tr>
+<td><strong>Вход</strong></td>
+<td>локальные карточки задач, доступные приложению в разрешённой рабочей области</td>
+</tr>
+<tr>
+<td><strong>Результат</strong></td>
+<td><code>summary</code>, <code>blocked_tasks</code>, <code>next_step</code></td>
+</tr>
+<tr>
+<td><strong>Готово, когда</strong></td>
+<td>три части заполнены по прочитанным данным; неопределённость не скрыта; карточки не изменены</td>
+</tr>
+<tr>
+<td><strong>Ограничения</strong></td>
+<td>не удалять карточки; не менять статусы автоматически; не отправлять результат наружу</td>
+</tr>
+<tr>
+<td><strong>Неопределённость</strong> (при нехватке данных)</td>
+<td>явно сообщить, чего не хватает, и передать вопрос человеку</td>
+</tr>
+<tr>
+<td><strong>Цена ошибки</strong></td>
+<td>оценивается отдельно на уроке 10; изменение состояния считается более рискованным, чем черновик текста</td>
+</tr>
+<tr>
+<td><strong>Способ реализации</strong></td>
+<td>пока не выбран; для каждого шага будет решено отдельно</td>
+</tr>
+</tbody>
+</table>
+<p>В последней строке таблицы механизм пока не выбран — и это намеренно. Паспорт уже позволяет проверить, что нужно получить и какие границы нельзя нарушать. Только после этого имеет смысл решать, где хватит обычного кода, где может понадобиться модель, а где нужен agent loop.</p>
+<p><img alt="Фигура 13. Технический паспорт проекта" src="../../figures/13_tekhnicheskiy-pasport-proekta.svg" /></p>
+<p><em>Фигура 13. Технический паспорт проекта</em></p>
+<h3 id="9-практика-a-паспорт-на-бумаге">9. Практика A: паспорт на бумаге<a class="headerlink" href="#9-практика-a-паспорт-на-бумаге" title="Permanent link">&para;</a></h3>
+<p>Работайте группами по три-четыре человека. Каждая группа получает одну расплывчатую просьбу: «покажи блокеры», «подготовь сводку для учителя», «скажи, что требует внимания». Не обсуждайте реализацию первые пять минут.</p>
+<p>Заполните шесть строк паспорта — цель, вход, результат, готово когда, ограничения, неопределённость (что делать при нехватке данных) — и седьмую строку сверх таблицы: что точно не входит в задачу. Строку «цена ошибки» оставьте до урока 10, а «способ реализации» — пустой: это и есть правило практики. Затем передайте паспорт соседней группе. Соседи должны ответить только по тексту паспорта: какой продукт они обязаны вернуть и в каком случае имеют право остановиться без готового результата.</p>
+<p>Если соседям приходится спрашивать автора «а что ты имел в виду?», поле недостаточно точное. Исправьте только это поле и передайте паспорт ещё раз.</p>
+<p><strong>Результат практики A:</strong> бумажный технический паспорт версии 0.1, который другая группа читает одинаково с авторами.</p>
+<h3 id="10-практика-b-тот-же-договор-в-task_specjson">10. Практика B: тот же договор в <code>task_spec.json</code><a class="headerlink" href="#10-практика-b-тот-же-договор-в-task_specjson" title="Permanent link">&para;</a></h3>
+<p>В треке B ты записываешь тот же паспорт в виде структурированных данных. В главе 1 ты уже видел JSON как текстовый формат представления структурированных данных; здесь мы не изучаем формальную схему JSON и не строим структурированный запрос к tool — это будет в главе 6. Сейчас нужно только перенести уже согласованный договор в файл, не реализуя ни одной функции.</p>
+<p>Паспорт «Дежурного» в таком виде уже лежит в starter — это файл <code>workspace/task_spec.json</code>. В нём те же решения, что в таблице раздела 8, кроме строк «Цена ошибки» и «Способ реализации», а цель записана так, как в разделе 2. Вот он целиком:</p>
+<div class="highlight"><pre><span></span><code><span class="p">{</span>
+<span class="w">  </span><span class="nt">&quot;goal&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;Дать проектному бюро проверяемый черновик статус-сводки по локальным карточкам, не изменяя сами карточки.&quot;</span><span class="p">,</span>
+<span class="w">  </span><span class="nt">&quot;inputs&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="s2">&quot;локальные карточки задач, доступные приложению в разрешённой рабочей области&quot;</span><span class="p">],</span>
+<span class="w">  </span><span class="nt">&quot;result&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="s2">&quot;summary&quot;</span><span class="p">,</span><span class="w"> </span><span class="s2">&quot;blocked_tasks&quot;</span><span class="p">,</span><span class="w"> </span><span class="s2">&quot;next_step&quot;</span><span class="p">],</span>
+<span class="w">  </span><span class="nt">&quot;done_when&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[</span>
+<span class="w">    </span><span class="s2">&quot;три части результата заполнены по прочитанным данным&quot;</span><span class="p">,</span>
+<span class="w">    </span><span class="s2">&quot;неопределённость не скрыта&quot;</span><span class="p">,</span>
+<span class="w">    </span><span class="s2">&quot;карточки проекта не изменены&quot;</span>
+<span class="w">  </span><span class="p">],</span>
+<span class="w">  </span><span class="nt">&quot;unknowns&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[</span>
+<span class="w">    </span><span class="s2">&quot;нет обязательного поля — сообщить, чего не хватает&quot;</span><span class="p">,</span>
+<span class="w">    </span><span class="s2">&quot;две карточки с одним номером — не выбирать молча, передать вопрос человеку&quot;</span>
+<span class="w">  </span><span class="p">],</span>
+<span class="w">  </span><span class="nt">&quot;forbidden_actions&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[</span>
+<span class="w">    </span><span class="s2">&quot;удалять карточки&quot;</span><span class="p">,</span>
+<span class="w">    </span><span class="s2">&quot;менять статусы автоматически&quot;</span><span class="p">,</span>
+<span class="w">    </span><span class="s2">&quot;отправлять результат во внешние системы&quot;</span>
+<span class="w">  </span><span class="p">]</span>
+<span class="p">}</span>
+</code></pre></div>
+<p>Как читать этот файл? Имена полей здесь служат подписями нашего проекта, а не новыми терминами курса: <code>done_when</code> — это «готово, когда», <code>unknowns</code> — что делать при нехватке данных, <code>forbidden_actions</code> — ограничения. Не добавляй путь, который потом должна выбирать модель: расположение рабочих данных остаётся конфигурацией приложения. Не добавляй функцию или набросок кода — на этом шаге работа заканчивается договором.</p>
+<p>Свой договор — просьбу твоей группы из практики A — запиши теми же шестью полями в новый файл <code>workspace/drafts/task_spec.json</code>; starter его не поставляет. Перед взаимной проверкой сделай прогноз: сможет ли другая пара по твоему файлу назвать результат и условие «готово, когда» без вопросов к тебе? Потом сравни свой файл с паспортом «Дежурного»: там, где твоя запись короче или расплывчатее, обычно и прячется спор.</p>
+<p><strong>Результат практики B:</strong> заполненный <code>workspace/drafts/task_spec.json</code> и короткая взаимная проверка с другой парой: «можно ли по этому файлу понять, что именно считается готовым?»</p>
+<h3 id="11-мини-проверка-урока-9">11. Мини-проверка урока 9<a class="headerlink" href="#11-мини-проверка-урока-9" title="Permanent link">&para;</a></h3>
+<ol>
+<li>Почему «обработать карточки» — плохой результат задачи?</li>
+<li>Чем вход задачи отличается от активного контекста модели?</li>
+<li>Почему ограничение «не менять файлы» ещё не доказывает технический запрет записи?</li>
+<li>Что должно быть в формулировке «готово, когда…»?</li>
+<li>Что делать, если два входных объекта противоречат друг другу и договор не даёт правила выбора?</li>
+<li>Найди ошибки в записи: «Цель: использовать модель и MCP. Результат: обработать карточки. Ограничения: не выходить за <code>workspace/</code> — этого достаточно, чтобы система туда не вышла».</li>
+</ol>
+<h4 id="ответы">Ответы<a class="headerlink" href="#ответы" title="Permanent link">&para;</a></h4>
+<ol>
+<li>Это название процесса, а не наблюдаемого продукта.</li>
+<li>Вход — данные задачи; активный контекст — только сведения, доступные модели в конкретном обращении.</li>
+<li>Текст договора задаёт требование, а технический запрет обеспечивают код, permissions и другие механизмы harness.</li>
+<li>Наблюдаемый признак результата и существенные условия его приёмки.</li>
+<li>Не угадывать: зафиксировать неопределённость и запросить уточнение либо завершить текущую работу честным статусом.</li>
+<li>Три ошибки: цель названа через средство, а не через пользу; результат записан действием, а не продуктом; текстовое ограничение выдано за техническую границу, которую обеспечивает только harness.</li>
+</ol>
+<h3 id="выходной-билет-урока-9">Выходной билет урока 9<a class="headerlink" href="#выходной-билет-урока-9" title="Permanent link">&para;</a></h3>
+<p>Допиши три строки:</p>
+<div class="highlight"><pre><span></span><code>Цель отвечает на вопрос «…».
+Результат можно проверить, потому что …
+Готово, когда …
+</code></pre></div>
+<p>Если во второй строке снова появился глагол без продукта — вернись к разделу 3.</p>
+<hr />
+<h2 id="lesson-10">Урок 10. Когда агент не нужен<a class="headerlink" href="#lesson-10" title="Permanent link">&para;</a></h2>
+<h3 id="1-три-способа-решить-одну-маленькую-задачу">1. Три способа решить одну маленькую задачу<a class="headerlink" href="#1-три-способа-решить-одну-маленькую-задачу" title="Permanent link">&para;</a></h3>
+<p>На следующем заседании Марк приносит карточку и спрашивает: «Можно ли проверить, что в ней есть обязательные поля <code>id</code>, <code>title</code>, <code>status</code>?» Вариантов у него три: попросить модель прочитать текст и ответить, запустить agent loop или написать обычную проверку полей. Но какой из трёх механизмов здесь действительно нужен?</p>
+<p>Технически можно вообразить все три варианта. Однако выбор начинается не со слова «ИИ», а с устройства самой задачи. Если заранее известно точное правило проверки, сначала стоит проверить, не решается ли задача обычным кодом.</p>
+<p>Здесь правило известно: поля <code>id</code>, <code>title</code>, <code>status</code> должны присутствовать. Значит, программе не нужно каждый раз придумывать способ проверки. Она может применить одно и то же заранее заданное правило к одной и той же структуре данных.</p>
+<h3 id="2-одинаковый-вход--одинаковый-результат">2. Одинаковый вход — одинаковый результат<a class="headerlink" href="#2-одинаковый-вход--одинаковый-результат" title="Permanent link">&para;</a></h3>
+<p><strong>Детерминированная операция — операция, которая при одинаковом входе и одинаковых заранее заданных правилах даёт один и тот же результат.</strong> Проще говоря, если условия не изменились, результат не зависит от свободного выбора формулировки или следующего шага. Проверка наличия обязательных полей — такой случай.</p>
+<p>Детерминированную проверку можно сравнить с турникетом: при тех же правилах один и тот же билет проходит одну и ту же проверку. Сходство заканчивается на повторяемости правила. Программа может быть сложной и содержать ошибки; «детерминированная» не означает «идеальная», «простая» или «безопасная сама по себе».</p>
+<p>Здесь легко принять любое ветвление за признак агентности: программа ведь «выбирает». Но обычный код тоже умеет ветвиться — <code>if</code> выбирает разные результаты для разных входов по заранее заданному правилу. Agent loop нужен не для всякого выбора, а там, где система выполняет последовательность действий, получает observation и на его основе выбирает следующий шаг в рамках поставленной задачи.</p>
+<blockquote>
+<p><strong>Проверь себя на ходу.</strong> Проверка «status входит в список <code>planned / in_progress / blocked / done</code>» требует agent loop? Что именно делает её детерминированной?</p>
+</blockquote>
+<h3 id="3-когда-достаточно-обычного-кода-когда-нужна-модель-когда-нужен-агентный-цикл">3. Когда достаточно обычного кода, когда нужна модель, когда нужен агентный цикл<a class="headerlink" href="#3-когда-достаточно-обычного-кода-когда-нужна-модель-когда-нужен-агентный-цикл" title="Permanent link">&para;</a></h3>
+<p>Как сравнить механизмы без спора «где больше ИИ»? Сопоставим им разные виды работы. Таблица ниже не задаёт универсальный закон для всех систем; это рабочее правило нашей главы: сначала ищи самый простой механизм, который честно решает поставленную задачу.</p>
+<table>
+<thead>
+<tr>
+<th>Ситуация</th>
+<th>Что требуется</th>
+<th>Разумная отправная точка</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>проверить наличие обязательных полей</td>
+<td>применить фиксированное правило</td>
+<td>обычная детерминированная функция</td>
+</tr>
+<tr>
+<td>проверить допустимое значение статуса</td>
+<td>сравнить со списком допустимых значений</td>
+<td>обычная детерминированная функция</td>
+</tr>
+<tr>
+<td>собрать три заранее заданных поля отчёта из уже проверенных данных</td>
+<td>преобразовать структуру</td>
+<td>обычный код; при языковом тексте может понадобиться модель</td>
+</tr>
+<tr>
+<td>кратко объяснить человеку причину блокировки</td>
+<td>сформулировать текст по известным фактам</td>
+<td>prompt к модели может быть полезен</td>
+</tr>
+<tr>
+<td>после observation решить, нужен ли ещё один шаг</td>
+<td>выбрать продолжение по состоянию</td>
+<td>знакомый agent loop</td>
+</tr>
+<tr>
+<td>изменить общий статус задачи</td>
+<td>затронуть состояние проекта</td>
+<td>не выполнять самостоятельно; требуется отдельное решение человека</td>
+</tr>
+</tbody>
+</table>
+<p>Может показаться, что проект об ИИ должен чаще использовать модель или agent loop. Но договор задачи не требует этого. Сначала определяется работа, затем для неё выбирается самый узкий достаточный механизм. Если фиксированное правило уже решает задачу, модель не добавляет необходимой функции, зато добавляет ещё один компонент, результат которого придётся учитывать и проверять.</p>
+<p><img alt="Фигура 14. Когда агент не нужен" src="../../figures/14_kogda-agent-ne-nuzhen.svg" /></p>
+<p><em>Фигура 14. Когда агент не нужен</em></p>
+<h3 id="4-что-будет-если-система-ошибётся">4. Что будет, если система ошибётся<a class="headerlink" href="#4-что-будет-если-система-ошибётся" title="Permanent link">&para;</a></h3>
+<p>Две ошибки могут быть одинаково «неверными», но последствия у них разные. Ошибочный заголовок отчёта можно быстро заметить и переписать. Неверно поставленный <code>done</code> в общей карточке способен скрыть незавершённую работу от всей команды. Значит, при выборе границы самостоятельности нужно оценивать не только саму возможность ошибки, но и её последствия.</p>
+<p><strong>Цена ошибки — последствия, которые возникнут, если система примет неверный результат или выполнит неверное действие.</strong> Простыми словами, это ответ на вопрос «что плохого произойдёт, если мы ошибёмся?». Цена ошибки не равна вероятности ошибки и не равна «уверенности модели»: даже редкая ошибка может быть дорогой, а частая — почти безвредной.</p>
+<p>Для главы 5 достаточно трёх случаев по последствиям без числовой шкалы. Если ошибку легко заметить и отменить, можно допустить больше автоматизации. Если ошибка затрагивает общие данные, публикацию или решения других людей, границы должны быть уже. Если последствия трудно откатить, участие человека становится особенно важным. Эти три случая — ориентир для обсуждения, а не точная система баллов.</p>
+<p>В нашем проекте черновик сводки имеет меньшую цену ошибки, чем автоматическое изменение статуса карточки. Поэтому «Дежурный» может подготовить предложение или черновик, но не получает право менять общий проект только потому, что уверен в своём выводе.</p>
+<h3 id="5-неопределённость-и-цена-ошибки--разные-оси">5. Неопределённость и цена ошибки — разные оси<a class="headerlink" href="#5-неопределённость-и-цена-ошибки--разные-оси" title="Permanent link">&para;</a></h3>
+<p>Неопределённость и цена ошибки отвечают на разные вопросы. Представим операцию «удалить файл с точно заданным именем»: способ действия может быть почти полностью задан правилом, но ошибка способна иметь серьёзные последствия. И наоборот, формулировка дружелюбного заголовка допускает разные варианты, хотя цена неудачной фразы может быть невелика.</p>
+<p>Отсюда не следует правило «если сложно — нужен агент». Сложность, неопределённость и цена ошибки описывают разные стороны задачи. Неопределённость показывает, хватает ли входа и правил для одного обоснованного решения. Цена ошибки показывает, насколько серьёзны последствия, если решение окажется неверным. По этой оценке команда решает, сколько риска готова принять.</p>
+<p>Эта пара помогает выбрать границу самостоятельности системы. Чем выше цена ошибки, тем меньше оснований поручать системе необратимое действие без человека — даже если модель сформулировала ответ очень уверенно.</p>
+<h3 id="6-от-большой-задачи-к-отдельным-операциям">6. От большой задачи к отдельным операциям<a class="headerlink" href="#6-от-большой-задачи-к-отдельным-операциям" title="Permanent link">&para;</a></h3>
+<p>Вернёмся к техническому паспорту. Одна задача команды — «подготовить статус-сводку» — распадается на несколько операций. Почему это полезно? Для чтения, проверки, сборки отчёта и предложения изменения могут понадобиться разные механизмы и разные границы самостоятельности.</p>
+<p>В проекте выделены четыре будущие операции. Четыре имени нужны не ради числа: каждое соответствует отдельной роли внутри договора — получить данные, проверить карточку, собрать продукт или подготовить предложение изменения. Сейчас мы только проектируем их место, не реализуем и не вызываем:</p>
+<table>
+<thead>
+<tr>
+<th>Планируемая операция</th>
+<th>Роль в договоре</th>
+<th>Что важно сейчас</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>Tools.read_task_cards()</code></td>
+<td>получить карточки из заранее заданной области</td>
+<td>модель не передаёт путь</td>
+</tr>
+<tr>
+<td><code>Tools.validate_task_card(task_id)</code></td>
+<td>проверить конкретную карточку по фиксированным правилам</td>
+<td>проверка может быть детерминированной</td>
+</tr>
+<tr>
+<td><code>Tools.build_status_report()</code></td>
+<td>собрать черновик отчёта по проверенным данным</td>
+<td>результат остаётся черновиком</td>
+</tr>
+<tr>
+<td><code>Tools.propose_status_update(task_id, new_status, reason)</code></td>
+<td>подготовить предложение изменения</td>
+<td>это не запись статуса; фактическое изменение требует решения человека</td>
+</tr>
+</tbody>
+</table>
+<p>Имена этих функций взяты из <code>API_STARTER_BY_CHAPTER.md</code> — файла с утверждёнными именами функций starter; приставка <code>Tools.</code> означает, что функция входит в готовый набор операций starter, который ты впервые встретил в главе 1 как <code>Tools()</code>. Сами функции уже лежат в starter как заготовки сквозного проекта, но в этой главе мы их не вызываем и не разбираем. Как модель будет запрашивать tool и как приложение обработает такой запрос, начнём разбирать только в главе 6; изменение статуса и подтверждение человека — существенно позже.</p>
+<p>Проектный договор описывает всю задачу. Но если нужно отдельно зафиксировать обещания одной операции, понадобится более узкое описание.</p>
+<p><strong>Contract / контракт операции — согласованное описание назначения, входов, выхода, ограничений и ошибок операции.</strong> Простыми словами, Contract отвечает на вопрос «что именно обещает одна операция и на каких условиях». Он уже, чем договор задачи целиком: один проектный договор может потребовать нескольких контрактов операций.</p>
+<p>В главе 5 достаточно различать два масштаба: договор задачи относится ко всей работе, а Contract — к одной операции. Подробные границы и формальные проверки отдельных tools будут проектироваться позже по Карте; сейчас паспорт проекта не нужно превращать в схему каждого tool.</p>
+<h3 id="7-что-дежурный-намеренно-не-делает">7. Что «Дежурный» намеренно не делает<a class="headerlink" href="#7-что-дежурный-намеренно-не-делает" title="Permanent link">&para;</a></h3>
+<p>Чтобы границы не приходилось восстанавливать по смыслу, договор задачи прямо перечисляет и то, чего система не делает. Для нашего проекта список такой:</p>
+<ul>
+<li>не удаляет карточки;</li>
+<li>не меняет статус автоматически;</li>
+<li>не публикует отчёт и не отправляет его во внешнюю систему;</li>
+<li>не придумывает отсутствующие обязательные значения;</li>
+<li>не выбирает одну из конфликтующих карточек без правила или уточнения;</li>
+<li>не получает путь к рабочей папке от модели;</li>
+<li>не считает красивую фразу доказательством выполненного действия.</li>
+</ul>
+<p>Последний пункт сохраняет правило из главы 1: текст о выполненном действии ещё не доказывает, что действие действительно произошло. Договор задачи не отменяет прежнюю архитектуру. Он добавляет к ней описание работы и границ, которые эта архитектура должна соблюдать.</p>
+<h3 id="8-практика-a-двенадцать-карточек-решений">8. Практика A: двенадцать карточек решений<a class="headerlink" href="#8-практика-a-двенадцать-карточек-решений" title="Permanent link">&para;</a></h3>
+<p>Работайте группами. Для каждой ситуации выберите один основной вариант: <strong>обычный код</strong>, <strong>модель для формулировки</strong>, <strong>agent loop</strong>, <strong>человек должен принять решение</strong>. Затем напишите одну фразу обоснования.</p>
+<ol>
+<li>Проверить, есть ли <code>id</code>, <code>title</code>, <code>status</code>.</li>
+<li>Проверить, входит ли статус в четыре допустимых значения.</li>
+<li>Сосчитать число карточек со статусом <code>blocked</code>.</li>
+<li>Сформулировать два предложения для учителя по уже проверенным фактам.</li>
+<li>После observation решить, нужно ли читать следующую страницу карточек.</li>
+<li>Выбрать одну карточку из двух с одинаковым номером и разными данными.</li>
+<li>Изменить <code>blocked</code> на <code>done</code> в общей карточке.</li>
+<li>Собрать список <code>blocked_tasks</code> из проверенных карточек.</li>
+<li>Отправить готовую сводку во внешний чат.</li>
+<li>Сообщить человеку, что обязательного поля нет.</li>
+<li>Проверить, что итог содержит три требуемых поля.</li>
+<li>Решить, продолжать ли работу после неполного observation и оставшегося бюджета шагов.</li>
+</ol>
+<p>Некоторые из двенадцати карточек специально требуют остановиться и проверить основание решения. В пункте 4 модель может формулировать текст, но факты должны быть уже получены и проверены системой. Пункт 6 нельзя «решить умнее» без дополнительного правила: неопределённость нужно показать. Пункты 7 и 9 затрагивают последствия за пределами черновика и потому не должны становиться самостоятельным действием «Дежурного» в этой главе. Пункт 12 относится к решению внутри agent loop: продолжать или остановиться решает не модель, а обычный код по observation и счётчикам, как <code>decide</code> в главе 2; agent loop нужен, чтобы повтор вообще существовал, но само решение — детерминированное правило.</p>
+<p><strong>Результат практики A:</strong> заполненная таблица из 12 ситуаций и два случая, где группа отказалась от agent loop как от лишнего механизма.</p>
+<h3 id="9-практика-b-имена-функций-и-входные-значения-без-реализации">9. Практика B: имена функций и входные значения без реализации<a class="headerlink" href="#9-практика-b-имена-функций-и-входные-значения-без-реализации" title="Permanent link">&para;</a></h3>
+<p>В треке B зафиксируй план четырёх операций в текстовом файле <code>workspace/drafts/ch05_operations.txt</code> (по образцу <code>ch04_choices.txt</code> главы 4) или в рабочей тетради. Реализацию не пиши. Запиши только имя каждой функции и названия входных значений в скобках, как они указаны в файле с утверждёнными именами функций, а рядом — одну строку назначения:</p>
+<div class="highlight"><pre><span></span><code>Tools.read_task_cards()
+Tools.validate_task_card(task_id)
+Tools.build_status_report()
+Tools.propose_status_update(task_id, new_status, reason)
+</code></pre></div>
+<p>Теперь рядом с каждой строкой отметь, что делает операция: «чтение из заданной области», «детерминированная проверка», «сборка продукта» или «предложение изменения». Для <code>read_task_cards()</code> отдельно подпиши: «путь не приходит от модели». Для <code>propose_status_update(...)</code> подпиши: «не изменяет файл напрямую».</p>
+<p>Не описывай пока, как модель оформляет запрос операции и как приложение сопоставляет этот запрос с разрешённой функцией: это работа следующих глав. Смысл упражнения — увидеть операции до их реализации и проверить, что каждая обслуживает конкретную часть договора задачи.</p>
+<p><strong>Результат практики B:</strong> карта четырёх будущих tools с назначением и список минимум из трёх действий, которые система не выполняет самостоятельно.</p>
+<h3 id="10-обязательные-проверки-должен--не-должен--ошибка--граница">10. Обязательные проверки: должен / не должен / ошибка / граница<a class="headerlink" href="#10-обязательные-проверки-должен--не-должен--ошибка--граница" title="Permanent link">&para;</a></h3>
+<h4 id="должен">Должен<a class="headerlink" href="#должен" title="Permanent link">&para;</a></h4>
+<p>Другой ученик получает технический паспорт и должен без устных подсказок назвать требуемый результат, условия готовности и три ограничения. Если он это может, договор выполняет свою функцию как общий источник требований.</p>
+<h4 id="не-должен">Не должен<a class="headerlink" href="#не-должен" title="Permanent link">&para;</a></h4>
+<p>Фраза «обработать карточки» не должна проходить как готовый результат. И проверка обязательных полей не должна автоматически превращаться в agent loop только потому, что проект связан с ИИ.</p>
+<h4 id="ошибка">Ошибка<a class="headerlink" href="#ошибка" title="Permanent link">&para;</a></h4>
+<p>Если обязательный вход отсутствует или две записи противоречат друг другу, система не должна маскировать неопределённость красивой сводкой. Договор должен позволить явно сообщить, чего не хватает, и остановить попытку получения готового продукта.</p>
+<h4 id="граница">Граница<a class="headerlink" href="#граница" title="Permanent link">&para;</a></h4>
+<p><code>propose_status_update(...)</code> может подготовить предложение изменения, но предложение не равно применённому изменению. Фактическая запись общего статуса требует отдельного решения человека и отдельного механизма, который разберём позже.</p>
+<h3 id="11-врезка-безопасности-границы-записываются-до-кода">11. Врезка безопасности: границы записываются до кода<a class="headerlink" href="#11-врезка-безопасности-границы-записываются-до-кода" title="Permanent link">&para;</a></h3>
+<blockquote>
+<p><strong>Безопасность</strong></p>
+<p>Чем выше цена ошибки, тем раньше в проектировании нужно назвать запрет и человека, который принимает окончательное решение.</p>
+<p>В главе 5 «Дежурный» работает только с проектированием чтения, проверки и черновика отчёта. Автоматическое удаление, внешняя публикация и изменение статуса в общий файл не входят в договор.</p>
+<p>Записанный запрет сам по себе не создаёт permissions или sandbox. Он превращается в техническую границу только тогда, когда harness и runtime действительно его обеспечивают.</p>
+<p>Уверенность модели не выдаёт разрешение. Предложение изменения и применённое изменение — разные события.</p>
+</blockquote>
+<p>Эта врезка не перечисляет все возможные угрозы проекту — полный разбор будет позже. В этой главе достаточно правила: если действие имеет заметные последствия, его границу нужно назвать <strong>до</strong> того, как появится удобная кнопка «сделать автоматически».</p>
+<h3 id="12-мини-проверка-урока-10">12. Мини-проверка урока 10<a class="headerlink" href="#12-мини-проверка-урока-10" title="Permanent link">&para;</a></h3>
+<ol>
+<li>Почему ветвящийся <code>if</code> не делает программу агентом?</li>
+<li>Что означает «детерминированная операция»?</li>
+<li>Чем цена ошибки отличается от вероятности ошибки?</li>
+<li>Для чего в проекте нужен <code>validate_task_card(task_id)</code>?</li>
+<li>Почему <code>propose_status_update(...)</code> не должен считаться изменением статуса?</li>
+<li>Когда agent loop действительно добавляет необходимый механизм?</li>
+</ol>
+<h4 id="ответы_1">Ответы<a class="headerlink" href="#ответы_1" title="Permanent link">&para;</a></h4>
+<ol>
+<li>Обычный код тоже выбирает ветви по фиксированным правилам; агентность определяется не самим наличием ветвления.</li>
+<li>При одинаковом входе и одинаковых правилах операция даёт один и тот же результат.</li>
+<li>Цена ошибки описывает последствия, а вероятность — насколько часто ошибка может случиться; это разные характеристики.</li>
+<li>Чтобы проверять конкретную карточку по установленным правилам, не поручая такую проверку свободной языковой формулировке.</li>
+<li>Потому что операция только готовит предложение; фактическая запись — отдельное действие и отдельное решение человека.</li>
+<li>Когда работа требует нескольких шагов, observation меняет следующий шаг, а задача действительно допускает такой выбор в заданных границах.</li>
+</ol>
+<h3 id="выходной-билет-урока-10">Выходной билет урока 10<a class="headerlink" href="#выходной-билет-урока-10" title="Permanent link">&para;</a></h3>
+<p>Выбери один реальный школьный пример и закончи фразы:</p>
+<div class="highlight"><pre><span></span><code>Здесь агент не нужен, потому что …
+Цена ошибки здесь …, потому что …
+Человеку нужно оставить решение о …
+</code></pre></div>
+<p>Хороший ответ может начинаться с отказа от ИИ. Умение не добавлять agent loop без необходимости — такой же инженерный навык, как умение его построить.</p>
+<hr />
+<h2 id="why">Зачем это тебе<a class="headerlink" href="#why" title="Permanent link">&para;</a></h2>
+<p>Представим групповую презентацию. Один участник говорит: «Сделай красивый слайд», второй ждёт диаграмму, третий — короткие тезисы. Пока они не назвали цель, вход, результат и условие готовности, одна и та же просьба скрывает три разных ожидания. Короткий договор позволяет обнаружить различие до того, как кто-то потратит время на неподходящий вариант.</p>
+<p>В лабораторной работе фраза «проверь результаты» тоже слишком широкая. Нужно проверить единицы измерения, обязательные поля таблицы, физическую правдоподобность или оформление? Когда часть проверки сводится к фиксированным правилам, для неё достаточно обычного кода или чек-листа; добавлять модель только ради слова «ИИ» не требуется.</p>
+<p>В общем школьном документе граница проходит ещё заметнее. Подготовить черновик и автоматически изменить чужой статус — разные действия по последствиям. То же относится к отправке сообщения от имени команды и удалению файла. Договор задачи заранее отделяет «система может предложить» от «система имеет право выполнить».</p>
+<h2 id="dezhurny">Шаг сквозного проекта<a class="headerlink" href="#dezhurny" title="Permanent link">&para;</a></h2>
+<p>После главы 4 у проекта уже есть карта механизмов и выбран Agent Skill <code>status-summary</code> как будущая повторяемая процедура. Но одного выбора процедуры недостаточно: теперь мы фиксируем <strong>договор задачи</strong> для всего проекта — технический паспорт версии 0.1.</p>
+<p>Команда фиксирует:</p>
+<ol>
+<li><strong>Цель:</strong> подготовить проверяемый черновик статус-сводки по локальным карточкам.</li>
+<li><strong>Вход:</strong> карточки задач, доступные приложению в разрешённой рабочей области.</li>
+<li><strong>Результат:</strong> <code>summary</code>, <code>blocked_tasks</code>, <code>next_step</code>.</li>
+<li><strong>Готово, когда:</strong> три части сформированы по прочитанным данным, неопределённость не скрыта, карточки не изменены.</li>
+<li><strong>Ограничения:</strong> нет автоматического удаления, внешней отправки и изменения статусов.</li>
+<li><strong>Четыре будущие операции:</strong> <code>read_task_cards</code>, <code>validate_task_card</code>, <code>build_status_report</code>, <code>propose_status_update</code>.</li>
+<li><strong>Что агент не делает:</strong> не угадывает отсутствующие факты и не применяет изменение статуса самостоятельно.</li>
+</ol>
+<p>В starter функции с этими именами уже лежат как заготовки сквозного проекта, но мы их пока не вызываем: в главе 5 работа заканчивается проектированием. Иначе легко перевернуть порядок — сначала написать удобную функцию, а потом подбирать к ней задачу. Здесь мы делаем наоборот: сначала фиксируем требования, затем выбираем реализацию.</p>
+<h3 id="достраиваем-дежурного">Достраиваем «Дежурного»<a class="headerlink" href="#достраиваем-дежурного" title="Permanent link">&para;</a></h3>
+<p>Технический паспорт задачи становится файлом <code>05_task_contract.md</code> с разделами «Цель», «Вход», «Результат», «Готово, когда» и «Запрещено». При запуске <code>run</code> сверяет черновик с разделом «Готово, когда» и печатает <code>contract: ok</code> или называет недостающий пункт. Эта проверка намеренно узкая: она обнаруживает названные требования в результате, но сама по себе не доказывает истинность или качество всего отчёта.
+<div class="highlight"><pre><span></span><code><span class="c1"># запуск из корня starter</span>
+<span class="c1"># фикстура: tests/fixtures/ch05/05_task_contract.md -&gt; workspace/my_agent/05_task_contract.md</span>
+python<span class="w"> </span>dezhurny.py<span class="w"> </span>run
+</code></pre></div>
+<div class="highlight"><pre><span></span><code>dezhurny: run
+goal: не настроено (глава 1)
+config: workspace/my_agent
+model: replay — авторский сценарий, не запись модели
+scenario: success
+stop_policy: max_steps 5, max_retries 1 (по умолчанию, глава 2)
+tools: allowlist диспетчера (по умолчанию, глава 7)
+Шаг 1 | read_task_cards | continue
+Шаг 2 | validate_task_card | continue
+Шаг 3 | validate_task_card | continue
+Шаг 4 | validate_task_card | continue
+Шаг 5 | build_status_report | success
+Остановка: success
+# Черновик статуса проекта
+
+Всего задач: 3.
+Незавершённых: 2.
+Заблокированных: 1.
+
+## Незавершённые задачи
+- `task-002` — Подготовить макет афиши (in_progress)
+- `task-003` — Проверить список оборудования (blocked)
+
+## Блокеры
+- `task-003`: Нет подтверждённого списка оборудования
+
+Черновик. Отправка и изменение карточек не выполнялись.
+contract: ok
+save: не настроено (глава 3)
+state: не настроено (глава 10)
+trace: не настроено (глава 12)
+Качество модели не подтверждено этим техническим прогоном.
+</code></pre></div></p>
+<h2 id="return">Возвращаемся к трём просьбам<a class="headerlink" href="#return" title="Permanent link">&para;</a></h2>
+<p>Теперь вернёмся к редакционной группе, лаборатории и Марку. В начале главы три просьбы выглядели как варианты одного запроса о состоянии проекта. После составления договора видно различие: «сводка», «список блокеров» и «всё ли нормально?» требуют разных результатов и могут иметь разные критерии готовности.</p>
+<p>Вместо трёх расплывчатых просьб у бюро теперь есть пять вопросов, которые Аня записала на доске: «Зачем?», «Из чего?», «Что получить?», «Когда готово?», «Чего нельзя делать?». Пять вопросов соответствуют цели, входу, результату, критерию готовности и ограничениям. Они не гарантируют, что задачи совпадут; они позволяют выяснить это до кода. Если ответы совпадают, команда получает общий договор. Если ответы расходятся, различие становится видимым до реализации.</p>
+<p>Марк перечитывает паспорт и кивает:</p>
+<p>— Значит, выбирать tool надо не после слова «сводка», а после того, как мы договорились, что именно нужно получить.</p>
+<p>Пять вопросов Ани и есть ответ на вопрос-прогноз. Договор не угадывает намерения людей. Он переводит ожидания в формулировки, которые можно сравнить и проверить.</p>
+<h2 id="check">Проверь себя<a class="headerlink" href="#check" title="Permanent link">&para;</a></h2>
+<ol>
+<li>Что такое договор задачи и чего в нём ещё не обязано быть?</li>
+<li>Чем цель отличается от результата?</li>
+<li>Почему вход задачи не равен активному контексту модели?</li>
+<li>Почему «проанализировать карточки» — недостаточный результат?</li>
+<li>Чем ограничение в паспорте отличается от технических permissions?</li>
+<li>Что такое критерий готовности и чем он отличается от терминала <code>success</code>?</li>
+<li>Что такое детерминированная операция? Приведи пример из проекта.</li>
+<li>Что означает цена ошибки и почему она не равна уверенности модели?</li>
+<li>Назови четыре будущие операции проекта и объясни, какая из них намеренно не применяет изменение статуса.</li>
+</ol>
+<h3 id="ответы_2">Ответы<a class="headerlink" href="#ответы_2" title="Permanent link">&para;</a></h3>
+<ol>
+<li>Это согласованная и записанная до реализации постановка задачи: цель, вход, результат, ограничения и критерий готовности. Конкретный механизм реализации в нём ещё можно не выбирать.</li>
+<li>Цель отвечает «зачем», результат — «что конкретно должно быть получено».</li>
+<li>Вход относится ко всей задаче; активный контекст — только к сведениям, доступным модели в конкретном обращении.</li>
+<li>Это процесс без наблюдаемого продукта, поэтому нельзя однозначно проверить готовность.</li>
+<li>Ограничение — требование договора; permissions — технический механизм, который реально допускает или запрещает операции.</li>
+<li>Критерий готовности задаёт условия приёмки продукта; <code>success</code> — терминал конкретного запуска agent loop.</li>
+<li>Операция с одинаковым результатом при одинаковом входе и фиксированных правилах; например, проверка обязательных полей карточки.</li>
+<li>Цена ошибки — последствия неверного результата или действия. Уверенность модели — не разрешение и не мера этих последствий.</li>
+<li><code>read_task_cards</code>, <code>validate_task_card</code>, <code>build_status_report</code>, <code>propose_status_update</code>; последняя только готовит предложение и не меняет файл напрямую.</li>
+</ol>
+<h2 id="glossary">Словарь главы<a class="headerlink" href="#glossary" title="Permanent link">&para;</a></h2>
+<table>
+<thead>
+<tr>
+<th>Термин</th>
+<th>Рабочая формулировка</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Договор задачи (task contract)</strong></td>
+<td>согласованная и записанная до реализации постановка задачи: зачем выполняется работа, какие сведения даны, что должно получиться, что запрещено и как проверить готовность</td>
+</tr>
+<tr>
+<td><strong>Цель</strong></td>
+<td>польза от работы: какое изменение или решение должен поддержать итоговый результат</td>
+</tr>
+<tr>
+<td><strong>Вход</strong></td>
+<td>данные и условия, которые доступны задаче к моменту начала работы</td>
+</tr>
+<tr>
+<td><strong>Результат</strong></td>
+<td>конкретный продукт или набор данных, который должен быть получен после выполнения задачи</td>
+</tr>
+<tr>
+<td><strong>Ограничение</strong></td>
+<td>правило, которое сужает допустимые способы выполнения задачи или запрещает определённые действия</td>
+</tr>
+<tr>
+<td><strong>Критерий готовности</strong></td>
+<td>наблюдаемое условие, по которому команда может проверить, что требуемый результат получен в согласованной форме и не нарушает ограничения задачи</td>
+</tr>
+<tr>
+<td><strong>Неопределённость</strong></td>
+<td>ситуация, в которой имеющихся данных или правил недостаточно, чтобы обоснованно получить один требуемый результат или выбрать один следующий шаг</td>
+</tr>
+<tr>
+<td><strong>Детерминированная операция</strong></td>
+<td>операция, которая при одинаковом входе и одинаковых заранее заданных правилах даёт один и тот же результат</td>
+</tr>
+<tr>
+<td><strong>Цена ошибки</strong></td>
+<td>последствия, которые возникнут, если система примет неверный результат или выполнит неверное действие</td>
+</tr>
+<tr>
+<td><strong>Contract / контракт операции</strong></td>
+<td>согласованное описание назначения, входов, выхода, ограничений и ошибок операции</td>
+</tr>
+</tbody>
+</table>
+<h2 id="bridge">Мост к главе 6<a class="headerlink" href="#bridge" title="Permanent link">&para;</a></h2>
+<p>У нас появились договор проекта и карта четырёх будущих операций. Следующий разрыв уже виден: написать на бумаге <code>read_task_cards()</code> легко, а связать запрос модели с реальным вызовом функции так, чтобы приложение сохранило заданные границы, труднее.</p>
+<p>В следующей главе впервые вместо <code>planner_stub</code> появится ответ модели, подготовленный авторами заранее, — replay, знакомый по показу учителя в главе 2; это авторский сценарий, а не запись живой модели. Тогда можно будет проследить границу между просьбой модели и действием программы: модель <strong>запрашивает</strong> операцию структурированным сообщением, а приложение получает имя операции и переданные для неё данные, прежде чем что-либо запускать. Сам запрос ещё не означает, что действие выполнено.</p>
+<blockquote>
+<p><strong>Следующий вопрос.</strong> Как структурированный запрос модели превращается в вызов обычной функции — и кто на самом деле выполняет этот вызов?</p>
+</blockquote>
+<p>Ответ ты найдёшь в главе 6, «Первый tool».</p>
+
+
+
+
+
+
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+    
+      
+      <nav class="md-footer__inner md-grid" aria-label="Нижний колонтитул" >
+        
+          
+          <a href="../ch04/" class="md-footer__link md-footer__link--prev" aria-label="Назад: Глава 4. Prompt, structured output, tool, MCP и Agent Skill: какие задачи решают разные уровни системы?">
+            <div class="md-footer__button md-icon">
+              
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+            </div>
+            <div class="md-footer__title">
+              <span class="md-footer__direction">
+                Назад
+              </span>
+              <div class="md-ellipsis">
+                Глава 4. Prompt, structured output, tool, MCP и Agent Skill: какие задачи решают разные уровни системы?
+              </div>
+            </div>
+          </a>
+        
+        
+          
+          <a href="../ch06/" class="md-footer__link md-footer__link--next" aria-label="Вперед: Глава 6. Первый tool">
+            <div class="md-footer__title">
+              <span class="md-footer__direction">
+                Вперед
+              </span>
+              <div class="md-ellipsis">
+                Глава 6. Первый tool
+              </div>
+            </div>
+            <div class="md-footer__button md-icon">
+              
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M4 11v2h12l-5.5 5.5 1.42 1.42L19.84 12l-7.92-7.92L10.5 5.5 16 11z"/></svg>
+            </div>
+          </a>
+        
+      </nav>
+    
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+    <div class="md-copyright__highlight">
+      Редакция r0001 · 2026-10-14 · техническая редакция, пилот не проводился
+    </div>
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    
+      
+      
+      <script id="__config" type="application/json">{"annotate": null, "base": "../..", "features": ["content.code.copy", "navigation.sections", "navigation.footer", "search.highlight"], "search": "../../assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "\u0421\u043a\u043e\u043f\u0438\u0440\u043e\u0432\u0430\u043d\u043e \u0432 \u0431\u0443\u0444\u0435\u0440", "clipboard.copy": "\u041a\u043e\u043f\u0438\u0440\u043e\u0432\u0430\u0442\u044c \u0432 \u0431\u0443\u0444\u0435\u0440", "search.result.more.one": "\u0415\u0449\u0451 1 \u043d\u0430 \u044d\u0442\u043e\u0439 \u0441\u0442\u0440\u0430\u043d\u0438\u0446\u0435", "search.result.more.other": "\u0415\u0449\u0451 # \u043d\u0430 \u044d\u0442\u043e\u0439 \u0441\u0442\u0440\u0430\u043d\u0438\u0446\u0435", "search.result.none": "\u0421\u043e\u0432\u043f\u0430\u0434\u0435\u043d\u0438\u0439 \u043d\u0435 \u043d\u0430\u0439\u0434\u0435\u043d\u043e", "search.result.one": "\u041d\u0430\u0439\u0434\u0435\u043d\u043e 1 \u0441\u043e\u0432\u043f\u0430\u0434\u0435\u043d\u0438\u0435", "search.result.other": "\u041d\u0430\u0439\u0434\u0435\u043d\u043e \u0441\u043e\u0432\u043f\u0430\u0434\u0435\u043d\u0438\u0439: #", "search.result.placeholder": "\u041d\u0430\u0447\u043d\u0438\u0442\u0435 \u043f\u0435\u0447\u0430\u0442\u0430\u0442\u044c \u0434\u043b\u044f \u043f\u043e\u0438\u0441\u043a\u0430", "search.result.term.missing": "\u041e\u0442\u0441\u0443\u0442\u0441\u0442\u0432\u0443\u0435\u0442", "select.version": "\u0412\u044b\u0431\u0435\u0440\u0438\u0442\u0435 \u0432\u0435\u0440\u0441\u0438\u044e"}, "version": {"provider": "mike"}}</script>
+    
+    
+      <script src="../../assets/javascripts/bundle.79ae519e.min.js"></script>
+      
+    
+  </body>
+</html>

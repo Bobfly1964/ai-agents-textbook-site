@@ -1,0 +1,2867 @@
+
+<!doctype html>
+<html lang="ru" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+        <meta name="description" content="Учебник для 9–10 классов">
+      
+      
+      
+        <link rel="canonical" href="https://book.stemschool.online/r0001/student/ch06/">
+      
+      
+        <link rel="prev" href="../ch05/">
+      
+      
+        <link rel="next" href="../ch07/">
+      
+      
+        
+      
+      
+      <link rel="icon" href="../../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.6">
+    
+    
+      
+        <title>Глава 6. Первый tool - ИИ-агенты и Agent Skills</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../assets/stylesheets/main.484c7ddc.min.css">
+      
+        
+        <link rel="stylesheet" href="../../assets/stylesheets/palette.ab4e12ef.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+    <script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+  </head>
+  
+  
+    
+    
+      
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="indigo">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#глава-6-первый-tool" class="md-skip">
+          Перейти к содержанию
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+        <aside class="md-banner">
+          <div class="md-banner__inner md-grid md-typeset">
+            
+            
+  
+    <strong>Техническая редакция: пилот не проводился</strong> · редакция r0001
+  
+
+          </div>
+          
+        </aside>
+      
+    </div>
+    
+      <div data-md-color-scheme="default" data-md-component="outdated" hidden>
+        
+      </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Верхний колонтитул">
+    <a href="../.." title="ИИ-агенты и Agent Skills" class="md-header__button md-logo" aria-label="ИИ-агенты и Agent Skills" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            ИИ-агенты и Agent Skills
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Глава 6. Первый tool
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+        <form class="md-header__option" data-md-component="palette">
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="indigo"  aria-hidden="true"  type="radio" name="__palette" id="__palette_0">
+    
+  
+</form>
+      
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+      
+      
+        <label class="md-header__button md-icon" for="__search">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        </label>
+        <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Поиск" placeholder="Поиск" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Поиск">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Очистить" aria-label="Очистить" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Инициализация поиска
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+      
+    
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+
+<nav class="md-nav md-nav--primary" aria-label="Навигация" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../.." title="ИИ-агенты и Agent Skills" class="md-nav__button md-logo" aria-label="ИИ-агенты и Agent Skills" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    ИИ-агенты и Agent Skills
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../.." class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Главная
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    
+    
+    
+    
+      
+        
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2" checked>
+        
+          
+          <label class="md-nav__link" for="__nav_2" id="__nav_2_label" tabindex="">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Ученик
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_2">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Ученик
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../intro/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Введение
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../tour/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Экскурсия по AI: что есть что
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../ch01/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Глава 1. Модель, приложение и агент: кто отвечает, а кто действует?
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../ch02/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Глава 2. Агентный цикл: как результат действия меняет следующий шаг?
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../ch03/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Глава 3. Agent harness: что работает вокруг модели?
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../ch04/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Глава 4. Prompt, structured output, tool, MCP и Agent Skill: какие задачи решают разные уровни системы?
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../ch05/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Глава 5. Договор задачи: что нужно определить до реализации?
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Глава 6. Первый tool
+  
+
+    
+  </span>
+  
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Глава 6. Первый tool
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Содержание">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Содержание
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#scene" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        С чего всё началось
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#goals" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        После главы ты сможешь
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#lesson-11" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Урок 11. Как модель запрашивает tool
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Урок 11. Как модель запрашивает tool">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#1-от-договора-задачи-к-одному-вызову" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1. От договора задачи к одному вызову
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#2-сначала-посмотрим-только-на-запрос" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2. Сначала посмотрим только на запрос
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#3-как-устроен-запрос-модели" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3. Как устроен запрос модели
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#4-arguments-данные-одного-вызова" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        4. Arguments: данные одного вызова
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#5-кто-действительно-выполняет-действие" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        5. Кто действительно выполняет действие
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#6-практика-a-четыре-роли-и-одна-заявка" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        6. Практика A: четыре роли и одна заявка
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#7-практика-b-один-и-тот-же-запрос--два-разных-наблюдения" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        7. Практика B: один и тот же запрос — два разных наблюдения
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#8-мини-проверка-урока-11" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        8. Мини-проверка урока 11
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="8. Мини-проверка урока 11">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#ответы" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Ответы
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#выходной-билет-урока-11" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Выходной билет урока 11
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#lesson-12" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Урок 12. Параметры как договор
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Урок 12. Параметры как договор">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#1-почти-одинаковые-имена--разные-данные" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1. Почти одинаковые имена — разные данные
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#2-что-именно-проверяет-json-schema" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2. Что именно проверяет JSON Schema
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#3-schema-для-read_task_cards" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3. Schema для read_task_cards()
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#4-schema-для-validate_task_cardtask_id" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        4. Schema для validate_task_card(task_id)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#5-schema-самой-карточки-задачи" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        5. Schema самой карточки задачи
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#6-практика-a-собери-schema-из-карточек-полей" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        6. Практика A: собери schema из карточек полей
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#7-практика-b-сначала-проверяем-потом-выполняем" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        7. Практика B: сначала проверяем, потом выполняем
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#8-обязательные-проверки-должен--не-должен--ошибка--граница" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        8. Обязательные проверки: должен / не должен / ошибка / граница
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="8. Обязательные проверки: должен / не должен / ошибка / граница">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#должен" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Должен
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#не-должен" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Не должен
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#ошибка" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Ошибка
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#граница" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Граница
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#9-врезка-безопасности-правильная-форма-не-равна-разрешению" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        9. Врезка безопасности: правильная форма не равна разрешению
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#10-мини-проверка-урока-12" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        10. Мини-проверка урока 12
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="10. Мини-проверка урока 12">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#ответы_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Ответы
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#выходной-билет-урока-12" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Выходной билет урока 12
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#домашняя-работа" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Домашняя работа
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#полная-карта-первого-tool" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Полная карта первого tool
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#return" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Возвращаемся к сцене
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#why" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Зачем это тебе
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#dezhurny" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Шаг сквозного проекта
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Шаг сквозного проекта">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#достраиваем-дежурного" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Достраиваем «Дежурного»
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#check" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Проверь себя
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Проверь себя">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#ответы_2" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Ответы
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#glossary" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Словарь главы
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#bridge" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Мост к главе 7
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../ch07/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Глава 7. Диспетчер и ошибки
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../ch08/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Глава 8. Хороший tool
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../ch09/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Глава 9. Первый Agent Skill
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../ch10/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Глава 10. Состояние и память
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../ch11/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Глава 11. Тесты и evals: как доказать качество не одним удачным запуском?
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../ch12/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Глава 12. Traces: как понять, что происходило на самом деле?
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../ch13/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Глава 13. Обратная связь и версии: когда исправление должно менять процедуру?
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../ch14/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Глава 14. Permissions и участие человека
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../ch15/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Глава 15. Prompt injection и недоверенные подключения: что делать с данными и кодом, которым нельзя автоматически доверять?
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../ch16/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Глава 16. Долгая и совместная работа
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../ch17/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Глава 17. Итоговый проект: может ли команда доказать качество и ограниченность системы?
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../app-a/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Приложение А. Урок 0. Готовность рабочего места
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../app-b/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Приложение Б. Словарь курса
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../app-c/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Приложение В. Список фигур
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+        
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3" >
+        
+          
+          <label class="md-nav__link" for="__nav_3" id="__nav_3_label" tabindex="">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Учитель
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Учитель
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../teacher/teacher-guide/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Методическое руководство для учителя
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../teacher/lesson-map/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Поурочная карта
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../routes/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Маршруты A/B
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../files/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Файлы практикума
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../about/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    О редакции
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Содержание">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Содержание
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#scene" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        С чего всё началось
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#goals" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        После главы ты сможешь
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#lesson-11" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Урок 11. Как модель запрашивает tool
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Урок 11. Как модель запрашивает tool">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#1-от-договора-задачи-к-одному-вызову" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1. От договора задачи к одному вызову
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#2-сначала-посмотрим-только-на-запрос" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2. Сначала посмотрим только на запрос
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#3-как-устроен-запрос-модели" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3. Как устроен запрос модели
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#4-arguments-данные-одного-вызова" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        4. Arguments: данные одного вызова
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#5-кто-действительно-выполняет-действие" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        5. Кто действительно выполняет действие
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#6-практика-a-четыре-роли-и-одна-заявка" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        6. Практика A: четыре роли и одна заявка
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#7-практика-b-один-и-тот-же-запрос--два-разных-наблюдения" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        7. Практика B: один и тот же запрос — два разных наблюдения
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#8-мини-проверка-урока-11" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        8. Мини-проверка урока 11
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="8. Мини-проверка урока 11">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#ответы" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Ответы
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#выходной-билет-урока-11" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Выходной билет урока 11
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#lesson-12" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Урок 12. Параметры как договор
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Урок 12. Параметры как договор">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#1-почти-одинаковые-имена--разные-данные" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1. Почти одинаковые имена — разные данные
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#2-что-именно-проверяет-json-schema" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2. Что именно проверяет JSON Schema
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#3-schema-для-read_task_cards" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3. Schema для read_task_cards()
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#4-schema-для-validate_task_cardtask_id" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        4. Schema для validate_task_card(task_id)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#5-schema-самой-карточки-задачи" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        5. Schema самой карточки задачи
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#6-практика-a-собери-schema-из-карточек-полей" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        6. Практика A: собери schema из карточек полей
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#7-практика-b-сначала-проверяем-потом-выполняем" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        7. Практика B: сначала проверяем, потом выполняем
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#8-обязательные-проверки-должен--не-должен--ошибка--граница" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        8. Обязательные проверки: должен / не должен / ошибка / граница
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="8. Обязательные проверки: должен / не должен / ошибка / граница">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#должен" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Должен
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#не-должен" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Не должен
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#ошибка" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Ошибка
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#граница" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Граница
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#9-врезка-безопасности-правильная-форма-не-равна-разрешению" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        9. Врезка безопасности: правильная форма не равна разрешению
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#10-мини-проверка-урока-12" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        10. Мини-проверка урока 12
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="10. Мини-проверка урока 12">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#ответы_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Ответы
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#выходной-билет-урока-12" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Выходной билет урока 12
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#домашняя-работа" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Домашняя работа
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#полная-карта-первого-tool" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Полная карта первого tool
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#return" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Возвращаемся к сцене
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#why" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Зачем это тебе
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#dezhurny" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Шаг сквозного проекта
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Шаг сквозного проекта">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#достраиваем-дежурного" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Достраиваем «Дежурного»
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#check" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Проверь себя
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Проверь себя">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#ответы_2" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Ответы
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#glossary" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Словарь главы
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#bridge" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Мост к главе 7
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+
+<h1 id="глава-6-первый-tool">Глава 6. Первый tool<a class="headerlink" href="#глава-6-первый-tool" title="Permanent link">&para;</a></h1>
+<h2 id="scene">С чего всё началось<a class="headerlink" href="#scene" title="Permanent link">&para;</a></h2>
+<p>До Фестиваля науки остаётся всё меньше времени. На доске проектного бюро уже видно, зачем команде нужна программа-помощник «Дежурный». В прошлой главе ты вместе с командой договорился: «Дежурный» должен читать локальные карточки задач, проверять их и собирать черновик сводки. Изменения программа должна только предлагать, но не применять самостоятельно. Теперь Аня открывает новый учебный экран. Вместо знакомого <code>planner_stub</code> на экране впервые показан ответ модели по авторскому сценарию — replay.</p>
+<p>На экране появляется одна короткая запись:</p>
+<div class="highlight"><pre><span></span><code><span class="p">{</span><span class="nt">&quot;id&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;call-1&quot;</span><span class="p">,</span><span class="w"> </span><span class="nt">&quot;name&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;read_task_cards&quot;</span><span class="p">,</span><span class="w"> </span><span class="nt">&quot;arguments&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{}}</span>
+</code></pre></div>
+<p>Авторы курса подготовили показанный ответ заранее, чтобы весь класс разбирал одинаковые данные. Запись не получена от живой модели. Марк видит <code>read_task_cards</code> и сразу говорит:</p>
+<p>— Ну вот. Карточки прочитаны.</p>
+<p>Но на соседнем экране пока нет ни прочитанных карточек, ни результата операции. Видно только структурированное сообщение: имя операции и пустые фигурные скобки после <code>arguments</code>. Имя операции уже появилось, а результат чтения ещё не появился.</p>
+<blockquote>
+<p><strong>Вопрос-Прогноз.</strong> Модель вернула <code>{"name": "read_task_cards", "arguments": {}}</code>. Выполнено ли действие? Если нет, какие шаги должны произойти между этим сообщением и настоящим результатом чтения карточек?</p>
+</blockquote>
+<p><em>Нарисуй свою цепочку из трёх–шести блоков. Не пытайся сразу угадать все названия: отметь хотя бы, кто что делает. В конце главы ты вернёшься к своей схеме и проверишь переходы.</em></p>
+<blockquote>
+<p><strong>Главный вопрос главы.</strong> Как структурированный запрос превращается в вызов функции?</p>
+</blockquote>
+<p><img alt="Фигура 15. Запрос уже есть — действия ещё нет" src="../../figures/15_zapros-uzhe-est-deystviya-eshche-net.png" /></p>
+<p><em>Фигура 15. Запрос уже есть — действия ещё нет</em></p>
+<h2 id="goals">После главы ты сможешь<a class="headerlink" href="#goals" title="Permanent link">&para;</a></h2>
+<ul>
+<li>объяснять разницу между структурированным запросом и фактическим вызовом функции;</li>
+<li>находить в запросе поля <code>name</code> и <code>arguments</code> и сопоставлять их с операцией;</li>
+<li>объяснять, почему имя операции в сообщении само по себе не доказывает выполнение действия;</li>
+<li>читать простые формальные описания структуры данных и находить обязательные поля и допустимые значения;</li>
+<li>объяснять, почему <code>Tools.read_task_cards()</code> получает пустые <code>arguments</code> и не принимает путь от модели;</li>
+<li>проверять корректный, неполный и граничный структурированный объект до выполнения операции;</li>
+<li>проходить по цепочке первого tool и на каждом переходе называть исполнителя.</li>
+</ul>
+<hr />
+<h2 id="lesson-11">Урок 11. Как модель запрашивает tool<a class="headerlink" href="#lesson-11" title="Permanent link">&para;</a></h2>
+<h3 id="1-от-договора-задачи-к-одному-вызову">1. От договора задачи к одному вызову<a class="headerlink" href="#1-от-договора-задачи-к-одному-вызову" title="Permanent link">&para;</a></h3>
+<p>В главе 5 ты вместе с командой остановился до реализации. Технический паспорт проекта уже составлен; в паспорте определены назначения четырёх операций:</p>
+<ol>
+<li><code>Tools.read_task_cards()</code>;</li>
+<li><code>Tools.validate_task_card(task_id)</code>;</li>
+<li><code>Tools.build_status_report()</code>;</li>
+<li><code>Tools.propose_status_update(task_id, new_status, reason)</code>.</li>
+</ol>
+<p>Заново обсуждать договор задачи сейчас не нужно.</p>
+<p>Как модель может попросить приложение воспользоваться одной из согласованных операций? Начнём с <code>read_task_cards()</code>: по договору главы 5 эта операция не принимает от модели путь к папке. Место хранения карточек задаёт само приложение.</p>
+<p>В первых главах действие выбирал подготовленный <code>planner_stub</code>. Теперь вместо выбора заглушки мы впервые используем структурированный ответ, оформленный как <strong><em>replay</em></strong> («воспроизведение»). В знакомом по главе 1 starter, папке учебного комплекта, replay содержит авторский сценарий с явно указанным происхождением. Ни живая модель, ни запись работы модели в этой демонстрации не используются. Весь класс получает одинаковый вход и поэтому может сравнить наблюдения.</p>
+<h3 id="2-сначала-посмотрим-только-на-запрос">2. Сначала посмотрим только на запрос<a class="headerlink" href="#2-сначала-посмотрим-только-на-запрос" title="Permanent link">&para;</a></h3>
+<p>В записи из вводной сцены поле <code>name</code> содержит <code>read_task_cards</code>, а поле <code>arguments</code> содержит пустой объект <code>{}</code>. Можно ли по имени операции решить, что функция уже сработала? Нет: запись сообщает, что просят выполнить, но ещё не показывает, что выполнили. Пока функцию запускать не будем.</p>
+<p>Чтобы не путать просьбу с действием, дадим название механизму, с помощью которого модель передаёт такую просьбу приложению.</p>
+<p><strong>Function calling / tool calling — механизм, при котором модель формирует структурированный запрос на использование доступной операции.</strong></p>
+<p>При <strong><em>function calling / tool calling</em></strong> («вызове функции / инструмента») модель сама не открывает файл и не запускает обычную функцию программы. Модель формирует данные: какую операцию просит использовать и что предлагает передать при вызове. Получив запрос, приложение решает, как поступить в пределах заданных ограничений.</p>
+<p>Название <code>tool calling</code> может сбить с толку: речь идёт не о самой функции Python и не о событии «действие выполнено». Механизм описывает, как модель формирует структурированный запрос. Фактически операцию выполняет приложение или его runtime, среда выполнения из главы 3.</p>
+<blockquote>
+<p><strong>Проверь себя на ходу.</strong> На экране есть <code>name: read_task_cards</code>, но результата выполнения ещё нет. Какой факт уже доказан, а какой ещё нет?</p>
+</blockquote>
+<h3 id="3-как-устроен-запрос-модели">3. Как устроен запрос модели<a class="headerlink" href="#3-как-устроен-запрос-модели" title="Permanent link">&para;</a></h3>
+<p>Просьбу модели приложение должно прочитать без догадок. Поэтому в объекте запроса сведения распределены по трём полям:</p>
+<ol>
+<li><code>id</code> помогает отличить один запрос от другого.</li>
+<li><code>name</code> содержит имя запрошенной операции.</li>
+<li><code>arguments</code> хранит данные конкретного вызова.</li>
+</ol>
+<p><strong>Tool call — структурированное описание запрошенного вызова: имя операции и аргументы.</strong></p>
+<p><strong><em>Tool call</em></strong> («запрос вызова инструмента») можно сравнить с заявкой в мастерскую: в заявке написано, какую работу просят выполнить и с какими данными. Но заявка не доказывает, что мастер уже взял инструмент и сделал работу. На этом сходство заканчивается. В программе tool call содержит структурированные данные, а не бумажный документ; разрешает и выполняет действие приложение.</p>
+<p>В нашем первом примере приложение читает имя операции из <code>name</code>, а из <code>arguments</code> получает данные вызова. Слово <code>name</code> означает «имя» и здесь служит названием поля объекта.</p>
+<h3 id="4-arguments-данные-одного-вызова">4. Arguments: данные одного вызова<a class="headerlink" href="#4-arguments-данные-одного-вызова" title="Permanent link">&para;</a></h3>
+<p>Вернёмся к данным запроса <code>read_task_cards()</code>. В сцене напечатано:</p>
+<div class="highlight"><pre><span></span><code><span class="nt">&quot;arguments&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{}</span>
+</code></pre></div>
+<p>На первый взгляд пустые скобки можно принять за пропуск: не забыли ли указать путь? Нет, по договору операции модель вообще не передаёт данных для этого вызова. Пустой объект <code>{}</code> как раз соответствует договору.</p>
+<p><strong>Arguments / аргументы — данные, которые передаются tool при конкретном вызове.</strong></p>
+<p><strong><em>Arguments</em></strong> («аргументы») содержат только значения для одной операции при конкретном вызове. У <code>validate_task_card(task_id)</code> таким значением будет <code>task_id</code>. У <code>read_task_cards()</code> arguments пусты.</p>
+<p>Не смешивай arguments со входом всей задачи из главы 5 или с активным контекстом модели из главы 3. Вход проекта может включать много карточек и правила работы, а контекст может содержать историю и другие данные. В arguments попадают лишь данные конкретного tool call.</p>
+<p>Допустим, бюро обсуждает несколько карточек, но сейчас просит проверить только одну. В arguments <code>validate_task_card(task_id)</code> передают <code>task_id</code> выбранной карточки, а не весь разговор бюро. Пример показывает разницу между сведениями, доступными модели, и данными одного вызова.</p>
+<h3 id="5-кто-действительно-выполняет-действие">5. Кто действительно выполняет действие<a class="headerlink" href="#5-кто-действительно-выполняет-действие" title="Permanent link">&para;</a></h3>
+<p>Что появится у приложения, когда операция действительно завершится? Приложение получит результат выполненной операции. Такой результат уже отличается от просьбы модели: действие произошло, и после выполнения вернулись данные.</p>
+<p><strong>Tool result — результат фактического выполнения tool, возвращённый в агентную систему.</strong></p>
+<p><strong><em>Tool result</em></strong> («результат инструмента») содержит данные, которые вернулись после фактического выполнения операции. Дальше agent loop, агентный цикл, может использовать tool result как часть observation, наблюдения, и выбирать следующий шаг. При этом tool result и observation не обязаны быть одним и тем же объектом.</p>
+<p>Результат одного действия ещё не означает, что весь проект завершён. Отсутствие ошибки в одном tool ещё не доказывает <code>success</code>, то есть успешное завершение всей задачи.</p>
+<p>Сопоставим запрос, вызов и результат на одной схеме. У каждого перехода есть исполнитель:</p>
+<div class="highlight"><pre><span></span><code>ответ модели по авторскому сценарию (replay)
+                 ↓
+             tool call
+          name + arguments
+                 ↓
+        приложение проверяет
+      arguments по заранее заданным правилам
+                 ↓
+        в корректном учебном сценарии
+        приложение вызывает функцию
+                 ↓
+              tool
+                 ↓
+            tool result
+                 ↓
+  дальше может стать observation
+</code></pre></div>
+<p>Первая стрелка начинается с подготовленного ответа модели: в replay уже содержится структурированный запрос. Приложение получает <code>name</code> и <code>arguments</code>, но ещё не вызывает функцию. Сначала приложение проверяет arguments. Если проверка проходит и остальные ограничения приложения позволяют продолжить, приложение вызывает заранее предусмотренную функцию.</p>
+<p>В подписях <code>request</code> означает «запрос», а <code>trust</code> означает служебную отметку доверия, знакомую по главе 4.</p>
+<p><em>На полях схемы запиши три границы:</em></p>
+<div class="highlight"><pre><span></span><code>tool call ≠ выполненное действие
+request ≠ permission
+проверка формы ≠ trust
+</code></pre></div>
+<p>Слово <code>permission</code> означает «разрешение» и уже знакомо по главе 3. Запрос модели не создаёт права на действие, а проверка данных не заменяет разрешения. К полному механизму разрешения нескольких операций мы перейдём дальше.</p>
+<p><img alt="Фигура 16. Цепочка tool calling" src="../../figures/16_tsepochka-tool-calling.svg" /></p>
+<p><em>Фигура 16. Цепочка tool calling</em></p>
+<h3 id="6-практика-a-четыре-роли-и-одна-заявка">6. Практика A: четыре роли и одна заявка<a class="headerlink" href="#6-практика-a-четыре-роли-и-одна-заявка" title="Permanent link">&para;</a></h3>
+<p>Работайте в группе из четырёх человек. Распределите роли:</p>
+<ol>
+<li>Участник-модель получает бумажную карточку tool call.</li>
+<li>Участник-приложение принимает запрос.</li>
+<li>Участник-tool выполняет операцию <code>read_task_cards</code>.</li>
+<li>Наблюдатель записывает, что действительно произошло.</li>
+</ol>
+<p>Участник-модель передаёт участнику-приложению карточку:</p>
+<div class="highlight"><pre><span></span><code><span class="p">{</span><span class="nt">&quot;id&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;call-1&quot;</span><span class="p">,</span><span class="w"> </span><span class="nt">&quot;name&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;read_task_cards&quot;</span><span class="p">,</span><span class="w"> </span><span class="nt">&quot;arguments&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{}}</span>
+</code></pre></div>
+<p>После передачи карточки выполните следующие шаги:</p>
+<ol>
+<li>Остановитесь. Наблюдатель записывает: «запрос получен, действие ещё не выполнено».</li>
+<li>Участник-приложение передаёт сигнал участнику-tool. Передать сигнал может только участник-приложение.</li>
+<li>Участник-tool читает заранее подготовленные бумажные карточки и возвращает число найденных записей.</li>
+<li>Наблюдатель отдельно фиксирует: «получен результат выполнения».</li>
+</ol>
+<p>Поменяйтесь ролями и повторите цепочку. Если кто-то перешёл от карточки tool call сразу к результату, вернитесь на один шаг назад и назовите исполнителя пропущенного действия.</p>
+<p><strong>Результат практики A:</strong> схема цепочки с подписью исполнителя каждого перехода и отдельной отметкой точки, где tool call уже есть, а действие ещё не выполнено.</p>
+<h3 id="7-практика-b-один-и-тот-же-запрос--два-разных-наблюдения">7. Практика B: один и тот же запрос — два разных наблюдения<a class="headerlink" href="#7-практика-b-один-и-тот-же-запрос--два-разных-наблюдения" title="Permanent link">&para;</a></h3>
+<p>Теперь различие между запросом и выполнением можно увидеть в программе. В starter есть локальная демонстрация <code>tool_call_demo.py</code>. Программа не обращается к сети и не выдаёт авторский сценарий за работу живой модели. В выводе строка <code>mode</code> сообщает выбранный режим, а <code>origin</code> сообщает происхождение replay. Значение <code>synthetic_script</code> означает подготовленный учебный сценарий.</p>
+<p>Как и в главе 1, выполняй команды ниже из корня starter, то есть из самой папки учебного комплекта.</p>
+<p>Под каждой командой приведён <strong><em>stdout</em></strong>, стандартный вывод: текст, который программа печатает в терминал, знакомое по главе 1 окно запуска. В служебной строке <code>execution</code> значение <code>not performed</code> означает «не выполнено», а <code>performed by application</code> означает «выполнено приложением».</p>
+<p>Сначала запусти режим, который показывает запрос без выполнения. Перед запуском предскажи, появится ли строка <code>tool result</code>.</p>
+<div class="highlight"><pre><span></span><code><span class="c1"># запуск из корня starter</span>
+python<span class="w"> </span>tool_call_demo.py<span class="w"> </span>show
+</code></pre></div>
+<div class="highlight"><pre><span></span><code>mode: replay
+origin: synthetic_script — авторский сценарий, не запись модели
+tool call: {&quot;id&quot;: &quot;call-1&quot;, &quot;name&quot;: &quot;read_task_cards&quot;, &quot;arguments&quot;: {}}
+execution: not performed
+</code></pre></div>
+<p>В строке <code>execution</code> напечатано <code>not performed</code>: программа показала tool call, но функцию не вызывала. Утверждение Марка «Карточки прочитаны» пока не подтверждается. На экране есть запрос, а выполнения нет.</p>
+<p>Во втором режиме перед вызовом функции появится ещё одна строка: программа сообщит результат проверки данных запроса. Формат JSON уже знаком по главе 1. Однако корректной записи в формате JSON недостаточно: для конкретного вызова нужно ещё описать допустимую структуру и значения.</p>
+<p><strong>JSON Schema — способ формально описать ожидаемую структуру JSON-данных и допустимые значения.</strong></p>
+<p><strong><em>JSON Schema</em></strong> («схема JSON») задаёт правила, по которым программа проверяет форму данных: разрешённые и обязательные поля, а также допустимые значения. В уроке 12 ты разберёшь правила по частям.</p>
+<p>Успешная проверка формы не доказывает правдивость данных, не назначает доверие и не выдаёт permission на выполнение.</p>
+<p>Слово <code>valid</code> в строке проверки означает, что объект соответствует описанной форме.</p>
+<p>Запусти режим, в котором приложение обрабатывает корректный запрос и выполняет операцию. Replay-вход останется прежним: запрос <code>read_task_cards</code> с пустыми <code>arguments</code>. До запуска спрогнозируй, какая новая строка появится после проверки arguments.</p>
+<div class="highlight"><pre><span></span><code><span class="c1"># запуск из корня starter</span>
+python<span class="w"> </span>tool_call_demo.py<span class="w"> </span>execute
+</code></pre></div>
+<div class="highlight"><pre><span></span><code>mode: replay
+origin: synthetic_script — авторский сценарий, не запись модели
+tool call: {&quot;id&quot;: &quot;call-1&quot;, &quot;name&quot;: &quot;read_task_cards&quot;, &quot;arguments&quot;: {}}
+JSON Schema: valid
+execution: performed by application
+tool result: {&quot;ok&quot;: true, &quot;count&quot;: 3, &quot;trust&quot;: &quot;untrusted&quot;, &quot;assigned_by&quot;: &quot;harness&quot;}
+</code></pre></div>
+<p>Сравни stdout двух запусков. В выводе <code>show</code> есть запрос и строка <code>execution: not performed</code>. В выводе <code>execute</code> после проверки появляется <code>execution: performed by application</code>, а затем tool result.</p>
+<p>Поле <code>count</code> сообщает число прочитанных карточек: в приведённом выводе <code>execute</code> прочитаны три карточки. В выводе <code>show</code> результата чтения вообще нет. Значение <code>untrusted</code> означает «недоверенные данные». Поля <code>trust: untrusted</code> и <code>assigned_by: harness</code> напоминают прежнее правило: доверие назначает среда приложения, а не сама карточка.</p>
+<p>Что доказывают два запуска? В этой локальной демонстрации показ tool call отделён от выполнения операции, а происхождение replay объявлено прямо. Как повела бы себя живая модель, по авторскому сценарию судить нельзя.</p>
+<p><strong>Результат практики B:</strong> два сохранённых наблюдения <code>show</code> и <code>execute</code> и короткое объяснение, по какой строке видно, что действие действительно произошло только во втором запуске.</p>
+<h3 id="8-мини-проверка-урока-11">8. Мини-проверка урока 11<a class="headerlink" href="#8-мини-проверка-урока-11" title="Permanent link">&para;</a></h3>
+<ol>
+<li>Кто формирует tool call в механизме tool calling?</li>
+<li>Кто фактически вызывает обычную функцию программы в нашей архитектуре?</li>
+<li>Что находится в <code>arguments</code> у <code>read_task_cards()</code>?</li>
+<li>Чем tool call отличается от tool result?</li>
+<li>Доказывает ли <code>origin: synthetic_script</code>, что это запись живой модели?</li>
+</ol>
+<h4 id="ответы">Ответы<a class="headerlink" href="#ответы" title="Permanent link">&para;</a></h4>
+<ol>
+<li>Модель формирует структурированный запрос; в обязательной практике главы это ответ по авторскому сценарию replay.</li>
+<li>Функцию вызывает приложение, а не модель.</li>
+<li>Пустой объект <code>{}</code>, потому что путь и другая конфигурация этой операции не приходят от модели.</li>
+<li>Tool call описывает запрошенный вызов, tool result появляется после фактического выполнения операции.</li>
+<li>Нет. Наоборот, строка прямо сообщает об авторском сценарии, а не о записи живой модели.</li>
+</ol>
+<h3 id="выходной-билет-урока-11">Выходной билет урока 11<a class="headerlink" href="#выходной-билет-урока-11" title="Permanent link">&para;</a></h3>
+<p>Закончи три строки без подглядывания:</p>
+<div class="highlight"><pre><span></span><code>tool calling — это …
+tool call — это …
+tool result появляется после …
+</code></pre></div>
+<p>Ниже подпиши центральную границу:</p>
+<div class="highlight"><pre><span></span><code>tool call ≠ выполненное действие
+</code></pre></div>
+<p>Если вместо знака неравенства хочется поставить знак равенства, вернись к двум запускам <code>show</code> и <code>execute</code>. Найди строку, по которой различается состояние выполнения.</p>
+<hr />
+<h2 id="lesson-12">Урок 12. Параметры как договор<a class="headerlink" href="#lesson-12" title="Permanent link">&para;</a></h2>
+<h3 id="1-почти-одинаковые-имена--разные-данные">1. Почти одинаковые имена — разные данные<a class="headerlink" href="#1-почти-одинаковые-имена--разные-данные" title="Permanent link">&para;</a></h3>
+<p>На следующий день Марк готовит tool call для проверки одной карточки. В карточке номер записан в поле <code>id</code>, и Марк переносит знакомое имя в запрос:</p>
+<div class="highlight"><pre><span></span><code><span class="p">{</span>
+<span class="w">  </span><span class="nt">&quot;id&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;call-bad&quot;</span><span class="p">,</span>
+<span class="w">  </span><span class="nt">&quot;name&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;validate_task_card&quot;</span><span class="p">,</span>
+<span class="w">  </span><span class="nt">&quot;arguments&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="nt">&quot;id&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;task-003&quot;</span>
+<span class="w">  </span><span class="p">}</span>
+<span class="p">}</span>
+</code></pre></div>
+<p>По записи можно понять, какую карточку Марк хочет проверить. Возникает естественная догадка: раз смысл ясен, приложение могло бы заменить <code>id</code> на нужное имя. Но договор операции из главы 5 уже задаёт точное имя параметра: <code>Tools.validate_task_card(task_id)</code>. Функция ожидает <code>task_id</code>, а не <code>id</code>. Если приложение начнёт молча переименовывать любые похожие поля, проверяемый договор будет заменён догадкой.</p>
+<p>Итак, синтаксически правильной записи JSON, формата данных из главы 1, недостаточно. Нужны ещё правила: какую структуру arguments приложение ожидает и какие значения принимает.</p>
+<h3 id="2-что-именно-проверяет-json-schema">2. Что именно проверяет JSON Schema<a class="headerlink" href="#2-что-именно-проверяет-json-schema" title="Permanent link">&para;</a></h3>
+<p>Почему JSON с полем <code>id</code> не подошёл, хотя запись читается без труда? Формат задаёт способ записи, а схема задаёт требования к конкретным данным. В главе 1 ты уже видел карточки проекта в формате JSON. Теперь в формате JSON записаны и запросы операции, и схемы для проверки. JSON Schema из конца урока 11 позволяет сравнить запрос с заранее описанными требованиями.</p>
+<p>В starter используется учебное подмножество JSON Schema: не весь стандарт, а только возможности, которые поддерживает учебная проверка.</p>
+<p>Читай ключи схемы как отдельные правила:</p>
+<ol>
+<li><code>type</code> задаёт вид значения. В приведённых схемах используются:</li>
+<li><code>object</code> — объект с именованными полями;</li>
+<li><code>string</code> — текстовая строка;</li>
+<li><code>array</code> — список значений.</li>
+<li><code>properties</code> перечисляет поля объекта и описывает требования к их значениям.</li>
+<li><code>required</code> называет поля, без которых объект не принимается.</li>
+<li><code>enum</code> разрешает только одно из перечисленных значений.</li>
+<li><code>additionalProperties: false</code> запрещает дополнительные поля, не описанные в схеме.</li>
+<li><code>minLength</code> задаёт минимальную длину строки.</li>
+<li><code>items</code> описывает требования к элементам списка.</li>
+</ol>
+<p>В наших схемах <code>properties</code> нужно читать вместе с <code>additionalProperties: false</code>: одно правило описывает поля, другое запрещает добавлять остальные.</p>
+<blockquote>
+<p><strong>Проверь себя на ходу.</strong> Schema разрешает <code>task_id</code>, но в tool call пришло поле <code>id</code>. Может ли приложение молча переименовать его «потому что смысл понятен»? Почему?</p>
+</blockquote>
+<h3 id="3-schema-для-read_task_cards">3. Schema для <code>read_task_cards()</code><a class="headerlink" href="#3-schema-для-read_task_cards" title="Permanent link">&para;</a></h3>
+<p>Какая схема подойдёт операции, которой модель не передаёт никаких аргументов? Посмотрим на <code>read_task_cards()</code>. Запусти команду, которая печатает фрагмент единственного файла схем starter — <code>data/tool_schemas.json</code>.</p>
+<div class="highlight"><pre><span></span><code><span class="c1"># запуск из корня starter</span>
+python<span class="w"> </span>tool_call_demo.py<span class="w"> </span>schema<span class="w"> </span>read_task_cards
+</code></pre></div>
+<div class="highlight"><pre><span></span><code>schema: read_task_cards
+{
+  &quot;type&quot;: &quot;object&quot;,
+  &quot;properties&quot;: {},
+  &quot;required&quot;: [],
+  &quot;additionalProperties&quot;: false
+}
+</code></pre></div>
+<p>Схема требует объект, но <code>properties</code> не описывает ни одного поля. Список <code>required</code> тоже пуст, а <code>additionalProperties: false</code> запрещает добавлять поля. Поэтому пустой объект <code>{}</code> проходит проверку. Объект <code>{"path": "workspace/tasks"}</code> уже не проходит: поле <code>path</code> не разрешено.</p>
+<p>Проверка технически закрепляет решение из главы 5: расположение карточек задаётся конфигурацией приложения. Модель может напечатать путь, но такая запись не расширяет возможности операции.</p>
+<h3 id="4-schema-для-validate_task_cardtask_id">4. Schema для <code>validate_task_card(task_id)</code><a class="headerlink" href="#4-schema-для-validate_task_cardtask_id" title="Permanent link">&para;</a></h3>
+<p>Для проверки одной карточки пустого объекта уже недостаточно: операции нужен <code>task_id</code>. Запусти команду и посмотри, как требование записано в схеме.</p>
+<div class="highlight"><pre><span></span><code><span class="c1"># запуск из корня starter</span>
+python<span class="w"> </span>tool_call_demo.py<span class="w"> </span>schema<span class="w"> </span>validate_task_card
+</code></pre></div>
+<div class="highlight"><pre><span></span><code>schema: validate_task_card
+{
+  &quot;type&quot;: &quot;object&quot;,
+  &quot;properties&quot;: {
+    &quot;task_id&quot;: {
+      &quot;type&quot;: &quot;string&quot;,
+      &quot;minLength&quot;: 1
+    }
+  },
+  &quot;required&quot;: [
+    &quot;task_id&quot;
+  ],
+  &quot;additionalProperties&quot;: false
+}
+</code></pre></div>
+<p>Сопоставим <code>Tools.validate_task_card(task_id)</code> со схемой. Запись имени функции и её параметров называют <strong><em>сигнатурой</em></strong>. В сигнатуре указан <code>task_id</code>, и схема требует именно поле <code>task_id</code>. Значение должно быть строкой; правило <code>minLength: 1</code> не допускает пустой строки.</p>
+<p>Поле <code>id</code> из примера Марка не заменяет <code>task_id</code>, даже если человек понимает намерение автора запроса. Согласованное имя позволяет приложению проверить запрос без переименований по догадке.</p>
+<h3 id="5-schema-самой-карточки-задачи">5. Schema самой карточки задачи<a class="headerlink" href="#5-schema-самой-карточки-задачи" title="Permanent link">&para;</a></h3>
+<p>В запросе на проверку карточки требуется <code>task_id</code>, а в самой карточке номер записан как <code>id</code>. Противоречия нет: arguments операции и карточка содержат разные данные и проверяются по разным схемам. Схема карточки тоже хранится в <code>data/tool_schemas.json</code>. Выведи схему целиком.</p>
+<div class="highlight"><pre><span></span><code><span class="c1"># запуск из корня starter</span>
+python<span class="w"> </span>tool_call_demo.py<span class="w"> </span>schema<span class="w"> </span>task_card
+</code></pre></div>
+<div class="highlight"><pre><span></span><code>schema: task_card
+{
+  &quot;type&quot;: &quot;object&quot;,
+  &quot;properties&quot;: {
+    &quot;id&quot;: {
+      &quot;type&quot;: &quot;string&quot;,
+      &quot;minLength&quot;: 1
+    },
+    &quot;title&quot;: {
+      &quot;type&quot;: &quot;string&quot;,
+      &quot;minLength&quot;: 1
+    },
+    &quot;status&quot;: {
+      &quot;type&quot;: &quot;string&quot;,
+      &quot;enum&quot;: [
+        &quot;planned&quot;,
+        &quot;in_progress&quot;,
+        &quot;blocked&quot;,
+        &quot;done&quot;
+      ]
+    },
+    &quot;team&quot;: {
+      &quot;type&quot;: &quot;string&quot;
+    },
+    &quot;blockers&quot;: {
+      &quot;type&quot;: &quot;array&quot;,
+      &quot;items&quot;: {
+        &quot;type&quot;: &quot;string&quot;
+      }
+    },
+    &quot;notes&quot;: {
+      &quot;type&quot;: &quot;string&quot;
+    }
+  },
+  &quot;required&quot;: [
+    &quot;id&quot;,
+    &quot;title&quot;,
+    &quot;status&quot;
+  ],
+  &quot;additionalProperties&quot;: false
+}
+</code></pre></div>
+<p>Схема описывает шесть полей, но требует только три. Поля делятся на две группы:</p>
+<ol>
+<li><code>id</code>, <code>title</code>, <code>status</code> обязательны.</li>
+<li><code>team</code>, <code>blockers</code>, <code>notes</code> разрешены, но могут отсутствовать.</li>
+</ol>
+<p>Для <code>status</code> подходят только четыре значения, знакомые по карточкам проекта:</p>
+<ol>
+<li><code>planned</code>;</li>
+<li><code>in_progress</code>;</li>
+<li><code>blocked</code>;</li>
+<li><code>done</code>.</li>
+</ol>
+<p>Проверка формы не устанавливает, правдив ли заголовок карточки, надёжен ли автор записи и можно ли использовать содержимое как инструкцию для модели.</p>
+<p>Допустим, группа внесла в <code>title</code> неверное название работы, но оставила непустую строку и правильно заполнила остальные поля. По напечатанной схеме карточка пройдёт проверку формы. Верность названия работы схема при этом не проверит.</p>
+<blockquote>
+<p><strong>Проверь себя на ходу.</strong> Карточка прошла schema-проверку: есть <code>id</code>, <code>title</code>, <code>status</code>, а <code>status</code> входит в enum. Доказывает ли это, что текст в <code>title</code> правдив и карточке можно доверять?</p>
+</blockquote>
+<p><img alt="Фигура 17. Schema и сигнатура должны совпасть" src="../../figures/17_schema-i-signatura-dolzhny-sovpast.svg" /></p>
+<p><em>Фигура 17. Schema и сигнатура должны совпасть</em></p>
+<h3 id="6-практика-a-собери-schema-из-карточек-полей">6. Практика A: собери schema из карточек полей<a class="headerlink" href="#6-практика-a-собери-schema-из-карточек-полей" title="Permanent link">&para;</a></h3>
+<p>Работайте в группе. Для <code>validate_task_card(task_id)</code> разложите на столе карточки <code>type</code>, <code>properties</code>, <code>required</code>, <code>additionalProperties</code> и карточку поля <code>task_id</code>. Соберите схему, которая разрешает ровно одно обязательное непустое строковое поле <code>task_id</code>. Для условия «строка не пустая» укажите <code>minLength: 1</code>, как в схеме операции.</p>
+<p>Затем соберите schema карточки задачи:</p>
+<ol>
+<li>В список обязательных полей поместите <code>id</code>, <code>title</code>, <code>status</code>.</li>
+<li>Поля <code>team</code>, <code>blockers</code>, <code>notes</code> оставьте разрешёнными, но необязательными.</li>
+<li>Рядом с <code>status</code> положите четыре разрешённых значения.</li>
+</ol>
+<p>Теперь намеренно внесите ошибку в схему операции: оставьте <code>task_id</code> в <code>required</code>, но уберите поле из <code>properties</code>. При <code>additionalProperties: false</code> требования противоречат друг другу: объект обязан содержать <code>task_id</code>, хотя схема не разрешает такое поле. Объясните другой группе, почему договор нужно исправить до проверки данных.</p>
+<p><strong>Результат практики A:</strong> две schema-карты — для arguments <code>validate_task_card</code> и для карточки задачи — и объяснение ошибки «поле есть в <code>required</code>, но отсутствует в <code>properties</code>».</p>
+<h3 id="7-практика-b-сначала-проверяем-потом-выполняем">7. Практика B: сначала проверяем, потом выполняем<a class="headerlink" href="#7-практика-b-сначала-проверяем-потом-выполняем" title="Permanent link">&para;</a></h3>
+<p>В этой практике команды <code>check</code> не выполняют tool. При проверке структуры arguments программа печатает <code>execution: not performed</code>. Сначала проверь случай, когда ученический файл ещё не создан.</p>
+<div class="highlight"><pre><span></span><code><span class="c1"># запуск из корня starter</span>
+python<span class="w"> </span>tool_call_demo.py<span class="w"> </span>check<span class="w"> </span>workspace/drafts/ch06_tool_call.json
+</code></pre></div>
+<div class="highlight"><pre><span></span><code>ошибка: файл не создан: workspace/drafts/ch06_tool_call.json
+подсказка: скопируй workspace/ch06/templates/tool_call.json и впиши свой task_id
+</code></pre></div>
+<p>Вместо traceback, технического отчёта об ошибке программы, показаны причина и подсказка. Сообщение не выдаёт отсутствие файла за частичный успех.</p>
+<ol>
+<li>Скопируй <code>workspace/ch06/templates/tool_call.json</code> в <code>workspace/drafts/ch06_tool_call.json</code>.</li>
+<li>Впиши свой <code>task_id</code>.</li>
+<li>До запуска предскажи результат проверки.</li>
+<li>Выполни следующую команду.</li>
+</ol>
+<p>Как и в главе 4, <strong><em>фикстура</em></strong> означает заранее подготовленный файл, который на время проверки подставляют на место твоего. Строка с фикстурой поясняет происхождение напечатанного ниже вывода: там использован <code>task-003</code>. В своём запуске вводи только строку с <code>python</code>; значение <code>task_id</code> будет зависеть от того, что ты вписал в файл.</p>
+<div class="highlight"><pre><span></span><code><span class="c1"># запуск из корня starter</span>
+<span class="c1"># фикстура: tests/fixtures/ch06/tool_call_valid.json -&gt; workspace/drafts/ch06_tool_call.json</span>
+python<span class="w"> </span>tool_call_demo.py<span class="w"> </span>check<span class="w"> </span>workspace/drafts/ch06_tool_call.json
+</code></pre></div>
+<div class="highlight"><pre><span></span><code>tool: validate_task_card
+arguments: {&quot;task_id&quot;: &quot;task-003&quot;}
+JSON Schema: valid
+execution: not performed
+</code></pre></div>
+<p>Структура arguments прошла проверку, но строка <code>execution: not performed</code> сообщает, что функция не запущена. Успешная проверка данных и выполнение остаются разными событиями.</p>
+<p>В следующих выводах <code>invalid</code> означает несоответствие проверяемой форме. Строка <code>reason</code> сообщает первую обнаруженную причину.</p>
+<p>Запусти проверку неполного запроса: в arguments отсутствует <code>task_id</code>.</p>
+<div class="highlight"><pre><span></span><code><span class="c1"># запуск из корня starter</span>
+python<span class="w"> </span>tool_call_demo.py<span class="w"> </span>check<span class="w"> </span>workspace/ch06/cases/validate_missing_task_id.json
+</code></pre></div>
+<div class="highlight"><pre><span></span><code>tool: validate_task_card
+arguments: {}
+JSON Schema: invalid
+reason: arguments: нет обязательного поля task_id
+execution: not performed
+</code></pre></div>
+<p>Проверка сообщает, какого обязательного поля не хватает, до вызова функции. Приложению не нужно просить модель «догадаться», какое поле было забыто.</p>
+<p>Следующей командой проверь границу <code>read_task_cards()</code>: запрос пытается передать путь.</p>
+<div class="highlight"><pre><span></span><code><span class="c1"># запуск из корня starter</span>
+python<span class="w"> </span>tool_call_demo.py<span class="w"> </span>check<span class="w"> </span>workspace/ch06/cases/read_with_path.json
+</code></pre></div>
+<div class="highlight"><pre><span></span><code>tool: read_task_cards
+arguments: {&quot;path&quot;: &quot;workspace/tasks&quot;}
+JSON Schema: invalid
+reason: arguments: лишнее поле path
+execution: not performed
+</code></pre></div>
+<p>JSON записан синтаксически правильно, и путь выглядит правдоподобно. Однако договор операции не разрешает поле <code>path</code>. Удобная запись пути не меняет контракт.</p>
+<p>Затем проверь три карточки задачи. Первая карточка соответствует schema.</p>
+<div class="highlight"><pre><span></span><code><span class="c1"># запуск из корня starter</span>
+python<span class="w"> </span>tool_call_demo.py<span class="w"> </span>check-card<span class="w"> </span>workspace/ch06/cards/card_valid.json
+</code></pre></div>
+<div class="highlight"><pre><span></span><code>card: sample-valid
+JSON Schema: valid
+</code></pre></div>
+<p>Во второй карточке отсутствует обязательное поле <code>status</code>. Запусти проверку:</p>
+<div class="highlight"><pre><span></span><code><span class="c1"># запуск из корня starter</span>
+python<span class="w"> </span>tool_call_demo.py<span class="w"> </span>check-card<span class="w"> </span>workspace/ch06/cards/card_missing_status.json
+</code></pre></div>
+<div class="highlight"><pre><span></span><code>card: sample-missing-status
+JSON Schema: invalid
+reason: card: нет обязательного поля status
+</code></pre></div>
+<p>В третьей карточке поле <code>status</code> присутствует, но значение не входит в список допустимых. Проверь результат:</p>
+<div class="highlight"><pre><span></span><code><span class="c1"># запуск из корня starter</span>
+python<span class="w"> </span>tool_call_demo.py<span class="w"> </span>check-card<span class="w"> </span>workspace/ch06/cards/card_bad_status.json
+</code></pre></div>
+<div class="highlight"><pre><span></span><code>card: sample-bad-status
+JSON Schema: invalid
+reason: card.status: значение не входит в enum
+</code></pre></div>
+<p>Три проверки карточек дали три разных результата:</p>
+<ol>
+<li>Корректная структура принята.</li>
+<li>Отсутствие обязательного поля обнаружено.</li>
+<li>Значение вне разрешённого набора отклонено.</li>
+</ol>
+<p>Программа сообщает результат проверки, а не пытается молча «починить» объект.</p>
+<p><strong>Результат практики B:</strong> собственный <code>workspace/drafts/ch06_tool_call.json</code>, прогноз до проверки и таблица из пяти наблюдений:</p>
+<ol>
+<li>корректный вызов;</li>
+<li>неполные arguments;</li>
+<li>запрос с запрещённым <code>path</code>;</li>
+<li>корректная карточка;</li>
+<li>один из двух разобранных отрицательных примеров карточки.</li>
+</ol>
+<h3 id="8-обязательные-проверки-должен--не-должен--ошибка--граница">8. Обязательные проверки: должен / не должен / ошибка / граница<a class="headerlink" href="#8-обязательные-проверки-должен--не-должен--ошибка--граница" title="Permanent link">&para;</a></h3>
+<h4 id="должен">Должен<a class="headerlink" href="#должен" title="Permanent link">&para;</a></h4>
+<p>Корректный запрос <code>validate_task_card</code> с <code>{"task_id": "task-003"}</code> должен пройти JSON Schema-проверку. Карточка с обязательными полями и допустимым status, которая соответствует остальным требованиям схемы, тоже должна быть принята по форме.</p>
+<h4 id="не-должен">Не должен<a class="headerlink" href="#не-должен" title="Permanent link">&para;</a></h4>
+<p>Режим <code>show</code> не должен выполнять <code>read_task_cards()</code>. Наличие tool call не означает, что runtime получил команду «выполни немедленно», и не доказывает, что tool result уже существует.</p>
+<h4 id="ошибка">Ошибка<a class="headerlink" href="#ошибка" title="Permanent link">&para;</a></h4>
+<p>Если отсутствует обязательный <code>task_id</code> или обязательное поле карточки, программа должна явно сообщить причину. Неполный объект не должен превращаться в частично успешный вызов.</p>
+<h4 id="граница">Граница<a class="headerlink" href="#граница" title="Permanent link">&para;</a></h4>
+<p><code>read_task_cards()</code> не принимает путь от модели. Поэтому объект <code>{"path": "workspace/tasks"}</code> отклоняется из-за лишнего поля. Карточка с <code>status="paused"</code> может быть записана синтаксически корректным JSON, но значение <code>paused</code> не входит в enum и не проходит schema-проверку.</p>
+<h3 id="9-врезка-безопасности-правильная-форма-не-равна-разрешению">9. Врезка безопасности: правильная форма не равна разрешению<a class="headerlink" href="#9-врезка-безопасности-правильная-форма-не-равна-разрешению" title="Permanent link">&para;</a></h3>
+<blockquote>
+<p><strong>Безопасность</strong></p>
+<p><code>tool call ≠ permission</code>. Корректный запрос модели сам по себе не даёт права на действие.</p>
+<p><code>JSON Schema valid ≠ trusted data</code>. Schema проверяет структуру, но не правдивость и не происхождение содержимого. Доверие к карточкам по-прежнему назначает harness, а не поле внутри данных.</p>
+<p><code>model-supplied path ≠ allowed configuration</code>. Если контракт операции не принимает путь от модели, наличие строки <code>path</code> в JSON не меняет допустимую конфигурацию и не расширяет полномочия операции.</p>
+</blockquote>
+<p>Проверка формы запроса и выполнение операции остаются независимыми ступенями. Сначала приложение проверяет форму запроса и только потом, в допустимом сценарии, выполняет вызов. Чтобы связать имя tool только с разрешённой реализацией и обработать неизвестное имя, нужен ещё один механизм. К полному механизму такого связывания мы перейдём дальше.</p>
+<h3 id="10-мини-проверка-урока-12">10. Мини-проверка урока 12<a class="headerlink" href="#10-мини-проверка-урока-12" title="Permanent link">&para;</a></h3>
+<ol>
+<li>Что описывает JSON Schema в этой главе?</li>
+<li>Почему поле <code>id</code> не заменяет <code>task_id</code> автоматически?</li>
+<li>Что означает <code>additionalProperties: false</code> в schema <code>read_task_cards</code>?</li>
+<li>Какие поля карточки обязательны?</li>
+<li>Какие значения <code>status</code> допустимы?</li>
+<li>Что доказано, если карточка получила <code>JSON Schema: valid</code>?</li>
+</ol>
+<h4 id="ответы_1">Ответы<a class="headerlink" href="#ответы_1" title="Permanent link">&para;</a></h4>
+<ol>
+<li>Ожидаемую структуру JSON-данных и допустимые значения, которые программа может формально проверить.</li>
+<li>Потому что контракт функции и schema ожидают конкретное имя <code>task_id</code>; приложение не должно угадывать переименование.</li>
+<li>Что любые поля сверх перечисленных запрещены; поскольку <code>properties</code> пуст, корректные arguments — <code>{}</code>.</li>
+<li><code>id</code>, <code>title</code>, <code>status</code>.</li>
+<li><code>planned</code>, <code>in_progress</code>, <code>blocked</code>, <code>done</code>.</li>
+<li>Только соответствие проверяемой структуре; это не доказательство истинности, доверия или разрешения на действие.</li>
+</ol>
+<h3 id="выходной-билет-урока-12">Выходной билет урока 12<a class="headerlink" href="#выходной-билет-урока-12" title="Permanent link">&para;</a></h3>
+<p>Заполни четыре строки:</p>
+<div class="highlight"><pre><span></span><code>required отвечает за …
+properties отвечает за …
+enum ограничивает …
+JSON Schema valid не доказывает …
+</code></pre></div>
+<p>Рядом с <code>Tools.validate_task_card(task_id)</code> напиши имя поля, обязательного в arguments. Если ты написал <code>id</code>, вернись к schema и сравни имя поля с параметром в сигнатуре.</p>
+<h3 id="домашняя-работа">Домашняя работа<a class="headerlink" href="#домашняя-работа" title="Permanent link">&para;</a></h3>
+<p>Придумай один дополнительный отрицательный пример для schema карточки задачи. Не повторяй разобранные случаи «нет <code>status</code>» и <code>status="paused"</code>. Запиши объект. Затем добавь одну строку прогноза: какое конкретное правило schema нарушено. На следующем занятии сосед должен суметь проверить твой прогноз без устного пояснения.</p>
+<hr />
+<h2 id="полная-карта-первого-tool">Полная карта первого tool<a class="headerlink" href="#полная-карта-первого-tool" title="Permanent link">&para;</a></h2>
+<p>Как соединить проверку данных и выполнение в одну цепочку, не смешав разные события? На полной карте первого tool каждый переход показан отдельно. По карте можно проверить, модель уже сделала что-либо или только попросила выполнить действие.</p>
+<div class="highlight"><pre><span></span><code>ответ модели по авторскому сценарию (replay)
+                 ↓
+             tool call
+          name + arguments
+                 ↓
+        приложение проверяет
+      arguments по JSON Schema
+                 ↓
+        в корректном учебном сценарии
+        приложение вызывает функцию
+                 ↓
+              tool
+                 ↓
+            tool result
+                 ↓
+  дальше может стать observation
+</code></pre></div>
+<p><em>Подпиши под картой три ограничения:</em></p>
+<div class="highlight"><pre><span></span><code>tool call ≠ выполненное действие
+request ≠ permission
+schema check ≠ trust
+</code></pre></div>
+<p>В обязательных примерах имена операций заранее известны. Поэтому на карте нет отдельного блока, который сопоставлял бы произвольное имя с разрешённой реализацией. Для незнакомого имени такого перехода ещё не построено; механизм сопоставления станет следующим шагом.</p>
+<h2 id="return">Возвращаемся к сцене<a class="headerlink" href="#return" title="Permanent link">&para;</a></h2>
+<p>В начале главы Марк увидел <code>{"name": "read_task_cards", "arguments": {}}</code> и решил, что карточки прочитаны. Как проверить догадку Марка? Теперь у нас есть два наблюдения, которые отделяют запрос от выполнения.</p>
+<p>Режим <code>show</code> печатает tool call и <code>execution: not performed</code>: запрос существует, но результата операции нет. Режим <code>execute</code> получает тот же replay-вход — запрос чтения карточек с пустыми arguments. Приложение проверяет arguments, затем выполняет функцию, и в выводе появляется <code>tool result</code>.</p>
+<p>Марк принял описание желаемого действия за само действие. Модель может сформировать запрос, но запрос ещё не подтверждает выполнения. Приложение получает запрос, проверяет данные и только затем, в допустимом сценарии, выполняет операцию. Tool result появляется после выполнения, а не после появления имени функции в тексте.</p>
+<p><em>Вернись к своему вопросу-прогнозу. Проверь, есть ли в твоей цепочке tool call, проверка arguments, приложение как исполнитель вызова и tool result. Если на рисунке модель соединена с файлом напрямую, исправь схему: фактическое действие выполняет приложение и его runtime.</em></p>
+<h2 id="why">Зачем это тебе<a class="headerlink" href="#why" title="Permanent link">&para;</a></h2>
+<ol>
+<li>
+<p>Представь программу для лабораторной работы: программа проверяет запись измерения перед добавлением в общую таблицу. Даже если запись оформлена как JSON, отсутствие обязательного поля должно быть обнаружено до дальнейшей обработки. Schema позволяет заранее записать требования к форме данных, а не обсуждать требования уже после ошибки.</p>
+</li>
+<li>
+<p>В командном проекте один участник называет идентификатор <code>id</code>, а другой написал функцию с параметром <code>task_id</code>. Человек может догадаться, что оба имени относятся к одной карточке, но программа получает разные имена. Явная schema показывает несовпадение до того, как неправильные данные будут использованы дальше.</p>
+</li>
+<li>
+<p>При работе с файлами чат может напечатать: «прочитай папку по пути <code>...</code>». Сначала проверь не правдоподобие пути, а договор операции: разрешено ли вообще получать путь от модели? Для <code>read_task_cards()</code> в нашем проекте ответ отрицательный. Расположение данных задаёт приложение.</p>
+</li>
+</ol>
+<h2 id="dezhurny">Шаг сквозного проекта<a class="headerlink" href="#dezhurny" title="Permanent link">&para;</a></h2>
+<p>После главы 5 у «Дежурного» был договор задачи. После главы 6 к договору добавляются два проверяемых проектных артефакта.</p>
+<p>Первый артефакт описывает <code>read_task_cards</code>: модель может запросить операцию, но не передаёт путь; корректные arguments равны <code>{}</code>. Приложение выполняет фактический вызов, а tool result сообщает результат чтения.</p>
+<p>Второй артефакт задаёт schema arguments для <code>read_task_cards()</code> и <code>validate_task_card(task_id)</code>, а также schema синтетической карточки задачи. Schema arguments и schema карточки хранятся в одном источнике — <code>data/tool_schemas.json</code>.</p>
+<p>Теперь проверь, может ли команда пройти по схеме <code>replay → tool call → проверка arguments → вызов функции приложением → tool result</code> и назвать исполнителя каждого перехода. Затем объясни вместе с командой, почему лишний <code>path</code>, отсутствующий <code>task_id</code> и недопустимый status не проходят проверку до дальнейшего использования данных.</p>
+<p>Пока не готовы общий механизм работы с несколькими именами, обработка неизвестного tool и управляемая обработка ошибок выполнения. К этим задачам мы перейдём в следующей главе.</p>
+<h3 id="достраиваем-дежурного">Достраиваем «Дежурного»<a class="headerlink" href="#достраиваем-дежурного" title="Permanent link">&para;</a></h3>
+<p>Файла главы 6 в <code>my_agent/</code> нет. Контракт <code>read_task_cards</code> хранится в самом harness и не настраивается учеником; допустимые arguments равны <code>{}</code>. Полная schema для пустых arguments приведена в уроке 12: схема требует объект без полей.</p>
+<p>Поэтому путь к карточкам по-прежнему не приходит от модели ни в одной конфигурации, а команда <code>status</code> не печатает строки главы 6. Настройки твоего конструктора не добавляют операции новый аргумент и не меняют установленную границу.</p>
+<h2 id="check">Проверь себя<a class="headerlink" href="#check" title="Permanent link">&para;</a></h2>
+<ol>
+<li>Что такое Function calling / tool calling и чего этот механизм сам по себе не выполняет?</li>
+<li>Что такое tool call?</li>
+<li>Что такое arguments и почему они не равны всему контексту модели?</li>
+<li>Кто фактически вызывает функцию в нашей учебной цепочке?</li>
+<li>Когда появляется tool result?</li>
+<li>Что описывает JSON Schema и чего она не доказывает?</li>
+<li>Почему <code>read_task_cards()</code> принимает <code>{}</code>, а <code>{"path": "workspace/tasks"}</code> отклоняется?</li>
+<li>Почему <code>validate_task_card</code> ждёт <code>task_id</code>, а не <code>id</code>?</li>
+<li>Чем replay главы отличается от записи живой модели?</li>
+</ol>
+<h3 id="ответы_2">Ответы<a class="headerlink" href="#ответы_2" title="Permanent link">&para;</a></h3>
+<ol>
+<li>Это механизм, при котором модель формирует структурированный запрос на использование доступной операции. Сам по себе он не выполняет функцию.</li>
+<li>Структурированное описание запрошенного вызова: имя операции и arguments.</li>
+<li>Arguments — данные конкретного вызова tool; контекст модели может быть намного шире.</li>
+<li>Приложение. Модель формирует запрос, но действие выполняет программная сторона.</li>
+<li>После фактического выполнения tool и возврата результата в агентную систему.</li>
+<li>Ожидаемую структуру JSON-данных и допустимые значения. Успешная проверка не доказывает правдивость, доверие, безопасность или permission.</li>
+<li>Таков принятый контракт операции: путь хранится в конфигурации приложения и не приходит от модели; дополнительные поля schema запрещает.</li>
+<li>Потому что сигнатура операции и schema согласованы на имени <code>task_id</code>; молчаливое переименование разрушило бы проверяемый договор.</li>
+<li>Replay здесь — авторский сценарий с меткой происхождения <code>synthetic_script</code>; он не выдаётся за запись или измерение поведения живой модели.</li>
+</ol>
+<h2 id="glossary">Словарь главы<a class="headerlink" href="#glossary" title="Permanent link">&para;</a></h2>
+<table>
+<thead>
+<tr>
+<th>Термин</th>
+<th>Рабочая формулировка</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Function calling / tool calling</strong></td>
+<td>механизм, при котором модель формирует структурированный запрос на использование доступной операции</td>
+</tr>
+<tr>
+<td><strong>Tool call</strong></td>
+<td>структурированное описание запрошенного вызова: имя операции и аргументы</td>
+</tr>
+<tr>
+<td><strong>Arguments / аргументы</strong></td>
+<td>данные, которые передаются tool при конкретном вызове</td>
+</tr>
+<tr>
+<td><strong>Tool result</strong></td>
+<td>результат фактического выполнения tool, возвращённый в агентную систему</td>
+</tr>
+<tr>
+<td><strong>JSON</strong></td>
+<td>текстовый формат представления структурированных данных</td>
+</tr>
+<tr>
+<td><strong>JSON Schema</strong></td>
+<td>способ формально описать ожидаемую структуру JSON-данных и допустимые значения</td>
+</tr>
+</tbody>
+</table>
+<h2 id="bridge">Мост к главе 7<a class="headerlink" href="#bridge" title="Permanent link">&para;</a></h2>
+<p>Теперь ты можешь найти <code>name</code> и <code>arguments</code>, проверить структуру запроса и по наблюдаемому результату отличить просьбу от выполненного действия. Но все разобранные операции были заранее известны. Что произойдёт, если в <code>name</code> появится неожиданное имя? Проверки формы для ответа недостаточно: приложению ещё нужен способ связать имя с разрешённой функцией.</p>
+<p>В следующей главе мы добавим механизм связывания и обработку ошибок. Уже построенная цепочка tool call → проверка → выполнение → tool result при этом сохранится.</p>
+<blockquote>
+<p><strong>Следующий вопрос.</strong> Как безопасно связать имя tool с разрешённой функцией?</p>
+</blockquote>
+<p>Ответ ты найдёшь в главе 7, «Диспетчер и ошибки».</p>
+
+
+
+
+
+
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+    
+      
+      <nav class="md-footer__inner md-grid" aria-label="Нижний колонтитул" >
+        
+          
+          <a href="../ch05/" class="md-footer__link md-footer__link--prev" aria-label="Назад: Глава 5. Договор задачи: что нужно определить до реализации?">
+            <div class="md-footer__button md-icon">
+              
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+            </div>
+            <div class="md-footer__title">
+              <span class="md-footer__direction">
+                Назад
+              </span>
+              <div class="md-ellipsis">
+                Глава 5. Договор задачи: что нужно определить до реализации?
+              </div>
+            </div>
+          </a>
+        
+        
+          
+          <a href="../ch07/" class="md-footer__link md-footer__link--next" aria-label="Вперед: Глава 7. Диспетчер и ошибки">
+            <div class="md-footer__title">
+              <span class="md-footer__direction">
+                Вперед
+              </span>
+              <div class="md-ellipsis">
+                Глава 7. Диспетчер и ошибки
+              </div>
+            </div>
+            <div class="md-footer__button md-icon">
+              
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M4 11v2h12l-5.5 5.5 1.42 1.42L19.84 12l-7.92-7.92L10.5 5.5 16 11z"/></svg>
+            </div>
+          </a>
+        
+      </nav>
+    
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+    <div class="md-copyright__highlight">
+      Редакция r0001 · 2026-10-14 · техническая редакция, пилот не проводился
+    </div>
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    
+      
+      
+      <script id="__config" type="application/json">{"annotate": null, "base": "../..", "features": ["content.code.copy", "navigation.sections", "navigation.footer", "search.highlight"], "search": "../../assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "\u0421\u043a\u043e\u043f\u0438\u0440\u043e\u0432\u0430\u043d\u043e \u0432 \u0431\u0443\u0444\u0435\u0440", "clipboard.copy": "\u041a\u043e\u043f\u0438\u0440\u043e\u0432\u0430\u0442\u044c \u0432 \u0431\u0443\u0444\u0435\u0440", "search.result.more.one": "\u0415\u0449\u0451 1 \u043d\u0430 \u044d\u0442\u043e\u0439 \u0441\u0442\u0440\u0430\u043d\u0438\u0446\u0435", "search.result.more.other": "\u0415\u0449\u0451 # \u043d\u0430 \u044d\u0442\u043e\u0439 \u0441\u0442\u0440\u0430\u043d\u0438\u0446\u0435", "search.result.none": "\u0421\u043e\u0432\u043f\u0430\u0434\u0435\u043d\u0438\u0439 \u043d\u0435 \u043d\u0430\u0439\u0434\u0435\u043d\u043e", "search.result.one": "\u041d\u0430\u0439\u0434\u0435\u043d\u043e 1 \u0441\u043e\u0432\u043f\u0430\u0434\u0435\u043d\u0438\u0435", "search.result.other": "\u041d\u0430\u0439\u0434\u0435\u043d\u043e \u0441\u043e\u0432\u043f\u0430\u0434\u0435\u043d\u0438\u0439: #", "search.result.placeholder": "\u041d\u0430\u0447\u043d\u0438\u0442\u0435 \u043f\u0435\u0447\u0430\u0442\u0430\u0442\u044c \u0434\u043b\u044f \u043f\u043e\u0438\u0441\u043a\u0430", "search.result.term.missing": "\u041e\u0442\u0441\u0443\u0442\u0441\u0442\u0432\u0443\u0435\u0442", "select.version": "\u0412\u044b\u0431\u0435\u0440\u0438\u0442\u0435 \u0432\u0435\u0440\u0441\u0438\u044e"}, "version": {"provider": "mike"}}</script>
+    
+    
+      <script src="../../assets/javascripts/bundle.79ae519e.min.js"></script>
+      
+    
+  </body>
+</html>

@@ -1,0 +1,42 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 430" width="800" height="430" role="img" aria-labelledby="t d">
+  <title id="t">Фигура 3. Вторая линия: чтение и observation</title>
+  <desc id="d">Глава 1, урок 2, раздел 6 «Текст об операции и выполненная операция». Схема пути вопроса дополнена второй линией: ИИ-приложение выполняет read_task_cards() в среде — папке с карточками — и получает observation из среды. Модель к среде не обращается; observation возвращается в приложение, а не в чат.</desc>
+  <defs>
+    <marker id="arrow" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="8" markerHeight="8" orient="auto-start-reverse">
+      <path d="M0,0 L10,5 L0,10 z" fill="#52606D"/>
+    </marker>
+  </defs>
+  <rect x="0" y="0" width="800" height="430" fill="#FFFFFF"/>
+  <g font-family="PT Sans, DejaVu Sans, Arial, sans-serif" font-size="20" fill="#1F2933" text-anchor="middle">
+    <!-- первая линия: человек → интерфейс → ИИ-приложение ↔ LLM -->
+    <rect class="role" data-role="human" x="24" y="40" width="120" height="60" rx="6" fill="#F5F7FA" stroke="#B45309" stroke-width="1.5"/>
+    <text x="84" y="77">человек</text>
+    <rect class="role" data-role="interface" x="188" y="40" width="160" height="60" rx="6" fill="#F5F7FA" stroke="#52606D" stroke-width="1.5"/>
+    <text x="268" y="77">интерфейс</text>
+    <rect class="role" data-role="application" x="392" y="40" width="210" height="60" rx="6" fill="#F5F7FA" stroke="#1D4ED8" stroke-width="1.5"/>
+    <text x="497" y="77">ИИ-приложение</text>
+    <rect class="role" data-role="model" x="660" y="40" width="116" height="60" rx="6" fill="#F5F7FA" stroke="#52606D" stroke-width="1.5"/>
+    <text x="718" y="77">LLM</text>
+    <g stroke="#52606D" stroke-width="1.5" fill="none" marker-end="url(#arrow)">
+      <line x1="144" y1="70" x2="186" y2="70"/>
+      <line x1="348" y1="70" x2="390" y2="70"/>
+      <line x1="604" y1="70" x2="658" y2="70" marker-start="url(#arrow)"/>
+    </g>
+    <!-- вторая линия: приложение → среда → observation → приложение -->
+    <line x1="440" y1="100" x2="440" y2="208" stroke="#1D4ED8" stroke-width="1.5" marker-end="url(#arrow)"/>
+    <text x="430" y="146" font-size="18" text-anchor="end">выполняет</text>
+    <text x="430" y="172" font-size="18" text-anchor="end" font-family="PT Mono, DejaVu Sans Mono, monospace">read_task_cards()</text>
+    <rect data-role="environment" x="347" y="210" width="300" height="76" rx="6" fill="#F5F7FA" stroke="#52606D" stroke-width="1.5"/>
+    <text x="497" y="242">среда</text>
+    <text x="497" y="270" font-size="18">папка с карточками</text>
+    <line x1="560" y1="210" x2="560" y2="102" stroke="#1D4ED8" stroke-width="1.5" marker-end="url(#arrow)"/>
+    <text x="570" y="160" font-size="18" text-anchor="start">observation из среды</text>
+    <!-- подпись спецификации -->
+    <text x="400" y="326" font-size="18">observation возвращается в приложение, а не в чат</text>
+    <!-- подпись-неравенство -->
+    <g font-family="PT Mono, DejaVu Sans Mono, monospace" font-size="18" text-anchor="middle">
+      <rect x="150" y="360" width="500" height="40" rx="6" fill="#F5F7FA" stroke="#1F2933" stroke-width="1.5" stroke-dasharray="6 4"/>
+      <text class="inequality" x="400" y="386">текст об операции ≠ выполненная операция</text>
+    </g>
+  </g>
+</svg>

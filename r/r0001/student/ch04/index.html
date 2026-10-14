@@ -1,0 +1,2941 @@
+
+<!doctype html>
+<html lang="ru" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+        <meta name="description" content="Учебник для 9–10 классов">
+      
+      
+      
+        <link rel="canonical" href="https://book.stemschool.online/r0001/student/ch04/">
+      
+      
+        <link rel="prev" href="../ch03/">
+      
+      
+        <link rel="next" href="../ch05/">
+      
+      
+        
+      
+      
+      <link rel="icon" href="../../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.6">
+    
+    
+      
+        <title>Глава 4. Prompt, structured output, tool, MCP и Agent Skill: какие задачи решают разные уровни системы? - ИИ-агенты и Agent Skills</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../assets/stylesheets/main.484c7ddc.min.css">
+      
+        
+        <link rel="stylesheet" href="../../assets/stylesheets/palette.ab4e12ef.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+    <script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+  </head>
+  
+  
+    
+    
+      
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="indigo">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#глава-4-prompt-structured-output-tool-mcp-и-agent-skill-какие-задачи-решают-разные-уровни-системы" class="md-skip">
+          Перейти к содержанию
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+        <aside class="md-banner">
+          <div class="md-banner__inner md-grid md-typeset">
+            
+            
+  
+    <strong>Техническая редакция: пилот не проводился</strong> · редакция r0001
+  
+
+          </div>
+          
+        </aside>
+      
+    </div>
+    
+      <div data-md-color-scheme="default" data-md-component="outdated" hidden>
+        
+      </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Верхний колонтитул">
+    <a href="../.." title="ИИ-агенты и Agent Skills" class="md-header__button md-logo" aria-label="ИИ-агенты и Agent Skills" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            ИИ-агенты и Agent Skills
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Глава 4. Prompt, structured output, tool, MCP и Agent Skill: какие задачи решают разные уровни системы?
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+        <form class="md-header__option" data-md-component="palette">
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="indigo"  aria-hidden="true"  type="radio" name="__palette" id="__palette_0">
+    
+  
+</form>
+      
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+      
+      
+        <label class="md-header__button md-icon" for="__search">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        </label>
+        <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Поиск" placeholder="Поиск" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Поиск">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Очистить" aria-label="Очистить" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Инициализация поиска
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+      
+    
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+
+<nav class="md-nav md-nav--primary" aria-label="Навигация" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../.." title="ИИ-агенты и Agent Skills" class="md-nav__button md-logo" aria-label="ИИ-агенты и Agent Skills" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    ИИ-агенты и Agent Skills
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../.." class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Главная
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    
+    
+    
+    
+      
+        
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2" checked>
+        
+          
+          <label class="md-nav__link" for="__nav_2" id="__nav_2_label" tabindex="">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Ученик
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_2">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Ученик
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../intro/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Введение
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../tour/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Экскурсия по AI: что есть что
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../ch01/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Глава 1. Модель, приложение и агент: кто отвечает, а кто действует?
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../ch02/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Глава 2. Агентный цикл: как результат действия меняет следующий шаг?
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../ch03/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Глава 3. Agent harness: что работает вокруг модели?
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Глава 4. Prompt, structured output, tool, MCP и Agent Skill: какие задачи решают разные уровни системы?
+  
+
+    
+  </span>
+  
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Глава 4. Prompt, structured output, tool, MCP и Agent Skill: какие задачи решают разные уровни системы?
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Содержание">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Содержание
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#scene" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        С чего всё началось
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#goals" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        После главы ты сможешь
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#lesson-7" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Урок 7. Почему пять похожих слов обозначают разные механизмы
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Урок 7. Почему пять похожих слов обозначают разные механизмы">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#1-сначала-вернёмся-к-знакомой-машине" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1. Сначала вернёмся к знакомой машине
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#2-prompt-что-именно-сказано-модели" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2. Prompt: что именно сказано модели
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#3-structured-output-в-какой-форме-должен-прийти-результат" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3. Structured output: в какой форме должен прийти результат
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#4-tool-какое-отдельное-действие-доступно-системе" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        4. Tool: какое отдельное действие доступно системе
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#5-пять-нейтральных-фрагментов" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        5. Пять нейтральных фрагментов
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#6-mcp-не-действие-а-способ-подключения" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        6. MCP: не действие, а способ подключения
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#7-agent-skill-как-повторить-работу-тем-же-способом" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        7. Agent Skill: как повторить работу тем же способом
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#8-центральный-артефакт-матрица-пяти-механизмов" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        8. Центральный артефакт: матрица пяти механизмов
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#9-практика-a-десять-карточек-ситуаций" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        9. Практика A: десять карточек ситуаций
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#10-практика-b-классификация-своими-пятью-строками" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        10. Практика B: классификация своими пятью строками
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#11-мини-проверка-урока-7" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        11. Мини-проверка урока 7
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="11. Мини-проверка урока 7">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#ответы" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Ответы
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#выходной-билет-урока-7" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Выходной билет урока 7
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#lesson-8" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Урок 8. Как механизмы работают вместе
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Урок 8. Как механизмы работают вместе">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#1-ложная-лестница" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1. Ложная лестница
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#2-host-client-server-и-resource" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2. Host, client, server и resource
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#3-обнаружить--не-значит-прочитать--не-значит-передать-модели" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3. Обнаружить — не значит прочитать — не значит передать модели
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#4-практика-b-локальная-mcp-карта-без-сети" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        4. Практика B: локальная MCP-карта без сети
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#5-progressive-disclosure-открывать-подробности-по-необходимости" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        5. Progressive disclosure: открывать подробности по необходимости
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#6-практика-a-три-вложенных-конверта" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        6. Практика A: три вложенных конверта
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#7-практика-b-три-слоя-agent-skill" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        7. Практика B: три слоя Agent Skill
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#8-обязательные-проверки-должен--не-должен--ошибка--граница" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        8. Обязательные проверки: должен / не должен / ошибка / граница
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="8. Обязательные проверки: должен / не должен / ошибка / граница">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#должен" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Должен
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#не-должен" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Не должен
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#ошибка" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Ошибка
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#граница" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Граница
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#9-врезка-безопасности-протокол-и-процедура-не-являются-знаком-доверия" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        9. Врезка безопасности: протокол и процедура не являются знаком доверия
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#10-полная-архитектурная-карта-дежурного" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        10. Полная архитектурная карта «Дежурного»
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#11-архитектурное-ревью" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        11. Архитектурное ревью
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#12-мини-проверка-урока-8" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        12. Мини-проверка урока 8
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="12. Мини-проверка урока 8">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#ответы_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Ответы
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#выходной-билет-урока-8" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Выходной билет урока 8
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#why" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Зачем это тебе
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#dezhurny" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Шаг сквозного проекта
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Шаг сквозного проекта">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#достраиваем-дежурного" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Достраиваем «Дежурного»
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#return" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Возвращаемся к пяти просьбам Ани
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#check" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Проверь себя
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Проверь себя">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#ответы_2" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Ответы
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#glossary" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Словарь главы
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#bridge" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Мост к главе 5
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../ch05/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Глава 5. Договор задачи: что нужно определить до реализации?
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../ch06/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Глава 6. Первый tool
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../ch07/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Глава 7. Диспетчер и ошибки
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../ch08/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Глава 8. Хороший tool
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../ch09/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Глава 9. Первый Agent Skill
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../ch10/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Глава 10. Состояние и память
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../ch11/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Глава 11. Тесты и evals: как доказать качество не одним удачным запуском?
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../ch12/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Глава 12. Traces: как понять, что происходило на самом деле?
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../ch13/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Глава 13. Обратная связь и версии: когда исправление должно менять процедуру?
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../ch14/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Глава 14. Permissions и участие человека
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../ch15/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Глава 15. Prompt injection и недоверенные подключения: что делать с данными и кодом, которым нельзя автоматически доверять?
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../ch16/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Глава 16. Долгая и совместная работа
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../ch17/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Глава 17. Итоговый проект: может ли команда доказать качество и ограниченность системы?
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../app-a/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Приложение А. Урок 0. Готовность рабочего места
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../app-b/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Приложение Б. Словарь курса
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../app-c/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Приложение В. Список фигур
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+        
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3" >
+        
+          
+          <label class="md-nav__link" for="__nav_3" id="__nav_3_label" tabindex="">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Учитель
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Учитель
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../teacher/teacher-guide/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Методическое руководство для учителя
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../teacher/lesson-map/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Поурочная карта
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../routes/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Маршруты A/B
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../files/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Файлы практикума
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../about/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    О редакции
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Содержание">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Содержание
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#scene" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        С чего всё началось
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#goals" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        После главы ты сможешь
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#lesson-7" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Урок 7. Почему пять похожих слов обозначают разные механизмы
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Урок 7. Почему пять похожих слов обозначают разные механизмы">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#1-сначала-вернёмся-к-знакомой-машине" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1. Сначала вернёмся к знакомой машине
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#2-prompt-что-именно-сказано-модели" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2. Prompt: что именно сказано модели
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#3-structured-output-в-какой-форме-должен-прийти-результат" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3. Structured output: в какой форме должен прийти результат
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#4-tool-какое-отдельное-действие-доступно-системе" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        4. Tool: какое отдельное действие доступно системе
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#5-пять-нейтральных-фрагментов" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        5. Пять нейтральных фрагментов
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#6-mcp-не-действие-а-способ-подключения" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        6. MCP: не действие, а способ подключения
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#7-agent-skill-как-повторить-работу-тем-же-способом" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        7. Agent Skill: как повторить работу тем же способом
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#8-центральный-артефакт-матрица-пяти-механизмов" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        8. Центральный артефакт: матрица пяти механизмов
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#9-практика-a-десять-карточек-ситуаций" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        9. Практика A: десять карточек ситуаций
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#10-практика-b-классификация-своими-пятью-строками" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        10. Практика B: классификация своими пятью строками
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#11-мини-проверка-урока-7" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        11. Мини-проверка урока 7
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="11. Мини-проверка урока 7">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#ответы" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Ответы
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#выходной-билет-урока-7" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Выходной билет урока 7
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#lesson-8" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Урок 8. Как механизмы работают вместе
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Урок 8. Как механизмы работают вместе">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#1-ложная-лестница" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1. Ложная лестница
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#2-host-client-server-и-resource" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2. Host, client, server и resource
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#3-обнаружить--не-значит-прочитать--не-значит-передать-модели" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3. Обнаружить — не значит прочитать — не значит передать модели
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#4-практика-b-локальная-mcp-карта-без-сети" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        4. Практика B: локальная MCP-карта без сети
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#5-progressive-disclosure-открывать-подробности-по-необходимости" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        5. Progressive disclosure: открывать подробности по необходимости
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#6-практика-a-три-вложенных-конверта" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        6. Практика A: три вложенных конверта
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#7-практика-b-три-слоя-agent-skill" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        7. Практика B: три слоя Agent Skill
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#8-обязательные-проверки-должен--не-должен--ошибка--граница" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        8. Обязательные проверки: должен / не должен / ошибка / граница
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="8. Обязательные проверки: должен / не должен / ошибка / граница">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#должен" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Должен
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#не-должен" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Не должен
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#ошибка" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Ошибка
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#граница" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Граница
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#9-врезка-безопасности-протокол-и-процедура-не-являются-знаком-доверия" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        9. Врезка безопасности: протокол и процедура не являются знаком доверия
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#10-полная-архитектурная-карта-дежурного" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        10. Полная архитектурная карта «Дежурного»
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#11-архитектурное-ревью" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        11. Архитектурное ревью
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#12-мини-проверка-урока-8" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        12. Мини-проверка урока 8
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="12. Мини-проверка урока 8">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#ответы_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Ответы
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#выходной-билет-урока-8" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Выходной билет урока 8
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#why" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Зачем это тебе
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#dezhurny" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Шаг сквозного проекта
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Шаг сквозного проекта">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#достраиваем-дежурного" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Достраиваем «Дежурного»
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#return" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Возвращаемся к пяти просьбам Ани
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#check" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Проверь себя
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Проверь себя">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#ответы_2" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Ответы
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#glossary" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Словарь главы
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#bridge" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Мост к главе 5
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+
+<h1 id="глава-4-prompt-structured-output-tool-mcp-и-agent-skill-какие-задачи-решают-разные-уровни-системы">Глава 4. Prompt, structured output, tool, MCP и Agent Skill: какие задачи решают разные уровни системы?<a class="headerlink" href="#глава-4-prompt-structured-output-tool-mcp-и-agent-skill-какие-задачи-решают-разные-уровни-системы" title="Permanent link">&para;</a></h1>
+<h2 id="scene">С чего всё началось<a class="headerlink" href="#scene" title="Permanent link">&para;</a></h2>
+<p>До Фестиваля науки осталось меньше двух недель. На доске проектного бюро уже десятки мелких дел вместо прежних трёх: лабораторной группе нужен список оборудования, дизайнеры ждут подтверждения размеров стенда, редакционная группа собирает короткую сводку для учителей. Аня открыла чат с «Дежурным» и одну за другой написала пять просьб.</p>
+<p>Первая просьба звучала так: «Объясни, почему задача заблокирована, в двух предложениях». Во второй Аня уже потребовала определённую форму ответа: «Верни поля <code>summary</code>, <code>blocked_tasks</code>, <code>next_step</code>». Третья просьба была другой: «Прочитай карточки задач». Четвёртая звучала так: «Подключись к школьной доске и покажи доступные материалы». Пятая была короткой по словам, но задавала целый порядок работы: «Каждую неделю готовь сводку одним и тем же проверяемым способом».</p>
+<p>Марк прочитал эти пять строк и пожал плечами:</p>
+<p>— Зачем нам столько новых слов? Это всё просто разные промпты. Написали текст — получили ответ.</p>
+<p>Аня не стала спорить. Она только обвела пять просьб и спросила тебя: в каких случаях действительно достаточно изменить текст, а в каких одного текста уже мало?</p>
+<p>Догадку Марка понять можно: раз все пять просьб записаны текстом, легко решить, будто различается только формулировка. Но запись просьбы и механизм её выполнения — разные вещи. Фраза «прочитай карточки» сама не открывает файл; фраза «подключись к доске» сама не создаёт подключение; фраза «делай так каждую неделю» сама не превращается в переносимую процедуру. Поэтому сначала нужно развести роли механизмов, а уже потом сравнивать ответы.</p>
+<blockquote>
+<p><strong>Вопрос-Прогноз.</strong> Какие из пяти просьб можно выполнить только изменением текста, а для каких нужен другой механизм — и по какому наблюдаемому признаку это определить? Запиши свой прогноз. К нему мы вернёмся после обеих практик.</p>
+<p><strong>Главный вопрос главы.</strong> Какие задачи решают prompt, structured output, tool, MCP и Agent Skill, и как соединить их в одной системе, не объявляя один механизм заменой остальных?</p>
+</blockquote>
+<p><img alt="Фигура 9. Пять просьб Ани" src="../../figures/09_pyat-prosb-ani.png" /></p>
+<p><em>Фигура 9. Пять просьб Ани</em></p>
+<h2 id="goals">После главы ты сможешь<a class="headerlink" href="#goals" title="Permanent link">&para;</a></h2>
+<ul>
+<li>классифицировать примеры как <code>prompt</code>, <code>structured output</code>, <code>tool</code>, <code>MCP</code> или <code>Agent Skill</code> и объяснять свой выбор;</li>
+<li>формулировать главный вопрос каждого из пяти механизмов;</li>
+<li>объяснять, почему инструкция или форма ответа не доказывают внешнего действия;</li>
+<li>различать отдельную операцию, подключение внешних возможностей и повторяемую процедуру;</li>
+<li>изображать роли <code>host</code>, <code>client</code>, <code>server</code> и <code>resource</code> в учебной MCP-схеме;</li>
+<li>объяснять progressive disclosure на последовательности «каталог → <code>SKILL.md</code> → нужный reference»;</li>
+<li>строить одну архитектурную карту, в которой пять механизмов работают рядом, а не заменяют друг друга.</li>
+</ul>
+<hr />
+<h2 id="lesson-7">Урок 7. Почему пять похожих слов обозначают разные механизмы<a class="headerlink" href="#lesson-7" title="Permanent link">&para;</a></h2>
+<h3 id="1-сначала-вернёмся-к-знакомой-машине">1. Сначала вернёмся к знакомой машине<a class="headerlink" href="#1-сначала-вернёмся-к-знакомой-машине" title="Permanent link">&para;</a></h3>
+<p>В главе 3 мы разобрали harness — программную среду вокруг модели. В ней уже были интерфейс, выбор, оркестрация, runtime, состояние, активный контекст и permissions. Заново определять эти части не нужно. Теперь нас интересует другой вопрос: <strong>какие разные вещи могут проходить через эту среду и какую работу каждая из них задаёт?</strong></p>
+<p>Начнём с уже знакомой карты. Выполни команду из корня starter — той самой папки учебного комплекта, с которой мы работаем с первой главы. Перед запуском сделай прогноз: появятся ли в выводе слова <code>prompt</code>, <code>MCP</code> и <code>Agent Skill</code>, если starter главы 3 ещё не различал эти механизмы?</p>
+<div class="highlight"><pre><span></span><code><span class="c1"># запуск из корня starter</span>
+python<span class="w"> </span>harness_demo.py<span class="w"> </span>--show-parts
+</code></pre></div>
+<div class="highlight"><pre><span></span><code>интерфейс: show_loop, main
+выбор: planner_stub
+оркестрация: run_harness
+  решение_после_observation: decide
+runtime: perform_action
+состояние: new_state, update_state
+активный_контекст: state -&gt; planner_stub
+permissions: access_demo.check_workspace_access (отдельное демо главы 3)
+</code></pre></div>
+<p>В выводе перечислены знакомые обязанности harness. Пяти механизмов этой главы там нет, потому что эта карта отвечает на другой вопрос: <strong>кто организует работу вокруг модели?</strong> Следующая карта будет устроена иначе: она покажет способы задать инструкцию, форму результата, действие, подключение и повторяемую процедуру.</p>
+<p>Отсюда следует граница: harness не становится шестым пунктом в нашей пятёрке и не исчезает после появления MCP или Agent Skill. Harness остаётся средой, которая организует работу, а пять механизмов отвечают на пять других вопросов.</p>
+<h3 id="2-prompt-что-именно-сказано-модели">2. Prompt: что именно сказано модели<a class="headerlink" href="#2-prompt-что-именно-сказано-модели" title="Permanent link">&para;</a></h3>
+<p>Вернёмся к первой просьбе Ани: «Объясни, почему задача заблокирована, в двух предложениях». Здесь Аня прежде всего задаёт модели текстовую инструкцию: что объяснить и насколько кратко ответить.</p>
+<p><strong>Prompt / инструкция — текстовая инструкция, передаваемая модели.</strong></p>
+<p>Prompt сообщает модели, что от неё хотят в текущем обращении. Он может быть коротким — «сделай сводку» — или более подробным: «сравни две карточки, не придумывай отсутствующие данные и ответь тремя предложениями». В обоих случаях речь идёт именно о тексте инструкции.</p>
+<p>Что из этого определения не следует? Prompt не выполняет внешнюю операцию, не подключает сервер и не превращается автоматически в Agent Skill. Если в prompt написать «открой файл», слова не создадут у приложения функцию чтения и не докажут, что файл был открыт. Здесь действует уже знакомая граница: текст о действии и выполненное действие — разные вещи.</p>
+<p>Prompt также не равен всему контексту. Контекст — вся информация, доступная модели в конкретном обращении. Prompt может входить в контекст, но рядом с ним могут быть карточки задач, предыдущие сообщения или другие данные, которые harness решил передать модели.</p>
+<blockquote>
+<p><strong>Проверь себя на ходу.</strong> В контексте лежат текст инструкции и три карточки задач. Что здесь относится к prompt, а что — к остальному контексту?</p>
+</blockquote>
+<h3 id="3-structured-output-в-какой-форме-должен-прийти-результат">3. Structured output: в какой форме должен прийти результат<a class="headerlink" href="#3-structured-output-в-какой-форме-должен-прийти-результат" title="Permanent link">&para;</a></h3>
+<p>Теперь вторая просьба Ани: «Верни поля <code>summary</code>, <code>blocked_tasks</code>, <code>next_step</code>». Здесь важно уже не только содержание ответа. Ане нужно, чтобы результат был разложен по заранее известным именованным частям. Тогда приложение сможет не угадывать, где в свободном тексте находится сводка, список заблокированных задач и следующий шаг.</p>
+<p><strong>Structured output / структурированный вывод — требование вернуть результат в заранее определённой машинно-читаемой структуре.</strong></p>
+<p>Structured output задаёт форму, в которой должен прийти результат. Например, заранее договорились, что в ответе будут три поля — <code>summary</code>, <code>blocked_tasks</code> и <code>next_step</code>, — и у каждого своё назначение. Тогда программа может обращаться к нужному полю по имени, а не искать его в свободном абзаце. Заранее задана именно форма результата, а не способ получить сами данные.</p>
+<p>Это не внешнее действие. Structured output не читает карточки, не сохраняет файл и не создаёт подключение. Он также не равен любому тексту, похожему на JSON. В этой главе нам достаточно идеи заранее заданной структуры; формальные схемы данных появятся позже.</p>
+<p>Сравни две просьбы:</p>
+<div class="highlight"><pre><span></span><code>Объясни причину блокировки в двух предложениях.
+Верни поля summary, blocked_tasks, next_step.
+</code></pre></div>
+<p>Первая просьба прежде всего задаёт содержание и стиль ответа. Вторая задаёт форму результата. Они могут встретиться в одном обращении — например, «объясни кратко и верни три поля», — но от этого не становятся одним механизмом.</p>
+<h3 id="4-tool-какое-отдельное-действие-доступно-системе">4. Tool: какое отдельное действие доступно системе<a class="headerlink" href="#4-tool-какое-отдельное-действие-доступно-системе" title="Permanent link">&para;</a></h3>
+<p>Третья просьба Ани — «Прочитай карточки задач». Такую фразу тоже можно поместить в prompt. Но здесь появляется новый вопрос: <strong>есть ли у системы операция, которая действительно умеет читать карточки?</strong> Одного текста для ответа на этот вопрос уже недостаточно.</p>
+<p>Tool мы уже встречали в главах 1–3, поэтому определение не меняем, а уточняем его место среди соседних механизмов.</p>
+<p><strong>Tool / инструмент — конкретная операция, доступная агентной системе.</strong></p>
+<p>Главный вопрос tool: <strong>«Какое отдельное действие может выполнить система?»</strong> Для нашего проекта пример — <code>read_task_cards</code>. Пока операция только перечислена среди доступных, ничего не произошло. Фактическое выполнение остаётся работой runtime, а полученный результат возвращается как observation.</p>
+<p>Не каждая функция Python автоматически становится tool. В программе могут быть десятки вспомогательных функций, а агентной системе доступны как операции только некоторые из них. Верно и обратное: слово в prompt не превращается в tool. Можно написать «измерь температуру», но без подходящей операции система не получит новое измерение из внешней среды.</p>
+<p>Здесь удобно провести короткую границу:</p>
+<div class="highlight"><pre><span></span><code>prompt: что сказали модели
+tool: что система умеет отдельно выполнить
+runtime: где операция фактически исполняется
+observation: что вернулось после выполнения
+</code></pre></div>
+<p>Эта цепочка пригодится позже, когда мы подробно разберём запрос операции. Пока достаточно различать роли в ней.</p>
+<h3 id="5-пять-нейтральных-фрагментов">5. Пять нейтральных фрагментов<a class="headerlink" href="#5-пять-нейтральных-фрагментов" title="Permanent link">&para;</a></h3>
+<p>Теперь проверим, удаётся ли различить механизмы без готовых подписей. В starter для главы 4 есть локальная демонстрация <a href="../../starter/mechanisms_demo.py"><code>mechanisms_demo.py</code></a>. Она не обращается к сети и не использует живую модель: это детерминированный учебный материал, и каждый её вывод, напечатанный в этой главе, получен фактическим запуском.</p>
+<p>Сначала попросим программу показать пять фрагментов A–E. До запуска попробуй для каждого мысленно ответить: это инструкция, форма результата, операция, подключение или процедура?</p>
+<div class="highlight"><pre><span></span><code><span class="c1"># запуск из корня starter</span>
+python<span class="w"> </span>mechanisms_demo.py<span class="w"> </span>fragments
+</code></pre></div>
+<div class="highlight"><pre><span></span><code>A
+Объясни, почему задача заблокирована, в двух предложениях.
+
+B
+{
+  &quot;summary&quot;: &quot;Стенд готов наполовину, часть задач остановлена.&quot;,
+  &quot;blocked_tasks&quot;: [&quot;task-003&quot;],
+  &quot;next_step&quot;: &quot;Уточнить размеры стенда у дизайнеров.&quot;
+}
+
+C
+read_task_cards()
+Прочитать карточки задач проекта.
+
+D
+local_school_board
+tasks://open
+tasks://blocked
+
+E
+status-summary
+read cards
+select blocked
+compose summary
+</code></pre></div>
+<p>У пяти фрагментов намеренно нет подписей. Смотри не на знакомые слова, а на <em>форму</em>: перед тобой фраза, набор именованных полей, имя операции, описание подключённой стороны или порядок шагов? Запиши гипотезу для каждой буквы. Проверка будет в §10; до неё не заглядывай в готовый ответ.</p>
+<h3 id="6-mcp-не-действие-а-способ-подключения">6. MCP: не действие, а способ подключения<a class="headerlink" href="#6-mcp-не-действие-а-способ-подключения" title="Permanent link">&para;</a></h3>
+<p>Четвёртая просьба Ани — «Подключись к школьной доске и покажи доступные материалы». Здесь Аня не называет одно конкретное действие. Сначала системе нужен способ взаимодействовать с внешней стороной и узнать, какие возможности эта сторона предоставляет.</p>
+<p>На экскурсии ты видел в работе и подключённый сервис, и записанную процедуру; здесь оба механизма получат точные определения и место среди остальных.</p>
+<p><strong>MCP / Model Context Protocol — протокол подключения ИИ-приложения к внешним системам, данным и возможностям через стандартизированное взаимодействие.</strong></p>
+<p>Главный вопрос MCP: <strong>«Как подключить внешнюю систему и обнаружить её возможности?»</strong> Tool отвечает на другой вопрос: какая отдельная операция доступна системе. Через MCP-подключение могут быть обнаружены разные возможности и материалы, поэтому MCP нельзя сводить к одному tool.</p>
+<p>Слово «протокол» здесь означает согласованные правила взаимодействия сторон. Это можно сравнить с правилами обмена посылками: правила объясняют, как оформить и передать отправление, но не доказывают, что его содержимое безопасно или полезно. На этом сходство заканчивается: MCP — программный протокол, а не почтовая служба; конкретные сообщения и роли задаются спецификацией и реализацией.</p>
+<p>В нашей главе мы не запускаем настоящий внешний MCP-сервер и не настраиваем сеть. Нам нужно только правильно увидеть архитектурные роли и не спутать протокол с отдельной операцией.</p>
+<h3 id="7-agent-skill-как-повторить-работу-тем-же-способом">7. Agent Skill: как повторить работу тем же способом<a class="headerlink" href="#7-agent-skill-как-повторить-работу-тем-же-способом" title="Permanent link">&para;</a></h3>
+<p>Пятая просьба Ани звучит так: «Каждую неделю готовь сводку одним и тем же проверяемым способом». Один tool не задаёт весь такой порядок работы. Чтение карточек — только один шаг; кроме него, нужно выбрать заблокированные задачи, собрать сводку, проверить форму результата и знать, когда работа закончена.</p>
+<p><strong>Agent Skill — переносимая процедура в каталоге, центральным обязательным файлом которой является <code>SKILL.md</code>; дополнительные ресурсы используются по необходимости.</strong></p>
+<p>Главный вопрос Agent Skill: <strong>«Как выполнить повторяемую работу?»</strong> В нашем примере процедура может задать последовательность: прочитать карточки, выбрать заблокированные, подготовить сводку по установленным правилам. Для отдельных шагов она может использовать tools, но вся процедура не равна одному tool.</p>
+<p>Не смешивай Agent Skill с длинным prompt. Prompt передаёт инструкцию модели в конкретном обращении. Agent Skill оформляет переносимую процедуру, которую можно снова использовать в подходящей задаче. И не называй Agent Skill «памятью агента вообще»: позже мы отдельно разберём состояние и другие способы хранения данных.</p>
+<p>В этой главе мы только знакомимся с устройством Agent Skill концептуально. Мы увидим <code>SKILL.md</code> как центральный файл процедуры, но не будем писать его синтаксис, метаданные или собирать собственный каталог. Практическая сборка будет позже.</p>
+<h3 id="8-центральный-артефакт-матрица-пяти-механизмов">8. Центральный артефакт: матрица пяти механизмов<a class="headerlink" href="#8-центральный-артефакт-матрица-пяти-механизмов" title="Permanent link">&para;</a></h3>
+<p>Теперь соберём различия в одну таблицу. Она нужна как карта: если два термина начинают казаться одинаковыми, сравни их главный вопрос, то, что они задают, и наблюдаемый признак.</p>
+<table>
+<thead>
+<tr>
+<th>Механизм</th>
+<th>Главный вопрос</th>
+<th>Что задаёт</th>
+<th>Наблюдаемый признак</th>
+<th>С чем не смешивать</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>prompt</code></td>
+<td>Какую текстовую инструкцию получает модель?</td>
+<td>содержание инструкции</td>
+<td>модели передан конкретный текст</td>
+<td>контекстом целиком, tool, Agent Skill</td>
+</tr>
+<tr>
+<td><code>structured output</code></td>
+<td>В какой заранее заданной структуре вернуть результат?</td>
+<td>форму результата</td>
+<td>результат имеет ожидаемые поля/части</td>
+<td>внешним действием</td>
+</tr>
+<tr>
+<td><code>tool</code></td>
+<td>Какое отдельное действие может выполнить система?</td>
+<td>доступную операцию</td>
+<td>runtime может выполнить конкретную операцию и вернуть observation</td>
+<td>prompt, MCP, Agent Skill</td>
+</tr>
+<tr>
+<td><code>MCP</code></td>
+<td>Как подключить внешнюю систему и обнаружить её возможности?</td>
+<td>правила подключения и взаимодействия</td>
+<td>у host/client есть описание доступных возможностей внешней стороны</td>
+<td>одним tool, знаком доверия</td>
+</tr>
+<tr>
+<td><code>Agent Skill</code></td>
+<td>Как выполнить повторяемую работу?</td>
+<td>процедуру и порядок действий</td>
+<td>есть переносимая процедура с <code>SKILL.md</code> и нужными ресурсами</td>
+<td>длинным prompt, tool, MCP, памятью вообще</td>
+</tr>
+</tbody>
+</table>
+<p>Строки таблицы расположены рядом, а не ступенями. Поэтому нельзя читать её как лестницу «сначала tool, потом современнее MCP, потом ещё современнее Agent Skill». В одном проекте могут одновременно работать prompt, structured output, несколько tools, MCP-подключение и Agent Skill: каждый механизм отвечает на свой вопрос.</p>
+<p><img alt="Фигура 10. Матрица пяти механизмов" src="../../figures/10_matritsa-pyati-mekhanizmov.svg" /></p>
+<p><em>Фигура 10. Матрица пяти механизмов</em></p>
+<h3 id="9-практика-a-десять-карточек-ситуаций">9. Практика A: десять карточек ситуаций<a class="headerlink" href="#9-практика-a-десять-карточек-ситуаций" title="Permanent link">&para;</a></h3>
+<p>Работайте парами. Учитель или соседняя пара выдаёт десять карточек с короткими ситуациями. На каждой нужно написать один основной механизм и одну фразу объяснения: <strong>какой главный вопрос здесь решается?</strong></p>
+<p>Примеры ситуаций:</p>
+<ol>
+<li>«Ответь не длиннее трёх предложений».</li>
+<li>«Верни поля <code>title</code>, <code>status</code>, <code>reason</code>».</li>
+<li>«Прочитай локальную карточку задачи».</li>
+<li>«Покажи, какие материалы предоставляет подключённая школьная система».</li>
+<li>«Каждый понедельник собирай статус-отчёт по одной и той же процедуре».</li>
+<li>«Не используй разговорный стиль».</li>
+<li>«Получив карточку, проверь её обязательные поля» — если речь об отдельной доступной операции.</li>
+<li>«Подключённая сторона сообщает два доступных материала».</li>
+<li>«Сводка всегда состоит из трёх именованных частей».</li>
+<li>«Процедура говорит: прочитать карточки → выбрать blocked → составить сводку».</li>
+</ol>
+<p>Здесь нужно назвать роль механизма, а не вспомнить английское слово. Если в ситуации встречаются два механизма, выбери тот, о котором спрашивает карточка, и отдельно поясни соседний. Например, Agent Skill может использовать tool; из этого не следует, что вся процедура становится tool.</p>
+<p><strong>Результат практики A:</strong> заполненная матрица десяти ситуаций и минимум два объяснённых пограничных случая.</p>
+<h3 id="10-практика-b-классификация-своими-пятью-строками">10. Практика B: классификация своими пятью строками<a class="headerlink" href="#10-практика-b-классификация-своими-пятью-строками" title="Permanent link">&para;</a></h3>
+<p>В треке B ты не меняешь рабочие данные проекта. Если папки <code>drafts/</code> нет — создай её. Создай в рабочей копии starter обычный текстовый файл <code>workspace/drafts/ch04_choices.txt</code> и запиши пять строк:</p>
+<div class="highlight"><pre><span></span><code>A=prompt
+B=structured output
+C=tool
+D=MCP
+E=Agent Skill
+</code></pre></div>
+<p>Заполненный файл в рабочей папке <code>workspace/</code> не поставляется: эти пять строк ты создаёшь сам. Перед проверкой снова посмотри на A–E из раздела 5. Сверяй не ключевые слова, а форму каждого фрагмента: фраза, именованные поля, имя операции, описание подключённой стороны или порядок шагов. До запуска запиши прогноз: сколько ответов программа примет?</p>
+<p>Если запустить проверку до того, как файл создан, программа не падает, а честно сообщает, чего не хватает. В чистом комплекте такой первый запуск даёт:</p>
+<div class="highlight"><pre><span></span><code>ошибка: файл ответов не создан: workspace/drafts/ch04_choices.txt
+подсказка: скопируй workspace/ch04/templates/choices.txt и заполни пять строк
+результат: не принят
+</code></pre></div>
+<p>Теперь выполни команду. Вторая служебная строка блока, <code># фикстура: …</code>, относится к проверке самой книги, а не к твоему действию. Фикстура — заранее подготовленный файл для проверки: печатный вывод ниже получен на таком файле, который на время проверки подставляется на место твоего и затем убирается. В своём запуске ты вводишь только строку с <code>python</code>.</p>
+<div class="highlight"><pre><span></span><code><span class="c1"># запуск из корня starter</span>
+<span class="c1"># фикстура: tests/fixtures/ch04/choices_correct.txt -&gt; workspace/drafts/ch04_choices.txt</span>
+python<span class="w"> </span>mechanisms_demo.py<span class="w"> </span>check<span class="w"> </span>workspace/drafts/ch04_choices.txt
+</code></pre></div>
+<div class="highlight"><pre><span></span><code>A: prompt — ok
+B: structured output — ok
+C: tool — ok
+D: MCP — ok
+E: Agent Skill — ok
+результат: 5/5
+</code></pre></div>
+<p>Этот результат проверяет только классификацию пяти подготовленных учебных фрагментов. Он не доказывает, что ты распознаешь любые реальные системы, и не проверяет работу живой модели.</p>
+<p>Теперь специально неверный случай. Здесь все пять фрагментов названы prompt:</p>
+<div class="highlight"><pre><span></span><code><span class="c1"># запуск из корня starter</span>
+python<span class="w"> </span>mechanisms_demo.py<span class="w"> </span>check<span class="w"> </span>workspace/ch04/cases/choices_all_prompt.txt
+</code></pre></div>
+<div class="highlight"><pre><span></span><code>A: prompt — ok
+B: prompt — expected structured output
+C: prompt — expected tool
+D: prompt — expected MCP
+E: prompt — expected Agent Skill
+результат: 1/5
+</code></pre></div>
+<p>Правильным остаётся только A. Значит, в этих пяти подготовленных фрагментах догадка Марка «всё просто разные промпты» не проходит проверку. Текст может содержать просьбу о действии, подключении или процедуре, но сама просьба не превращается в эти механизмы.</p>
+<p>Проверим неполный вход:</p>
+<div class="highlight"><pre><span></span><code><span class="c1"># запуск из корня starter</span>
+python<span class="w"> </span>mechanisms_demo.py<span class="w"> </span>check<span class="w"> </span>workspace/ch04/cases/choices_missing.txt
+</code></pre></div>
+<div class="highlight"><pre><span></span><code>ошибка: отсутствует ответ E
+результат: не принят
+</code></pre></div>
+<p>Здесь важен не балл, а статус: классификация неполна, и программа прямо сообщает, что результат не принят.</p>
+<p>Последний случай урока разводит четыре особенно похожие роли:</p>
+<div class="highlight"><pre><span></span><code><span class="c1"># запуск из корня starter</span>
+python<span class="w"> </span>mechanisms_demo.py<span class="w"> </span>check<span class="w"> </span>workspace/ch04/cases/choices_boundary.txt
+</code></pre></div>
+<div class="highlight"><pre><span></span><code>read-one-card: tool — ok
+discover-resources: MCP — ok
+repeat-summary: Agent Skill — ok
+return-fields: structured output — ok
+результат: 4/4
+</code></pre></div>
+<p>Четыре строки разводят четыре роли: чтение одной карточки относится к отдельной операции, обнаружение доступных материалов — к подключению, повторяемая сводка — к процедуре, а поля результата — к форме вывода. Эти механизмы могут работать в одном проекте одновременно.</p>
+<p><strong>Результат практики B:</strong> твой файл из пяти строк, прогноз до запуска и сверка четырёх сценариев: «должен», «не должен», «ошибка», «граница».</p>
+<h3 id="11-мини-проверка-урока-7">11. Мини-проверка урока 7<a class="headerlink" href="#11-мини-проверка-урока-7" title="Permanent link">&para;</a></h3>
+<ol>
+<li>Аня меняет «ответь подробно» на «ответь двумя предложениями». Какой механизм изменился?</li>
+<li>Программа должна вернуть три заранее названных поля. Это действие или форма результата?</li>
+<li>В приложении есть функция, но она не предоставлена агентной системе как операция. Можно ли автоматически назвать её tool?</li>
+<li>Почему фраза «подключись к доске» не доказывает наличие MCP-подключения?</li>
+<li>Чем tool отличается от Agent Skill?</li>
+</ol>
+<h4 id="ответы">Ответы<a class="headerlink" href="#ответы" title="Permanent link">&para;</a></h4>
+<ol>
+<li><code>prompt</code>.</li>
+<li><code>structured output</code>; это форма результата, не внешнее действие.</li>
+<li>Нет. Tool — конкретная операция, доступная агентной системе.</li>
+<li>Потому что текстовая просьба сама не создаёт программное подключение.</li>
+<li>Tool — отдельная операция; Agent Skill — повторяемая процедура, которая может включать несколько шагов и использовать tools.</li>
+</ol>
+<h3 id="выходной-билет-урока-7">Выходной билет урока 7<a class="headerlink" href="#выходной-билет-урока-7" title="Permanent link">&para;</a></h3>
+<p>Запиши пять строк по шаблону:</p>
+<div class="highlight"><pre><span></span><code>prompt отвечает на вопрос …
+structured output отвечает на вопрос …
+tool отвечает на вопрос …
+MCP отвечает на вопрос …
+Agent Skill отвечает на вопрос …
+</code></pre></div>
+<p>Если хотя бы в двух строках у тебя получился один и тот же вопрос, вернись к матрице пяти механизмов и найди, где смешались роли.</p>
+<hr />
+<h2 id="lesson-8">Урок 8. Как механизмы работают вместе<a class="headerlink" href="#lesson-8" title="Permanent link">&para;</a></h2>
+<h3 id="1-ложная-лестница">1. Ложная лестница<a class="headerlink" href="#1-ложная-лестница" title="Permanent link">&para;</a></h3>
+<p>На доске Марк нарисовал стрелку:</p>
+<div class="highlight"><pre><span></span><code>tool → MCP → Agent Skill
+</code></pre></div>
+<p>— Вот, — сказал он, — сначала были tools, потом их заменил MCP, а теперь всё заменят Agent Skills.</p>
+<p>По рисунку легко решить, будто перед нами три поколения одного механизма. Но роли у них разные: tool отвечает за отдельную операцию, MCP — за подключение внешней системы и обнаружение возможностей, Agent Skill — за повторяемую процедуру. Порядок знакомства с терминами не превращает один механизм в «следующую версию» другого.</p>
+<p>Поэтому полезнее рисовать одну систему с несколькими линиями. В ней Agent Skill задаёт, <strong>как</strong> выполнять работу; один из его шагов может использовать tool; tool может быть доступен через подключение; structured output может задавать форму итогового результата; prompt может содержать инструкцию для текущего обращения. Harness организует эти части вокруг модели.</p>
+<h3 id="2-host-client-server-и-resource">2. Host, client, server и resource<a class="headerlink" href="#2-host-client-server-и-resource" title="Permanent link">&para;</a></h3>
+<p>Чтобы слово MCP не означало расплывчатое «подключение вообще», различим четыре роли учебной схемы.</p>
+<p><strong>Host — приложение или среда, внутри которой организуется работа MCP-подключений.</strong> В нашем учебном примере эту роль играет приложение школьного агента. Host — не новое название любого приложения: это конкретная роль приложения в MCP-архитектуре.</p>
+<p><strong>Client — компонент на стороне host, который взаимодействует с конкретным MCP-сервером.</strong> Host организует работу MCP-подключений, а client взаимодействует с конкретной выбранной внешней стороной.</p>
+<p><strong>Server — внешняя сторона MCP-подключения, предоставляющая доступные возможности.</strong> Слово «внешняя» здесь обозначает сторону подключения относительно host; в нашей учебной демонстрации всё остаётся локальным и сетевой сервер не запускается.</p>
+<p><strong>Resource / ресурс — доступный через интеграционный слой материал или источник данных.</strong> Интеграционный слой здесь — само подключение, через которое host получает доступ к внешней стороне. Например, сервер может объявить материалы <code>tasks://open</code> и <code>tasks://blocked</code>. Сам факт объявления ресурса ещё не означает, что его содержимое прочитано или передано модели.</p>
+<p>Расположим четыре роли на одной схеме:</p>
+<div class="highlight"><pre><span></span><code>host
+  └── client
+        └── server
+              ├── resource: tasks://open
+              └── resource: tasks://blocked
+</code></pre></div>
+<p>Схема показывает отношения ролей, но ничего не доказывает о доверии. Протокол описывает взаимодействие сторон; безопасность конкретного server проверяется отдельно.</p>
+<blockquote>
+<p><strong>Проверь себя на ходу.</strong> В списке виден <code>resource: tasks://blocked</code>. Можно ли уже утверждать, что содержимое этого resource находится в активном контексте модели? Почему?</p>
+</blockquote>
+<h3 id="3-обнаружить--не-значит-прочитать--не-значит-передать-модели">3. Обнаружить — не значит прочитать — не значит передать модели<a class="headerlink" href="#3-обнаружить--не-значит-прочитать--не-значит-передать-модели" title="Permanent link">&para;</a></h3>
+<p>Здесь особенно важно не склеить три события. Сначала система может обнаружить, что resource существует. Затем приложение может отдельно запросить его содержимое. После этого harness может решить, передавать ли полученные данные модели в конкретном обращении.</p>
+<p>Три события нельзя сжимать в одно:</p>
+<div class="highlight"><pre><span></span><code>resource обнаружен
+≠ resource прочитан
+≠ содержимое передано модели
+</code></pre></div>
+<p>В главах 1 и 3 была похожая граница с файлами: наличие файла рядом с программой не означает, что модель видит его содержимое. MCP эту границу не отменяет. Он добавляет стандартный способ взаимодействия, а управление контекстом остаётся отдельной обязанностью среды.</p>
+<p>Это пример общего инженерного правила: <strong>название возможности не доказывает выполненное действие</strong>. Поэтому в учебнике мы постоянно ищем наблюдаемый признак: что именно программа сделала и что вернулось.</p>
+<h3 id="4-практика-b-локальная-mcp-карта-без-сети">4. Практика B: локальная MCP-карта без сети<a class="headerlink" href="#4-практика-b-локальная-mcp-карта-без-сети" title="Permanent link">&para;</a></h3>
+<p>Теперь попросим <code>mechanisms_demo.py</code> показать локальную mock-карту MCP. Слово <code>mock</code> здесь означает подготовленную учебную модель объекта: она нужна для разбора структуры, а не выдаётся за настоящий внешний сервер.</p>
+<p>Перед запуском предскажи две последние строки. Должна ли локальная демонстрация утверждать, что сеть использовалась? Должна ли она объявлять сервер доверенным?</p>
+<div class="highlight"><pre><span></span><code><span class="c1"># запуск из корня starter</span>
+python<span class="w"> </span>mechanisms_demo.py<span class="w"> </span>mcp
+</code></pre></div>
+<div class="highlight"><pre><span></span><code>host: school_agent_app
+client: school_board_client
+server: local_school_board
+resource: tasks://open
+resource: tasks://blocked
+network: not used
+trust: not proven
+</code></pre></div>
+<p>Первые пять строк показывают роли и объявленные resources. Две последние задают границы вывода: сеть не использовалась, доверие не доказано. Эти строки печатает сама программа, а не карточка server. Карточка содержит данные, а данные не могут назначить себе доверие. Поэтому по выводу можно утверждать только то, что показывает демонстрация, и не больше.</p>
+<p>В этой главе мы не настраиваем настоящий транспорт, авторизацию или внешний сервер. Нам нужен только архитектурный смысл: MCP — не tool и не знак безопасности.</p>
+<h3 id="5-progressive-disclosure-открывать-подробности-по-необходимости">5. Progressive disclosure: открывать подробности по необходимости<a class="headerlink" href="#5-progressive-disclosure-открывать-подробности-по-необходимости" title="Permanent link">&para;</a></h3>
+<p>Вернёмся к пятой просьбе Ани — повторяемой сводке. Представь, что для одной процедуры есть короткая карточка каталога, основной файл с порядком работы и отдельный подробный справочник полей отчёта. Если каждый раз загружать все три слоя сразу, в активный контекст попадут и те подробности, которые для текущего шага могут не понадобиться.</p>
+<p>Поэтому используется <strong>progressive disclosure / постепенное раскрытие — подробности процедуры загружаются по мере необходимости, а не все одновременно.</strong></p>
+<p>В нашей учебной последовательности это выглядит так:</p>
+<div class="highlight"><pre><span></span><code>краткое описание → SKILL.md → нужный reference (справочный материал)
+</code></pre></div>
+<p>Сначала достаточно узнать, что процедура существует и для чего она предназначена. Если процедура подходит задаче, читается основной файл <code>SKILL.md</code>. Если конкретному шагу нужна подробность, загружается соответствующий reference.</p>
+<p>Это можно сравнить с вложенными конвертами. На внешнем написано, что внутри; второй открывают, если нужны шаги; третий — если нужна подробная справка. Граница сходства здесь существенна: реальные файлы не получают защиту от того, что лежат «глубже». Progressive disclosure управляет объёмом загружаемых подробностей, но не работает как sandbox и не создаёт permissions.</p>
+<blockquote>
+<p><strong>Проверь себя на ходу.</strong> Каталог назвал skill <code>status-summary</code>. Что ещё не загружено — и чего это не доказывает?</p>
+</blockquote>
+<h3 id="6-практика-a-три-вложенных-конверта">6. Практика A: три вложенных конверта<a class="headerlink" href="#6-практика-a-три-вложенных-конверта" title="Permanent link">&para;</a></h3>
+<p>Для трека A подготовьте три бумажных конверта или три сложенных листа.</p>
+<p>На внешнем напишите:</p>
+<div class="highlight"><pre><span></span><code>status-summary
+подготовить сводку по карточкам проекта
+</code></pre></div>
+<p>Внутри второго — последовательность:</p>
+<div class="highlight"><pre><span></span><code>read cards
+select blocked
+compose summary
+</code></pre></div>
+<p>В третьем — поля отчёта:</p>
+<div class="highlight"><pre><span></span><code>summary
+blocked_tasks
+next_step
+</code></pre></div>
+<p>Работайте парами. Первый ученик получает только внешний слой и должен решить, подходит ли процедура к задаче «подготовить статус-сводку». Только после этого он открывает второй слой. Третий открывается лишь тогда, когда для шага <code>compose summary</code> понадобилась точная форма результата.</p>
+<p>После опыта ответьте: что изменилось бы, если сразу выдать все три слоя? Сама процедура осталась бы прежней, но в активном контексте оказалось бы больше деталей, часть которых на этом шаге не нужна.</p>
+<p><strong>Результат практики A:</strong> схема трёх уровней и одна фраза-граница: «progressive disclosure управляет загрузкой подробностей, но не доказывает безопасность и не назначает права».</p>
+<h3 id="7-практика-b-три-слоя-agent-skill">7. Практика B: три слоя Agent Skill<a class="headerlink" href="#7-практика-b-три-слоя-agent-skill" title="Permanent link">&para;</a></h3>
+<p>В starter три команды читают по одному учебному слою. Они не исполняют scripts и не устанавливают Agent Skill в сторонний продукт. Их задача — сделать progressive disclosure наблюдаемым.</p>
+<p>Сначала слой каталога:</p>
+<div class="highlight"><pre><span></span><code><span class="c1"># запуск из корня starter</span>
+python<span class="w"> </span>mechanisms_demo.py<span class="w"> </span>skill<span class="w"> </span>--layer<span class="w"> </span>catalog
+</code></pre></div>
+<div class="highlight"><pre><span></span><code>progressive disclosure: catalog
+Agent Skill: status-summary
+description: подготовить сводку по карточкам проекта
+next: SKILL.md
+</code></pre></div>
+<p>Краткого описания хватает, чтобы определить назначение процедуры. Полные шаги на этом слое ещё не прочитаны.</p>
+<p>Теперь основной файл:</p>
+<div class="highlight"><pre><span></span><code><span class="c1"># запуск из корня starter</span>
+python<span class="w"> </span>mechanisms_demo.py<span class="w"> </span>skill<span class="w"> </span>--layer<span class="w"> </span>instructions
+</code></pre></div>
+<div class="highlight"><pre><span></span><code>progressive disclosure: SKILL.md
+step: read cards
+step: select blocked
+step: compose summary
+next: references/report_fields.md
+</code></pre></div>
+<p><code>SKILL.md</code> показывает порядок работы и сообщает, что для составления отчёта есть отдельный справочный материал. Но команда этого слоя ещё не читает reference заранее.</p>
+<p>Наконец, третий слой — нужный reference:</p>
+<div class="highlight"><pre><span></span><code><span class="c1"># запуск из корня starter</span>
+python<span class="w"> </span>mechanisms_demo.py<span class="w"> </span>skill<span class="w"> </span>--layer<span class="w"> </span>reference
+</code></pre></div>
+<div class="highlight"><pre><span></span><code>progressive disclosure: references/report_fields.md
+field: summary
+field: blocked_tasks
+field: next_step
+next: none
+</code></pre></div>
+<p>Поля отчёта появляются только на третьем шаге. Так демонстрация делает progressive disclosure наблюдаемым, а техническая проверка в starter закрепляет главное: команда одного слоя не загружает два остальных.</p>
+<p>Обрати внимание на название <code>SKILL.md</code>. В этой главе мы читаем его как центральный файл готовой учебной процедуры. Мы не изучаем его внутренний синтаксис и не собираем собственный Agent Skill — это отдельная практическая задача следующих глав.</p>
+<p><strong>Результат практики B:</strong> три наблюдаемых слоя и объяснение, почему последовательная загрузка не равна разрешению на выполнение.</p>
+<h3 id="8-обязательные-проверки-должен--не-должен--ошибка--граница">8. Обязательные проверки: должен / не должен / ошибка / граница<a class="headerlink" href="#8-обязательные-проверки-должен--не-должен--ошибка--граница" title="Permanent link">&para;</a></h3>
+<p>Сведём четыре типа проверки в одном месте.</p>
+<h4 id="должен">Должен<a class="headerlink" href="#должен" title="Permanent link">&para;</a></h4>
+<p>Пять корректных ответов в <code>ch04_choices.txt</code> должны дать пять <code>ok</code> и итог <code>5/5</code>. Это показывает, что классификатор принимает ожидаемую матрицу.</p>
+<h4 id="не-должен">Не должен<a class="headerlink" href="#не-должен" title="Permanent link">&para;</a></h4>
+<p>Случай, где всё названо prompt, не должен пройти как правильный. Только A соответствует prompt; остальные четыре роли должны быть отклонены с ожидаемым названием механизма.</p>
+<h4 id="ошибка">Ошибка<a class="headerlink" href="#ошибка" title="Permanent link">&para;</a></h4>
+<p>Если отсутствует ответ E, программа должна явно сказать, чего не хватает, и напечатать <code>результат: не принят</code>. Неполный учебный вход нельзя выдавать за завершённую классификацию.</p>
+<h4 id="граница">Граница<a class="headerlink" href="#граница" title="Permanent link">&para;</a></h4>
+<p>Случай <code>read-one-card / discover-resources / repeat-summary / return-fields</code> должен развести tool, MCP, Agent Skill и structured output. Дополнительная техническая граница: файл ответов читается только из <code>workspace/</code> (а для проверок самого комплекта — из <code>tests/fixtures/</code>); абсолютный путь, путь с <code>..</code> и любая другая папка отклоняются как выход за границу — той же проверкой, что и в главе 3.</p>
+<p>Для progressive disclosure есть своя граница: каталог, <code>SKILL.md</code> и reference читаются отдельно. Неизвестный слой не должен превращаться в произвольное чтение пути.</p>
+<h3 id="9-врезка-безопасности-протокол-и-процедура-не-являются-знаком-доверия">9. Врезка безопасности: протокол и процедура не являются знаком доверия<a class="headerlink" href="#9-врезка-безопасности-протокол-и-процедура-не-являются-знаком-доверия" title="Permanent link">&para;</a></h3>
+<blockquote>
+<p><strong>Безопасность</strong></p>
+<p>Наличие MCP-подключения сообщает, что стороны умеют взаимодействовать по протоколу. Оно не доказывает, что конкретный server безопасен, что его данные верны или что любую предложенную им возможность следует выполнять.</p>
+<p>Наличие <code>SKILL.md</code> сообщает, что перед нами оформленная процедура. Оно не доказывает качество её инструкций и не выдаёт ей permissions.</p>
+<p>Progressive disclosure уменьшает объём подробностей, загружаемых заранее. Оно не является sandbox и не ограничивает последствия выполнения.</p>
+<p>В этой главе все MCP- и Agent Skill-материалы локальные и read-only. Сеть не используется, scripts не исполняются, статусы карточек не изменяются.</p>
+</blockquote>
+<p>Полную модель угроз и формальный процесс подтверждения человеком здесь не строим: эти темы появятся позже. Для этой главы достаточно границы: <strong>название стандарта, файла или процедуры не доказывает безопасность</strong>.</p>
+<h3 id="10-полная-архитектурная-карта-дежурного">10. Полная архитектурная карта «Дежурного»<a class="headerlink" href="#10-полная-архитектурная-карта-дежурного" title="Permanent link">&para;</a></h3>
+<p>Соединим карты глав 1–4. В центре остаётся приложение с harness. Модель получает доступный ей контекст и формирует результат. Agent loop возвращает observation в следующий шаг. Вокруг этой основы располагаются пять разных механизмов.</p>
+<div class="highlight"><pre><span></span><code>человек
+  ↓
+приложение / host
+  ├── prompt ───────────────→ модель
+  ├── structured output ────→ форма результата модели
+  ├── Agent Skill
+  │      catalog
+  │        ↓
+  │      SKILL.md
+  │        ↓ по необходимости
+  │      reference
+  │
+  ├── tool ─→ runtime ─→ observation
+  │
+  └── MCP client ─→ server
+                     ├── resource A
+                     └── resource B
+</code></pre></div>
+<p>На схеме нет одной стрелки <code>tool → MCP → Agent Skill</code>: разные линии сходятся в одном приложении. Agent Skill может предписывать воспользоваться tool. Tool может оказаться доступным через интеграционный слой. Prompt может содержать просьбу выполнить процедуру. Structured output может задавать форму финальной сводки. Совместная работа этих механизмов не стирает различий между ними.</p>
+<p>К схеме нужно добавить три границы:</p>
+<div class="highlight"><pre><span></span><code>resource ≠ active context
+protocol ≠ trust
+procedure ≠ permission
+</code></pre></div>
+<p>Первая строка напоминает: обнаруженный материал ещё не передан модели. Вторая: стандарт подключения не доказывает безопасность. Третья: процедура не выдаёт себе права.</p>
+<p><img alt="Фигура 11. Одна система, разные роли" src="../../figures/11_odna-sistema-raznye-roli.svg" /></p>
+<p><em>Фигура 11. Одна система, разные роли</em></p>
+<h3 id="11-архитектурное-ревью">11. Архитектурное ревью<a class="headerlink" href="#11-архитектурное-ревью" title="Permanent link">&para;</a></h3>
+<p>Обменяйтесь картами с соседней группой и проведите ревью по четырём вопросам.</p>
+<p><strong>1. Действие.</strong> Где на схеме отдельный tool и кто фактически исполняет его? Если tool нарисован как «умный текст», попросите исправить.</p>
+<p><strong>2. Подключение.</strong> Где <code>host</code>, <code>client</code>, <code>server</code> и хотя бы один <code>resource</code>? Если MCP нарисован как одна функция, попросите развести уровни.</p>
+<p><strong>3. Процедура.</strong> Где Agent Skill и чем он отличается от одного шага? Если внутри только одна операция без порядка работы, спросите, почему это процедура.</p>
+<p><strong>4. Граница доверия.</strong> Есть ли на схеме утверждение, что MCP, <code>SKILL.md</code> или resource автоматически безопасны? Если есть, зачеркните его и замените наблюдаемой границей: «trust: not proven».</p>
+<p>Ревью считается завершённым, когда другая группа может пройти пальцем по схеме и на каждом участке назвать главный вопрос механизма.</p>
+<h3 id="12-мини-проверка-урока-8">12. Мини-проверка урока 8<a class="headerlink" href="#12-мини-проверка-урока-8" title="Permanent link">&para;</a></h3>
+<ol>
+<li>Какую роль играет host?</li>
+<li>Чем client отличается от server?</li>
+<li>Что означает resource в нашей учебной модели?</li>
+<li>Почему обнаруженный resource не равен активному контексту?</li>
+<li>Что делает progressive disclosure?</li>
+<li>Является ли progressive disclosure sandbox?</li>
+<li>Почему Agent Skill может использовать tool и при этом не становиться tool?</li>
+<li>Что доказывает строка <code>trust: not proven</code> в нашей mock-демонстрации?</li>
+</ol>
+<h4 id="ответы_1">Ответы<a class="headerlink" href="#ответы_1" title="Permanent link">&para;</a></h4>
+<ol>
+<li>Host — приложение или среда, внутри которой организуется работа MCP-подключений.</li>
+<li>Client находится на стороне host и взаимодействует с конкретным MCP-сервером; server — внешняя сторона подключения, предоставляющая возможности.</li>
+<li>Resource — доступный через интеграционный слой материал или источник данных.</li>
+<li>Потому что обнаружение сообщает лишь о наличии ресурса; чтение и передача модели — отдельные действия.</li>
+<li>Загружает подробности процедуры по мере необходимости, а не всё сразу.</li>
+<li>Нет. Это управление загрузкой подробностей, а не техническая изоляция среды.</li>
+<li>Потому что Agent Skill задаёт повторяемую процедуру, а tool остаётся отдельной операцией внутри или рядом с этой процедурой.</li>
+<li>Что сама демонстрация не заявляет доверие к серверу; она не является доказательством безопасности.</li>
+</ol>
+<h3 id="выходной-билет-урока-8">Выходной билет урока 8<a class="headerlink" href="#выходной-билет-урока-8" title="Permanent link">&para;</a></h3>
+<p>Нарисуй четыре прямоугольника <code>host</code>, <code>client</code>, <code>server</code>, <code>resource</code> и соедини их стрелками. Рядом допиши два равенства с зачёркнутым смыслом:</p>
+<div class="highlight"><pre><span></span><code>resource ≠ active context
+protocol ≠ trust
+</code></pre></div>
+<p>Ниже одной строкой допиши:</p>
+<div class="highlight"><pre><span></span><code>Agent Skill = как повторять работу; tool = какое отдельное действие доступно.
+</code></pre></div>
+<p>Если можешь объяснить все три строки без подглядывания в таблицу, главный переход урока состоялся.</p>
+<hr />
+<h2 id="why">Зачем это тебе<a class="headerlink" href="#why" title="Permanent link">&para;</a></h2>
+<p>Представь совместный школьный проект. Одноклассник говорит: «Я написал ИИ: “возьми таблицу и посчитай”, значит он умеет работать с файлом». После этой главы ты сможешь отделить текст просьбы от механизма: спросить, какая операция доступна системе, кто её исполняет и какой наблюдаемый результат подтверждает выполнение.</p>
+<p>Другой случай — лабораторная или исследовательская работа. Допустим, несколько групп сдают отчёт из одинаковых полей, чтобы результаты можно было сравнивать по одной форме. Prompt может объяснять задачу, а structured output — задавать структуру такого отчёта.</p>
+<p>Ещё один случай — повторяющаяся школьная обязанность: еженедельная сводка команды, проверка оформления проекта или подготовка одного и того же набора материалов. Порядок такой работы можно описать как переносимую процедуру и подгружать подробности по необходимости. Но процедура сама не выдаёт себе доступ к файлам и не отменяет проверки безопасности.</p>
+<h2 id="dezhurny">Шаг сквозного проекта<a class="headerlink" href="#dezhurny" title="Permanent link">&para;</a></h2>
+<p>После главы 3 у «Дежурного» была архитектура harness и границы <code>workspace/</code>. После главы 4 у проекта появляется <strong>понятийная карта механизмов</strong> и архитектурная контрольная точка перед реализацией.</p>
+<p>Команда фиксирует три проектных решения:</p>
+<ol>
+<li>Для итоговой сводки нужна заранее определённая структура результата: <code>summary</code>, <code>blocked_tasks</code>, <code>next_step</code>.</li>
+<li>Для работы с карточками понадобятся отдельные tools; конкретное проектирование этих операций начнётся позже.</li>
+<li>Для повторяемой подготовки статус-сводки выбран один Agent Skill <code>status-summary</code>; в этой главе мы только определили его роль, а не собрали его практическую версию.</li>
+</ol>
+<p>Если проекту когда-нибудь понадобится внешнее подключение, MCP занимает отдельное место на схеме. Но в текущей обязательной реализации никакой внешний MCP-сервер не запускается.</p>
+<p><strong>Контрольная точка 2:</strong> команда должна защитить архитектуру до начала реализации. На защите нельзя отвечать «всё это ИИ». Нужно пройти по карте и назвать, где prompt, где форма результата, где операция, где подключение и где процедура.</p>
+<h3 id="достраиваем-дежурного">Достраиваем «Дежурного»<a class="headerlink" href="#достраиваем-дежурного" title="Permanent link">&para;</a></h3>
+<p>Файла главы 4 в <code>my_agent/</code> нет: понятийная карта механизмов — решение команды об архитектуре, а не отдельная настройка harness. Поэтому <code>status</code> строки главы 4 не печатает. Это честная граница конструктора: не всякая глава обязана добавлять новый конфигурационный файл, и конструктор не изображает настройку там, где её нет.</p>
+<h2 id="return">Возвращаемся к пяти просьбам Ани<a class="headerlink" href="#return" title="Permanent link">&para;</a></h2>
+<p>Теперь вернёмся к спору Марка и разберём пять просьб по ролям.</p>
+<p>«Объясни причину блокировки в двух предложениях» — это задача prompt: текстовая инструкция модели.</p>
+<p>«Верни поля <code>summary</code>, <code>blocked_tasks</code>, <code>next_step</code>» — structured output: требование к форме результата.</p>
+<p>«Прочитай карточки задач» — одной фразы недостаточно; системе нужен tool, конкретная доступная операция, которую фактически исполнит runtime.</p>
+<p>«Подключись к школьной доске и покажи доступные материалы» — это уже вопрос подключения и обнаружения возможностей; в нашей архитектурной карте для него есть MCP.</p>
+<p>«Каждую неделю готовь сводку одним и тем же проверяемым способом» — это повторяемая процедура; её роль выполняет Agent Skill.</p>
+<p>Марк смотрит на пять строк, потом на матрицу.</p>
+<p>— Значит, я был прав только в одном смысле: каждую просьбу можно написать текстом.</p>
+<p>Да, в этом смысле Марк прав. Но <strong>способ сформулировать просьбу и механизм, который нужен системе для её выполнения, — не одно и то же</strong>. Именно это различие проверял вопрос-прогноз.</p>
+<h2 id="check">Проверь себя<a class="headerlink" href="#check" title="Permanent link">&para;</a></h2>
+<ol>
+<li>Что такое prompt и чего он сам по себе не доказывает?</li>
+<li>Что задаёт structured output?</li>
+<li>Чем tool отличается от функции Python вообще?</li>
+<li>Почему tool и MCP нельзя считать двумя названиями одной вещи?</li>
+<li>Какой главный вопрос Agent Skill?</li>
+<li>Назови роли host, client, server и resource одной цепочкой.</li>
+<li>Почему наличие resource не означает, что модель уже видит его содержимое?</li>
+<li>Что означает progressive disclosure и чего оно не делает?</li>
+<li>Разбери ситуацию: «Процедура читает карточки, выбирает blocked, формирует три поля отчёта; чтение доступно через подключённую систему». Назови минимум четыре механизма, которые могут здесь участвовать.</li>
+</ol>
+<h3 id="ответы_2">Ответы<a class="headerlink" href="#ответы_2" title="Permanent link">&para;</a></h3>
+<ol>
+<li>Prompt — текстовая инструкция, передаваемая модели. Он сам по себе не доказывает выполнение внешнего действия, наличие tool, подключения или Agent Skill.</li>
+<li>Structured output задаёт заранее определённую машинно-читаемую структуру результата.</li>
+<li>Tool — конкретная операция, доступная агентной системе. Вспомогательная функция программы не становится tool автоматически.</li>
+<li>Tool отвечает на вопрос об отдельном действии; MCP — о подключении внешней системы и обнаружении возможностей.</li>
+<li>«Как выполнить повторяемую работу?»</li>
+<li>Host организует MCP-подключение; client на стороне host взаимодействует с конкретным server; server предоставляет возможности; resource — доступный через интеграционный слой материал или источник данных.</li>
+<li>Обнаружение ресурса, его чтение и передача содержимого модели — три разные операции.</li>
+<li>Progressive disclosure загружает подробности процедуры по мере необходимости. Оно не является sandbox, не назначает permissions и не доказывает безопасность.</li>
+<li>Agent Skill задаёт процедуру; tool выполняет отдельное чтение; MCP может обеспечивать подключение к системе; structured output задаёт три поля отчёта; prompt может задавать текущую инструкцию модели.</li>
+</ol>
+<h2 id="glossary">Словарь главы<a class="headerlink" href="#glossary" title="Permanent link">&para;</a></h2>
+<table>
+<thead>
+<tr>
+<th>Термин</th>
+<th>Рабочая формулировка</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Prompt / инструкция</strong></td>
+<td>текстовая инструкция, передаваемая модели</td>
+</tr>
+<tr>
+<td><strong>Structured output / структурированный вывод</strong></td>
+<td>требование вернуть результат в заранее определённой машинно-читаемой структуре</td>
+</tr>
+<tr>
+<td><strong>Tool / инструмент</strong></td>
+<td>конкретная операция, доступная агентной системе</td>
+</tr>
+<tr>
+<td><strong>MCP / Model Context Protocol</strong></td>
+<td>протокол подключения ИИ-приложения к внешним системам, данным и возможностям через стандартизированное взаимодействие</td>
+</tr>
+<tr>
+<td><strong>Host</strong></td>
+<td>приложение или среда, внутри которой организуется работа MCP-подключений</td>
+</tr>
+<tr>
+<td><strong>Client</strong></td>
+<td>компонент на стороне host, который взаимодействует с конкретным MCP-сервером</td>
+</tr>
+<tr>
+<td><strong>Server</strong></td>
+<td>внешняя сторона MCP-подключения, предоставляющая доступные возможности</td>
+</tr>
+<tr>
+<td><strong>Resource / ресурс</strong></td>
+<td>доступный через интеграционный слой материал или источник данных</td>
+</tr>
+<tr>
+<td><strong>Agent Skill</strong></td>
+<td>переносимая процедура в каталоге, центральным обязательным файлом которой является <code>SKILL.md</code>; дополнительные ресурсы используются по необходимости</td>
+</tr>
+<tr>
+<td><strong>Progressive disclosure / постепенное раскрытие</strong></td>
+<td>подробности процедуры загружаются по мере необходимости, а не все одновременно</td>
+</tr>
+</tbody>
+</table>
+<h2 id="bridge">Мост к главе 5<a class="headerlink" href="#bridge" title="Permanent link">&para;</a></h2>
+<p>Теперь у нас есть карта механизмов, но она ещё не отвечает на вопрос, <strong>что именно должен делать наш проект</strong>. Можно выбрать tool, structured output и Agent Skill, но расплывчато сформулированная задача всё равно оставит участникам разные представления о результате.</p>
+<p>Представь три просьбы от трёх групп Фестиваля науки: «сделай сводку», «покажи блокеры», «просто скажи, всё ли нормально». Они похожи, но подразумевают разные входы, результаты и критерии готовности. До реализации нужно договориться, что именно считается задачей и где её границы.</p>
+<blockquote>
+<p><strong>Следующий вопрос.</strong> Что нужно определить до выбора tools и написания кода, чтобы разные участники одинаково понимали цель, вход, результат, ограничения и признак «готово»?</p>
+</blockquote>
+<p>Ответ ты найдёшь в главе 5, «Договор задачи».</p>
+
+
+
+
+
+
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+    
+      
+      <nav class="md-footer__inner md-grid" aria-label="Нижний колонтитул" >
+        
+          
+          <a href="../ch03/" class="md-footer__link md-footer__link--prev" aria-label="Назад: Глава 3. Agent harness: что работает вокруг модели?">
+            <div class="md-footer__button md-icon">
+              
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+            </div>
+            <div class="md-footer__title">
+              <span class="md-footer__direction">
+                Назад
+              </span>
+              <div class="md-ellipsis">
+                Глава 3. Agent harness: что работает вокруг модели?
+              </div>
+            </div>
+          </a>
+        
+        
+          
+          <a href="../ch05/" class="md-footer__link md-footer__link--next" aria-label="Вперед: Глава 5. Договор задачи: что нужно определить до реализации?">
+            <div class="md-footer__title">
+              <span class="md-footer__direction">
+                Вперед
+              </span>
+              <div class="md-ellipsis">
+                Глава 5. Договор задачи: что нужно определить до реализации?
+              </div>
+            </div>
+            <div class="md-footer__button md-icon">
+              
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M4 11v2h12l-5.5 5.5 1.42 1.42L19.84 12l-7.92-7.92L10.5 5.5 16 11z"/></svg>
+            </div>
+          </a>
+        
+      </nav>
+    
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+    <div class="md-copyright__highlight">
+      Редакция r0001 · 2026-10-14 · техническая редакция, пилот не проводился
+    </div>
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    
+      
+      
+      <script id="__config" type="application/json">{"annotate": null, "base": "../..", "features": ["content.code.copy", "navigation.sections", "navigation.footer", "search.highlight"], "search": "../../assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "\u0421\u043a\u043e\u043f\u0438\u0440\u043e\u0432\u0430\u043d\u043e \u0432 \u0431\u0443\u0444\u0435\u0440", "clipboard.copy": "\u041a\u043e\u043f\u0438\u0440\u043e\u0432\u0430\u0442\u044c \u0432 \u0431\u0443\u0444\u0435\u0440", "search.result.more.one": "\u0415\u0449\u0451 1 \u043d\u0430 \u044d\u0442\u043e\u0439 \u0441\u0442\u0440\u0430\u043d\u0438\u0446\u0435", "search.result.more.other": "\u0415\u0449\u0451 # \u043d\u0430 \u044d\u0442\u043e\u0439 \u0441\u0442\u0440\u0430\u043d\u0438\u0446\u0435", "search.result.none": "\u0421\u043e\u0432\u043f\u0430\u0434\u0435\u043d\u0438\u0439 \u043d\u0435 \u043d\u0430\u0439\u0434\u0435\u043d\u043e", "search.result.one": "\u041d\u0430\u0439\u0434\u0435\u043d\u043e 1 \u0441\u043e\u0432\u043f\u0430\u0434\u0435\u043d\u0438\u0435", "search.result.other": "\u041d\u0430\u0439\u0434\u0435\u043d\u043e \u0441\u043e\u0432\u043f\u0430\u0434\u0435\u043d\u0438\u0439: #", "search.result.placeholder": "\u041d\u0430\u0447\u043d\u0438\u0442\u0435 \u043f\u0435\u0447\u0430\u0442\u0430\u0442\u044c \u0434\u043b\u044f \u043f\u043e\u0438\u0441\u043a\u0430", "search.result.term.missing": "\u041e\u0442\u0441\u0443\u0442\u0441\u0442\u0432\u0443\u0435\u0442", "select.version": "\u0412\u044b\u0431\u0435\u0440\u0438\u0442\u0435 \u0432\u0435\u0440\u0441\u0438\u044e"}, "version": {"provider": "mike"}}</script>
+    
+    
+      <script src="../../assets/javascripts/bundle.79ae519e.min.js"></script>
+      
+    
+  </body>
+</html>

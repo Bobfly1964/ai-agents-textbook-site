@@ -1,0 +1,33 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 470" width="800" height="470" role="img" aria-labelledby="t d">
+  <title id="t">Фигура 28. Не одна память</title>
+  <desc id="d">Глава 10, урок 19, раздел 6 «Центральная матрица: четыре разных вопроса». Четыре отдельные строки — у каждой свой главный вопрос (по таблице главы). Общей рамки «память» нет.</desc>
+  <rect x="0" y="0" width="800" height="470" fill="#FFFFFF"/>
+  <g font-family="PT Sans, DejaVu Sans, Arial, sans-serif" font-size="20" fill="#1F2933">
+    <!-- заголовки столбцов -->
+    <text x="36" y="46" font-size="18" fill="#52606D">Что рассматриваем</text>
+    <text x="262" y="46" font-size="18" fill="#52606D">Главный вопрос</text>
+    <!-- четыре отдельные строки, без общей рамки -->
+    <rect class="row" data-role="row" x="24" y="60" width="752" height="64" rx="6" fill="#F5F7FA" stroke="#1D4ED8" stroke-width="1.5"/>
+    <text x="36" y="87" font-size="18">Procedural knowledge /</text>
+    <text x="36" y="111" font-size="18">Agent Skill</text>
+    <text x="262" y="99">Как повторять работу?</text>
+    <rect class="row" data-role="row" x="24" y="136" width="752" height="64" rx="6" fill="#F5F7FA" stroke="#1D4ED8" stroke-width="1.5"/>
+    <text x="36" y="175">State</text>
+    <text x="262" y="175">Что происходит с этой задачей сейчас?</text>
+    <rect class="row" data-role="row" x="24" y="212" width="752" height="64" rx="6" fill="#F5F7FA" stroke="#1D4ED8" stroke-width="1.5"/>
+    <text x="36" y="251">RAG</text>
+    <text x="262" y="239">Что известно по теме</text>
+    <text x="262" y="263">из доступных источников?</text>
+    <rect class="row" data-role="row" x="24" y="288" width="752" height="64" rx="6" fill="#F5F7FA" stroke="#1D4ED8" stroke-width="1.5"/>
+    <text x="36" y="327">Event log</text>
+    <text x="262" y="327">Что наблюдаемо произошло в запуске?</text>
+    <line x1="252" y1="60" x2="252" y2="352" stroke="#52606D" stroke-width="1" stroke-dasharray="3 3"/>
+    <!-- подписи-неравенства -->
+    <g font-family="PT Mono, DejaVu Sans Mono, monospace" font-size="18" text-anchor="middle">
+      <rect x="220" y="376" width="360" height="40" rx="6" fill="#F5F7FA" stroke="#1F2933" stroke-width="1.5" stroke-dasharray="6 4"/>
+      <text class="inequality" x="400" y="402">procedure ≠ state</text>
+      <rect x="220" y="424" width="360" height="40" rx="6" fill="#F5F7FA" stroke="#1F2933" stroke-width="1.5" stroke-dasharray="6 4"/>
+      <text class="inequality" x="400" y="450">state ≠ event log</text>
+    </g>
+  </g>
+</svg>

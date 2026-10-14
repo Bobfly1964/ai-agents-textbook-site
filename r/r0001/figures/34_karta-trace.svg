@@ -1,0 +1,86 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 760" width="800" height="760" role="img" aria-labelledby="t d">
+  <title id="t">Фигура 34. Карта Trace</title>
+  <desc id="d">Глава 12, урок 23, раздел 4 «Центральный артефакт: карта Trace». Шесть строк карты по таблице главы сверху вниз в порядке запуска: наблюдаемое событие с его именем в выводе программы (run_started, model_response, tool_requested, tool_observation, run_finished), инициатор model или harness, что событие доказывает и диагностический вопрос; запрос и observation связаны одним call_id. Подпись: Trace не хранит скрытые рассуждения модели.</desc>
+  <rect x="0" y="0" width="800" height="760" fill="#FFFFFF"/>
+  <g font-family="PT Sans, DejaVu Sans, Arial, sans-serif" font-size="18" fill="#1F2933">
+    <!-- заголовки столбцов — таблица главы 12, раздел 4 -->
+    <text x="18" y="28" fill="#52606D">Наблюдаемое</text>
+    <text x="18" y="50" fill="#52606D">событие</text>
+    <text x="242" y="50" fill="#52606D">Инициатор</text>
+    <text x="362" y="50" fill="#52606D">Что можно доказать</text>
+    <text x="624" y="28" fill="#52606D">Диагностический</text>
+    <text x="624" y="50" fill="#52606D">вопрос</text>
+    <!-- шесть строк в порядке запуска; tool_requested и tool_observation связаны одним call_id -->
+    <rect class="row" data-role="run-started" x="8" y="60" width="784" height="88" rx="6" fill="#F5F7FA" stroke="#1D4ED8" stroke-width="1.5"/>
+    <text x="18" y="99">запуск начат</text>
+    <text x="18" y="123" font-family="PT Mono, DejaVu Sans Mono, monospace">run_started</text>
+    <text x="242" y="111" font-family="PT Mono, DejaVu Sans Mono, monospace">harness</text>
+    <text x="362" y="87">начался конкретный</text>
+    <text x="362" y="111">запуск с заданными</text>
+    <text x="362" y="135">ограничениями</text>
+    <text x="624" y="99">какой запуск</text>
+    <text x="624" y="123">мы разбираем?</text>
+    <rect class="row" data-role="model-response" x="8" y="160" width="784" height="88" rx="6" fill="#F5F7FA" stroke="#1D4ED8" stroke-width="1.5"/>
+    <text x="18" y="187">ответ модели</text>
+    <text x="18" y="211">получен</text>
+    <text x="18" y="235" font-family="PT Mono, DejaVu Sans Mono, monospace">model_response</text>
+    <text x="242" y="211" font-family="PT Mono, DejaVu Sans Mono, monospace">model</text>
+    <text x="362" y="187">модель вернула</text>
+    <text x="362" y="211">наблюдаемый ответ</text>
+    <text x="362" y="235">определённого типа</text>
+    <text x="624" y="187">что модель</text>
+    <text x="624" y="211">запросила или</text>
+    <text x="624" y="235">сообщила?</text>
+    <rect class="row" data-role="tool-requested" x="8" y="260" width="784" height="88" rx="6" fill="#F5F7FA" stroke="#1D4ED8" stroke-width="1.5"/>
+    <text x="18" y="287">tool запрошен</text>
+    <text x="18" y="311" font-family="PT Mono, DejaVu Sans Mono, monospace">tool_requested</text>
+    <text x="18" y="335" font-family="PT Mono, DejaVu Sans Mono, monospace">call_id: call-2</text>
+    <text x="242" y="311" font-family="PT Mono, DejaVu Sans Mono, monospace">model</text>
+    <text x="362" y="287">есть Tool call</text>
+    <text x="362" y="311">с</text>
+    <text x="381" y="311" font-family="PT Mono, DejaVu Sans Mono, monospace">call_id</text>
+    <text x="459" y="311">, именем</text>
+    <text x="362" y="335">и arguments</text>
+    <text x="624" y="299">какой вызов</text>
+    <text x="624" y="323">был выбран?</text>
+    <rect class="row" data-role="tool-observation" x="8" y="360" width="784" height="112" rx="6" fill="#F5F7FA" stroke="#1D4ED8" stroke-width="1.5"/>
+    <text x="18" y="387">observation</text>
+    <text x="18" y="411">записан</text>
+    <text x="18" y="435" font-family="PT Mono, DejaVu Sans Mono, monospace">tool_observation</text>
+    <text x="18" y="459" font-family="PT Mono, DejaVu Sans Mono, monospace">call_id: call-2</text>
+    <text x="242" y="423" font-family="PT Mono, DejaVu Sans Mono, monospace">harness</text>
+    <text x="362" y="399">приложение обработало</text>
+    <text x="362" y="423">конкретный вызов и</text>
+    <text x="362" y="447">получило result/error</text>
+    <text x="624" y="399">был ли вызов</text>
+    <text x="624" y="423">выполнен и что</text>
+    <text x="624" y="447">вернулось?</text>
+    <rect class="row" data-role="resource-loaded" x="8" y="484" width="784" height="88" rx="6" fill="#F5F7FA" stroke="#1D4ED8" stroke-width="1.5"/>
+    <text x="18" y="523">skill/resource</text>
+    <text x="18" y="547">загружен</text>
+    <text x="242" y="535" font-family="PT Mono, DejaVu Sans Mono, monospace">harness</text>
+    <text x="362" y="511">приложение выполнило</text>
+    <text x="362" y="535">ранее полученный</text>
+    <text x="362" y="559">запрос контекста</text>
+    <text x="624" y="511">был ли запрос</text>
+    <text x="624" y="535">модели перед</text>
+    <text x="624" y="559">загрузкой?</text>
+    <rect class="row" data-role="run-finished" x="8" y="584" width="784" height="88" rx="6" fill="#F5F7FA" stroke="#1D4ED8" stroke-width="1.5"/>
+    <text x="18" y="623">запуск завершён</text>
+    <text x="18" y="647" font-family="PT Mono, DejaVu Sans Mono, monospace">run_finished</text>
+    <text x="242" y="635" font-family="PT Mono, DejaVu Sans Mono, monospace">harness</text>
+    <text x="362" y="611">зафиксирован терминал</text>
+    <text x="362" y="635">и число выполненных</text>
+    <text x="362" y="659">шагов</text>
+    <text x="624" y="623">чем закончился</text>
+    <text x="624" y="647">маршрут?</text>
+    <line x1="232" y1="60" x2="232" y2="672" stroke="#52606D" stroke-width="1" stroke-dasharray="3 3"/>
+    <line x1="352" y1="60" x2="352" y2="672" stroke="#52606D" stroke-width="1" stroke-dasharray="3 3"/>
+    <line x1="614" y1="60" x2="614" y2="672" stroke="#52606D" stroke-width="1" stroke-dasharray="3 3"/>
+    <!-- подпись-неравенство -->
+    <g font-family="PT Mono, DejaVu Sans Mono, monospace" font-size="18" text-anchor="middle">
+      <rect x="220" y="696" width="360" height="40" rx="6" fill="#F5F7FA" stroke="#1F2933" stroke-width="1.5" stroke-dasharray="6 4"/>
+      <text class="inequality" x="400" y="722">Trace ≠ hidden reasoning</text>
+    </g>
+  </g>
+</svg>

@@ -1,0 +1,69 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 574" width="800" height="574" role="img" aria-labelledby="t d">
+  <title id="t">Фигура 45. Аудит внешнего компонента</title>
+  <desc id="d">Глава 15, урок 30, раздел 8 «MCP-карточка: протокол не назначает доверие» (спецификация: после раздела 3 «Что значит «статический аудит» в этой практике»). Document, Agent Skill или MCP-card проходят provenance и static inventory — scripts, dependencies, network, permission scope без запуска scripts и без сети — и получают решение connect_minimal, isolate или reject; статический аудит не доказывает безопасность.</desc>
+  <defs>
+    <marker id="arrow" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="8" markerHeight="8" orient="auto-start-reverse">
+      <path d="M0,0 L10,5 L0,10 z" fill="#52606D"/>
+    </marker>
+  </defs>
+  <rect x="0" y="0" width="800" height="574" fill="#FFFFFF"/>
+  <g font-family="PT Sans, DejaVu Sans, Arial, sans-serif" font-size="20" fill="#1F2933" text-anchor="middle">
+    <!-- три вида внешнего компонента -->
+    <rect class="input" data-role="input" x="40" y="16" width="224" height="46" rx="6" fill="#F5F7FA" stroke="#52606D" stroke-width="1.5"/>
+    <text x="152" y="46">document</text>
+    <rect class="input" data-role="input" x="288" y="16" width="224" height="46" rx="6" fill="#F5F7FA" stroke="#52606D" stroke-width="1.5"/>
+    <text x="400" y="46">Agent Skill</text>
+    <rect class="input" data-role="input" x="536" y="16" width="224" height="46" rx="6" fill="#F5F7FA" stroke="#52606D" stroke-width="1.5"/>
+    <text x="648" y="46">MCP-card</text>
+    <polyline points="152,62 152,76 648,76 648,62" fill="none" stroke="#52606D" stroke-width="1.5"/>
+    <line x1="400" y1="62" x2="400" y2="98" stroke="#52606D" stroke-width="1.5" marker-end="url(#arrow)"/>
+    <!-- provenance -->
+    <rect data-role="provenance" x="200" y="100" width="400" height="76" rx="6" fill="#F5F7FA" stroke="#1D4ED8" stroke-width="1.5"/>
+    <text x="400" y="130">provenance</text>
+    <text x="400" y="160" font-size="18">Откуда он пришёл?</text>
+    <line x1="400" y1="176" x2="400" y2="198" stroke="#52606D" stroke-width="1.5" marker-end="url(#arrow)"/>
+    <!-- static inventory -->
+    <rect data-role="inventory" x="40" y="200" width="720" height="200" rx="6" fill="#F5F7FA" stroke="#1D4ED8" stroke-width="1.5"/>
+    <text x="400" y="232">static inventory</text>
+    <g font-size="18" text-anchor="start">
+      <text x="195" y="260" font-family="PT Mono, DejaVu Sans Mono, monospace">SKILL.md</text>
+      <text x="289" y="260">и</text>
+      <text x="306" y="260" font-family="PT Mono, DejaVu Sans Mono, monospace">scripts/</text>
+      <text x="400" y="260">читаются как текст</text>
+    </g>
+    <g font-size="18">
+      <rect class="finding" data-role="finding" x="64" y="276" width="120" height="62" rx="6" fill="#FFFFFF" stroke="#52606D" stroke-width="1.5"/>
+      <text x="124" y="313">scripts</text>
+      <rect class="finding" data-role="finding" x="204" y="276" width="180" height="62" rx="6" fill="#FFFFFF" stroke="#52606D" stroke-width="1.5"/>
+      <text x="294" y="313">dependencies</text>
+      <rect class="finding" data-role="finding" x="404" y="276" width="130" height="62" rx="6" fill="#FFFFFF" stroke="#52606D" stroke-width="1.5"/>
+      <text x="469" y="313">network</text>
+      <rect class="finding" data-role="finding" x="554" y="276" width="182" height="62" rx="6" fill="#FFFFFF" stroke="#52606D" stroke-width="1.5"/>
+      <text x="645" y="302">permission</text>
+      <text x="645" y="326">scope</text>
+    </g>
+    <g font-family="PT Mono, DejaVu Sans Mono, monospace" font-size="18">
+      <rect data-role="not-run" x="120" y="350" width="270" height="38" rx="6" fill="#FFFFFF" stroke="#52606D" stroke-width="1.5"/>
+      <text x="255" y="375">scripts executed: no</text>
+      <rect data-role="not-run" x="410" y="350" width="270" height="38" rx="6" fill="#FFFFFF" stroke="#52606D" stroke-width="1.5"/>
+      <text x="545" y="375">network used: no</text>
+    </g>
+    <!-- решение -->
+    <line x1="400" y1="400" x2="400" y2="414" stroke="#52606D" stroke-width="1.5"/>
+    <polyline points="152,436 152,414 648,414 648,436" fill="none" stroke="#52606D" stroke-width="1.5" marker-start="url(#arrow)" marker-end="url(#arrow)"/>
+    <line x1="400" y1="414" x2="400" y2="436" stroke="#52606D" stroke-width="1.5" marker-end="url(#arrow)"/>
+    <g font-family="PT Mono, DejaVu Sans Mono, monospace" font-size="18">
+      <rect class="decision" data-role="decision" x="40" y="438" width="224" height="56" rx="6" fill="#F5F7FA" stroke="#15803D" stroke-width="1.5"/>
+      <text x="152" y="472" fill="#15803D">connect_minimal</text>
+      <rect class="decision" data-role="decision" x="288" y="438" width="224" height="56" rx="6" fill="#F5F7FA" stroke="#52606D" stroke-width="1.5"/>
+      <text x="400" y="472">isolate</text>
+      <rect class="decision" data-role="decision" x="536" y="438" width="224" height="56" rx="6" fill="#FFFFFF" stroke="#B91C1C" stroke-width="1.5"/>
+      <text x="648" y="472" fill="#B91C1C">reject</text>
+    </g>
+    <!-- подпись-неравенство -->
+    <g font-family="PT Mono, DejaVu Sans Mono, monospace" font-size="18">
+      <rect x="200" y="514" width="400" height="40" rx="6" fill="#F5F7FA" stroke="#1F2933" stroke-width="1.5" stroke-dasharray="6 4"/>
+      <text class="inequality" x="400" y="540">static audit ≠ safety proof</text>
+    </g>
+  </g>
+</svg>

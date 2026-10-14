@@ -1,0 +1,5 @@
+операция: read
+путь: ../outside.json
+результат: denied
+граница: вне workspace
+причина: путь выходит за workspace

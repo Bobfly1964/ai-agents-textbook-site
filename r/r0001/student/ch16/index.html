@@ -1,0 +1,2585 @@
+
+<!doctype html>
+<html lang="ru" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+        <meta name="description" content="Учебник для 9–10 классов">
+      
+      
+      
+        <link rel="canonical" href="https://book.stemschool.online/r0001/student/ch16/">
+      
+      
+        <link rel="prev" href="../ch15/">
+      
+      
+        <link rel="next" href="../ch17/">
+      
+      
+        
+      
+      
+      <link rel="icon" href="../../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.6">
+    
+    
+      
+        <title>Глава 16. Долгая и совместная работа - ИИ-агенты и Agent Skills</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../assets/stylesheets/main.484c7ddc.min.css">
+      
+        
+        <link rel="stylesheet" href="../../assets/stylesheets/palette.ab4e12ef.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+    <script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+  </head>
+  
+  
+    
+    
+      
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="indigo">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#глава-16-долгая-и-совместная-работа" class="md-skip">
+          Перейти к содержанию
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+        <aside class="md-banner">
+          <div class="md-banner__inner md-grid md-typeset">
+            
+            
+  
+    <strong>Техническая редакция: пилот не проводился</strong> · редакция r0001
+  
+
+          </div>
+          
+        </aside>
+      
+    </div>
+    
+      <div data-md-color-scheme="default" data-md-component="outdated" hidden>
+        
+      </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Верхний колонтитул">
+    <a href="../.." title="ИИ-агенты и Agent Skills" class="md-header__button md-logo" aria-label="ИИ-агенты и Agent Skills" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            ИИ-агенты и Agent Skills
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Глава 16. Долгая и совместная работа
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+        <form class="md-header__option" data-md-component="palette">
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="indigo"  aria-hidden="true"  type="radio" name="__palette" id="__palette_0">
+    
+  
+</form>
+      
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+      
+      
+        <label class="md-header__button md-icon" for="__search">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        </label>
+        <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Поиск" placeholder="Поиск" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Поиск">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Очистить" aria-label="Очистить" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Инициализация поиска
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+      
+    
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+
+<nav class="md-nav md-nav--primary" aria-label="Навигация" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../.." title="ИИ-агенты и Agent Skills" class="md-nav__button md-logo" aria-label="ИИ-агенты и Agent Skills" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    ИИ-агенты и Agent Skills
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../.." class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Главная
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    
+    
+    
+    
+      
+        
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2" checked>
+        
+          
+          <label class="md-nav__link" for="__nav_2" id="__nav_2_label" tabindex="">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Ученик
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_2">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Ученик
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../intro/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Введение
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../tour/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Экскурсия по AI: что есть что
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../ch01/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Глава 1. Модель, приложение и агент: кто отвечает, а кто действует?
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../ch02/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Глава 2. Агентный цикл: как результат действия меняет следующий шаг?
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../ch03/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Глава 3. Agent harness: что работает вокруг модели?
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../ch04/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Глава 4. Prompt, structured output, tool, MCP и Agent Skill: какие задачи решают разные уровни системы?
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../ch05/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Глава 5. Договор задачи: что нужно определить до реализации?
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../ch06/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Глава 6. Первый tool
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../ch07/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Глава 7. Диспетчер и ошибки
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../ch08/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Глава 8. Хороший tool
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../ch09/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Глава 9. Первый Agent Skill
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../ch10/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Глава 10. Состояние и память
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../ch11/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Глава 11. Тесты и evals: как доказать качество не одним удачным запуском?
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../ch12/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Глава 12. Traces: как понять, что происходило на самом деле?
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../ch13/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Глава 13. Обратная связь и версии: когда исправление должно менять процедуру?
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../ch14/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Глава 14. Permissions и участие человека
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../ch15/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Глава 15. Prompt injection и недоверенные подключения: что делать с данными и кодом, которым нельзя автоматически доверять?
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Глава 16. Долгая и совместная работа
+  
+
+    
+  </span>
+  
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Глава 16. Долгая и совместная работа
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Содержание">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Содержание
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#scene" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        С чего всё началось
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#goals" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        После главы ты сможешь
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#lesson-31" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Урок 31. Один проект — несколько запусков
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Урок 31. Один проект — несколько запусков">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#1-два-масштаба-работы" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1. Два масштаба работы
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#2-какое-состояние-действительно-позволяет-продолжить" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2. Какое состояние действительно позволяет продолжить
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#3-trace-не-заменяет-checkpoint" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3. Trace не заменяет checkpoint
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#4-практика-a-передай-работу-без-вчерашней-беседы" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        4. Практика A: передай работу без вчерашней беседы
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#5-практика-b-три-запуска-дежурного-и-один-checkpoint" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        5. Практика B: три запуска «Дежурного» и один checkpoint
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#6-мини-проверка-урока-31" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        6. Мини-проверка урока 31
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="6. Мини-проверка урока 31">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#ответы" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Ответы
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#выходной-билет-урока-31" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Выходной билет урока 31
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#lesson-32" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Урок 32. Один агент, несколько агентов или человек
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Урок 32. Один агент, несколько агентов или человек">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#1-разделить-работу--ещё-не-значит-улучшить-систему" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1. Разделить работу — ещё не значит улучшить систему
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#2-когда-отдельный-исполнитель-действительно-полезен" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2. Когда отдельный исполнитель действительно полезен
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#3-кто-отвечает-за-итог" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3. Кто отвечает за итог
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#4-практика-a-три-архитектуры-на-бумаге" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        4. Практика A: три архитектуры на бумаге
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#5-практика-b-ограниченный-анализатор-передаёт-результат-owner" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        5. Практика B: ограниченный анализатор передаёт результат Owner
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#6-обязательные-проверки-должен--не-должен--ошибка--граница" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        6. Обязательные проверки: должен / не должен / ошибка / граница
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#7-безопасность" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        7. Безопасность
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#8-мини-проверка-урока-32" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        8. Мини-проверка урока 32
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="8. Мини-проверка урока 32">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#ответы_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Ответы
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#выходной-билет-урока-32" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Выходной билет урока 32
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#why" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Зачем это тебе
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#dezhurny" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Шаг сквозного проекта
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#return" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Возвращаемся к сцене
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#check" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Проверь себя
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Проверь себя">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#ответы_2" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Ответы
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#glossary" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Словарь главы
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#bridge" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Мост к главе 17
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../ch17/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Глава 17. Итоговый проект: может ли команда доказать качество и ограниченность системы?
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../app-a/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Приложение А. Урок 0. Готовность рабочего места
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../app-b/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Приложение Б. Словарь курса
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../app-c/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Приложение В. Список фигур
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+        
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3" >
+        
+          
+          <label class="md-nav__link" for="__nav_3" id="__nav_3_label" tabindex="">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Учитель
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Учитель
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../teacher/teacher-guide/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Методическое руководство для учителя
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../teacher/lesson-map/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Поурочная карта
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../routes/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Маршруты A/B
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../files/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Файлы практикума
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../about/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    О редакции
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Содержание">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Содержание
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#scene" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        С чего всё началось
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#goals" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        После главы ты сможешь
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#lesson-31" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Урок 31. Один проект — несколько запусков
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Урок 31. Один проект — несколько запусков">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#1-два-масштаба-работы" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1. Два масштаба работы
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#2-какое-состояние-действительно-позволяет-продолжить" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2. Какое состояние действительно позволяет продолжить
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#3-trace-не-заменяет-checkpoint" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3. Trace не заменяет checkpoint
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#4-практика-a-передай-работу-без-вчерашней-беседы" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        4. Практика A: передай работу без вчерашней беседы
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#5-практика-b-три-запуска-дежурного-и-один-checkpoint" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        5. Практика B: три запуска «Дежурного» и один checkpoint
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#6-мини-проверка-урока-31" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        6. Мини-проверка урока 31
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="6. Мини-проверка урока 31">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#ответы" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Ответы
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#выходной-билет-урока-31" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Выходной билет урока 31
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#lesson-32" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Урок 32. Один агент, несколько агентов или человек
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Урок 32. Один агент, несколько агентов или человек">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#1-разделить-работу--ещё-не-значит-улучшить-систему" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1. Разделить работу — ещё не значит улучшить систему
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#2-когда-отдельный-исполнитель-действительно-полезен" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2. Когда отдельный исполнитель действительно полезен
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#3-кто-отвечает-за-итог" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3. Кто отвечает за итог
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#4-практика-a-три-архитектуры-на-бумаге" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        4. Практика A: три архитектуры на бумаге
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#5-практика-b-ограниченный-анализатор-передаёт-результат-owner" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        5. Практика B: ограниченный анализатор передаёт результат Owner
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#6-обязательные-проверки-должен--не-должен--ошибка--граница" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        6. Обязательные проверки: должен / не должен / ошибка / граница
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#7-безопасность" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        7. Безопасность
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#8-мини-проверка-урока-32" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        8. Мини-проверка урока 32
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="8. Мини-проверка урока 32">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#ответы_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Ответы
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#выходной-билет-урока-32" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Выходной билет урока 32
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#why" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Зачем это тебе
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#dezhurny" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Шаг сквозного проекта
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#return" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Возвращаемся к сцене
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#check" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Проверь себя
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Проверь себя">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#ответы_2" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Ответы
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#glossary" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Словарь главы
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#bridge" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Мост к главе 17
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+
+<h1 id="глава-16-долгая-и-совместная-работа">Глава 16. Долгая и совместная работа<a class="headerlink" href="#глава-16-долгая-и-совместная-работа" title="Permanent link">&para;</a></h1>
+<h2 id="scene">С чего всё началось<a class="headerlink" href="#scene" title="Permanent link">&para;</a></h2>
+<p>До Фестиваля науки осталось совсем немного времени. На доске проектного бюро уже около трёхсот карточек. Часть карточек проверена, часть ждёт данных, а часть ещё даже не открывали. Программа «Дежурный» начинает очередную проверку, делает два шага и останавливается по установленному пределу. Компьютер выключают. На следующий день Марк открывает программу снова и пишет: «Продолжай оттуда, где остановился».</p>
+<p>Но новый процесс не обязан помнить вчерашние объекты Python — данные, с которыми программа работала в памяти. Активный контекст и последняя реплика тоже не обязаны сохраняться после остановки. На диске остались карточки проекта, Trace прошлого запуска и маленький файл состояния. На листе передачи есть ещё поле <code>Owner</code>, но команда пока не разбирала его назначение.</p>
+<p>Марк смотрит на сохранённые материалы и спрашивает: какой из файлов позволит новому запуску установить, что уже произошло и что делать дальше? Аня добавляет второй вопрос: если часть работы отдать другому исполнителю, кто потом отвечает за итоговое решение?</p>
+<p>Так появляется <strong>Session / сессия — один ограниченный по времени и контексту запуск работы системы.</strong></p>
+<p><strong><em>Session</em></strong>, или сессия, начинается, когда программа приступает к очередному участку работы, и заканчивается при остановке рабочего запуска. Внутри одной Session система может сделать несколько действий: у «Дежурного» в начальной сцене было два шага, но один запуск. Следующая Session не получает автоматически сведения о предыдущей.</p>
+<blockquote>
+<p><strong>Вопрос-Прогноз.</strong> Если работа не помещается в одну Session, что должно пережить остановку процесса, чтобы следующий запуск мог продолжить её без догадок и без повторного выполнения уже завершённого действия? Запиши прогноз до практики.</p>
+</blockquote>
+<p>Запиши ещё один прогноз для второго урока: если подзадачу можно передать отдельному исполнителю, станет ли система автоматически быстрее, точнее или безопаснее? После практики ты сравнишь ожидание с наблюдением.</p>
+<blockquote>
+<p><strong>Главный вопрос главы.</strong> Как продолжать проект между сессиями и участниками?</p>
+</blockquote>
+<p><img alt="Фигура 46. Триста карточек и новый запуск" src="../../figures/46_trista-kartochek-i-novyy-zapusk.png" /></p>
+<p><em>Фигура 46. Триста карточек и новый запуск</em></p>
+<h2 id="goals">После главы ты сможешь<a class="headerlink" href="#goals" title="Permanent link">&para;</a></h2>
+<ul>
+<li>объяснять, почему новый запуск не продолжает работу только благодаря «памяти модели»;</li>
+<li>различать работу внутри одного запуска и работу между несколькими запусками;</li>
+<li>проверять, достаточно ли сохранённого состояния для честного продолжения;</li>
+<li>объяснять, почему повторяемый запуск не должен повторно применять уже выполненный эффект;</li>
+<li>собирать краткую передачу работы без полной стенограммы и secrets;</li>
+<li>сравнивать варианты «один исполнитель / отдельный исполнитель / человек» и называть ответственность за итог;</li>
+<li>отличать наблюдаемый факт от правила выбора, предположения и заранее записанного ожидания.</li>
+</ul>
+<hr />
+<h2 id="lesson-31">Урок 31. Один проект — несколько запусков<a class="headerlink" href="#lesson-31" title="Permanent link">&para;</a></h2>
+<h3 id="1-два-масштаба-работы">1. Два масштаба работы<a class="headerlink" href="#1-два-масштаба-работы" title="Permanent link">&para;</a></h3>
+<p>В знакомом тебе agent loop действие даёт observation. После наблюдения система принимает решение: продолжить работу или завершить запуск с определённым terminal. Механизм остаётся прежним; теперь мы рассматриваем последовательность шагов в пределах одной Session.</p>
+<p><strong>Inner loop — agent loop внутри одного запуска.</strong></p>
+<p>Название <strong><em>Inner loop</em></strong> переводится как «внутренний цикл». Цикл назван внутренним по отношению к Session: шаги выполняются внутри одного запуска. Новый алгоритм или ещё один <code>while</code> добавлять не требуется.</p>
+<blockquote>
+<p><strong>Проверь себя на ходу.</strong> Если один запуск сделал три шага agent loop и остановился, сколько было Session и сколько Inner loop? Что здесь нельзя считать тремя Session?</p>
+</blockquote>
+<p>Представь продолжение работы бюро: после остановки нужное состояние сохранили, программу закрыли, а затем запустили снова. Новый запуск проверил сохранённые данные, выполнил ещё один ограниченный Inner loop и снова сохранил состояние. Теперь мы рассматриваем не шаги одного запуска, а связь между запусками.</p>
+<p><strong>Outer loop — повторение отдельных запусков, каждый из которых продолжает работу по сохранённому внешнему состоянию.</strong></p>
+<p><strong><em>Outer loop</em></strong> означает «внешний цикл». Отдельные Session связаны проверяемым состоянием, а не непрерывной работой одного процесса. Каждый запуск ограничен. Между запусками программа проверяет состояние, и решение о продолжении принимается явно; бесконечная работа из такой последовательности не следует.</p>
+<p>Схема показывает оба масштаба: шаги находятся внутри Session, а checkpoint и Handoff связывают отдельные запуски:</p>
+<div class="highlight"><pre><span></span><code>Проект
+│
+├── Session 1
+│     Inner loop
+│     step → observation → decision
+│     ↓
+│   checkpoint + Handoff
+│
+├── Session 2
+│     validate checkpoint
+│     Inner loop
+│     ↓
+│   checkpoint + Handoff
+│
+└── Session 3 …
+
+Outer loop = последовательность Session по внешнему проверенному state
+</code></pre></div>
+<p>Схему дополняют пять границ:</p>
+<div class="highlight"><pre><span></span><code>Trace ≠ checkpoint
+checkpoint ≠ full transcript
+Handoff ≠ more permissions
+more agents ≠ more intelligence
+resumable ≠ safe to repeat effects
+</code></pre></div>
+<p>В этих строках <code>full transcript</code> означает полную стенограмму, а <code>more permissions</code> — дополнительные разрешения. Последняя строка отделяет возможность продолжить работу от безопасности повторного действия. Даже пригодное для продолжения состояние не разрешает заново выполнить любой прошлый эффект, например ещё раз применить изменение карточки.</p>
+<p><img alt="Фигура 47. Inner loop внутри Session, Outer loop между Session" src="../../figures/47_inner-loop-vnutri-session-outer-loop.svg" /></p>
+<p><em>Фигура 47. Inner loop внутри Session, Outer loop между Session</em></p>
+<h3 id="2-какое-состояние-действительно-позволяет-продолжить">2. Какое состояние действительно позволяет продолжить<a class="headerlink" href="#2-какое-состояние-действительно-позволяет-продолжить" title="Permanent link">&para;</a></h3>
+<p>В главе 10 ты использовал Checkpoint — сохранённое состояние, по которому работу можно продолжить после прерывания. Что должен получить новый запуск, чтобы такого состояния действительно хватило? Программа должна проверить уже сделанное и определить следующий шаг по записи, а не по догадке.</p>
+<p><strong>Resumable state / возобновляемое состояние — сохранённое вне процесса состояние, которого достаточно, чтобы новый запуск проверил, что уже сделано, и продолжил с явно записанного следующего шага.</strong></p>
+<p><strong><em>Resumable state</em></strong>, или возобновляемое состояние, содержит проверяемые поля для продолжения. Полный чат, весь Trace и внутренние рассуждения модели для этого не требуются. Нужны данные, без которых нельзя обоснованно выбрать следующий шаг.</p>
+<p>Допустим, группа проверила 12 из 20 карточек в произвольном порядке. Запись «проверено 12» позволяет вычислить, что осталось восемь, но не позволяет назвать оставшиеся карточки. Для продолжения нужны сведения о том, какие карточки уже проверены, и явно записанный следующий шаг. Одного счётчика недостаточно.</p>
+<p>Сравни два случая starter из главы 10. В первом случае сохранённое состояние проходит проверку:</p>
+<div class="highlight"><pre><span></span><code><span class="c1"># запуск из корня starter</span>
+python<span class="w"> </span>state_demo.py<span class="w"> </span>resume<span class="w"> </span>workspace/ch10/cases/project_state_ready.json
+</code></pre></div>
+<div class="highlight"><pre><span></span><code>checkpoint: loaded
+project: science-festival
+status: needs_input
+blocked tasks: task-003
+next step: После ответа снова проверить task-003
+result: resumable
+</code></pre></div>
+<p>Важна не сама строка <code>resumable</code>, а напечатанный рядом <code>next step</code>. В следующем шаге указано не только действие, но и условие: снова проверить <code>task-003</code> после ответа. Программа может принять такую запись без восстановления смысла по последней фразе чата. Сам вывод показывает принятие checkpoint, а не выполнение повторной проверки карточки.</p>
+<p>Во втором случае в сохранённом состоянии не хватает поля:</p>
+<div class="highlight"><pre><span></span><code><span class="c1"># запуск из корня starter</span>
+python<span class="w"> </span>state_demo.py<span class="w"> </span>resume<span class="w"> </span>workspace/ch10/cases/project_state_missing_next_step.json
+</code></pre></div>
+<div class="highlight"><pre><span></span><code>checkpoint: not accepted
+error: missing field next_step
+result: not resumable
+</code></pre></div>
+<p>Программа отказывает в продолжении, а не придумывает недостающий шаг. Если checkpoint настроенного «Дежурного» не проходит такую проверку (например, в нём нет <code>next_step</code>), команда <code>run</code> останавливается до Inner loop с ошибкой конфигурации и кодом возврата 2. Следовательно, JSON становится основой продолжения только после проверки; одного существования файла недостаточно.</p>
+<h3 id="3-trace-не-заменяет-checkpoint">3. Trace не заменяет checkpoint<a class="headerlink" href="#3-trace-не-заменяет-checkpoint" title="Permanent link">&para;</a></h3>
+<p>Trace отвечает на вопрос «что наблюдаемо происходило во время запуска». Журнал может содержать запросы tool и observations, ошибки и подтверждения, а также terminal. По событиям можно разбирать сбой. Для продолжения нужен другой ответ: какое состояние сейчас актуально и что допустимо делать дальше?</p>
+<p>Представь лабораторный журнал из двадцати страниц. По записям можно восстановить вчерашние измерения. Но начать сегодняшнюю работу удобнее с таблицы актуальных значений и пометки «следующее измерение — № 7». Двадцать страниц описывают историю, а одна пометка называет ближайшее действие. В сравнении журнал соответствует Trace, а таблица с пометкой — checkpoint. Сходство ограничено назначением записей: программный checkpoint проверяется формально, лабораторная таблица может быть просто записью человека.</p>
+<p>Поэтому полный Trace не заменяет checkpoint. Получив только историю, новый процесс всё равно должен был бы установить, какое из описанных состояний считать текущим и какой шаг допустим дальше. Сохранённый checkpoint нужен именно для продолжения, а не для подробного пересказа прошлого запуска.</p>
+<h3 id="4-практика-a-передай-работу-без-вчерашней-беседы">4. Практика A: передай работу без вчерашней беседы<a class="headerlink" href="#4-практика-a-передай-работу-без-вчерашней-беседы" title="Permanent link">&para;</a></h3>
+<p>Учитель раздаёт четырём группам одинаковые материалы:</p>
+<ul>
+<li>карточки «сделано», «проверено», «ожидает ответа», «следующий шаг»;</li>
+<li>один пригодный checkpoint;</li>
+<li>один неполный checkpoint;</li>
+<li>карточку Trace с событиями прошлого запуска;</li>
+<li>карточку Handoff без полной стенограммы.</li>
+</ul>
+<p>Первая пара выбирает только материалы, необходимые следующему запуску. Вторая пара получает выбранные материалы без исходной беседы и определяет, что уже сделано, что проверено и какой следующий шаг допустим. Выполни со своей группой назначенную часть работы.</p>
+<p>В отдельном задании найди ошибку. Группа получает файл со статусом, списком задач и строкой «мы почти закончили, завтра продолжим» вместо <code>next_step</code>. Объясни, почему файл нельзя считать готовым к продолжению; не подставляй действие, которое кажется тебе очевидным.</p>
+<p>После обмена листами сравни со своей группой данные, которые хотелось сохранить «на всякий случай», с данными, которые действительно понадобились получателям.</p>
+<p>Обе пары используют инструкцию восстановления после прерывания:</p>
+<div class="highlight"><pre><span></span><code>1. Заверши текущую Session в наблюдаемом состоянии.
+2. Сохрани проверяемый checkpoint вне процесса.
+3. Не сохраняй secrets и полную стенограмму «на всякий случай».
+4. Новый запуск сначала проверяет checkpoint.
+5. Продолжай только с явно записанного next_step.
+6. Не повторяй уже зафиксированную завершённую операцию.
+</code></pre></div>
+<p><strong>Результат практики A:</strong> инструкция восстановления из шести пунктов, где к каждому пункту группа приписала пример из своих материалов, и handoff на одной странице, по которому другая группа продолжает работу без доступа к вчерашнему чату.</p>
+<h3 id="5-практика-b-три-запуска-дежурного-и-один-checkpoint">5. Практика B: три запуска «Дежурного» и один checkpoint<a class="headerlink" href="#5-практика-b-три-запуска-дежурного-и-один-checkpoint" title="Permanent link">&para;</a></h3>
+<p>Сначала подготовь план долгой работы: скопируй шаблон <code>workspace/my_agent/templates/16_run_plan.json</code> в <code>workspace/my_agent/16_run_plan.json</code>. В шаблоне записаны три поля:</p>
+<div class="highlight"><pre><span></span><code><span class="p">{</span>
+<span class="w">  </span><span class="nt">&quot;max_sessions&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">2</span><span class="p">,</span>
+<span class="w">  </span><span class="nt">&quot;checkpoint&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;drafts/my_agent/run_state.json&quot;</span><span class="p">,</span>
+<span class="w">  </span><span class="nt">&quot;owner&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;project-team&quot;</span>
+<span class="p">}</span>
+</code></pre></div>
+<p>Разбери назначение каждого поля:</p>
+<ul>
+<li><code>max_sessions</code> задаёт учебный предел числа Session;</li>
+<li><code>checkpoint</code> указывает относительный путь только внутри <code>drafts/</code>;</li>
+<li><code>owner</code> называет роль, которая решает, что делать после остановки.</li>
+</ul>
+<p>В шаблоне разрешены две Session. Для обязательной проверки подготовлена фикстура с таким же форматом, но лимитом 3 и другим путём checkpoint.</p>
+<p>Следующий вывод <code>status</code> относится к этой фикстуре, а не к неизменённому шаблону. Комментарий о фикстуре обозначает подстановку файла; сам комментарий ничего не копирует. Найди в строке вывода значения трёх полей плана:</p>
+<div class="highlight"><pre><span></span><code><span class="c1"># запуск из корня starter</span>
+<span class="c1"># фикстура: tests/fixtures/ch16/16_run_plan.json -&gt; workspace/my_agent/16_run_plan.json</span>
+python<span class="w"> </span>dezhurny.py<span class="w"> </span>status<span class="w"> </span>--chapter<span class="w"> </span><span class="m">16</span>
+</code></pre></div>
+<div class="highlight"><pre><span></span><code>dezhurny: status
+config: workspace/my_agent
+глава 16 | 16_run_plan.json | настроено: max_sessions 3; checkpoint drafts/ch16/run_state.json; owner project-team | run: Session с checkpoint; после max_sessions — остановка до цикла
+</code></pre></div>
+<p>Основной опыт использует отдельный случай <code>workspace/ch16/cases/long-work/</code>. В показанном опыте checkpoint ещё нет, лимит Session равен двум, а предел Inner loop составляет два шага. За одну Session вся работа не завершается.</p>
+<p><strong>Три следующие команды должны идти именно подряд:</strong> вторая читает checkpoint первой, а третья обнаруживает исчерпанный лимит Session. Не смешивай лимит этого случая с лимитом 3 из предыдущего вывода <code>status</code>.</p>
+<p>Запусти программу для первой Session:</p>
+<div class="highlight"><pre><span></span><code><span class="c1"># запуск из корня starter</span>
+python<span class="w"> </span>dezhurny.py<span class="w"> </span>run<span class="w"> </span>--dir<span class="w"> </span>workspace/ch16/cases/long-work
+</code></pre></div>
+<div class="highlight"><pre><span></span><code>dezhurny: run
+goal: Проверить все карточки доски за несколько Session и передать сводку команде
+config: workspace/ch16/cases/long-work
+model: replay — авторский сценарий, не запись модели
+scenario: success
+stop_policy: max_steps 2, max_retries 1
+tools: allowlist диспетчера (по умолчанию, глава 7)
+session: 1/2 | checkpoint: нет — первая Session
+Шаг 1 | read_task_cards | continue
+Шаг 2 | validate_task_card | limit
+Остановка: limit
+contract: не настроено (глава 5)
+save: не настроено (глава 3)
+state: не настроено (глава 10)
+trace: не настроено (глава 12)
+checkpoint: saved | drafts/ch16/run_state.json | status limit | next step: Новая Session: снова прочитать карточки и продолжить проверку
+handoff: build_handoff — поля project, goal, status, blocked_tasks, next_step | transcript: no | secrets: 0 | owner: project-team
+Качество модели не подтверждено этим техническим прогоном.
+</code></pre></div>
+<p>Сравни имя сценария с итогом запуска. <code>scenario: success</code> называет подготовленный replay-сценарий среды. Но наблюдаемый terminal этой Session равен <code>limit</code>: программа выполнила два шага при <code>max_steps</code>, равном 2.</p>
+<p>После остановки harness сохраняет checkpoint и строит знакомый по главе 10 Handoff / передачу работы — структурированную передачу следующему исполнителю или запуску состояния, результатов и необходимых ограничений. В данном случае <strong><em>Handoff</em></strong> связывает завершённую Session со следующим запуском.</p>
+<p>Запусти программу заново для второй Session:</p>
+<div class="highlight"><pre><span></span><code><span class="c1"># запуск из корня starter</span>
+python<span class="w"> </span>dezhurny.py<span class="w"> </span>run<span class="w"> </span>--dir<span class="w"> </span>workspace/ch16/cases/long-work
+</code></pre></div>
+<div class="highlight"><pre><span></span><code>dezhurny: run
+goal: Проверить все карточки доски за несколько Session и передать сводку команде
+config: workspace/ch16/cases/long-work
+model: replay — авторский сценарий, не запись модели
+scenario: success
+stop_policy: max_steps 2, max_retries 1
+tools: allowlist диспетчера (по умолчанию, глава 7)
+session: 2/2 | checkpoint loaded | previous: limit | next step: Новая Session: снова прочитать карточки и продолжить проверку
+Шаг 1 | read_task_cards | continue
+Шаг 2 | validate_task_card | limit
+Остановка: limit
+contract: не настроено (глава 5)
+save: не настроено (глава 3)
+state: не настроено (глава 10)
+trace: не настроено (глава 12)
+checkpoint: saved | drafts/ch16/run_state.json | status limit | next step: Новая Session: снова прочитать карточки и продолжить проверку
+handoff: build_handoff — поля project, goal, status, blocked_tasks, next_step | transcript: no | secrets: 0 | owner: project-team
+Качество модели не подтверждено этим техническим прогоном.
+</code></pre></div>
+<p>Какая строка показывает связь двух запусков? <code>checkpoint loaded | previous: limit</code> появилась только во второй Session: программа загрузила сохранённое состояние и прочитала прежний terminal.</p>
+<p>Между Session в checkpoint сохраняются <code>sessions_used</code>, прошлый terminal и <code>next_step</code>. Однако повторяется прежний авторский replay-сценарий, а не появляются новые ответы модели. Переход от <code>1/2</code> к <code>2/2</code> показывает учёт использованных Session. Сам по себе этот счётчик не доказывает, что проверены новые карточки: в обоих выводах напечатаны одинаковые имена двух операций.</p>
+<p>Выполни третью команду, чтобы проверить предел Outer loop:</p>
+<div class="highlight"><pre><span></span><code><span class="c1"># запуск из корня starter</span>
+python<span class="w"> </span>dezhurny.py<span class="w"> </span>run<span class="w"> </span>--dir<span class="w"> </span>workspace/ch16/cases/long-work
+</code></pre></div>
+<div class="highlight"><pre><span></span><code>dezhurny: run
+goal: Проверить все карточки доски за несколько Session и передать сводку команде
+config: workspace/ch16/cases/long-work
+model: replay — авторский сценарий, не запись модели
+scenario: success
+stop_policy: max_steps 2, max_retries 1
+tools: allowlist диспетчера (по умолчанию, глава 7)
+outer loop: стоп — sessions 2/2 использованы; продолжение решает Owner: project-team
+checkpoint: не изменён | drafts/ch16/run_state.json
+</code></pre></div>
+<p>Третья команда запускает программу для проверки плана, но новая рабочая Session и её Inner loop не начинаются. Программа проверяет внешний лимит до agent loop и оставляет checkpoint без изменения. При трёх обращениях к программе только два обращения дошли до Inner loop. Увеличение <code>max_steps</code> дало бы больше шагов внутри одной Session, а здесь ограничено число отдельных Session.</p>
+<blockquote>
+<p><strong>Проверь себя на ходу.</strong> В каком из трёх запусков Inner loop вообще не начался? Как это доказать по печатному выводу, не заглядывая в исходный код?</p>
+</blockquote>
+<p>Теперь проверь отдельный механизм: защиту от повторного эффекта. В главе 14 программа уже применяла подтверждённое предложение изменения статуса. В следующем опыте одно подтверждённое предложение применяется дважды во временной копии workspace.</p>
+<p>Опыт не даёт промышленной гарантии <code>exactly-once</code> — «эффект выполнится ровно один раз при любых сбоях». Проверяется только повтор одного и того же предложения:</p>
+<div class="highlight"><pre><span></span><code><span class="c1"># запуск из корня starter</span>
+python<span class="w"> </span>long_work_demo.py<span class="w"> </span>repeat
+</code></pre></div>
+<div class="highlight"><pre><span></span><code>long_work: repeat
+proposal: task-002 | in_progress -&gt; done | operation_id: 689d4fcf4c7c4dbb
+human_decision: approve — одно подтверждённое предложение, применяется дважды
+first: applied: yes | operation_id 689d4fcf4c7c4dbb
+second: applied: no | already_applied: yes | operation_id 689d4fcf4c7c4dbb
+card changed: once
+shipped cards changed: no
+граница: учебная защита от повтора одного предложения, не exactly-once
+</code></pre></div>
+<p>При первом применении напечатано <code>applied: yes</code>, при втором — <code>already_applied: yes</code> и <code>applied: no</code>. Обе строки относятся к одному идентификатору операции. По отчёту карточка изменилась один раз, а исходные карточки комплекта не изменились.</p>
+<p>Resumable state позволяет определить продолжение. Защита от повторного применения отдельно запрещает вновь выполнять уже применённое изменение. Два механизма связаны, но один не заменяет другой.</p>
+<p><strong>Результат практики B:</strong> файл <code>16_run_plan.json</code>, три последовательных запуска одного учебного случая с checkpoint между первой и второй Session, наблюдаемый стоп до Inner loop на третьем запуске и объяснение строки <code>already_applied: yes</code> как отдельной границы повторного эффекта.</p>
+<h3 id="6-мини-проверка-урока-31">6. Мини-проверка урока 31<a class="headerlink" href="#6-мини-проверка-урока-31" title="Permanent link">&para;</a></h3>
+<ol>
+<li>Чем Session отличается от шага Inner loop?</li>
+<li>Почему название Inner loop не означает, что нужно добавить ещё один agent loop?</li>
+<li>Что делает Outer loop?</li>
+<li>Почему Trace не заменяет checkpoint?</li>
+<li>Какой признак делает сохранённое состояние пригодным для честного продолжения?</li>
+<li>Почему третья команда <code>run</code> не должна переписывать checkpoint?</li>
+<li>Почему <code>resumable</code> не означает «можно снова выполнить все прошлые действия»?</li>
+</ol>
+<h4 id="ответы">Ответы<a class="headerlink" href="#ответы" title="Permanent link">&para;</a></h4>
+<ol>
+<li>Session — целый ограниченный запуск; внутри неё может быть несколько шагов.</li>
+<li>Это специальное имя уже знакомого agent loop, когда мы сравниваем его с работой между запусками.</li>
+<li>Связывает отдельные Session через сохранённое и проверенное внешнее состояние.</li>
+<li>Trace хранит наблюдаемые события запуска, а checkpoint — актуальное состояние для продолжения.</li>
+<li>Новый запуск может проверить, что уже сделано, и увидеть явно записанный <code>next_step</code>.</li>
+<li>Лимит Session проверяется до Inner loop; после исчерпания лимита состояние не должно изображать новый прогресс.</li>
+<li>Продолжение состояния и повторение внешнего эффекта — разные задачи; уже применённый effect может требовать отдельной защиты от повтора.</li>
+</ol>
+<h3 id="выходной-билет-урока-31">Выходной билет урока 31<a class="headerlink" href="#выходной-билет-урока-31" title="Permanent link">&para;</a></h3>
+<p>Закончи четыре строки:</p>
+<div class="highlight"><pre><span></span><code>Session — это …
+Inner loop — это …
+Outer loop — это …
+checkpoint нужен между Session, потому что …
+</code></pre></div>
+<p>Добавь один наблюдаемый признак из практики B, подтверждающий, что второй запуск прочитал checkpoint первого.</p>
+<hr />
+<h2 id="lesson-32">Урок 32. Один агент, несколько агентов или человек<a class="headerlink" href="#lesson-32" title="Permanent link">&para;</a></h2>
+<h3 id="1-разделить-работу--ещё-не-значит-улучшить-систему">1. Разделить работу — ещё не значит улучшить систему<a class="headerlink" href="#1-разделить-работу--ещё-не-значит-улучшить-систему" title="Permanent link">&para;</a></h3>
+<p>Марк снова смотрит на триста карточек и предлагает ускорить проверку: «Если один исполнитель долго проверяет доску, пусть два делают это одновременно». На первый взгляд предложение разумно: исполнителей станет больше. Но если оба получили один и тот же старый checkpoint, каждый может считать одну и ту же карточку незавершённой. В результате могут появиться противоречащие предложения или два разных варианта продолжения.</p>
+<p>Прежде чем выбирать число агентов, проверь устройство подзадачи:</p>
+<ol>
+<li>Можно ли отделить подзадачу от остальной работы?</li>
+<li>Какие входные данные нужны исполнителю?</li>
+<li>Какой результат исполнитель должен вернуть?</li>
+<li>Кто проверит результат?</li>
+<li>Кто отвечает за итог?</li>
+</ol>
+<p>Ответы позволяют обосновать разделение работы. Само число агентов такого основания не даёт.</p>
+<p>Обосновывая архитектурное решение, различай уже проверенное и только ожидаемое. Для этого понадобятся ещё четыре рабочие формулировки. Пока это рабочие определения этой главы.</p>
+<p><strong>Факт / наблюдаемый факт — утверждение, подтверждённое сохранённым артефактом: выводом команды, trace, файлом или тестом.</strong></p>
+<p>Для <strong><em>факта</em></strong> можно предъявить свидетельство и проверить, подтверждает ли артефакт утверждение. Уверенного объяснения модели или мнения команды без артефакта недостаточно.</p>
+<p><strong>Эвристика — правило выбора, которое обычно помогает, но не гарантирует результат и не является стандартом.</strong></p>
+<p><strong><em>Эвристика</em></strong> помогает выбрать действие по правилу «так часто разумнее». Такое правило не гарантирует эффективности в каждом случае. Поэтому эвристику нельзя объявлять ни универсальным законом, ни обязательным стандартом.</p>
+<p><strong>Гипотеза — предположение о поведении системы, которое ещё предстоит проверить наблюдением.</strong></p>
+<p>Выдвигая <strong><em>гипотезу</em></strong>, команда предполагает некоторый эффект, но ещё не знает, получится ли его наблюдать. Проверка может не подтвердить предположение.</p>
+<p><strong>Прогноз — ожидание будущего результата, записанное до наблюдения и сравниваемое с ним после.</strong></p>
+<p><strong><em>Прогноз</em></strong> фиксирует до проверки, какого результата ты ожидаешь. Сама предварительная запись ничего не доказывает: ценность прогноза появляется именно потому, что после наблюдения его можно сравнить с фактом. По этому принципу устроен вопрос-прогноз в начале этой и предыдущих глав.</p>
+<blockquote>
+<p><strong>Проверь себя на ходу.</strong> Фраза «два исполнителя обычно быстрее одного» — факт, эвристика, гипотеза или прогноз? Какой артефакт понадобился бы, чтобы сделать более сильный вывод именно о вашем проекте?</p>
+</blockquote>
+<h3 id="2-когда-отдельный-исполнитель-действительно-полезен">2. Когда отдельный исполнитель действительно полезен<a class="headerlink" href="#2-когда-отдельный-исполнитель-действительно-полезен" title="Permanent link">&para;</a></h3>
+<p>Перед разделением работы используй checklist — контрольный список вопросов:</p>
+<ol>
+<li>Можно ли отделить подзадачу от итогового решения?</li>
+<li>Заданы ли явный вход и ограниченный контекст?</li>
+<li>Можно ли проверить результат подзадачи?</li>
+<li>Понятно ли получателю, как принять или отклонить Handoff?</li>
+<li>Назначена ли ответственность за итоговое решение?</li>
+</ol>
+<p>Допустим, для выставочного стенда нужно проверить оборудование и решить, готов ли стенд к показу. Отдельному исполнителю можно передать два списка: требуемое и имеющееся оборудование. Исполнитель возвращает перечень расхождений, который можно сверить по входным спискам. Решение о готовности всего стенда в такую подзадачу не входит.</p>
+<p><strong>Subagent — отдельный ограниченный агентный запуск, которому передана конкретная подзадача и необходимый контекст.</strong></p>
+<p><strong><em>Subagent</em></strong> означает «подагент». Отдельный запуск получает конкретную работу и только необходимый для неё контекст, а не весь проект. Такое разделение не доказывает, что система стала умнее, быстрее или безопаснее.</p>
+<p>В обязательной практике этой главы второй LLM не запускается. Роль ограниченного исполнителя выполняет <code>analyzer</code>: программа проходит фиксированную последовательность уже существующих tools без модели и сети. Демонстрация проверяет форму передачи работы. Scripted-процедура, то есть заранее заданная последовательность шагов, не доказывает пользу настоящей системы с несколькими агентами.</p>
+<h3 id="3-кто-отвечает-за-итог">3. Кто отвечает за итог<a class="headerlink" href="#3-кто-отвечает-за-итог" title="Permanent link">&para;</a></h3>
+<p>Один исполнитель может собрать данные, второй провести анализ, а третий принять решение. Чья ответственность сохраняется после такой передачи? Нужно явно назвать того, кто отвечает за итог, независимо от распределения отдельных действий.</p>
+<p><strong>Owner / владелец решения — человек или явно определённая роль, несущая ответственность за итоговое решение.</strong></p>
+<p><strong><em>Owner</em></strong>, или владелец решения, отвечает за принимаемый результат, даже если часть работы выполнил другой исполнитель. Owner не обязан сам делать каждый шаг. Исполнитель подзадачи и владелец решения могут быть разными ролями.</p>
+<p>Карта ответственности связывает подзадачу с итоговым решением:</p>
+<div class="highlight"><pre><span></span><code>подзадача → исполнитель → Handoff → проверка → Owner → итоговое решение
+</code></pre></div>
+<p>Не смешивай Owner с Human approval из главы 14. Approval обозначает решение человека по конкретному действию. Owner обозначает того, кто отвечает за итоговый результат или архитектурное решение в целом.</p>
+<p><img alt="Фигура 48. Один агент / Subagent / человек" src="../../figures/48_odin-agent-subagent-chelovek.svg" /></p>
+<p><em>Фигура 48. Один агент / Subagent / человек</em></p>
+<h3 id="4-практика-a-три-архитектуры-на-бумаге">4. Практика A: три архитектуры на бумаге<a class="headerlink" href="#4-практика-a-три-архитектуры-на-бумаге" title="Permanent link">&para;</a></h3>
+<p>Учитель раздаёт три карточки архитектур:</p>
+<ol>
+<li>«один агент»;</li>
+<li>«Subagent-анализатор + основной контур»;</li>
+<li>«агент + человек-Owner».</li>
+</ol>
+<p>Отдельно учитель выдаёт четыре карточки оснований: факт, эвристика, гипотеза, прогноз. Для усложнения предусмотрены карточки границ из HR — работы с персоналом, — а также медицины, права и финансов. В этих ситуациях агент может подготовить материал, но итоговое высокорисковое решение остаётся у человека.</p>
+<p>Для каждой архитектуры заполни вместе с группой шесть строк:</p>
+<ol>
+<li>Назови подзадачу.</li>
+<li>Укажи исполнителя.</li>
+<li>Опиши передаваемое состояние.</li>
+<li>Запиши результат Handoff.</li>
+<li>Назначь Owner.</li>
+<li>Укажи основание выбора.</li>
+</ol>
+<p>Если основание названо фактом, укажи подтверждающий артефакт: вывод команды, Trace, файл или тест. Без наблюдаемого сравнения фраза «два агента точно лучше» не принимается как факт. Затем добавь, чего выбранное решение не доказывает.</p>
+<p>Обменяйся листами с другой группой и найди ошибки. Проверь прежде всего, указан ли Owner и не пытается ли группа передать с Handoff полную историю, permissions или trust. Файл передачи не даёт получателю новых прав и не повышает доверие к данным.</p>
+<p><strong>Результат практики A:</strong> краткая архитектурная записка с полями <code>подзадача</code>, <code>исполнитель</code>, <code>передаваемое состояние</code>, <code>результат Handoff</code>, <code>Owner</code>, <code>основание</code>, <code>что решение не доказывает</code>.</p>
+<h3 id="5-практика-b-ограниченный-анализатор-передаёт-результат-owner">5. Практика B: ограниченный анализатор передаёт результат Owner<a class="headerlink" href="#5-практика-b-ограниченный-анализатор-передаёт-результат-owner" title="Permanent link">&para;</a></h3>
+<p>Запусти подготовленный случай: ограниченный исполнитель анализирует карточки знакомыми tools через dispatcher и возвращает структурированный результат. Живая модель и сеть не используются.</p>
+<p>В техническом Handoff поле <code>basis</code> обозначает основание утверждения. Поле <code>evidence</code> содержит сохранённое свидетельство для основания <code>fact</code>.</p>
+<div class="highlight"><pre><span></span><code><span class="c1"># запуск из корня starter</span>
+python<span class="w"> </span>long_work_demo.py<span class="w"> </span>handoff<span class="w"> </span>--case<span class="w"> </span>analyzer
+</code></pre></div>
+<div class="highlight"><pre><span></span><code>long_work: handoff --case analyzer
+executor: analyzer — учебный ограниченный исполнитель, не второй LLM
+subtask: анализ карточек
+tools: read_task_cards, validate_task_card ×3, build_status_report
+handoff.result: count 3 | unfinished 2 | blocked 1
+owner: project-team
+constraints: permissions и trust прежние
+basis: fact | evidence: observation build_status_report — «Всего задач: 3.», «Незавершённых: 2.», «Заблокированных: 1.»
+model/network: not used
+decision made by executor: no
+result: accepted
+</code></pre></div>
+<p>Сопоставь <code>basis: fact</code> с полем evidence: в качестве свидетельства названа observation от <code>build_status_report</code>. В отчёте указаны три задачи, две незавершённые и одна заблокированная. Человек должен проверить, верно ли свидетельство и подтверждает ли оно утверждение. Программа проверяет только форму: указано ли evidence для <code>fact</code>.</p>
+<p>Допустим, в записке утверждается «Заблокированы все три задачи», а поле evidence ссылается на строку «Заблокированных: 1.». Свидетельство названо, но число один не подтверждает утверждение о трёх задачах. Наличие поля не заменяет проверки содержания.</p>
+<p>Поля <code>permissions</code> и <code>trust</code> не передаются как новые полномочия. Строка <code>constraints: permissions и trust прежние</code> указывает, что Handoff сам по себе не расширяет границы. Различие оснований видно в записи, но истинность утверждения одной записью <code>fact</code> не доказана.</p>
+<p>Запусти подготовленный случай, в котором Owner отсутствует в Handoff:</p>
+<div class="highlight"><pre><span></span><code><span class="c1"># запуск из корня starter</span>
+python<span class="w"> </span>long_work_demo.py<span class="w"> </span>handoff<span class="w"> </span>--case<span class="w"> </span>missing-owner
+</code></pre></div>
+<div class="highlight"><pre><span></span><code>long_work: handoff --case missing-owner
+handoff: workspace/ch16/cases/architecture_missing_owner.json
+executor: analyzer — учебный ограниченный исполнитель, не второй LLM
+subtask: анализ карточек
+owner: нет
+result: not accepted — нет owner
+executed: ничего — решение без Owner не принимается
+</code></pre></div>
+<p>Без Owner программа не принимает архитектурную передачу, даже если результат анализа мог бы выглядеть корректно. При этом наличие Owner не гарантирует правильности решения: роль делает явной ответственность, а не заменяет проверку.</p>
+<p><strong>Результат практики B:</strong> один принятый Handoff с <code>basis: fact</code> и evidence, один отклонённый Handoff без Owner и краткое объяснение, почему отдельный исполнитель не получил новые permissions и не принял итоговое решение.</p>
+<h3 id="6-обязательные-проверки-должен--не-должен--ошибка--граница">6. Обязательные проверки: должен / не должен / ошибка / граница<a class="headerlink" href="#6-обязательные-проверки-должен--не-должен--ошибка--граница" title="Permanent link">&para;</a></h3>
+<p><strong>Должен.</strong> Проверь три требования:</p>
+<ol>
+<li>Новый процесс загружает валидный checkpoint, а следующая Session получает предыдущий terminal и <code>next_step</code>.</li>
+<li>Архитектурный Handoff содержит Owner.</li>
+<li>Утверждение, названное фактом, ссылается на evidence.</li>
+</ol>
+<p><strong>Не должен.</strong> Проверь, что ограничения сохранены:</p>
+<ol>
+<li>Новый запуск не зависит от объектов Python в памяти прошлого процесса.</li>
+<li>Outer loop не заменён простым увеличением <code>max_steps</code>.</li>
+<li>Handoff не включает автоматически secrets и полную стенограмму, не выдаёт новых permissions и не повышает trust.</li>
+<li>Отдельный исполнитель не выдаёт свой результат за итоговое решение Owner.</li>
+</ol>
+<p><strong>Ошибка.</strong> При неверном плане долгой работы <code>run</code> не должен начинать выполнение. В следующем случае checkpoint указан вне <code>drafts/</code>. Команда <code>status</code> сообщает об ошибке и о блокировке <code>run</code>; сама команда <code>run</code> в этом показе не вызывается. Комментарий о фикстуре, как и в уроке 31, обозначает заранее подготовленную подстановку:</p>
+<div class="highlight"><pre><span></span><code><span class="c1"># запуск из корня starter</span>
+<span class="c1"># фикстура: tests/fixtures/ch16/16_run_plan_invalid.json -&gt; workspace/my_agent/16_run_plan.json</span>
+python<span class="w"> </span>dezhurny.py<span class="w"> </span>status<span class="w"> </span>--chapter<span class="w"> </span><span class="m">16</span>
+</code></pre></div>
+<div class="highlight"><pre><span></span><code>dezhurny: status
+config: workspace/my_agent
+глава 16 | 16_run_plan.json | ошибка: 16_run_plan.json: checkpoint — относительный путь внутри drafts/ | run не запускается, пока файл не исправлен
+</code></pre></div>
+<p>Checkpoint без <code>next_step</code> ты уже видел в уроке 31, §2: проверка возвращает <code>result: not resumable</code>. Если такой checkpoint указан в плане <code>run</code>, harness останавливается до Inner loop с exit 2 — кодом возврата 2, — а не продолжает по догадке.</p>
+<p><strong>Граница.</strong> Различай следующие механизмы и выводы:</p>
+<ul>
+<li><code>Session ≠ step</code>: сессия охватывает запуск, а не один шаг.</li>
+<li><code>Outer loop ≠ retry</code>: последовательность запусков не равна повторной попытке внутри запуска.</li>
+<li><code>Trace ≠ checkpoint</code>: история событий не заменяет актуального состояния.</li>
+<li><code>checkpoint ≠ full transcript</code>: для контрольной точки состояния не нужна полная стенограмма.</li>
+<li><code>Handoff ≠ more permissions</code>: передача работы не даёт новых прав.</li>
+<li><code>Subagent ≠ smarter system</code>: отдельный агент не доказывает, что система стала умнее.</li>
+<li><code>Owner ≠ executor</code>: ответственный за итог не обязан выполнять подзадачу.</li>
+<li><code>resumable ≠ safe to repeat effects</code>: пригодность к продолжению не разрешает повторять эффекты.</li>
+<li>Scripted demo не равно live-model evidence: авторская демонстрация не доказывает поведение живой модели.</li>
+<li>Учебная защита от повторного эффекта не равна промышленной гарантии exactly-once.</li>
+</ul>
+<h3 id="7-безопасность">7. Безопасность<a class="headerlink" href="#7-безопасность" title="Permanent link">&para;</a></h3>
+<blockquote>
+<p><strong>Безопасность</strong></p>
+<p>Долгая работа не должна расширять permissions только потому, что появился новый запуск или новый исполнитель. Через Handoff передаются нужное состояние и ограничения; сама передача не даёт новых прав и не повышает trust.</p>
+<p>Resumable state не разрешает повторять прошлый эффект. Для операций с изменением состояния нужна отдельная защита: перед повторным применением программа проверяет состояние и идентификатор операции.</p>
+<p>Полная стенограмма и secrets не требуются для Handoff. Передавай только данные, без которых следующий шаг нельзя выполнить или проверить.</p>
+<p>В обязательной практике работу отдельного исполнителя показывает <code>analyzer</code>: программа выполняет фиксированную последовательность существующих tools без живой модели и сети. Опыт показывает форму Handoff и назначение Owner, а не пользу настоящей системы с несколькими агентами.</p>
+<p>В кадровых, медицинских, юридических и финансовых карточках агент не принимает итогового решения. Ответственность Owner несёт человек или явно назначенная человеческая роль.</p>
+</blockquote>
+<h3 id="8-мини-проверка-урока-32">8. Мини-проверка урока 32<a class="headerlink" href="#8-мини-проверка-урока-32" title="Permanent link">&para;</a></h3>
+<ol>
+<li>Какие признаки подзадачи дают основание рассмотреть отдельного исполнителя вместо продолжения одним агентом?</li>
+<li>Что такое Subagent и чего его наличие не доказывает?</li>
+<li>Что такое Owner?</li>
+<li>Почему Owner и исполнитель подзадачи могут быть разными ролями?</li>
+<li>Чем факт отличается от эвристики?</li>
+<li>Чем гипотеза отличается от прогноза?</li>
+<li>Почему <code>basis: fact</code> в учебном Handoff требует evidence?</li>
+<li>Что проверяет случай <code>missing-owner</code>?</li>
+</ol>
+<h4 id="ответы_1">Ответы<a class="headerlink" href="#ответы_1" title="Permanent link">&para;</a></h4>
+<ol>
+<li>Когда подзадача отделима, имеет явный вход, ограниченный контекст, проверяемый результат и понятный Handoff.</li>
+<li>Это отдельный ограниченный агентный запуск для конкретной подзадачи; он не гарантирует рост качества, скорости или безопасности.</li>
+<li>Человек или явно определённая роль, отвечающая за итоговое решение.</li>
+<li>Исполнитель может подготовить результат, а Owner — проверить и принять итог.</li>
+<li>Факт подтверждён сохранённым артефактом; эвристика — полезное правило выбора без гарантии.</li>
+<li>Гипотеза — проверяемое предположение о поведении; прогноз — ожидание будущего результата, записанное до наблюдения и затем сравниваемое с ним.</li>
+<li>Иначе слово <code>fact</code> было бы только ярлыком без наблюдаемого основания.</li>
+<li>Что даже структурированный результат не принимается как архитектурная передача без явно назначенного Owner.</li>
+</ol>
+<h3 id="выходной-билет-урока-32">Выходной билет урока 32<a class="headerlink" href="#выходной-билет-урока-32" title="Permanent link">&para;</a></h3>
+<p>Заполни пять строк для своего решения:</p>
+<div class="highlight"><pre><span></span><code>подзадача: …
+исполнитель: …
+Owner: …
+основание: факт | эвристика | гипотеза | прогноз
+что это решение не доказывает: …
+</code></pre></div>
+<p>Если ты выбрал <code>факт</code>, допиши ссылку на артефакт. Если основанием служит эвристика, гипотеза или прогноз, не называй выбранное основание доказанным результатом.</p>
+<hr />
+<h2 id="why">Зачем это тебе<a class="headerlink" href="#why" title="Permanent link">&para;</a></h2>
+<p>Большой исследовательский проект может не закончиться за один вечер. В пятницу ты проверил половину измерений, а в понедельник открываешь программу заново. Сообщение «мы были где-то здесь» не задаёт продолжения. Сохрани проверяемое состояние и явно запиши следующий шаг: новый запуск должен принять такую запись либо остановиться.</p>
+<p>При командной работе над выставочным стендом один ученик проверяет оборудование, другой готовит схему, а третий собирает итог. Если каждый получает весь чат и сам решает, какие сведения считать главными, ответственность за итог становится неясной. Через структурированный Handoff можно передать нужный результат и сохранить явного Owner.</p>
+<p>Для проверки трёхсот карточек может показаться достаточным «запустить больше агентов». Но число исполнителей не отвечает на вопросы о работе:</p>
+<ol>
+<li>Какую подзадачу можно отделить?</li>
+<li>Какой минимальный контекст нужен исполнителю?</li>
+<li>Как проверить полученный результат?</li>
+<li>Кто отвечает за итог?</li>
+</ol>
+<p>По ответам ты выбираешь исполнителя. В одном случае подойдёт Subagent, в другом один агент, а в третьем человек.</p>
+<h2 id="dezhurny">Шаг сквозного проекта<a class="headerlink" href="#dezhurny" title="Permanent link">&para;</a></h2>
+<p>В файле <code>workspace/my_agent/16_run_plan.json</code> запиши лимит Session, путь checkpoint внутри <code>drafts/</code> и Owner. Для плана из шаблона лимит равен двум. Описанная последовательность предполагает, что предыдущие Session ещё не израсходовали этот лимит и у первого запуска нет checkpoint.</p>
+<p>Запусти <code>python dezhurny.py run</code> два раза подряд. Второй запуск должен прочитать checkpoint первого и начать новую Session с записанного состояния. Следующая попытка после исчерпания лимита должна остановиться до Inner loop; решение о продолжении остаётся за Owner. Команда без <code>--dir</code> относится к твоей конфигурации, а не к отдельному случаю <code>long-work</code> из практики B.</p>
+<p>Главным проектным результатом становится не ещё один скрипт, а проверяемое разделение двух масштабов работы. Внутри Session действует прежний agent loop. Между Session состояние хранится вне процесса и проверяется перед продолжением. Передача состояния не даёт разрешения повторять прошлые эффекты.</p>
+<p>Перед главой 17 команда проводит архитектурное ревью — проверку выбранного устройства системы. Подготовь ответы:</p>
+<ol>
+<li>Где заканчивается Session?</li>
+<li>Что хранит checkpoint?</li>
+<li>Когда нужен Handoff?</li>
+<li>Нужен ли отдельный исполнитель?</li>
+<li>Кто назначен Owner?</li>
+<li>Какие утверждения подтверждены артефактами, а какие остаются эвристикой, гипотезой или прогнозом?</li>
+</ol>
+<h2 id="return">Возвращаемся к сцене<a class="headerlink" href="#return" title="Permanent link">&para;</a></h2>
+<p>В начале главы Марк сказал новому процессу: «Продолжай оттуда, где остановился». Теперь можно проверить, чего не хватало такой просьбе. Новый запуск не обязан помнить вчерашний контекст. Продолжение стало возможным только потому, что harness сохранил внешнее состояние, а следующая Session проверила checkpoint и прочитала явный <code>next_step</code>. Связь запусков видна в выводе, а не выводится из обещания модели всё помнить.</p>
+<p>Вернись и ко второму прогнозу: прибавит ли отдельный исполнитель скорости, точности или безопасности? Проведённая практика не подтверждает такого улучшения. Два агента сами по себе не решают проблему длинной работы: без отделимой подзадачи, Handoff и Owner они могут лишь увеличить число конфликтующих решений. Для связи запусков нужен проверяемый state; для передачи работы другому исполнителю нужны ограниченный Handoff и явная ответственность.</p>
+<p>Ответ на вопрос-прогноз теперь можно сформулировать так: <strong>остановку процесса должно пережить проверяемое внешнее состояние, достаточное для следующего шага; продолжение начинается только после его проверки, а уже выполненные эффекты защищаются отдельно от механизма resume.</strong></p>
+<h2 id="check">Проверь себя<a class="headerlink" href="#check" title="Permanent link">&para;</a></h2>
+<ol>
+<li>Что такое Session и чем она отличается от шага agent loop?</li>
+<li>Почему Inner loop не означает новый второй цикл в starter?</li>
+<li>Что такое Outer loop и почему он не равен retry?</li>
+<li>Что делает Resumable state и почему полный чат не обязателен?</li>
+<li>Чем Checkpoint отличается от Trace и Handoff?</li>
+<li>Почему продолжение по checkpoint не разрешает автоматически повторить прошлый эффект?</li>
+<li>Что такое Subagent и чего он не гарантирует?</li>
+<li>Что такое Owner и почему он обязателен в архитектурном Handoff этой главы?</li>
+<li>Различи факт, эвристику, гипотезу и прогноз на одном примере архитектурного выбора.</li>
+</ol>
+<h3 id="ответы_2">Ответы<a class="headerlink" href="#ответы_2" title="Permanent link">&para;</a></h3>
+<ol>
+<li>Session — один ограниченный запуск; шаг — отдельное действие внутри agent loop такой Session.</li>
+<li>Inner loop — специальное имя уже существующего agent loop, используемое только при сравнении с Outer loop.</li>
+<li>Outer loop — последовательность отдельных запусков по сохранённому внешнему состоянию; retry повторяет попытку внутри одного запуска.</li>
+<li>Оно хранит достаточно проверяемых данных, чтобы новый запуск понял, что сделано, и продолжил с явно записанного шага; полный transcript не требуется.</li>
+<li>Checkpoint — актуальное состояние для продолжения; Trace — история наблюдаемых событий; Handoff — структурированная передача нужного состояния, результата и ограничений следующему исполнителю или запуску.</li>
+<li>Потому что состояние для resume и безопасность повторного эффекта — разные задачи; уже применённая операция проверяется отдельно.</li>
+<li>Отдельный ограниченный агентный запуск для конкретной подзадачи и нужного контекста; он не гарантирует рост качества, скорости или безопасности.</li>
+<li>Owner — человек или роль, отвечающая за итоговое решение; без него результат отдельного исполнителя не имеет явной точки ответственности.</li>
+<li>Например: факт — печатный вывод показал <code>checkpoint loaded</code>; эвристика — отделять независимую подзадачу часто удобнее; гипотеза — отдельный анализатор уменьшит время проверки; прогноз — до запуска записали «вернёт две заблокированные карточки», вывод показал <code>blocked 1</code>: прогноз не подтвердился, и это видно только потому, что он был записан заранее.</li>
+</ol>
+<h2 id="glossary">Словарь главы<a class="headerlink" href="#glossary" title="Permanent link">&para;</a></h2>
+<table>
+<thead>
+<tr>
+<th>Термин</th>
+<th>Рабочая формулировка</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Session / сессия</strong></td>
+<td>один ограниченный по времени и контексту запуск работы системы</td>
+</tr>
+<tr>
+<td><strong>Inner loop</strong></td>
+<td>agent loop внутри одного запуска</td>
+</tr>
+<tr>
+<td><strong>Outer loop</strong></td>
+<td>повторение отдельных запусков, каждый из которых продолжает работу по сохранённому внешнему состоянию</td>
+</tr>
+<tr>
+<td><strong>Resumable state / возобновляемое состояние</strong></td>
+<td>сохранённое вне процесса состояние, которого достаточно, чтобы новый запуск проверил, что уже сделано, и продолжил с явно записанного следующего шага</td>
+</tr>
+<tr>
+<td><strong>Handoff / передача работы</strong></td>
+<td>структурированная передача следующему исполнителю или запуску состояния, результатов и необходимых ограничений</td>
+</tr>
+<tr>
+<td><strong>Subagent</strong></td>
+<td>отдельный ограниченный агентный запуск, которому передана конкретная подзадача и необходимый контекст</td>
+</tr>
+<tr>
+<td><strong>Owner / владелец решения</strong></td>
+<td>человек или явно определённая роль, несущая ответственность за итоговое решение</td>
+</tr>
+<tr>
+<td><strong>Факт / наблюдаемый факт</strong></td>
+<td>утверждение, подтверждённое сохранённым артефактом: выводом команды, trace, файлом или тестом</td>
+</tr>
+<tr>
+<td><strong>Эвристика</strong></td>
+<td>правило выбора, которое обычно помогает, но не гарантирует результат и не является стандартом</td>
+</tr>
+<tr>
+<td><strong>Гипотеза</strong></td>
+<td>предположение о поведении системы, которое ещё предстоит проверить наблюдением</td>
+</tr>
+<tr>
+<td><strong>Прогноз</strong></td>
+<td>ожидание будущего результата, записанное до наблюдения и сравниваемое с ним после</td>
+</tr>
+</tbody>
+</table>
+<h2 id="bridge">Мост к главе 17<a class="headerlink" href="#bridge" title="Permanent link">&para;</a></h2>
+<p>Что связывает сегодняшнюю работу «Дежурного» со вчерашней? Одна Session завершилась с наблюдаемым terminal, внешний checkpoint сохранил состояние, а следующая Session проверила сохранённые данные. Лимит Outer loop ограничил число запусков. Для передачи подзадачи команда использовала Handoff с явно назначенным Owner.</p>
+<p>Отдельные механизмы уже построены:</p>
+<ul>
+<li>tools выполняют операции;</li>
+<li>Agent Skill задаёт процедуру;</li>
+<li>state хранит актуальные данные;</li>
+<li>evals позволяют оценивать поведение;</li>
+<li>traces сохраняют наблюдаемые события;</li>
+<li>permissions задают права;</li>
+<li>trust обозначает уровень доверия;</li>
+<li>handoff связывает исполнителей или запуски.</li>
+</ul>
+<p>Остаётся проверить взаимодействие механизмов в одной ограниченной системе и собрать доказательства прохождения обязательных маршрутов.</p>
+<blockquote>
+<p><strong>Следующий вопрос.</strong> Может ли команда доказать качество и ограниченность системы?</p>
+</blockquote>
+<p>Ответ ты найдёшь в главе 17, «Итоговый проект».</p>
+
+
+
+
+
+
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+    
+      
+      <nav class="md-footer__inner md-grid" aria-label="Нижний колонтитул" >
+        
+          
+          <a href="../ch15/" class="md-footer__link md-footer__link--prev" aria-label="Назад: Глава 15. Prompt injection и недоверенные подключения: что делать с данными и кодом, которым нельзя автоматически доверять?">
+            <div class="md-footer__button md-icon">
+              
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+            </div>
+            <div class="md-footer__title">
+              <span class="md-footer__direction">
+                Назад
+              </span>
+              <div class="md-ellipsis">
+                Глава 15. Prompt injection и недоверенные подключения: что делать с данными и кодом, которым нельзя автоматически доверять?
+              </div>
+            </div>
+          </a>
+        
+        
+          
+          <a href="../ch17/" class="md-footer__link md-footer__link--next" aria-label="Вперед: Глава 17. Итоговый проект: может ли команда доказать качество и ограниченность системы?">
+            <div class="md-footer__title">
+              <span class="md-footer__direction">
+                Вперед
+              </span>
+              <div class="md-ellipsis">
+                Глава 17. Итоговый проект: может ли команда доказать качество и ограниченность системы?
+              </div>
+            </div>
+            <div class="md-footer__button md-icon">
+              
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M4 11v2h12l-5.5 5.5 1.42 1.42L19.84 12l-7.92-7.92L10.5 5.5 16 11z"/></svg>
+            </div>
+          </a>
+        
+      </nav>
+    
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+    <div class="md-copyright__highlight">
+      Редакция r0001 · 2026-10-14 · техническая редакция, пилот не проводился
+    </div>
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    
+      
+      
+      <script id="__config" type="application/json">{"annotate": null, "base": "../..", "features": ["content.code.copy", "navigation.sections", "navigation.footer", "search.highlight"], "search": "../../assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "\u0421\u043a\u043e\u043f\u0438\u0440\u043e\u0432\u0430\u043d\u043e \u0432 \u0431\u0443\u0444\u0435\u0440", "clipboard.copy": "\u041a\u043e\u043f\u0438\u0440\u043e\u0432\u0430\u0442\u044c \u0432 \u0431\u0443\u0444\u0435\u0440", "search.result.more.one": "\u0415\u0449\u0451 1 \u043d\u0430 \u044d\u0442\u043e\u0439 \u0441\u0442\u0440\u0430\u043d\u0438\u0446\u0435", "search.result.more.other": "\u0415\u0449\u0451 # \u043d\u0430 \u044d\u0442\u043e\u0439 \u0441\u0442\u0440\u0430\u043d\u0438\u0446\u0435", "search.result.none": "\u0421\u043e\u0432\u043f\u0430\u0434\u0435\u043d\u0438\u0439 \u043d\u0435 \u043d\u0430\u0439\u0434\u0435\u043d\u043e", "search.result.one": "\u041d\u0430\u0439\u0434\u0435\u043d\u043e 1 \u0441\u043e\u0432\u043f\u0430\u0434\u0435\u043d\u0438\u0435", "search.result.other": "\u041d\u0430\u0439\u0434\u0435\u043d\u043e \u0441\u043e\u0432\u043f\u0430\u0434\u0435\u043d\u0438\u0439: #", "search.result.placeholder": "\u041d\u0430\u0447\u043d\u0438\u0442\u0435 \u043f\u0435\u0447\u0430\u0442\u0430\u0442\u044c \u0434\u043b\u044f \u043f\u043e\u0438\u0441\u043a\u0430", "search.result.term.missing": "\u041e\u0442\u0441\u0443\u0442\u0441\u0442\u0432\u0443\u0435\u0442", "select.version": "\u0412\u044b\u0431\u0435\u0440\u0438\u0442\u0435 \u0432\u0435\u0440\u0441\u0438\u044e"}, "version": {"provider": "mike"}}</script>
+    
+    
+      <script src="../../assets/javascripts/bundle.79ae519e.min.js"></script>
+      
+    
+  </body>
+</html>

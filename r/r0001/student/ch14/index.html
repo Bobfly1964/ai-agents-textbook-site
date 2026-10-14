@@ -1,0 +1,3152 @@
+
+<!doctype html>
+<html lang="ru" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+        <meta name="description" content="Учебник для 9–10 классов">
+      
+      
+      
+        <link rel="canonical" href="https://book.stemschool.online/r0001/student/ch14/">
+      
+      
+        <link rel="prev" href="../ch13/">
+      
+      
+        <link rel="next" href="../ch15/">
+      
+      
+        
+      
+      
+      <link rel="icon" href="../../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.6">
+    
+    
+      
+        <title>Глава 14. Permissions и участие человека - ИИ-агенты и Agent Skills</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../assets/stylesheets/main.484c7ddc.min.css">
+      
+        
+        <link rel="stylesheet" href="../../assets/stylesheets/palette.ab4e12ef.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+    <script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+  </head>
+  
+  
+    
+    
+      
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="indigo">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#глава-14-permissions-и-участие-человека" class="md-skip">
+          Перейти к содержанию
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+        <aside class="md-banner">
+          <div class="md-banner__inner md-grid md-typeset">
+            
+            
+  
+    <strong>Техническая редакция: пилот не проводился</strong> · редакция r0001
+  
+
+          </div>
+          
+        </aside>
+      
+    </div>
+    
+      <div data-md-color-scheme="default" data-md-component="outdated" hidden>
+        
+      </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Верхний колонтитул">
+    <a href="../.." title="ИИ-агенты и Agent Skills" class="md-header__button md-logo" aria-label="ИИ-агенты и Agent Skills" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            ИИ-агенты и Agent Skills
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Глава 14. Permissions и участие человека
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+        <form class="md-header__option" data-md-component="palette">
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="indigo"  aria-hidden="true"  type="radio" name="__palette" id="__palette_0">
+    
+  
+</form>
+      
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+      
+      
+        <label class="md-header__button md-icon" for="__search">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        </label>
+        <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Поиск" placeholder="Поиск" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Поиск">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Очистить" aria-label="Очистить" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Инициализация поиска
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+      
+    
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+
+<nav class="md-nav md-nav--primary" aria-label="Навигация" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../.." title="ИИ-агенты и Agent Skills" class="md-nav__button md-logo" aria-label="ИИ-агенты и Agent Skills" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    ИИ-агенты и Agent Skills
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../.." class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Главная
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    
+    
+    
+    
+      
+        
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2" checked>
+        
+          
+          <label class="md-nav__link" for="__nav_2" id="__nav_2_label" tabindex="">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Ученик
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_2">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Ученик
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../intro/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Введение
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../tour/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Экскурсия по AI: что есть что
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../ch01/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Глава 1. Модель, приложение и агент: кто отвечает, а кто действует?
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../ch02/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Глава 2. Агентный цикл: как результат действия меняет следующий шаг?
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../ch03/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Глава 3. Agent harness: что работает вокруг модели?
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../ch04/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Глава 4. Prompt, structured output, tool, MCP и Agent Skill: какие задачи решают разные уровни системы?
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../ch05/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Глава 5. Договор задачи: что нужно определить до реализации?
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../ch06/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Глава 6. Первый tool
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../ch07/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Глава 7. Диспетчер и ошибки
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../ch08/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Глава 8. Хороший tool
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../ch09/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Глава 9. Первый Agent Skill
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../ch10/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Глава 10. Состояние и память
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../ch11/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Глава 11. Тесты и evals: как доказать качество не одним удачным запуском?
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../ch12/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Глава 12. Traces: как понять, что происходило на самом деле?
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../ch13/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Глава 13. Обратная связь и версии: когда исправление должно менять процедуру?
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Глава 14. Permissions и участие человека
+  
+
+    
+  </span>
+  
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Глава 14. Permissions и участие человека
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Содержание">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Содержание
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#scene" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        С чего всё началось
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#goals" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        После главы ты сможешь
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#lesson-27" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Урок 27. Модель угроз и минимальные полномочия
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Урок 27. Модель угроз и минимальные полномочия">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#1-что-именно-мы-защищаем" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1. Что именно мы защищаем
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#2-где-меняется-уровень-доверия" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2. Где меняется уровень доверия
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#3-от-активов-и-границ--к-модели-угроз" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3. От активов и границ — к модели угроз
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#4-не-максимум-прав-а-ровно-необходимые" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        4. Не максимум прав, а ровно необходимые
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#5-режим-чтения-по-умолчанию" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        5. Режим чтения по умолчанию
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#6-практика-b-сначала-наблюдаем-технический-отказ" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        6. Практика B: сначала наблюдаем технический отказ
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#7-файл-минимальной-политики" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        7. Файл минимальной политики
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#8-практика-a-матрица-минимальных-полномочий" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        8. Практика A: матрица минимальных полномочий
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#9-мини-проверка-урока-27" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        9. Мини-проверка урока 27
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="9. Мини-проверка урока 27">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#ответы" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Ответы
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#10-выходной-билет-урока-27" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        10. Выходной билет урока 27
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#lesson-28" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Урок 28. Человек внутри цикла
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Урок 28. Человек внутри цикла">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#1-подтверждение-должно-быть-до-изменения" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1. Подтверждение должно быть до изменения
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#2-техническая-точка-остановки" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2. Техническая точка остановки
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#3-проверяем-политику-точка-подтверждения-открыта-или-закрыта" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3. Проверяем политику: точка подтверждения открыта или закрыта
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#4-два-положения-человека-в-процессе" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        4. Два положения человека в процессе
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#5-одно-предложение--одно-решение" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        5. Одно предложение — одно решение
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#6-центральный-артефакт-три-гейта-и-одно-изменение-состояния" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        6. Центральный артефакт: три гейта и одно изменение состояния
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#7-практика-b-дежурный-останавливается-на-proposal" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        7. Практика B: «Дежурный» останавливается на proposal
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#8-deny-человек-отклоняет-предложение" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        8. Deny: человек отклоняет предложение
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#9-approve-меняется-только-status" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        9. Approve: меняется только status
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#10-политика-сильнее-отдельного-да" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        10. Политика сильнее отдельного «да»
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#11-старое-подтверждение-не-действует-на-изменившуюся-карточку" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        11. Старое подтверждение не действует на изменившуюся карточку
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#12-практика-a-кто-принимает-решение" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        12. Практика A: кто принимает решение
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#13-практика-b-сравни-четыре-исхода" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        13. Практика B: сравни четыре исхода
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#14-обязательные-проверки-должен--не-должен--ошибка--граница" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        14. Обязательные проверки: должен / не должен / ошибка / граница
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="14. Обязательные проверки: должен / не должен / ошибка / граница">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#должен" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Должен
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#не-должен" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Не должен
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#ошибка" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Ошибка
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#граница" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Граница
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#15-безопасность" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        15. Безопасность
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="15. Безопасность">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#safety-вопрос" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Safety-вопрос
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#16-три-разных-гейта-архитектурное-ревью" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        16. Три разных гейта: архитектурное ревью
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#17-мини-проверка-урока-28" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        17. Мини-проверка урока 28
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="17. Мини-проверка урока 28">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#ответы_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Ответы
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#18-выходной-билет-урока-28" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        18. Выходной билет урока 28
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#why" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Зачем это тебе
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#dezhurny" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Шаг сквозного проекта
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#return" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Возвращаемся к сцене
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#check" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Проверь себя
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Проверь себя">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#ответы_2" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Ответы
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#glossary" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Словарь главы
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#bridge" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Мост к главе 15
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../ch15/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Глава 15. Prompt injection и недоверенные подключения: что делать с данными и кодом, которым нельзя автоматически доверять?
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../ch16/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Глава 16. Долгая и совместная работа
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../ch17/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Глава 17. Итоговый проект: может ли команда доказать качество и ограниченность системы?
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../app-a/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Приложение А. Урок 0. Готовность рабочего места
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../app-b/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Приложение Б. Словарь курса
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../app-c/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Приложение В. Список фигур
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+        
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3" >
+        
+          
+          <label class="md-nav__link" for="__nav_3" id="__nav_3_label" tabindex="">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Учитель
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Учитель
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../teacher/teacher-guide/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Методическое руководство для учителя
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../teacher/lesson-map/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Поурочная карта
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../routes/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Маршруты A/B
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../files/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Файлы практикума
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../about/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    О редакции
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Содержание">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Содержание
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#scene" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        С чего всё началось
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#goals" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        После главы ты сможешь
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#lesson-27" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Урок 27. Модель угроз и минимальные полномочия
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Урок 27. Модель угроз и минимальные полномочия">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#1-что-именно-мы-защищаем" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1. Что именно мы защищаем
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#2-где-меняется-уровень-доверия" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2. Где меняется уровень доверия
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#3-от-активов-и-границ--к-модели-угроз" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3. От активов и границ — к модели угроз
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#4-не-максимум-прав-а-ровно-необходимые" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        4. Не максимум прав, а ровно необходимые
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#5-режим-чтения-по-умолчанию" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        5. Режим чтения по умолчанию
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#6-практика-b-сначала-наблюдаем-технический-отказ" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        6. Практика B: сначала наблюдаем технический отказ
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#7-файл-минимальной-политики" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        7. Файл минимальной политики
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#8-практика-a-матрица-минимальных-полномочий" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        8. Практика A: матрица минимальных полномочий
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#9-мини-проверка-урока-27" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        9. Мини-проверка урока 27
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="9. Мини-проверка урока 27">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#ответы" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Ответы
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#10-выходной-билет-урока-27" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        10. Выходной билет урока 27
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#lesson-28" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Урок 28. Человек внутри цикла
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Урок 28. Человек внутри цикла">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#1-подтверждение-должно-быть-до-изменения" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1. Подтверждение должно быть до изменения
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#2-техническая-точка-остановки" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2. Техническая точка остановки
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#3-проверяем-политику-точка-подтверждения-открыта-или-закрыта" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3. Проверяем политику: точка подтверждения открыта или закрыта
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#4-два-положения-человека-в-процессе" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        4. Два положения человека в процессе
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#5-одно-предложение--одно-решение" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        5. Одно предложение — одно решение
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#6-центральный-артефакт-три-гейта-и-одно-изменение-состояния" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        6. Центральный артефакт: три гейта и одно изменение состояния
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#7-практика-b-дежурный-останавливается-на-proposal" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        7. Практика B: «Дежурный» останавливается на proposal
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#8-deny-человек-отклоняет-предложение" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        8. Deny: человек отклоняет предложение
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#9-approve-меняется-только-status" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        9. Approve: меняется только status
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#10-политика-сильнее-отдельного-да" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        10. Политика сильнее отдельного «да»
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#11-старое-подтверждение-не-действует-на-изменившуюся-карточку" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        11. Старое подтверждение не действует на изменившуюся карточку
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#12-практика-a-кто-принимает-решение" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        12. Практика A: кто принимает решение
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#13-практика-b-сравни-четыре-исхода" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        13. Практика B: сравни четыре исхода
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#14-обязательные-проверки-должен--не-должен--ошибка--граница" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        14. Обязательные проверки: должен / не должен / ошибка / граница
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="14. Обязательные проверки: должен / не должен / ошибка / граница">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#должен" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Должен
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#не-должен" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Не должен
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#ошибка" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Ошибка
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#граница" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Граница
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#15-безопасность" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        15. Безопасность
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="15. Безопасность">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#safety-вопрос" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Safety-вопрос
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#16-три-разных-гейта-архитектурное-ревью" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        16. Три разных гейта: архитектурное ревью
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#17-мини-проверка-урока-28" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        17. Мини-проверка урока 28
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="17. Мини-проверка урока 28">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#ответы_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Ответы
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#18-выходной-билет-урока-28" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        18. Выходной билет урока 28
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#why" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Зачем это тебе
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#dezhurny" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Шаг сквозного проекта
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#return" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Возвращаемся к сцене
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#check" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Проверь себя
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Проверь себя">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#ответы_2" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Ответы
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#glossary" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Словарь главы
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#bridge" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Мост к главе 15
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+
+<h1 id="глава-14-permissions-и-участие-человека">Глава 14. Permissions и участие человека<a class="headerlink" href="#глава-14-permissions-и-участие-человека" title="Permanent link">&para;</a></h1>
+<h2 id="scene">С чего всё началось<a class="headerlink" href="#scene" title="Permanent link">&para;</a></h2>
+<p>До Фестиваля науки осталось несколько дней. На доске проектного бюро задача <code>task-002</code> всё ещё имеет статус <code>in_progress</code>: макет афиши уже согласован, но карточка ещё не переведена в <code>done</code>. Марк смотрит на карточку и предлагает самый короткий путь для программы-помощника «Дежурный»:</p>
+<p>— «Дежурный» же видит карточки и умеет подготовить изменение. Если он уверен, пусть сам поставит <code>done</code>. Зачем каждый раз спрашивать человека?</p>
+<p>Аня не спорит. Она кладёт рядом две карточки: на первой указан статус <code>in_progress</code>, на второй указан <code>done</code>. Потом Аня задаёт тебе два вопроса. Действительно ли для чтения карточек системе нужно право изменять их? Если изменение иногда допустимо, в какой момент программа должна остановиться, чтобы решение ещё оставалось у человека?</p>
+<p>На первый взгляд предложение Марка избавляет человека от лишнего подтверждения, раз программа умеет подготовить изменение. Однако способность подготовить новый статус ещё не объясняет, кто вправе применить изменение. Автоматизация полезна именно тогда, когда система умеет делать больше, чем печатать текст. Но чем больше последствий может вызвать действие, тем точнее нужно различать, что система умеет и что ей разрешено.</p>
+<blockquote>
+<p><strong>Вопрос-Прогноз.</strong> Если «Дежурному» нужно читать карточки, готовить сводку и иногда предлагать новый статус, какие права ему действительно нужны? Должен ли он автоматически применять предложенное изменение, всегда запрещать его или останавливаться в отдельной точке до решения человека? Запиши прогноз и укажи, какой наблюдаемый факт подтвердит его.</p>
+<p><strong>Главный вопрос главы.</strong> Какие полномочия допустимы и где нужен человек?</p>
+</blockquote>
+<p><img alt="Фигура 40. Пусть ставит done сам" src="../../figures/40_pust-stavit-done-sam.png" /></p>
+<p><em>Фигура 40. Пусть ставит done сам</em></p>
+<h2 id="goals">После главы ты сможешь<a class="headerlink" href="#goals" title="Permanent link">&para;</a></h2>
+<ul>
+<li>назвать, что в проекте нужно защищать, от каких нежелательных событий и где проходят границы между областями с разным уровнем доверия;</li>
+<li>связать каждое техническое право с конкретной функцией системы и убрать лишнее;</li>
+<li>объяснить, почему режим чтения без записи сильнее словесного запрета, но не доказывает полной изоляции компьютера;</li>
+<li>показать точку, где изменение состояния останавливается до решения человека;</li>
+<li>различить два режима участия человека в зависимости от цены ошибки и обратимости действия;</li>
+<li>объяснить, почему предложение изменения и его применение — разные действия;</li>
+<li>различить три технических гейта: профиль доступных tools, dispatcher и точку подтверждения изменения.</li>
+</ul>
+<hr />
+<h2 id="lesson-27">Урок 27. Модель угроз и минимальные полномочия<a class="headerlink" href="#lesson-27" title="Permanent link">&para;</a></h2>
+<h3 id="1-что-именно-мы-защищаем">1. Что именно мы защищаем<a class="headerlink" href="#1-что-именно-мы-защищаем" title="Permanent link">&para;</a></h3>
+<p>Что может пострадать, если «Дежурный» выполнит неверное действие? Начнём с ответа на этот вопрос, а не со списка запретов. В проекте нужно защищать несколько вещей:</p>
+<ol>
+<li>Содержимое карточек задач и их статусы.</li>
+<li>Сохранённое состояние проекта.</li>
+<li>Файлы черновиков.</li>
+<li>Возможность выполнять определённые операции.</li>
+</ol>
+<p>Если программа по ошибке изменит статус задачи, команда может решить, что работа завершена, хотя задача ещё не выполнена. Если лишнее право позволит удалить файл, ошибка причинит другой ущерб.</p>
+<p><strong>Asset / защищаемый актив — данные, файлы, состояние или возможности, которым может быть причинён ущерб.</strong></p>
+<p><strong><em>Asset</em></strong> (защищаемый актив) не обязательно выглядит как отдельный «ценный файл». Защищать нужно и состояние карточки, и возможность изменить карточку. Даже возможность отправить данные наружу может быть активом. Понятие Asset отвечает на вопрос «что мы защищаем», но не оценивает вероятность ошибки.</p>
+<p>У карточки <code>task-002</code> одним из защищаемых активов служит статус. Для всей доски нужно сохранить корректное состояние проекта. Право менять карточки тоже требует защиты: неправильное использование права может причинить ущерб, даже если исходные данные были верны.</p>
+<h3 id="2-где-меняется-уровень-доверия">2. Где меняется уровень доверия<a class="headerlink" href="#2-где-меняется-уровень-доверия" title="Permanent link">&para;</a></h3>
+<p>Проследим путь данных из карточки:</p>
+<ol>
+<li>Карточка находится в <code>workspace</code>, и tool читает её.</li>
+<li>Harness передаёт модели контекст; модель получает только переданные сведения.</li>
+<li>Запрос операции возвращается от модели в приложение.</li>
+</ol>
+<p>На разных участках этого пути действуют разные правила. Поэтому при переходе данных или управления из одной области в другую нужно заново проверить, каким сведениям и действиям можно доверять.</p>
+<p><strong>Trust boundary / граница доверия — место, где данные, код или управление переходят между областями с разным уровнем доверия.</strong></p>
+<p>При пересечении <strong><em>Trust boundary</em></strong> (границы доверия) прежние предположения нельзя автоматически считать верными. Текст от модели не становится разрешением только потому, что приложение уже получило этот текст. Расположение файла внутри <code>workspace</code> также само по себе не доказывает безопасность его содержимого.</p>
+<p>Файловая граница <code>workspace</code> задаёт один конкретный технический предел. Понятие Trust boundary охватывает больше переходов. Граница доверия может проходить:</p>
+<ol>
+<li>Между моделью и harness.</li>
+<li>Между данными и кодом.</li>
+<li>Между предложением изменения и механизмом, который меняет состояние.</li>
+</ol>
+<blockquote>
+<p><strong>Проверь себя на ходу.</strong> Карточка <code>task-002</code> прочитана tool, а модель предлагает изменить её статус. Назови один Asset и одну Trust boundary в этой ситуации. Почему это не одно и то же?</p>
+</blockquote>
+<h3 id="3-от-активов-и-границ--к-модели-угроз">3. От активов и границ — к модели угроз<a class="headerlink" href="#3-от-активов-и-границ--к-модели-угроз" title="Permanent link">&para;</a></h3>
+<p>Список защищаемых активов ещё не показывает, как может возникнуть ущерб. Нужно назвать нежелательные события и связать каждое событие с переходом через границу доверия. Для нашего школьного проекта достаточно простой карты конкретных действий «Дежурного»; подробная профессиональная методология безопасности здесь не требуется.</p>
+<p><strong>Threat model / модель угроз — описание того, что нужно защитить, какие нежелательные события возможны и где проходят границы доверия.</strong></p>
+<p><strong><em>Threat model</em></strong> (модель угроз) соединяет три вопроса:</p>
+<ol>
+<li>Что может пострадать?</li>
+<li>Что нежелательного может произойти?</li>
+<li>Где система переходит в область, требующую отдельной проверки?</li>
+</ol>
+<p>Модель угроз не требует предсказать все будущие атаки. Мы описываем возможные проблемы для тех действий, которые есть в учебном проекте.</p>
+<p>Обозначение <strong><em><code>proposal</code></em></strong> будем использовать для предложения одного действия, ожидающего решения человека. Такое предложение отличается от Change proposal главы 13: там команда предлагает изменить процедуру.</p>
+<p>Для статуса карточки описание угрозы можно записать по трём пунктам:</p>
+<ol>
+<li>Нужно защитить статус задачи.</li>
+<li>Нежелательное событие состоит в изменении статуса без подтверждения.</li>
+<li>Trust boundary проходит между подготовкой proposal и применением предложенного изменения.</li>
+</ol>
+<p>Для содержимого карточек угроза связана с лишней записью. В таком случае проверять нужно переход от разрешённого чтения к попытке записи.</p>
+<p>Threat model составляют заранее, чтобы спроектировать ограничения до сбоя. Напротив, incident report (отчёт о сбое) из главы 12 разбирает уже наблюдавшийся сбой по Trace. У документов разные задачи: модель угроз помогает предусмотреть нежелательное событие, а отчёт объясняет случившееся.</p>
+<h3 id="4-не-максимум-прав-а-ровно-необходимые">4. Не максимум прав, а ровно необходимые<a class="headerlink" href="#4-не-максимум-прав-а-ровно-необходимые" title="Permanent link">&para;</a></h3>
+<p>Марк предлагает выдать права с запасом: «Дадим “Дежурному” чтение и запись. Вдруг пригодится». Но дополнительные права увеличивают возможные последствия ошибки. Если функция только читает карточку, право записи не помогает функции читать лучше.</p>
+<p>Допустим, бюро поручило программе посчитать незавершённые задачи. При чтении программа обнаружила сомнительный статус и может отметить сомнение в черновике отчёта. Исправление исходной карточки уже выходит за пределы подсчёта: для поставленной задачи такое право не требуется.</p>
+<p><strong>Least privilege / минимальные полномочия — предоставление только тех прав, которые действительно требуются для конкретной задачи.</strong></p>
+<p>Принцип <strong><em>Least privilege</em></strong> (минимальных полномочий) требует сначала назвать функцию и лишь затем выдать нужное право:</p>
+<ol>
+<li>Для <code>read_task_cards</code> нужно чтение карточек.</li>
+<li>Для подготовки сводки не нужно удаление файлов.</li>
+<li>Для подготовки proposal не нужна немедленная запись нового статуса.</li>
+</ol>
+<p>Необходимые права сохраняются. Минимальные полномочия убирают лишние возможности, а не мешают системе выполнять задачу.</p>
+<p>Проверь каждое право вопросом: «Если убрать это право, какая конкретная необходимая функция перестанет работать?» Если назвать функцию не получается, у тебя пока нет основания выдавать право «на всякий случай».</p>
+<h3 id="5-режим-чтения-по-умолчанию">5. Режим чтения по умолчанию<a class="headerlink" href="#5-режим-чтения-по-умолчанию" title="Permanent link">&para;</a></h3>
+<p>Большинство операций «Дежурного» не должно менять исходные карточки. Программа читает данные, проверяет карточки и строит отчёт. Для такой работы подходит чтение без записи в карточки.</p>
+<p><strong>Read-only / только чтение — правило проекта: режим чтения используется по умолчанию, если изменение данных не является необходимым результатом текущего шага.</strong></p>
+<p>В режиме <strong><em>Read-only</em></strong> (только чтение) изменение исходных данных недоступно, если текущая задача изменения не требует. Одной просьбы в prompt недостаточно: запрет должен действовать в приложении и проявляться в результате попытки записи.</p>
+<p>Read-only не доказывает полного OS-sandbox, то есть изоляции на уровне операционной системы. Отказ конкретной операции в учебной среде подтверждает конкретное ограничение, а не изоляцию всего компьютера.</p>
+<p>В главе 3 Permissions (разрешения) определены как технически заданные права на ресурсы. Права могут разрешать чтение, запись, доступ к сети или запуск процессов. Теперь свяжем Permissions с нашей Threat model: какое право нужно каждой функции и какое право у функции должно отсутствовать.</p>
+<blockquote>
+<p><strong>Проверь себя на ходу.</strong> В prompt написано: «Никогда не изменяй карточки». Но приложение всё равно предоставляет операцию записи. Это Read-only? Какой наблюдаемый результат отличит словесный запрет от технического ограничения?</p>
+</blockquote>
+<p><img alt="Фигура 41. Threat model и минимальные полномочия" src="../../figures/41_threat-model-i-minimalnye-polnomochiya.svg" /></p>
+<p><em>Фигура 41. Threat model и минимальные полномочия</em></p>
+<h3 id="6-практика-b-сначала-наблюдаем-технический-отказ">6. Практика B: сначала наблюдаем технический отказ<a class="headerlink" href="#6-практика-b-сначала-наблюдаем-технический-отказ" title="Permanent link">&para;</a></h3>
+<p>Демонстрация файловой политики из главы 3 позволяет увидеть технический запрет в результате операции. Перед запуском запиши прогноз: изменится ли файл при попытке записи? Затем выполни команду.</p>
+<div class="highlight"><pre><span></span><code><span class="c1"># запуск из корня starter</span>
+python<span class="w"> </span>access_demo.py<span class="w"> </span>--access<span class="w"> </span>write<span class="w"> </span>--path<span class="w"> </span>tasks/task-003.json
+</code></pre></div>
+<div class="highlight"><pre><span></span><code>операция: write
+путь: tasks/task-003.json
+результат: denied
+граница: внутри workspace
+причина: операция запрещена политикой демо
+</code></pre></div>
+<p>Программа сообщает <code>denied</code> до записи: политика демо запрещает операцию. Такой результат подтверждает работу конкретной границы в учебном приложении. По одной команде нельзя сделать вывод о всей безопасности компьютера. Сверяй запрет с поведением программы, а не только с текстом инструкции.</p>
+<h3 id="7-файл-минимальной-политики">7. Файл минимальной политики<a class="headerlink" href="#7-файл-минимальной-политики" title="Permanent link">&para;</a></h3>
+<p>Для изменения статуса также нужно записанное правило, которое проверяет приложение. Минимальная учебная политика хранится в <code>workspace/my_agent/14_permissions.json</code>:</p>
+<div class="highlight"><pre><span></span><code><span class="p">{</span>
+<span class="w">  </span><span class="nt">&quot;default&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;deny&quot;</span><span class="p">,</span>
+<span class="w">  </span><span class="nt">&quot;task_cards&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;read_only&quot;</span><span class="p">,</span>
+<span class="w">  </span><span class="nt">&quot;status_update&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;approval_required&quot;</span>
+<span class="p">}</span>
+</code></pre></div>
+<p>В примере записаны три правила:</p>
+<ol>
+<li><code>default: deny</code> запрещает автоматически разрешать неизвестную возможность.</li>
+<li><code>task_cards: read_only</code> задаёт обычный режим чтения карточек без записи.</li>
+<li><code>status_update: approval_required</code> допускает переход к отдельному решению человека об изменении статуса. Само значение не разрешает автоматическую запись.</li>
+</ol>
+<p>Программа допускает только три поля с ограниченным набором значений:</p>
+<ol>
+<li>Поле <code>default</code> может иметь только значение <code>deny</code>.</li>
+<li>Поле <code>task_cards</code> может иметь только значение <code>read_only</code>.</li>
+<li>Поле <code>status_update</code> может иметь значение <code>approval_required</code> или <code>deny</code>.</li>
+</ol>
+<p>Значения <code>auto</code> и <code>allow</code> для изменения состояния запрещены. В учебном проекте нет режима, который автоматически применяет новый статус.</p>
+<p>В практике B подготовь политику и прогноз:</p>
+<ol>
+<li>Создай файл <code>workspace/my_agent/14_permissions.json</code> с приведённым содержимым.</li>
+<li>Запиши ожидаемый результат для корректной политики: программа должна принять файл.</li>
+<li>Запиши ожидаемый результат для политики с <code>default: allow</code>: программа должна отклонить файл.</li>
+</ol>
+<p>Проверку файла выполнишь в начале следующего урока. Пока сохрани прогноз, чтобы затем сравнить ожидание с результатом программы.</p>
+<p><strong>Результат практики B урока 27:</strong> <code>14_permissions.json</code>, прогноз для корректной и слишком широкой политики и наблюдаемый отказ записи из предыдущей команды.</p>
+<h3 id="8-практика-a-матрица-минимальных-полномочий">8. Практика A: матрица минимальных полномочий<a class="headerlink" href="#8-практика-a-матрица-минимальных-полномочий" title="Permanent link">&para;</a></h3>
+<p>Работай в паре. Вместе с напарником рассмотри семь функций системы:</p>
+<ol>
+<li>Прочитать карточки.</li>
+<li>Проверить карточку.</li>
+<li>Собрать черновик.</li>
+<li>Предложить новый статус.</li>
+<li>Применить новый статус.</li>
+<li>Удалить файл.</li>
+<li>Отправить отчёт наружу.</li>
+</ol>
+<p>Для каждой функции заполни строку матрицы по образцу:</p>
+<table>
+<thead>
+<tr>
+<th>Функция</th>
+<th>Asset</th>
+<th>Нужный доступ</th>
+<th>Запрещённый доступ</th>
+<th>Почему</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>прочитать карточки</td>
+<td>данные карточек</td>
+<td>чтение</td>
+<td>запись</td>
+<td>чтение не требует изменения</td>
+</tr>
+<tr>
+<td>…</td>
+<td>…</td>
+<td>…</td>
+<td>…</td>
+<td>…</td>
+</tr>
+</tbody>
+</table>
+<p>Обоснуй каждое право конкретной функцией. Формулировка «полный доступ, чтобы точно сработало» не объясняет, какое действие требует доступа. Отдельно отметь действия, которых в учебном проекте вообще нет:</p>
+<ol>
+<li>Автоматическое удаление.</li>
+<li>Публикация.</li>
+<li>Внешняя отправка.</li>
+</ol>
+<p><strong>Результат практики A:</strong> простая Threat model и permissions-матрица, в которой отдельно указаны нужные и лишние права.</p>
+<h3 id="9-мини-проверка-урока-27">9. Мини-проверка урока 27<a class="headerlink" href="#9-мини-проверка-урока-27" title="Permanent link">&para;</a></h3>
+<ol>
+<li>Что нужно защищать как Asset в сценарии карточек?</li>
+<li>Где может проходить одна Trust boundary?</li>
+<li>Как Least privilege меняет список Permissions?</li>
+<li>Почему Read-only сильнее фразы в prompt?</li>
+<li>Почему Read-only не доказывает OS-sandbox?</li>
+</ol>
+<h4 id="ответы">Ответы<a class="headerlink" href="#ответы" title="Permanent link">&para;</a></h4>
+<ol>
+<li>Например, содержимое карточек, их статус, состояние проекта или сама возможность изменения.</li>
+<li>Например, между ответом модели и harness или между proposal и применением изменения.</li>
+<li>Оставляет только права, необходимые для конкретных функций, и убирает выданные «на всякий случай».</li>
+<li>Потому что Read-only выражается техническим правилом и наблюдаемым отказом операции записи.</li>
+<li>Потому что проверена конкретная политика учебного приложения, а не полная изоляция операционной системы.</li>
+</ol>
+<h3 id="10-выходной-билет-урока-27">10. Выходной билет урока 27<a class="headerlink" href="#10-выходной-билет-урока-27" title="Permanent link">&para;</a></h3>
+<p>Запиши одну строку по шаблону:</p>
+<div class="highlight"><pre><span></span><code>Для функции … нужно право …; право … лишнее, потому что …
+</code></pre></div>
+<p>Если не можешь объяснить, почему право лишнее, вернись к матрице и сопоставь право с функцией. На следующем уроке разберём другой случай: действие иногда допустимо, но не должно происходить автоматически.</p>
+<hr />
+<h2 id="lesson-28">Урок 28. Человек внутри цикла<a class="headerlink" href="#lesson-28" title="Permanent link">&para;</a></h2>
+<h3 id="1-подтверждение-должно-быть-до-изменения">1. Подтверждение должно быть до изменения<a class="headerlink" href="#1-подтверждение-должно-быть-до-изменения" title="Permanent link">&para;</a></h3>
+<p>Представь, что программа сначала меняет <code>in_progress</code> на <code>done</code> и лишь затем показывает окно «Подтвердить изменение?». Пользователь нажимает «нет», но состояние уже изменено. Вопрос после записи может быть уведомлением или просьбой оценить случившееся. Предотвратить выполненное действие такой вопрос уже не позволяет.</p>
+<p><strong>Human approval / подтверждение человеком — явное решение человека, необходимое до выполнения определённого изменения.</strong></p>
+<p><strong><em>Human approval</em></strong> (подтверждение человеком) должно произойти до чувствительного изменения, то есть изменения с последствиями, требующими отдельного решения. Спрашивать человека на каждом шаге не нужно: проект заранее определяет, какие действия требуют подтверждения.</p>
+<p>В нашем проекте чтение карточки не требует решения человека, а изменение статуса требует. Система может самостоятельно подготовить proposal. Но ни уверенность системы, ни убедительное объяснение не заменяют решения человека о применении предложения.</p>
+<h3 id="2-техническая-точка-остановки">2. Техническая точка остановки<a class="headerlink" href="#2-техническая-точка-остановки" title="Permanent link">&para;</a></h3>
+<p>Что удержит подготовленное изменение, пока человек не решил, применять ли его? Одного пожелания в инструкции недостаточно. В программе нужна техническая точка остановки: данные и предложение уже подготовлены, но выполнение изменения заблокировано до нужного решения.</p>
+<p><strong>Approval gate — техническая точка процесса, где дальнейшее действие блокируется до подтверждения человека.</strong></p>
+<p><strong><em>Approval gate</em></strong> (техническую точку подтверждения) можно сравнить с «закрытой дверью» между proposal и применением. Подготовленное предложение ещё не позволяет пройти к записи. Однако сама кнопка в интерфейсе не создаёт такой границы: Approval gate действует лишь тогда, когда код не выполняет чувствительное действие без подтверждения.</p>
+<p>Approval gate не следует смешивать с dispatcher. Для конкретного tool call диспетчер проверяет, разрешено ли имя и соответствуют ли arguments правилам вызова. У Approval gate другая задача: удержать изменение состояния после успешно созданного proposal, но до применения предложения.</p>
+<blockquote>
+<p><strong>Проверь себя на ходу.</strong> Программа успешно выполнила <code>propose_status_update</code> и получила корректный proposal. Доказывает ли это, что новый статус разрешено применить? Где должен находиться Approval gate?</p>
+</blockquote>
+<h3 id="3-проверяем-политику-точка-подтверждения-открыта-или-закрыта">3. Проверяем политику: точка подтверждения открыта или закрыта<a class="headerlink" href="#3-проверяем-политику-точка-подтверждения-открыта-или-закрыта" title="Permanent link">&para;</a></h3>
+<p>Режим <code>policy</code> проверяет файл политики. Начни с корректного <code>workspace/my_agent/14_permissions.json</code>, который ты подготовил на предыдущем уроке.</p>
+<p>В комментарии к команде указана фикстура — заранее подготовленные данные для проверки. Строка с <code># фикстура:</code> описывает условия напечатанного примера, а не выполняет копирование файла.</p>
+<div class="highlight"><pre><span></span><code><span class="c1"># запуск из корня starter</span>
+<span class="c1"># фикстура: tests/fixtures/ch14/14_permissions.json -&gt; workspace/my_agent/14_permissions.json</span>
+python<span class="w"> </span>permissions_demo.py<span class="w"> </span>policy<span class="w"> </span>--dir<span class="w"> </span>workspace/my_agent
+</code></pre></div>
+<div class="highlight"><pre><span></span><code>permissions: workspace/my_agent/14_permissions.json
+default: deny
+task_cards: read_only
+status_update: approval_required
+approval_gate: open — применение только после решения человека
+result: accepted
+</code></pre></div>
+<p>Затем выполни команду для заранее подготовленной слишком широкой политики и сравни результаты:</p>
+<div class="highlight"><pre><span></span><code><span class="c1"># запуск из корня starter</span>
+python<span class="w"> </span>permissions_demo.py<span class="w"> </span>policy<span class="w"> </span>--dir<span class="w"> </span>workspace/ch14/cases/too-broad
+</code></pre></div>
+<div class="highlight"><pre><span></span><code>permissions: workspace/ch14/cases/too-broad/14_permissions.json
+result: not accepted
+reason: default должен быть deny
+</code></pre></div>
+<p>В первом выводе программа принимает политику: <code>result: accepted</code>. Строка <code>approval_gate: open</code> сопровождается условием «применение только после решения человека». Слово <code>open</code> здесь не означает, что изменение уже одобрено или выполнено: политика допускает путь через подтверждение, а не автоматическую запись.</p>
+<p>Во втором выводе программа отклоняет конфигурацию из-за значения <code>default</code>. Ошибка политики не расширяет права; приложение не угадывает, какие права автор собирался выдать.</p>
+<h3 id="4-два-положения-человека-в-процессе">4. Два положения человека в процессе<a class="headerlink" href="#4-два-положения-человека-в-процессе" title="Permanent link">&para;</a></h3>
+<p>В сценарии изменения статуса предложение уже подготовлено, а применение ждёт решения человека. Человек участвует не во всех действиях подряд, а в выбранном шаге. Такой порядок нужен, когда действие меняет общее состояние проекта и цену ошибки нельзя принять без отдельного решения.</p>
+<p><strong>HITL / human in the loop — режим, в котором человек встроен в рабочий цикл и подтверждает определённые действия.</strong></p>
+<p><strong><em>HITL</em></strong> (<em>human in the loop</em>, человек внутри цикла) не означает, что человек вручную выполняет всю работу. В выбранной точке без решения человека работа не продолжается.</p>
+<p>У сохранения разрешённого черновика порядок другой: harness может самостоятельно записать файл в <code>drafts/</code>. Человек затем видит результат и Trace и при необходимости вмешивается.</p>
+<p><strong>HOTL / human on the loop — режим, в котором система действует более самостоятельно, а человек наблюдает и может вмешаться.</strong></p>
+<p>В режиме <strong><em>HOTL</em></strong> (<em>human on the loop</em>, человек наблюдает за циклом) предварительное подтверждение каждой записи не требуется. Контроль сохраняется, но человек наблюдает за более самостоятельной работой системы и может вмешаться.</p>
+<p>Выбирай HITL или HOTL по последствиям конкретного действия, а не по правилу «один режим всегда лучше другого». Учитывай цену ошибки и обратимость результата. Для черновика, который легко проверить, удалить или пересобрать, допустимо наблюдение после выполнения. Для изменения общего статуса команды в нашем проекте требуется решение до записи.</p>
+<h3 id="5-одно-предложение--одно-решение">5. Одно предложение — одно решение<a class="headerlink" href="#5-одно-предложение--одно-решение" title="Permanent link">&para;</a></h3>
+<p>Допустим, человек рассмотрел proposal, проверил <code>before</code>, <code>after</code> и причину, а затем кто-то изменил карточку. Старое «да» относилось к прежним данным. Переносить решение на изменившийся объект нельзя.</p>
+<p>Представим и другую ситуацию: человек одобрил перевод <code>task-002</code> в <code>done</code>, а программа подготовила такое же значение статуса для <code>task-003</code>. Значение <code>done</code> совпало, но предложение касается другой задачи. Подтверждение первой карточки не разрешает изменить вторую.</p>
+<p>Подтверждение относится к одному конкретному предложению. В учебном проекте proposal получает <code>operation_id</code> — идентификатор, вычисленный из содержимого предложения. Приложение проверяет, что содержимое не изменилось и что текущее состояние карточки соответствует <code>before</code>. Прежнее решение нельзя использовать для записи по изменившемуся предложению или поверх уже изменившихся данных.</p>
+<p>Следующий фрагмент показывает проверки внутри существующей функции применения. Полный файл находится в <code>school_agent/approval.py</code>.</p>
+<div class="highlight"><pre><span></span><code><span class="c1"># фрагмент: school_agent/approval.py</span>
+    <span class="k">if</span> <span class="n">proposal</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;operation_id&quot;</span><span class="p">)</span> <span class="o">!=</span> <span class="n">proposal_id</span><span class="p">(</span><span class="n">proposal</span><span class="p">):</span>
+        <span class="k">raise</span> <span class="n">ApprovalError</span><span class="p">(</span><span class="s2">&quot;содержимое предложения изменилось&quot;</span><span class="p">)</span>
+    <span class="n">resolve_workspace_path</span><span class="p">(</span><span class="n">target</span><span class="p">,</span> <span class="n">workspace_root</span><span class="o">=</span><span class="n">workspace_root</span><span class="p">,</span> <span class="n">must_exist</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+    <span class="n">current</span> <span class="o">=</span> <span class="n">load_state</span><span class="p">(</span><span class="n">target</span><span class="p">,</span> <span class="n">workspace_root</span><span class="o">=</span><span class="n">workspace_root</span><span class="p">)</span>
+    <span class="k">if</span> <span class="n">current</span> <span class="o">==</span> <span class="n">after</span><span class="p">:</span>
+        <span class="k">return</span> <span class="p">{</span><span class="s2">&quot;applied&quot;</span><span class="p">:</span> <span class="kc">False</span><span class="p">,</span> <span class="s2">&quot;already_applied&quot;</span><span class="p">:</span> <span class="kc">True</span><span class="p">,</span> <span class="s2">&quot;operation_id&quot;</span><span class="p">:</span> <span class="n">proposal</span><span class="p">[</span><span class="s2">&quot;operation_id&quot;</span><span class="p">]}</span>
+    <span class="k">if</span> <span class="n">current</span> <span class="o">!=</span> <span class="n">before</span><span class="p">:</span>
+        <span class="k">raise</span> <span class="n">ApprovalError</span><span class="p">(</span><span class="s2">&quot;карточка изменилась после создания предложения&quot;</span><span class="p">)</span>
+    <span class="n">save_state</span><span class="p">(</span><span class="n">after</span><span class="p">,</span> <span class="n">target</span><span class="p">,</span> <span class="n">workspace_root</span><span class="o">=</span><span class="n">workspace_root</span><span class="p">)</span>
+</code></pre></div>
+<p>В строках с <code>if</code> программа проверяет условия. Команда <code>raise ApprovalError</code> сообщает об ошибке и прерывает выполнение фрагмента; <code>return</code> возвращает результат без перехода к следующим строкам. Проверки идут в таком порядке:</p>
+<ol>
+<li>Программа заново вычисляет идентификатор и сравнивает результат с <code>operation_id</code>. При несовпадении выполнение останавливается.</li>
+<li>Программа обращается к проверке пути и читает текущее состояние в <code>current</code>.</li>
+<li>Если <code>current</code> уже совпадает с <code>after</code>, программа возвращает <code>already_applied: True</code> и повторно ничего не записывает.</li>
+<li>Если <code>current</code> отличается от <code>before</code>, программа сообщает, что карточка изменилась после создания предложения.</li>
+<li>Только после этих проверок <code>save_state</code> записывает состояние <code>after</code>.</li>
+</ol>
+<p>Сравнение относится к данным, прочитанным в <code>current</code>. Фрагмент не показывает проверку самого решения человека; по этому листингу можно проследить только сверку предложения и состояния перед записью.</p>
+<h3 id="6-центральный-артефакт-три-гейта-и-одно-изменение-состояния">6. Центральный артефакт: три гейта и одно изменение состояния<a class="headerlink" href="#6-центральный-артефакт-три-гейта-и-одно-изменение-состояния" title="Permanent link">&para;</a></h3>
+<p>Почему для одного изменения нужны три разные проверки? Каждая проверка отвечает на свой вопрос:</p>
+<ol>
+<li>Доступна ли запрошенная операция?</li>
+<li>Допустим ли конкретный вызов?</li>
+<li>Разрешено ли применить подготовленное изменение?</li>
+</ol>
+<p>Проследим проверки по схеме.</p>
+<div class="highlight"><pre><span></span><code>ответ модели с tool_calls
+        ↓
+[1] профиль 07_tools.json
+    запрещённое имя → отвергнуть весь ответ до dispatcher
+        ↓
+[2] dispatcher главы 7
+    один call → allowlist + schema + выполнение tool
+        ↓
+propose_status_update(...)
+    результат: proposal, before/after, applied: false
+        ↓
+[3] Approval gate главы 14
+    политика 14_permissions.json разрешает изменение после решения человека?
+      ├── нет → человека не спрашивают, apply_status_update не вызывается
+      └── да  → Human approval?
+                 ├── deny    → apply_status_update(... approved=False) → applied: false
+                 └── approve → apply_status_update(... approved=True)  → status-only change
+</code></pre></div>
+<p>На первом гейте программа использует профиль <code>07_tools.json</code>. Если в ответе модели есть запрос запрещённого tool, программа отвергает весь ответ до dispatcher. Даже разрешённый соседний call из этого ответа не исполняется.</p>
+<p>На втором гейте dispatcher рассматривает каждый допустимый call отдельно: проверяет имя и arguments по schema, затем выполняет tool. При неуспешном вызове диспетчер возвращает tool error.</p>
+<p>Третий гейт находится после подготовки proposal. Даже успешный вызов <code>propose_status_update</code> не даёт права применить изменение. Proposal лишь описывает возможный результат. Состояние меняет отдельная функция harness после Human approval и только при разрешающей политике главы 14.</p>
+<p>В пяти строках ниже сопоставлены понятия, которые нельзя подменять друг другом. Слово <code>application</code> здесь означает применение изменения, а не ИИ-приложение из первых глав:</p>
+<div class="highlight"><pre><span></span><code>proposal ≠ application
+model confidence ≠ Human approval
+approval event ≠ Approval gate
+Read-only ≠ OS-sandbox
+permission ≠ trust
+</code></pre></div>
+<p>Последняя строка разделяет право и доверие. Разрешение выполнить действие не доказывает, что входные данные, источник или прочитанный текст заслуживают доверия.</p>
+<p><img alt="Фигура 42. Три гейта и одно изменение состояния" src="../../figures/42_tri-geyta-i-odno-izmenenie-sostoyaniya.svg" /></p>
+<p><em>Фигура 42. Три гейта и одно изменение состояния</em></p>
+<h3 id="7-практика-b-дежурный-останавливается-на-proposal">7. Практика B: «Дежурный» останавливается на proposal<a class="headerlink" href="#7-практика-b-дежурный-останавливается-на-proposal" title="Permanent link">&para;</a></h3>
+<p>Проверь, что программа-конструктор видит файл политики. Для напечатанного результата используется указанная фикстура, подставленная только на время проверки. У тебя в <code>workspace/my_agent</code> должен находиться подготовленный файл <code>14_permissions.json</code>.</p>
+<div class="highlight"><pre><span></span><code><span class="c1"># запуск из корня starter</span>
+<span class="c1"># фикстура: tests/fixtures/ch14/14_permissions.json -&gt; workspace/my_agent/14_permissions.json</span>
+python<span class="w"> </span>dezhurny.py<span class="w"> </span>status<span class="w"> </span>--chapter<span class="w"> </span><span class="m">14</span>
+</code></pre></div>
+<div class="highlight"><pre><span></span><code>dezhurny: status
+config: workspace/my_agent
+глава 14 | 14_permissions.json | настроено: default deny; task_cards read_only; status_update approval_required | approval gate: изменение статуса только после решения человека
+</code></pre></div>
+<p>Запусти <code>status_update</code> — авторский replay-сценарий с подготовленной последовательностью запросов. Сценарий не содержит записи поведения живой модели. Перед запуском предскажи, должен ли статус <code>task-002</code> измениться уже на этом шаге.</p>
+<div class="highlight"><pre><span></span><code><span class="c1"># запуск из корня starter</span>
+<span class="c1"># фикстура: tests/fixtures/ch14/14_permissions.json -&gt; workspace/my_agent/14_permissions.json</span>
+python<span class="w"> </span>dezhurny.py<span class="w"> </span>run<span class="w"> </span>--scenario<span class="w"> </span>status_update
+</code></pre></div>
+<div class="highlight"><pre><span></span><code>dezhurny: run
+goal: не настроено (глава 1)
+config: workspace/my_agent
+model: replay — авторский сценарий, не запись модели
+scenario: status_update
+stop_policy: max_steps 5, max_retries 1 (по умолчанию, глава 2)
+tools: allowlist диспетчера (по умолчанию, глава 7)
+permissions: default deny | task_cards read_only | status_update approval_required
+Шаг 1 | propose_status_update | needs_input
+Остановка: needs_input
+proposal: task-002 | in_progress -&gt; done | operation_id: 689d4fcf4c7c4dbb
+approval: required
+applied: no
+contract: не настроено (глава 5)
+save: не настроено (глава 3)
+state: не настроено (глава 10)
+trace: не настроено (глава 12)
+Качество модели не подтверждено этим техническим прогоном.
+</code></pre></div>
+<p>Строка <code>applied: no</code> сообщает, что предложение не применено. В авторском сценарии запрошен один tool — <code>propose_status_update</code>. Harness останавливает работу с терминалом <code>needs_input</code>, а proposal содержит <code>operation_id</code>. На этом шаге карточка ещё не изменена.</p>
+<p>Лимит допускает до пяти шагов, но в напечатанном запуске выполнен только один: система остановилась перед решением человека, а не из-за исчерпания лимита. Остальные строки показывают настройки данного примера; прежде всего сверяй предложение, терминал и отсутствие применения.</p>
+<h3 id="8-deny-человек-отклоняет-предложение">8. Deny: человек отклоняет предложение<a class="headerlink" href="#8-deny-человек-отклоняет-предложение" title="Permanent link">&para;</a></h3>
+<p>Следующая команда работает на временной копии <code>workspace</code>, поэтому поставляемая карточка не меняется. Фикстура разрешает переход к подтверждению. В этой проверке ты передаёшь решение <code>deny</code> через параметр <code>--decision</code>, а не отвечаешь на вопрос в отдельном окне.</p>
+<div class="highlight"><pre><span></span><code><span class="c1"># запуск из корня starter</span>
+<span class="c1"># фикстура: tests/fixtures/ch14/14_permissions.json -&gt; workspace/my_agent/14_permissions.json</span>
+python<span class="w"> </span>permissions_demo.py<span class="w"> </span>approval<span class="w"> </span>--decision<span class="w"> </span>deny
+</code></pre></div>
+<div class="highlight"><pre><span></span><code>policy: workspace/my_agent/14_permissions.json | status_update approval_required
+proposal: task-002 | in_progress -&gt; done
+before: status in_progress
+after: status done
+reason: Макет афиши согласован; Марк просит отметить задачу выполненной.
+operation_id: 689d4fcf4c7c4dbb
+proposal_applied: false
+human_decision: deny
+apply_status_update: not applied | reason: человек отклонил изменение
+observed_status: in_progress
+changed_fields: нет
+approval_events: 2
+</code></pre></div>
+<p>После <code>human_decision: deny</code> предложение не применяется: <code>observed_status</code> остаётся <code>in_progress</code>, а поле <code>changed_fields</code> содержит <code>нет</code>.</p>
+<p>В Trace записываются два события: запрос подтверждения и решение. Значение <code>human</code> в поле <code>initiator</code> события решения обозначает человека как инициатора; саму запись делает harness. Строка <code>approval_events: 2</code> сообщает число событий, но не показывает их содержимое. События фиксируют факты и не заменяют техническую блокировку Approval gate.</p>
+<h3 id="9-approve-меняется-только-status">9. Approve: меняется только status<a class="headerlink" href="#9-approve-меняется-только-status" title="Permanent link">&para;</a></h3>
+<p>Теперь передай <code>approve</code> для предложения перевести <code>task-002</code> из <code>in_progress</code> в <code>done</code>. Содержание proposal совпадает с предложением из предыдущей проверки; меняется решение человека.</p>
+<div class="highlight"><pre><span></span><code><span class="c1"># запуск из корня starter</span>
+<span class="c1"># фикстура: tests/fixtures/ch14/14_permissions.json -&gt; workspace/my_agent/14_permissions.json</span>
+python<span class="w"> </span>permissions_demo.py<span class="w"> </span>approval<span class="w"> </span>--decision<span class="w"> </span>approve
+</code></pre></div>
+<div class="highlight"><pre><span></span><code>policy: workspace/my_agent/14_permissions.json | status_update approval_required
+proposal: task-002 | in_progress -&gt; done
+before: status in_progress
+after: status done
+reason: Макет афиши согласован; Марк просит отметить задачу выполненной.
+operation_id: 689d4fcf4c7c4dbb
+proposal_applied: false
+human_decision: approve
+apply_status_update: applied
+observed_status: done
+changed_fields: status
+approval_events: 2
+</code></pre></div>
+<p>После <code>approve</code> программа сообщает три связанных результата:</p>
+<ol>
+<li>Строка <code>apply_status_update: applied</code> подтверждает применение.</li>
+<li>Строка <code>observed_status: done</code> показывает итоговый статус.</li>
+<li>Строка <code>changed_fields: status</code> указывает единственное изменённое поле.</li>
+</ol>
+<p>Одобрение не разрешает переписать карточку целиком. В показе применяется только предложенное и проверенное изменение статуса. Строка <code>proposal_applied: false</code> относится к подготовке предложения, а <code>apply_status_update: applied</code> относится к последующему применению; строки описывают разные этапы.</p>
+<h3 id="10-политика-сильнее-отдельного-да">10. Политика сильнее отдельного «да»<a class="headerlink" href="#10-политика-сильнее-отдельного-да" title="Permanent link">&para;</a></h3>
+<p>Достаточно ли одного <code>approve</code>, чтобы изменить карточку? Нет: сначала программа проверяет политику. При <code>status_update: deny</code> система не запрашивает подтверждение, потому что изменение запрещено. Передадим готовое <code>approve</code> в команду и проверим, удержит ли программа запрет.</p>
+<div class="highlight"><pre><span></span><code><span class="c1"># запуск из корня starter</span>
+python<span class="w"> </span>permissions_demo.py<span class="w"> </span>approval<span class="w"> </span>--dir<span class="w"> </span>workspace/ch14/cases/status-deny<span class="w"> </span>--decision<span class="w"> </span>approve
+</code></pre></div>
+<div class="highlight"><pre><span></span><code>policy: workspace/ch14/cases/status-deny/14_permissions.json | status_update deny
+proposal: task-002 | in_progress -&gt; done
+before: status in_progress
+after: status done
+reason: Макет афиши согласован; Марк просит отметить задачу выполненной.
+operation_id: 689d4fcf4c7c4dbb
+proposal_applied: false
+human_decision: не запрашивалось — approval gate закрыт политикой
+apply_status_update: not called | reason: политика status_update = deny
+observed_status: in_progress
+changed_fields: нет
+approval_events: 0
+</code></pre></div>
+<p>При <code>approval_required</code> политика допускает применение после одобрения человека и необходимых проверок. При <code>deny</code> программа не применяет изменение и не запрашивает решение. Поэтому в запрещённом случае получаются ноль событий подтверждения вместо двух в показах с решением человека.</p>
+<p>Спрашивать человека о действии, которое всё равно не будет выполнено, вредно: так люди привыкают нажимать «да», не читая. Программа сначала выясняет, допускает ли политика такое действие, и лишь затем обращается к человеку.</p>
+<p>Файлы <code>14_permissions.json</code> и <code>07_tools.json</code> решают разные задачи. По файлу главы 7 программа определяет, может ли модель запросить операцию. По файлу главы 14 программа определяет, можно ли применить изменение состояния после отдельного решения человека.</p>
+<h3 id="11-старое-подтверждение-не-действует-на-изменившуюся-карточку">11. Старое подтверждение не действует на изменившуюся карточку<a class="headerlink" href="#11-старое-подтверждение-не-действует-на-изменившуюся-карточку" title="Permanent link">&para;</a></h3>
+<p>Между созданием proposal и решением человека карточка может измениться. Тогда сохранённое состояние <code>before</code> уже не соответствует текущим данным.</p>
+<p>Допустим, сначала задача называлась «Подготовить макет афиши», а затем название заменили на «Подготовить и напечатать афишу». Статус мог остаться <code>in_progress</code>, хотя работа уже описана иначе. Одного совпадения статуса недостаточно, чтобы считать карточку прежней. В следующем показе после создания предложения меняется именно название.</p>
+<div class="highlight"><pre><span></span><code><span class="c1"># запуск из корня starter</span>
+<span class="c1"># фикстура: tests/fixtures/ch14/14_permissions.json -&gt; workspace/my_agent/14_permissions.json</span>
+python<span class="w"> </span>permissions_demo.py<span class="w"> </span>approval<span class="w"> </span>--decision<span class="w"> </span>approve<span class="w"> </span>--case<span class="w"> </span>card-changed
+</code></pre></div>
+<div class="highlight"><pre><span></span><code>policy: workspace/my_agent/14_permissions.json | status_update approval_required
+proposal: task-002 | in_progress -&gt; done
+before: status in_progress
+after: status done
+reason: Макет афиши согласован; Марк просит отметить задачу выполненной.
+operation_id: 689d4fcf4c7c4dbb
+proposal_applied: false
+card_changed_after_proposal: title
+human_decision: approve
+apply_status_update: not applied | reason: карточка изменилась после создания предложения
+observed_status: in_progress
+changed_fields: нет
+approval_events: 2
+</code></pre></div>
+<p>В показе передано <code>approve</code>, но программа останавливает применение: после создания предложения изменилось поле <code>title</code>. Подтверждение относится к конкретному proposal с <code>operation_id</code> и к состоянию карточки, для которого предложение было подготовлено.</p>
+<p>Строка <code>changed_fields: нет</code> относится к попытке применения proposal: эта попытка ничего не изменила. Строка не отменяет предшествующего изменения названия, показанного как <code>card_changed_after_proposal: title</code>.</p>
+<blockquote>
+<p><strong>Проверь себя на ходу.</strong> Почему безопаснее подтверждать конкретный proposal с <code>operation_id</code>, чем хранить общий флаг <code>approved = true</code> для последующих изменений?</p>
+</blockquote>
+<h3 id="12-практика-a-кто-принимает-решение">12. Практика A: кто принимает решение<a class="headerlink" href="#12-практика-a-кто-принимает-решение" title="Permanent link">&para;</a></h3>
+<p>Работай в группе из трёх человек. Вместе с участниками распредели роли модели, harness и человека, принимающего решение. Затем выполни действия своей роли:</p>
+<ol>
+<li>Участник в роли модели формулирует только предложение.</li>
+<li>Участник в роли harness показывает <code>before</code>, <code>after</code>, <code>reason</code> и <code>operation_id</code>.</li>
+<li>Участник в роли harness проверяет политику до обращения к человеку. Если изменение запрещено, подтверждение не запрашивается.</li>
+<li>Если политика допускает подтверждение, участник в роли человека выбирает <code>approve</code> или <code>deny</code>.</li>
+</ol>
+<p>Для трёх действий заполни таблицу и обоснуй каждую строку. Вариант для сравнения приведён ниже:</p>
+<table>
+<thead>
+<tr>
+<th>Действие</th>
+<th>Цена ошибки</th>
+<th>Обратимость</th>
+<th>Режим</th>
+<th>Где gate</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>сохранить черновик в <code>drafts/</code></td>
+<td>низкая</td>
+<td>высокая</td>
+<td>HOTL</td>
+<td>человек наблюдает результат</td>
+</tr>
+<tr>
+<td>изменить статус карточки</td>
+<td>выше</td>
+<td>ограниченная</td>
+<td>HITL</td>
+<td>до применения изменения</td>
+</tr>
+<tr>
+<td>удалить общий файл</td>
+<td>высокая</td>
+<td>может быть низкой</td>
+<td>не выполняется в проекте</td>
+<td>действие отсутствует</td>
+</tr>
+</tbody>
+</table>
+<p>Объясни, почему выбранное участие человека соответствует последствиям действия. Не нужно назначать HITL как можно большему числу операций. В строке про черновик человек наблюдает результат, но Approval gate перед записью не установлен. Для удаления выбор HITL/HOTL не делается: в учебном проекте нет автоматического удаления, публикации и внешней отправки.</p>
+<p><strong>Результат практики A:</strong> схема Approval gate, обоснованный выбор HITL/HOTL для разрешённых действий и отдельная отметка недоступного действия.</p>
+<h3 id="13-практика-b-сравни-четыре-исхода">13. Практика B: сравни четыре исхода<a class="headerlink" href="#13-практика-b-сравни-четыре-исхода" title="Permanent link">&para;</a></h3>
+<p>Собери результаты четырёх проверок в таблицу. В столбце «Карточка свежая?» укажи, совпадают ли текущие данные карточки с <code>before</code>:</p>
+<table>
+<thead>
+<tr>
+<th>Политика</th>
+<th>Решение</th>
+<th>Карточка свежая?</th>
+<th>Результат</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>approval_required</code></td>
+<td>deny</td>
+<td>да</td>
+<td>не применено</td>
+</tr>
+<tr>
+<td><code>approval_required</code></td>
+<td>approve</td>
+<td>да</td>
+<td>применён только <code>status</code></td>
+</tr>
+<tr>
+<td><code>deny</code></td>
+<td>не запрашивалось</td>
+<td>да</td>
+<td>не применено: gate закрыт политикой</td>
+</tr>
+<tr>
+<td><code>approval_required</code></td>
+<td>approve</td>
+<td>нет</td>
+<td>не применено: карточка изменилась</td>
+</tr>
+</tbody>
+</table>
+<p>Для каждой строки назови, какая граница остановила изменение или позволила его применить. Сопоставь один случай успешной записи с тремя случаями без записи. Затем объясни, почему четыре результата нельзя описать правилом «если человек сказал да — применить».</p>
+<p><strong>Результат практики B:</strong> четыре наблюдаемых исхода и объяснение роли политики, конкретного proposal и текущего состояния.</p>
+<h3 id="14-обязательные-проверки-должен--не-должен--ошибка--граница">14. Обязательные проверки: должен / не должен / ошибка / граница<a class="headerlink" href="#14-обязательные-проверки-должен--не-должен--ошибка--граница" title="Permanent link">&para;</a></h3>
+<h4 id="должен">Должен<a class="headerlink" href="#должен" title="Permanent link">&para;</a></h4>
+<p>Политика с <code>default: deny</code>, <code>task_cards: read_only</code> и <code>status_update: approval_required</code> должна приниматься. При такой политике после корректного proposal и <code>approve</code> на свежей временной копии должен измениться только <code>status</code>: <code>in_progress → done</code>.</p>
+<h4 id="не-должен">Не должен<a class="headerlink" href="#не-должен" title="Permanent link">&para;</a></h4>
+<p>Proposal не должен менять карточку. Команда <code>dezhurny.py run --scenario status_update</code> не должна автоматически вызывать применение. Функция <code>apply_status_update</code> не входит в tools модели. Политика <code>status_update: deny</code> не должна допускать изменение даже при <code>approve</code>.</p>
+<h4 id="ошибка">Ошибка<a class="headerlink" href="#ошибка" title="Permanent link">&para;</a></h4>
+<p>Программа должна останавливать работу, а не расширять права «по умолчанию», если обнаружено хотя бы одно нарушение:</p>
+<ol>
+<li>Политика задаёт слишком широкие права.</li>
+<li>Политика содержит неизвестное поле.</li>
+<li>Поле содержит неизвестное значение.</li>
+<li>JSON повреждён.</li>
+</ol>
+<p>Если карточка изменилась после создания proposal, старое подтверждение не должно разрешать запись поверх нового состояния.</p>
+<h4 id="граница">Граница<a class="headerlink" href="#граница" title="Permanent link">&para;</a></h4>
+<ol>
+<li>Программа проверяет ответ модели по профилю <code>07_tools.json</code> до dispatcher и может отвергнуть весь ответ из-за запрещённого имени.</li>
+<li>Dispatcher обрабатывает конкретный разрешённый tool call: проверяет имя и arguments по schema, выполняет допустимый вызов и возвращает результат или tool error.</li>
+<li>Approval gate действует после подготовки proposal и до изменения состояния.</li>
+<li>Запись <code>approval event</code> в Trace фиксирует событие запроса или решения, но не заменяет механизм блокировки.</li>
+</ol>
+<h3 id="15-безопасность">15. Безопасность<a class="headerlink" href="#15-безопасность" title="Permanent link">&para;</a></h3>
+<blockquote>
+<p><strong>Безопасность</strong></p>
+<p>Least privilege означает, что право выдаётся только ради конкретной функции. Для обычной работы с карточками действует Read-only; автоматического удаления, публикации и внешней отправки в проекте нет.</p>
+<p>Human approval должно происходить до изменения состояния. Функция <code>apply_status_update</code> недоступна модели как tool, а подготовка proposal сама по себе карточку не меняет.</p>
+<p>Учебная политика <code>14_permissions.json</code> не доказывает OS-sandbox и не описывает универсальную систему прав реального продукта. Проверки с этой политикой охватывают только границы, предусмотренные в starter.</p>
+<p>Наличие Approval gate также не доказывает, что входные данные заслуживают доверия. Разрешение на действие не заменяет проверку доверия к источнику.</p>
+</blockquote>
+<h4 id="safety-вопрос">Safety-вопрос<a class="headerlink" href="#safety-вопрос" title="Permanent link">&para;</a></h4>
+<p>Если модель ошибётся именно в тот момент, когда просит изменить состояние проекта, какая техническая граница ограничит последствия <strong>до</strong> изменения? Как ты проверишь работу этой границы по наблюдаемому результату, а не по обещанию в prompt?</p>
+<p>В ответе покажи всю последовательность, а не только фразу «спросить человека»:</p>
+<ol>
+<li>Система готовит proposal без записи в карточку.</li>
+<li>Программа проверяет политику.</li>
+<li>Approval gate блокирует применение до нужного решения.</li>
+<li>Человек принимает решение о конкретном предложении с <code>operation_id</code>.</li>
+<li>Программа применяет одобренное изменение только при совпадении текущего состояния с ожидаемым.</li>
+</ol>
+<h3 id="16-три-разных-гейта-архитектурное-ревью">16. Три разных гейта: архитектурное ревью<a class="headerlink" href="#16-три-разных-гейта-архитектурное-ревью" title="Permanent link">&para;</a></h3>
+<p>Обменяйся схемой с соседней группой. Проверь, различаются ли на полученной схеме три гейта.</p>
+<p><strong>Первый.</strong> Найди профиль <code>07_tools.json</code>. Если профиль показан как «проверка аргументов одной функции», предложи исправление: программа проверяет доступность tools для ответа модели до dispatcher.</p>
+<p><strong>Второй.</strong> Найди dispatcher. Диспетчер не должен быть изображён как Human approval: диспетчер обрабатывает конкретный tool call и проверяет технический контракт вызова.</p>
+<p><strong>Третий.</strong> Найди Approval gate. Если точка подтверждения стоит после <code>apply_status_update</code>, предложи перенести точку перед применением: позднее подтверждение не удерживает изменение.</p>
+<p>Завершай ревью, когда другая группа сможет последовательно пройти по схеме и назвать отдельный вопрос для каждого гейта:</p>
+<ol>
+<li>Может ли модель запросить эту операцию?</li>
+<li>Соответствует ли конкретный вызов техническому контракту?</li>
+<li>Можно ли применить это чувствительное изменение сейчас?</li>
+</ol>
+<h3 id="17-мини-проверка-урока-28">17. Мини-проверка урока 28<a class="headerlink" href="#17-мини-проверка-урока-28" title="Permanent link">&para;</a></h3>
+<ol>
+<li>Что такое Human approval?</li>
+<li>Где должен находиться Approval gate?</li>
+<li>Почему вопрос после уже выполненного изменения не считается Human approval?</li>
+<li>Чем HITL отличается от HOTL?</li>
+<li>Почему <code>propose_status_update</code> может быть tool, а <code>apply_status_update</code> не отдаётся модели?</li>
+<li>Почему подтверждение привязано к <code>operation_id</code>, а не к слову «да»?</li>
+<li>Чем <code>07_tools.json</code>, dispatcher и Approval gate отличаются друг от друга?</li>
+</ol>
+<h4 id="ответы_1">Ответы<a class="headerlink" href="#ответы_1" title="Permanent link">&para;</a></h4>
+<ol>
+<li>Явное решение человека, необходимое до выполнения определённого изменения.</li>
+<li>Между proposal и применением чувствительного изменения.</li>
+<li>Потому что решение уже не может предотвратить действие; это уведомление о случившемся.</li>
+<li>В HITL человек встроен в выбранный шаг и без его решения продолжения нет; в HOTL система действует более самостоятельно, а человек наблюдает и может вмешаться.</li>
+<li>Первый только готовит proposal без записи; второй реально меняет состояние и поэтому выполняется вне model tools после отдельного решения.</li>
+<li>Потому что решение относится к конкретному содержимому proposal и конкретному состоянию карточки; изменившееся предложение или карточка требуют нового решения.</li>
+<li>Профиль ограничивает доступные имена tools до dispatcher; dispatcher проверяет один вызов; Approval gate блокирует последующее чувствительное изменение до решения человека.</li>
+</ol>
+<h3 id="18-выходной-билет-урока-28">18. Выходной билет урока 28<a class="headerlink" href="#18-выходной-билет-урока-28" title="Permanent link">&para;</a></h3>
+<p>Нарисуй четыре блока:</p>
+<div class="highlight"><pre><span></span><code>proposal → gate → approve / deny → apply / no apply
+</code></pre></div>
+<p>Подпиши, кто принимает решение, и рядом допиши:</p>
+<div class="highlight"><pre><span></span><code>proposal ≠ application
+approval event ≠ Approval gate
+</code></pre></div>
+<p>Если функция <code>apply_status_update</code> оказалась внутри блока модели, исправь схему: применение выполняет harness, а не tool, доступный модели.</p>
+<hr />
+<h2 id="why">Зачем это тебе<a class="headerlink" href="#why" title="Permanent link">&para;</a></h2>
+<ol>
+<li>
+<p>В общей таблице результатов лабораторной работы программа может сама посчитать среднее и подготовить предложение исправить явно ошибочную строку. Но изменение общего файла затрагивает всю группу. Поэтому вычисление нужно отделить от права применить правку: сначала показать <code>before/after</code>, затем получить решение человека.</p>
+</li>
+<li>
+<p>Для командной презентации скрипт может автоматически подготовить черновик слайдов в отдельной папке. Черновик легко пересобрать и проверить, поэтому такая работа подходит под HOTL: система действует сама в ограниченной области, а человек наблюдает результат. Публикация презентации наружу имеет другие последствия. В нашем учебном проекте такой автоматической операции вообще нет.</p>
+</li>
+<li>
+<p>На электронной доске задач класса программа-помощник может читать карточки и предлагать отметить задачу как, вероятно, завершённую. Однако отметка <code>done</code> влияет на работу других участников. Проект требует отдельного решения об изменении общего состояния, поэтому использует HITL. Основанием служит принятое правило, а не представление, будто человек «умнее алгоритма в любой ситуации».</p>
+</li>
+</ol>
+<h2 id="dezhurny">Шаг сквозного проекта<a class="headerlink" href="#dezhurny" title="Permanent link">&para;</a></h2>
+<p>Файл <code>workspace/my_agent/14_permissions.json</code> фиксирует три решения для «Дежурного»:</p>
+<ol>
+<li>Неизвестные возможности запрещены по умолчанию.</li>
+<li>Карточки обычно доступны только для чтения.</li>
+<li>Статус можно изменить только через отдельное подтверждение конкретного proposal, если политика допускает такое изменение.</li>
+</ol>
+<p>Вместе с командой покажи работу политики:</p>
+<ol>
+<li>Выполни <code>python dezhurny.py status --chapter 14</code> и объясни строку главы 14.</li>
+<li>Выполни <code>python dezhurny.py run --scenario status_update</code> и покажи остановку <code>needs_input</code>, подготовленный <code>proposal</code>, требование <code>approval: required</code> и отсутствие применения <code>applied: no</code>.</li>
+<li>Отдельно сравни результаты четырёх показов: решения <code>deny</code> и <code>approve</code> при разрешающей политике, запрет <code>status_update: deny</code> и отказ после изменения карточки.</li>
+</ol>
+<p><strong>Практическая проверочная работа 3</strong> требует продемонстрировать работу политики. На защите представь четыре результата:</p>
+<ol>
+<li>Threat model.</li>
+<li>Permissions-матрицу.</li>
+<li>Файл <code>14_permissions.json</code>.</li>
+<li>Демонстрацию сценариев подтверждения.</li>
+</ol>
+<p>Вместо утверждения «у нас безопасно» покажи, какое право нужно каждой функции и какой наблюдаемый результат подтверждает работу границы.</p>
+<h2 id="return">Возвращаемся к сцене<a class="headerlink" href="#return" title="Permanent link">&para;</a></h2>
+<p>В начале главы Марк предложил: «Если “Дежурный” уверен, пусть сам поставит <code>done</code>». Для одной отметки оказались нужны три разных основания:</p>
+<ol>
+<li>Система умеет подготовить предложение.</li>
+<li>Техническая политика допускает изменение.</li>
+<li>Человек принимает решение о конкретном предложении.</li>
+</ol>
+<p>Уверенность системы не заменяет ни право на действие, ни решение человека.</p>
+<p>Для чтения карточек «Дежурному» не нужно право записи. Функция <code>propose_status_update</code> возвращает предложение с <code>before</code>, <code>after</code>, причиной и <code>operation_id</code>, но не меняет карточку. Применение выполняется за Approval gate. Для записи нужны разрешающая политика, одобрение человека и совпадение текущих данных с состоянием, для которого создан proposal.</p>
+<p>Ответ на вопрос-прогноз теперь можно проверить, а не просто обсудить. При <code>approval_required + approve</code> меняется только <code>status</code>; при <code>deny</code>, при политике <code>status_update: deny</code> или при изменившейся карточке применение останавливается. Значит, <strong>допустимые полномочия определяются необходимой функцией и технической политикой, а человек удерживает выбранные чувствительные изменения до их выполнения, а не после</strong>.</p>
+<h2 id="check">Проверь себя<a class="headerlink" href="#check" title="Permanent link">&para;</a></h2>
+<ol>
+<li>Что такое Asset и почему возможность изменить статус тоже может быть Asset?</li>
+<li>Чем Trust boundary отличается от файловой границы <code>workspace</code>?</li>
+<li>Из каких трёх вопросов складывается простая Threat model?</li>
+<li>Что требует Least privilege?</li>
+<li>Почему Read-only не равен словесному запрету и не равен OS-sandbox?</li>
+<li>Что делает Human approval настоящим подтверждением, а не уведомлением?</li>
+<li>Чем Approval gate отличается от dispatcher?</li>
+<li>В чём разница между HITL и HOTL на примерах нашего проекта?</li>
+<li>Разбери ситуацию: политика <code>approval_required</code>, человек нажал <code>approve</code>, но после создания proposal карточка изменилась. Что должна сделать система и почему?</li>
+</ol>
+<h3 id="ответы_2">Ответы<a class="headerlink" href="#ответы_2" title="Permanent link">&para;</a></h3>
+<ol>
+<li>Asset — данные, файлы, состояние или возможности, которым может быть причинён ущерб. Возможность изменения статуса важна сама по себе, потому что её неправильное использование меняет состояние проекта.</li>
+<li><code>workspace</code> — конкретная файловая граница; Trust boundary — любой переход данных, кода или управления между областями разного доверия.</li>
+<li>Что защищаем; какое нежелательное событие возможно; где проходит граница доверия.</li>
+<li>Выдать только те права, которые действительно нужны конкретной функции.</li>
+<li>Read-only наблюдается как технический запрет записи, но проверяет только конкретную политику учебного приложения, а не полную изоляцию ОС.</li>
+<li>Решение человека происходит до изменения и относится к конкретному proposal.</li>
+<li>Dispatcher проверяет и выполняет конкретный tool call; Approval gate блокирует последующее чувствительное действие до Human approval.</li>
+<li>HITL: изменение статуса ждёт решения человека. HOTL: разрешённый черновик в <code>drafts/</code> может быть создан автоматически, а человек наблюдает и может вмешаться.</li>
+<li>Не применять изменение. Текущее состояние уже не совпадает с <code>before</code>, поэтому прежнее решение относилось к другой версии карточки и требуется новое предложение.</li>
+</ol>
+<h2 id="glossary">Словарь главы<a class="headerlink" href="#glossary" title="Permanent link">&para;</a></h2>
+<table>
+<thead>
+<tr>
+<th>Термин</th>
+<th>Рабочая формулировка</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Asset / защищаемый актив</strong></td>
+<td>данные, файлы, состояние или возможности, которым может быть причинён ущерб</td>
+</tr>
+<tr>
+<td><strong>Trust boundary / граница доверия</strong></td>
+<td>место, где данные, код или управление переходят между областями с разным уровнем доверия</td>
+</tr>
+<tr>
+<td><strong>Threat model / модель угроз</strong></td>
+<td>описание того, что нужно защитить, какие нежелательные события возможны и где проходят границы доверия</td>
+</tr>
+<tr>
+<td><strong>Least privilege / минимальные полномочия</strong></td>
+<td>предоставление только тех прав, которые действительно требуются для конкретной задачи</td>
+</tr>
+<tr>
+<td><strong>Read-only / только чтение</strong></td>
+<td>правило проекта: режим чтения используется по умолчанию, если изменение данных не является необходимым результатом текущего шага</td>
+</tr>
+<tr>
+<td><strong>Human approval / подтверждение человеком</strong></td>
+<td>явное решение человека, необходимое до выполнения определённого изменения</td>
+</tr>
+<tr>
+<td><strong>Approval gate</strong></td>
+<td>техническая точка процесса, где дальнейшее действие блокируется до подтверждения человека</td>
+</tr>
+<tr>
+<td><strong>HITL / human in the loop</strong></td>
+<td>режим, в котором человек встроен в рабочий цикл и подтверждает определённые действия</td>
+</tr>
+<tr>
+<td><strong>HOTL / human on the loop</strong></td>
+<td>режим, в котором система действует более самостоятельно, а человек наблюдает и может вмешаться</td>
+</tr>
+</tbody>
+</table>
+<h2 id="bridge">Мост к главе 15<a class="headerlink" href="#bridge" title="Permanent link">&para;</a></h2>
+<p>Теперь ограничения «Дежурного» задаются не только формой tools и проверками dispatcher. Команда связала права с необходимыми функциями и определила, какие возможности запрещены по умолчанию. Для выбранного чувствительного изменения программа ждёт Human approval.</p>
+<p>Достаточно ли разрешения прочитать файл, чтобы доверять всему прочитанному? Нет: Permissions ограничивают действия, но не определяют смысл содержимого. Материал, переданный системе как данные, сам может содержать текст, похожий на команду. Нужно различить, чему в таком материале можно доверять и что следует считать только данными.</p>
+<blockquote>
+<p><strong>Следующий вопрос.</strong> Что делать с данными и кодом, которым нельзя автоматически доверять?</p>
+</blockquote>
+<p>Ответ ты найдёшь в главе 15, «Prompt injection и недоверенные подключения».</p>
+
+
+
+
+
+
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+    
+      
+      <nav class="md-footer__inner md-grid" aria-label="Нижний колонтитул" >
+        
+          
+          <a href="../ch13/" class="md-footer__link md-footer__link--prev" aria-label="Назад: Глава 13. Обратная связь и версии: когда исправление должно менять процедуру?">
+            <div class="md-footer__button md-icon">
+              
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+            </div>
+            <div class="md-footer__title">
+              <span class="md-footer__direction">
+                Назад
+              </span>
+              <div class="md-ellipsis">
+                Глава 13. Обратная связь и версии: когда исправление должно менять процедуру?
+              </div>
+            </div>
+          </a>
+        
+        
+          
+          <a href="../ch15/" class="md-footer__link md-footer__link--next" aria-label="Вперед: Глава 15. Prompt injection и недоверенные подключения: что делать с данными и кодом, которым нельзя автоматически доверять?">
+            <div class="md-footer__title">
+              <span class="md-footer__direction">
+                Вперед
+              </span>
+              <div class="md-ellipsis">
+                Глава 15. Prompt injection и недоверенные подключения: что делать с данными и кодом, которым нельзя автоматически доверять?
+              </div>
+            </div>
+            <div class="md-footer__button md-icon">
+              
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M4 11v2h12l-5.5 5.5 1.42 1.42L19.84 12l-7.92-7.92L10.5 5.5 16 11z"/></svg>
+            </div>
+          </a>
+        
+      </nav>
+    
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+    <div class="md-copyright__highlight">
+      Редакция r0001 · 2026-10-14 · техническая редакция, пилот не проводился
+    </div>
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    
+      
+      
+      <script id="__config" type="application/json">{"annotate": null, "base": "../..", "features": ["content.code.copy", "navigation.sections", "navigation.footer", "search.highlight"], "search": "../../assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "\u0421\u043a\u043e\u043f\u0438\u0440\u043e\u0432\u0430\u043d\u043e \u0432 \u0431\u0443\u0444\u0435\u0440", "clipboard.copy": "\u041a\u043e\u043f\u0438\u0440\u043e\u0432\u0430\u0442\u044c \u0432 \u0431\u0443\u0444\u0435\u0440", "search.result.more.one": "\u0415\u0449\u0451 1 \u043d\u0430 \u044d\u0442\u043e\u0439 \u0441\u0442\u0440\u0430\u043d\u0438\u0446\u0435", "search.result.more.other": "\u0415\u0449\u0451 # \u043d\u0430 \u044d\u0442\u043e\u0439 \u0441\u0442\u0440\u0430\u043d\u0438\u0446\u0435", "search.result.none": "\u0421\u043e\u0432\u043f\u0430\u0434\u0435\u043d\u0438\u0439 \u043d\u0435 \u043d\u0430\u0439\u0434\u0435\u043d\u043e", "search.result.one": "\u041d\u0430\u0439\u0434\u0435\u043d\u043e 1 \u0441\u043e\u0432\u043f\u0430\u0434\u0435\u043d\u0438\u0435", "search.result.other": "\u041d\u0430\u0439\u0434\u0435\u043d\u043e \u0441\u043e\u0432\u043f\u0430\u0434\u0435\u043d\u0438\u0439: #", "search.result.placeholder": "\u041d\u0430\u0447\u043d\u0438\u0442\u0435 \u043f\u0435\u0447\u0430\u0442\u0430\u0442\u044c \u0434\u043b\u044f \u043f\u043e\u0438\u0441\u043a\u0430", "search.result.term.missing": "\u041e\u0442\u0441\u0443\u0442\u0441\u0442\u0432\u0443\u0435\u0442", "select.version": "\u0412\u044b\u0431\u0435\u0440\u0438\u0442\u0435 \u0432\u0435\u0440\u0441\u0438\u044e"}, "version": {"provider": "mike"}}</script>
+    
+    
+      <script src="../../assets/javascripts/bundle.79ae519e.min.js"></script>
+      
+    
+  </body>
+</html>
