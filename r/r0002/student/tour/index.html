@@ -1,0 +1,2487 @@
+
+<!doctype html>
+<html lang="ru" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+        <meta name="description" content="Учебник для 9–10 классов">
+      
+      
+      
+        <link rel="canonical" href="https://book.stemschool.online/r0002/student/tour/">
+      
+      
+        <link rel="prev" href="../intro/">
+      
+      
+        <link rel="next" href="../ch01/">
+      
+      
+        
+      
+      
+      <link rel="icon" href="../../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.6">
+    
+    
+      
+        <title>Экскурсия по AI: что есть что - ИИ-агенты и Agent Skills</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../assets/stylesheets/main.484c7ddc.min.css">
+      
+        
+        <link rel="stylesheet" href="../../assets/stylesheets/palette.ab4e12ef.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+    <script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+  </head>
+  
+  
+    
+    
+      
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="indigo">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#экскурсия-по-ai-что-есть-что" class="md-skip">
+          Перейти к содержанию
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+        <aside class="md-banner">
+          <div class="md-banner__inner md-grid md-typeset">
+            
+            
+  
+    <strong>Техническая редакция: пилот не проводился</strong> · редакция r0002
+  
+
+          </div>
+          
+        </aside>
+      
+    </div>
+    
+      <div data-md-color-scheme="default" data-md-component="outdated" hidden>
+        
+      </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Верхний колонтитул">
+    <a href="../.." title="ИИ-агенты и Agent Skills" class="md-header__button md-logo" aria-label="ИИ-агенты и Agent Skills" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            ИИ-агенты и Agent Skills
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Экскурсия по AI: что есть что
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+        <form class="md-header__option" data-md-component="palette">
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="indigo"  aria-hidden="true"  type="radio" name="__palette" id="__palette_0">
+    
+  
+</form>
+      
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+      
+      
+        <label class="md-header__button md-icon" for="__search">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        </label>
+        <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Поиск" placeholder="Поиск" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Поиск">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Очистить" aria-label="Очистить" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Инициализация поиска
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+      
+    
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+
+<nav class="md-nav md-nav--primary" aria-label="Навигация" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../.." title="ИИ-агенты и Agent Skills" class="md-nav__button md-logo" aria-label="ИИ-агенты и Agent Skills" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    ИИ-агенты и Agent Skills
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../.." class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Главная
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    
+    
+    
+    
+      
+        
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2" checked>
+        
+          
+          <label class="md-nav__link" for="__nav_2" id="__nav_2_label" tabindex="">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Ученик
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_2">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Ученик
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../intro/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Введение
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Экскурсия по AI: что есть что
+  
+
+    
+  </span>
+  
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Экскурсия по AI: что есть что
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Содержание">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Содержание
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#scene" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        С чего всё началось
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#goals" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        После этой главы ты сможешь
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#lesson-e1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Урок Э1. Модель и два входа к ней
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Урок Э1. Модель и два входа к ней">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#как-читать-и-анализировать-показы" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Как читать и анализировать показы
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#показ-1-куда-мы-попали" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Показ 1. Куда мы попали?
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#показ-2-что-внутри" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Показ 2. Что внутри
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#показ-3-модели-разные" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Показ 3. Модели разные
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#показ-4-второй-вход-api" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Показ 4. Второй вход: API
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#итог-урока-э1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Итог урока Э1
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#практика-и-выходной-билет-урока-э1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Практика и выходной билет урока Э1
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#lesson-e2" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Урок Э2. Агент и его упряжка
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Урок Э2. Агент и его упряжка">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#показ-5-чат-советует--агент-делает" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Показ 5. Чат советует — агент делает
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#показ-6-папка-агента" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Показ 6. Папка агента
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#показ-7-skill-и-mcp" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Показ 7. Skill и MCP
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#показ-8-всё-вместе" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Показ 8. Всё вместе
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#какие-бывают-агенты" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Какие бывают агенты
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#мини-проверка-практика-и-выходной-билет-урока-э2" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Мини-проверка, практика и выходной билет урока Э2
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#обязательные-проверки" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Обязательные проверки
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#безопасность" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Безопасность
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#why" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Зачем это тебе
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#check" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Проверь себя
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Проверь себя">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#ответы" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Ответы
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#homework" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Домашняя работа — необязательно
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#glossary" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Словарь главы
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#return" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Возвращаемся к первоначальной сцене
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#bridge" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Мост к главе 1 учебника
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../ch01/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Глава 1. Модель, приложение и агент: кто отвечает, а кто действует?
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../ch02/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Глава 2. Агентный цикл: как результат действия меняет следующий шаг?
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../ch03/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Глава 3. Agent harness: что работает вокруг модели?
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../ch04/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Глава 4. Prompt, structured output, tool, MCP и Agent Skill: какие задачи решают разные уровни системы?
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../ch05/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Глава 5. Договор задачи: что нужно определить до реализации?
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../ch06/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Глава 6. Первый tool
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../ch07/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Глава 7. Диспетчер и ошибки
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../ch08/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Глава 8. Хороший tool
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../ch09/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Глава 9. Первый Agent Skill
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../ch10/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Глава 10. Состояние и память
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../ch11/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Глава 11. Тесты и evals: как доказать качество не одним удачным запуском?
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../ch12/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Глава 12. Traces: как понять, что происходило на самом деле?
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../ch13/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Глава 13. Обратная связь и версии: когда исправление должно менять процедуру?
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../ch14/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Глава 14. Permissions и участие человека
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../ch15/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Глава 15. Prompt injection и недоверенные подключения: что делать с данными и кодом, которым нельзя автоматически доверять?
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../ch16/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Глава 16. Долгая и совместная работа
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../ch17/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Глава 17. Итоговый проект: может ли команда доказать качество и ограниченность системы?
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../app-a/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Приложение А. Урок 0. Готовность рабочего места
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../app-b/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Приложение Б. Словарь курса
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../app-c/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Приложение В. Список фигур
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+        
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3" >
+        
+          
+          <label class="md-nav__link" for="__nav_3" id="__nav_3_label" tabindex="">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Учитель
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Учитель
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../teacher/teacher-guide/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Методическое руководство для учителя
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../teacher/lesson-map/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Поурочная карта
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../routes/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Маршруты A/B
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../files/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Файлы практикума
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../about/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Выходные данные
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Содержание">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Содержание
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#scene" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        С чего всё началось
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#goals" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        После этой главы ты сможешь
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#lesson-e1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Урок Э1. Модель и два входа к ней
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Урок Э1. Модель и два входа к ней">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#как-читать-и-анализировать-показы" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Как читать и анализировать показы
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#показ-1-куда-мы-попали" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Показ 1. Куда мы попали?
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#показ-2-что-внутри" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Показ 2. Что внутри
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#показ-3-модели-разные" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Показ 3. Модели разные
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#показ-4-второй-вход-api" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Показ 4. Второй вход: API
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#итог-урока-э1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Итог урока Э1
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#практика-и-выходной-билет-урока-э1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Практика и выходной билет урока Э1
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#lesson-e2" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Урок Э2. Агент и его упряжка
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Урок Э2. Агент и его упряжка">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#показ-5-чат-советует--агент-делает" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Показ 5. Чат советует — агент делает
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#показ-6-папка-агента" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Показ 6. Папка агента
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#показ-7-skill-и-mcp" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Показ 7. Skill и MCP
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#показ-8-всё-вместе" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Показ 8. Всё вместе
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#какие-бывают-агенты" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Какие бывают агенты
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#мини-проверка-практика-и-выходной-билет-урока-э2" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Мини-проверка, практика и выходной билет урока Э2
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#обязательные-проверки" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Обязательные проверки
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#безопасность" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Безопасность
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#why" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Зачем это тебе
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#check" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Проверь себя
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Проверь себя">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#ответы" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Ответы
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#homework" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Домашняя работа — необязательно
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#glossary" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Словарь главы
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#return" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Возвращаемся к первоначальной сцене
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#bridge" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Мост к главе 1 учебника
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+
+<h1 id="экскурсия-по-ai-что-есть-что">Экскурсия по AI: что есть что<a class="headerlink" href="#экскурсия-по-ai-что-есть-что" title="Permanent link">&para;</a></h1>
+<p><em>Вводная глава</em></p>
+<h2 id="scene">С чего всё началось<a class="headerlink" href="#scene" title="Permanent link">&para;</a></h2>
+<p>До школьного Фестиваля науки остаётся месяц. Для подготовки сформировали проектное бюро: несколько человек, которые следят, чтобы к сроку всё было готово. Ты в этом бюро тоже состоишь. Аня — координатор, Марк пришёл из лабораторной группы.</p>
+<p>За первую же неделю в общей папке бюро скопилось двенадцать заметок с собраний: про афишу, про оборудование, про кабинеты и про многое другое. Отыскать в них нужное уже непросто, и Аня решает составить оглавление.</p>
+<p>Она садится за школьный компьютер и открывает чат, которым в школе разрешено пользоваться: окно на сайте, куда вопрос пишут обычными словами. Буквы «ИИ» значат «искусственный интеллект»; пока будем так называть программу, которой можно задать вопрос на обычном языке. Аня просит ИИ собрать оглавление по заметкам из папки. Программа отвечает, что папки бюро она не видит, и предлагает на выбор: либо Аня пришлёт ей тексты заметок, либо составит оглавление сама, а программа подскажет как.</p>
+<p>Марк тем временем сидит в кабинете информатики. Учитель показывает ему программу-помощника, запущенную прямо в папке бюро, и Марк диктует ей ту же просьбу — составить оглавление двенадцати заметок с собраний. Помощник сообщает, что нашёл двенадцать файлов, и спрашивает, можно ли создать в папке новый файл с оглавлением. Марк отвечает «да». Через минуту оглавление уже лежит в папке.</p>
+<p>Вечером они сравнивают, что у кого вышло.</p>
+<p>— У тебя ИИ сломан, — говорит Марк. — Мой сам всё сделал.</p>
+<p>— Ничего он не сломан, — отвечает Аня. — Название системы на экране у нас было одно и то же. Только, похоже, под этим названием мы разговаривали с разными вещами. Вот ты мне советуешь: «спроси у ИИ». У какого? И через что?</p>
+<p>Название и правда одно. А вели себя системы по-разному: Аня получила совет, Марк — готовый файл.</p>
+<blockquote>
+<p><strong>Вопрос-Прогноз.</strong> Название на экране одно, а поведение разное. Как ты думаешь, что у Ани и у Марка было одинаковым, а что разным? Запиши свою догадку и придумай, как её проверить.</p>
+</blockquote>
+<p>Чтобы ответить, придётся обойти настоящие системы и посмотреть, из каких частей они состоят. Строить мы пока ничего не будем: только смотреть и называть увиденное. Потому глава и называется экскурсией.</p>
+<blockquote>
+<p><strong>Главный вопрос главы.</strong> Что есть что: модель, приложение вокруг неё, API, агент, инструменты, Agent Skill, MCP? И с чем из этого правильно иметь дело в каждой конкретной ситуации?</p>
+</blockquote>
+<p>Незнакомых слов в этом вопросе много. Заучивать их сейчас не нужно: к концу экскурсии каждое займёт на карте своё место.</p>
+<h2 id="goals">После этой главы ты сможешь<a class="headerlink" href="#goals" title="Permanent link">&para;</a></h2>
+<ul>
+<li>различать модель и приложение, через которое с ней работают, — исходя из того, что делает приложение;</li>
+<li>объяснять, чем обращение через чат отличается от обращения через API: где хранится история разговора и кто пишет программу, которая с ней работает;</li>
+<li>сравнивать модели на своём наборе задач и объяснять, почему «лучшей модели вообще» не бывает;</li>
+<li>сравнивать три входа к модели — чат, агент для кода и программу через API — по трём вопросам: что система может изменить, кто подтверждает действие, где записаны шаги;</li>
+<li>показывать на схеме папки агента файл инструкций, файл с записанной процедурой и файл подключений, а также называть роль каждого;</li>
+<li>показывать на карте (про неё чуть ниже), где в показах были отдельное действие программы, подключённый внешний сервис и записанная процедура;</li>
+<li>аргументировать выбор входа — чат, агент или API — для твоей конкретной ситуации.</li>
+</ul>
+<h2 id="lesson-e1">Урок Э1. Модель и два входа к ней<a class="headerlink" href="#lesson-e1" title="Permanent link">&para;</a></h2>
+<h3 id="как-читать-и-анализировать-показы">Как читать и анализировать показы<a class="headerlink" href="#как-читать-и-анализировать-показы" title="Permanent link">&para;</a></h3>
+<p>В этой главе восемь показов. <strong>Показ — короткая демонстрация: на уроке её проводит учитель или включают видеозапись, а в книге она описана словами.</strong> Перед показом запиши прогноз: что, по-твоему, сейчас произойдёт. После показа запиши, что случилось на самом деле, и вывод в одну фразу.</p>
+<p>Но прежде три предупреждения.</p>
+<ol>
+<li>Примеры разговоров, файлов и программ в этой главе составлены авторами. Блок, который начинается строкой <code># пример</code>, — иллюстрация: так подобные системы обычно себя ведут, но это не запись настоящего разговора.</li>
+<li>Показы проводит взрослый, под своими учётными записями (аккаунтами) и по правилам сервисов. Тебе не придётся нигде регистрироваться, ничего устанавливать и ни за что платить. Если у тебя есть аккаунт в ИИ-системе школы, показы 1–3 можешь повторить сам.</li>
+<li>Системы в тексте мы называем по их роли: «чат», «агент для кода», «программа через API». Что скрывается за каждой ролью, ты увидишь в показах. Названия продуктов собраны в справке ниже и верны только на её дату: продукты меняются быстро, а роли остаются прежними.</li>
+</ol>
+<p>Перенеси в тетрадь карту. В центре стоит модель — так называют часть, которая составляет ответы; подробнее о ней сказано в показе 2. Вокруг модели три пустые рамки. После каждого показа дописывай на карту то, что узнал.</p>
+<div class="highlight"><pre><span></span><code>                    чат
+                     │
+программа ─────── МОДЕЛЬ ─────── агент
+через API                        для кода
+</code></pre></div>
+<blockquote>
+<p><strong>Справка: названия на 4 октября 2026 года.</strong> Роль чата играют, например, чат DeepSeek и чат Claude; роль агента для кода — Claude Code; вход для программ — API Claude; роль внешнего сервиса — GitHub, сайт, где хранят проекты программ. Примеры взяты у двух разработчиков, и это не список лучших: у других разработчиков названия свои, а роли те же. К тому времени, как ты читаешь эту книгу, названия и возможности вполне могли измениться.</p>
+</blockquote>
+<h3 id="показ-1-куда-мы-попали">Показ 1. Куда мы попали?<a class="headerlink" href="#показ-1-куда-мы-попали" title="Permanent link">&para;</a></h3>
+<blockquote>
+<p><strong>Вопрос-Прогноз.</strong> Учитель набирает в поисковике название известного чата и открывает первую же ссылку. Что окажется перед нами: «сам ИИ» или что-то другое?</p>
+</blockquote>
+<p>В поисковой выдаче несколько строк с похожими названиями. Смотреть прежде всего надо на адрес сайта — строку в верхней части браузера. У чата есть официальный сайт, и его адрес называет сам разработчик. Рядом в выдаче нередко стоят сайты с похожими адресами: посредники, которые сами обращаются к чужой модели, или просто двойники. По названию на странице их не отличишь, отличают их по адресу. Похожий адрес ещё не значит обман, но это уже другой сайт, у которого другой владелец и другие правила.</p>
+<p>Открываем официальный сайт и рассматриваем окно. В нём есть поле ввода и кнопка отправки. Слева тянется список прошлых разговоров. Возле поля стоят переключатели, у разных чатов свои: например, «включить поиск в интернете» или «выбрать модель». Внизу ссылка на условия использования; там написано, кому разрешено пользоваться сервисом, и в том числе с какого возраста.</p>
+<blockquote>
+<p>Всё перечисленное в предыдущем абзаце делает самая обычная программа: рисует окно, хранит разговоры, помнит, кто вошёл. А на вопрос отвечает другая часть, спрятанная глубже.</p>
+<p><strong>Понятие.</strong> <strong><em>Приложение</em></strong> — программа, которой пользуется человек: принимает вопрос, обращается к модели и показывает ответ; чат в браузере — её пример. Строгое определение ты найдёшь в главе 1.</p>
+</blockquote>
+<p><strong>Вывод.</strong> Перед нами приложение — сайт-программа со своим адресом и своими правилами. «Самого ИИ» мы пока не видели.</p>
+<p><em>На карте в рамку «чат» допиши: окно, список разговоров, переключатели, правила.</em></p>
+<h3 id="показ-2-что-внутри">Показ 2. Что внутри<a class="headerlink" href="#показ-2-что-внутри" title="Permanent link">&para;</a></h3>
+<blockquote>
+<p><strong>Вопрос-Прогноз.</strong> Чат называет сегодняшнюю погоду. Откуда он её знает?</p>
+</blockquote>
+<p>Внутри приложения работает та часть, которая и составляет ответы, — языковая модель. Её получили, обучив на огромном количестве текстов, собранных до определённой даты; всё, что случилось позже, само в неё не попадает. Работает модель не на твоём компьютере и не в браузере, а на серверах разработчика. <strong><em>Сервер</em></strong> — компьютер, который по сети интернет отвечает на запросы других программ.</p>
+<blockquote>
+<p><strong>Понятие.</strong> <strong><em>Модель</em></strong> — часть системы, которая по переданным ей сведениям составляет ответ; сама она ничего не открывает — ни сайтов, ни файлов. Строгое определение ты найдёшь в главе 1.</p>
+</blockquote>
+<p>Где же кончается модель и начинается приложение? Это видно на трёх опытах.</p>
+<p><strong>Опыт 1. Свежие сведения.</strong> Поиск в чате выключен. Спрашиваем: «Какая сегодня погода в нашем городе?» Сегодняшнего дня в текстах, на которых учили модель, конечно, нет, и честный ответ звучит примерно так: «У меня нет доступа к текущим данным».</p>
+<p>Теперь включаем поиск и повторяем вопрос. В ответе появляются и погода, и ссылки на страницы. Модель при этом осталась прежней. Изменилось приложение: оно поискало в интернете и добавило найденное к тому, что передало модели.</p>
+<p><strong>Опыт 2. Один вопрос дважды.</strong> В двух новых разговорах просим одно и то же: «Придумай название из двух слов для школьного кружка робототехники». Скорее всего, ответы выйдут разными. Готового ответа модель из хранилища не достаёт: она каждый раз составляет его заново, и выбор слов может получиться другим. Запомни это наблюдение; в конце главы оно объяснит одно неожиданное решение.</p>
+<p><strong>Опыт 3. Новый разговор.</strong> В одном разговоре называем кодовое слово «ласточка» и тут же спрашиваем его. Чат отвечает верно. Открываем новый разговор: «Какое кодовое слово я называл?» Если у приложения выключена память между разговорами, этого слова оно не знает.</p>
+<p>Почему же в первом разговоре знало? Приложение каждый раз отправляет модели не один только новый вопрос, но и все прошлые реплики этого разговора. Модель «помнит» разговор ровно в той мере, в какой ей его прислали. Память между разговорами, если она есть, — тоже забота приложения: это оно сохранило запись и подложило её в новый разговор.</p>
+<blockquote>
+<p><strong>Понятие.</strong> <strong><em>Контекст</em></strong> — всё, что передано модели в данном конкретном обращении: вопрос и то, что программа добавила к нему, например прошлые реплики. Строгое определение ты найдёшь в главе 1.</p>
+</blockquote>
+<p><strong>Вывод.</strong> В наших показах модель получает текст и выдаёт текст. Поиск, история разговора и память между разговорами — работа приложения.</p>
+<blockquote>
+<p><strong>Проверь себя на ходу.</strong> Чат правильно назвал сегодняшнюю погоду. Что нужно выяснить, чтобы сказать, чья это заслуга, модели или приложения?</p>
+</blockquote>
+<p><em>На карте рядом с моделью допиши: получает сведения — составляет ответ. В рамку «чат»: присылает модели историю разговора; умеет искать.</em></p>
+<h3 id="показ-3-модели-разные">Показ 3. Модели разные<a class="headerlink" href="#показ-3-модели-разные" title="Permanent link">&para;</a></h3>
+<blockquote>
+<p><strong>Вопрос-Прогноз.</strong> Одноклассник спрашивает: «Какая нейросеть самая лучшая?» Что ты ему ответишь и о чём спросишь сам?</p>
+</blockquote>
+<p>В переключателе чата не одно название, а несколько: модель не одна на всех. У каждого разработчика своя <strong><em>семья моделей</em></strong> — так мы назовём модели одного разработчика, выпущенные под общим именем. В семье есть старшие и младшие, новые и прежние.</p>
+<blockquote>
+<p><strong>Понятие.</strong> <strong><em>Версия модели</em></strong> — имя и номер выпуска модели, по которым можно сказать, к какому именно варианту модели обращались. Но не путай её с <strong><em>версией собственной процедуры</em></strong>, о которой пойдёт речь в главе 13.</p>
+</blockquote>
+<p>Чем же модели отличаются одна от другой? Разработчики описывают это так. Старшие модели семьи справляются с более трудными задачами, зато отвечают медленнее и обходятся дороже; младшие быстрее и дешевле.</p>
+<p>Новые выпуски обучены на более свежих текстах. Модели различаются и тем, сколько текста могут учесть за одно обращение. Некоторые работают не только с текстом, но и с изображениями. У некоторых есть режим, в котором модель дольше готовит ответ. Но всё это лишь слова разработчика о собственной модели, и подойдёт ли она тебе, из них не узнаешь.</p>
+<p><strong>Проверить это можно самому.</strong></p>
+<ol>
+<li>Возьми шесть-восемь своих задач, ответы на которые тебе известны.</li>
+<li>До запуска запиши критерии: что считать верным ответом, нужен ли ответ в заданном виде, важна ли скорость.</li>
+<li>Задай каждой модели одни и те же задачи одними и теми же словами, каждую — в новом разговоре. Поиск и прочие возможности приложения выключи: иначе ты будешь сравнивать уже приложения.</li>
+<li>Заполни таблицу.</li>
+<li>Вывод делай только о том, что проверил.</li>
+</ol>
+<p>Таблица может выглядеть, например, так. Результаты в ней придуманы для примера, настоящие модели тут ни при чём.</p>
+<table>
+<thead>
+<tr>
+<th>Задача</th>
+<th>Модель А</th>
+<th>Модель Б</th>
+<th>Модель В</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Перевести 72 км/ч в м/с</td>
+<td>верно, 2 с</td>
+<td>верно, 3 с</td>
+<td>верно, 20 с</td>
+</tr>
+<tr>
+<td>Перемножить два пятизначных числа</td>
+<td>неверно, 2 с</td>
+<td>неверно, 3 с</td>
+<td>верно, 40 с</td>
+</tr>
+<tr>
+<td>Сосчитать буквы «о» в длинной фразе</td>
+<td>неверно, 2 с</td>
+<td>верно, 3 с</td>
+<td>верно, 35 с</td>
+</tr>
+<tr>
+<td>Ответить одним числом, без пояснений</td>
+<td>да</td>
+<td>нет</td>
+<td>да</td>
+</tr>
+</tbody>
+</table>
+<p>Что можно прочесть по такой таблице? Для устного счёта хватит быстрой модели А. Где ошибка обходится дорого, нужна модель В, но её ответа приходится ждать: в нашей таблице от 20 до 40 секунд вместо 2–3. Модель Б не послушалась просьбы отвечать одним числом. Какая же из них лучше? Сам вопрос поставлен неверно. Лучше — для чего?</p>
+<p>И ещё три оговорки, без которых вывод будет нечестным. Задач мало. Каждая задана лишь один раз, а по опыту 2 ты знаешь, что от раза к разу ответ меняется. И всё это верно только на одну дату: завтра выйдет новая версия. Как проверять всерьёз — на заранее выбранном наборе случаев и не по одному запуску, — разберём в главе 11. Рейтинги из интернета устроены точно так же, только задачи в них чужие.</p>
+<p><strong>Вывод.</strong> «Лучше» бывает только «лучше для моих задач на эту дату».</p>
+<p><em>На карте рядом с моделью допиши: у модели есть имя и версия.</em></p>
+<h3 id="показ-4-второй-вход-api">Показ 4. Второй вход: API<a class="headerlink" href="#показ-4-второй-вход-api" title="Permanent link">&para;</a></h3>
+<blockquote>
+<p><strong>Вопрос-Прогноз.</strong> Программист хочет, чтобы его собственная программа получала ответы модели. Должна ли программа открывать браузер и печатать в окне чата?</p>
+</blockquote>
+<p>Не должна. Окно чата сделано для человека, а для программ у разработчика модели есть другой вход.</p>
+<blockquote>
+<p><strong>Понятие.</strong> <strong><em>API</em></strong> — вход для программ: способ, которым одна программа обращается к другой по заранее описанным правилам и получает ответ в виде данных; здесь используется обращение к модели без окна чата.</p>
+</blockquote>
+<p>В общих чертах этот вход устроен у разных разработчиков одинаково. Программа отправляет на сервер запрос из четырёх частей: адрес сервиса, ключ, название модели и список сообщений. Обратно приходят данные: текст ответа и служебные сведения — какая модель отвечала и сколько текста было на входе и на выходе. По этому объёму и считают плату. За чат обычно платят подпиской или пользуются им бесплатно, с ограничениями; обращения же через API оплачиваются по объёму текста.</p>
+<blockquote>
+<p><strong>Понятие.</strong> <strong><em>Ключ API</em></strong> — секретная строка, по которой сервис узнаёт, чья программа к нему обращается. Строгое определение ты найдёшь в главе 10, где такие значения называются секретами.</p>
+</blockquote>
+<p>Ключ похож на пароль: кто его знает, тот и тратит деньги владельца. Поэтому ключ не пишут в тексте программы и не кладут в общую папку; программа берёт его из настроек компьютера.</p>
+<p>Ниже показано, как выглядит такое обращение на языке Python (на нём написаны и программы нашего курса) с библиотекой одного из разработчиков. <strong><em>Библиотека</em></strong> — готовый набор программ, который подключают к своей. Пример верен на октябрь 2026 года. Разбирать его строчку за строчкой не нужно: найди в нём только части запроса.</p>
+<div class="highlight"><pre><span></span><code><span class="c1"># пример</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">anthropic</span>
+
+<span class="n">client</span> <span class="o">=</span> <span class="n">anthropic</span><span class="o">.</span><span class="n">Anthropic</span><span class="p">()</span>   <span class="c1"># ключ берётся из настроек компьютера, в коде его нет</span>
+
+<span class="n">answer</span> <span class="o">=</span> <span class="n">client</span><span class="o">.</span><span class="n">messages</span><span class="o">.</span><span class="n">create</span><span class="p">(</span>
+    <span class="n">model</span><span class="o">=</span><span class="s2">&quot;имя-модели&quot;</span><span class="p">,</span>          <span class="c1"># название и версия — из списка разработчика</span>
+    <span class="n">max_tokens</span><span class="o">=</span><span class="mi">200</span><span class="p">,</span>              <span class="c1"># предел длины ответа</span>
+    <span class="n">messages</span><span class="o">=</span><span class="p">[</span>
+        <span class="p">{</span><span class="s2">&quot;role&quot;</span><span class="p">:</span> <span class="s2">&quot;user&quot;</span><span class="p">,</span> <span class="s2">&quot;content&quot;</span><span class="p">:</span> <span class="s2">&quot;Какое кодовое слово я называл?&quot;</span><span class="p">},</span>
+    <span class="p">],</span>
+<span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">answer</span><span class="o">.</span><span class="n">content</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">text</span><span class="p">)</span>
+</code></pre></div>
+<p>Название модели и список сообщений найти нетрудно. В фигурных скобках записано одно сообщение: кто говорит и что сказано. Ключа в коде нет, а адрес известен библиотеке.</p>
+<p>Повторим теперь опыт с кодовым словом, только без чата. Первое обращение: «Кодовое слово нашей экскурсии — „ласточка“. Ответь одним словом: принято». Модель отвечает: «Принято». Второе обращение — та самая программа, что напечатана выше; в ней один лишь вопрос про кодовое слово. Модель ответит, что никакого слова не знает: в этом обращении о ласточке нет ни слова. Сервис из нашего примера разговора не хранит, каждое обращение для него отдельное. Чат, как мы помним, хранит все сообщения и ответы модели в каждом своём разговоре.</p>
+<p>Чтобы модель назвала слово, программа должна прислать весь разговор сама, тремя сообщениями подряд: первую реплику человека, прошлый ответ модели и новый вопрос. Вспомни опыт 3: там историю присылало приложение-чат, и ты этого даже не замечал. Здесь её присылает программа. Или не присылает, если автор об этом не позаботился.</p>
+<blockquote>
+<p><strong>Понятие.</strong> <strong><em>Обвязка</em></strong> — та часть программы, которая стоит между человеком и моделью: собирает то, что будет передано модели, хранит разговор, выполняет действия и следит за ограничениями. Строгое определение ты найдёшь в главе 3.</p>
+</blockquote>
+<p>В чате обвязку написал разработчик чата. При обращении через API готовой обвязки нет, и всё, что чат делал вокруг модели, теперь пишет автор программы.</p>
+<p><strong>Замечание.</strong> Если ключ неверный, сервис вернёт сообщение об ошибке, и до модели запрос вовсе не дойдёт.</p>
+<blockquote>
+<p><strong>Проверь себя на ходу.</strong> Программа отправила модели только последний вопрос, без прошлых реплик. Что модель знает о начале разговора?</p>
+</blockquote>
+<p><strong>Вывод.</strong> Чат — готовая обвязка, которую написали другие. Через API обвязку пишешь сам, и даже историю разговора присылает твоя программа.</p>
+<p><em>На карте в рамку «программа через API» допиши: ключ; запрос и ответ — данные; историю присылает программа.</em></p>
+<h3 id="итог-урока-э1">Итог урока Э1<a class="headerlink" href="#итог-урока-э1" title="Permanent link">&para;</a></h3>
+<table>
+<thead>
+<tr>
+<th></th>
+<th>Чат</th>
+<th>Программа через API</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Кто обращается к модели</td>
+<td>приложение разработчика чата</td>
+<td>твоя программа</td>
+</tr>
+<tr>
+<td>Где история разговора</td>
+<td>у приложения; оно само присылает её модели</td>
+<td>там, где её сохранит программа; присылать должна она</td>
+</tr>
+<tr>
+<td>Кто добавляет поиск и другие возможности</td>
+<td>разработчик чата</td>
+<td>автор программы</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Мини-проверка.</strong> Разнеси шесть наблюдений по двум столбцам: «сделала модель» и «сделало приложение или программа».</p>
+<ol>
+<li>Составлен текст ответа.</li>
+<li>Сохранён список прошлых разговоров.</li>
+<li>Найдена страница в интернете.</li>
+<li>Показан переключатель режимов.</li>
+<li>Модели присланы прошлые реплики.</li>
+<li>Посчитан объём текста для оплаты.</li>
+</ol>
+<p><strong>Ответ.</strong> 1 — модель; 2–6 — приложение или программа. Допустимое уточнение к пункту 3: найденную страницу приложение передаёт модели, и ответ по ней составляет уже модель.</p>
+<h3 id="практика-и-выходной-билет-урока-э1">Практика и выходной билет урока Э1<a class="headerlink" href="#практика-и-выходной-билет-урока-э1" title="Permanent link">&para;</a></h3>
+<p><strong>Трек A.</strong> Заполни таблицу наблюдений для показов 1–4: твой прогноз; что произошло; чья это работа, модели или приложения; вывод в одну фразу. <strong>Результат:</strong> четыре строки таблицы и карта с двумя входами.</p>
+<p><strong>Трек B — необязательный.</strong> Вместе с учителем, в чате, которым школа разрешает пользоваться, повторите показы 1–3: рассмотрите окно, проведите три опыта, а если моделей в чате несколько, сравните две из них на трёх своих задачах. Личных данных не вводите. Результат запишите в ту же таблицу с пометкой «наш опыт» и сравните с книгой. Совпадёт, скорее всего, не всё, и разобраться, что именно разошлось и почему, тоже полезно.</p>
+<p><strong>Выходной билет урока Э1.</strong> Закончи фразу: «В чате историю разговора хранит и присылает модели…, а при обращении через API — …».</p>
+<h2 id="lesson-e2">Урок Э2. Агент и его упряжка<a class="headerlink" href="#lesson-e2" title="Permanent link">&para;</a></h2>
+<p>Вернись к прогнозу, который ты записал после первой сцены. У Ани был чат, то есть приложение, которое присылает модели разговор и показывает ответ. Что было у Марка, мы пока не знаем. С этого и начнём.</p>
+<h3 id="показ-5-чат-советует--агент-делает">Показ 5. Чат советует — агент делает<a class="headerlink" href="#показ-5-чат-советует--агент-делает" title="Permanent link">&para;</a></h3>
+<blockquote>
+<p><strong>Вопрос-Прогноз.</strong> Одно и то же задание получают чат и программа, запущенная прямо в папке с заметками. Что будет разным: ответ или то, что произойдёт вокруг ответа?</p>
+</blockquote>
+<p>Задание такое: «В папке notes лежат 12 заметок с собраний групп. Собери по ним оглавление: по одной строке на заметку — имя файла и заголовок. Сохрани оглавление в файл».</p>
+<p>Сначала чат. Его ответ выглядит примерно так:</p>
+<div class="highlight"><pre><span></span><code># пример
+У меня нет доступа к папкам на вашем компьютере. Пришлите тексты
+заметок — я составлю оглавление. Или подскажу, как собрать его самостоятельно.
+</code></pre></div>
+<p>Именно такой ответ и получила Аня. Чат не сломан: у его приложения нет действия «прочитать файл на компьютере Ани», и модели нечем это сделать. В папке ничего не изменилось.</p>
+<p>Теперь программа, которую показывали Марку. Её запускают в самой папке, через <strong><em>командную строку</em></strong> — окно, где команды программам набирают текстом. Такую программу называют агентом для кода: чаще всего ей поручают работу с файлами программ. Получив то же задание, она действует по шагам:</p>
+<div class="highlight"><pre><span></span><code># пример
+Просматриваю папку notes: найдено 12 файлов.
+Читаю note01.md … note12.md.
+Хочу создать файл notes/INDEX.md. Разрешить?  [да / нет]
+&gt; да
+Файл notes/INDEX.md создан: 12 строк.
+</code></pre></div>
+<p>Посмотрим внимательно, что здесь произошло. Модель участвовала в выборе шагов: сначала посмотреть список файлов, потом прочитать их, потом создать новый. Но сама не выполнила ни одного шага. Папку открывала программа, окружающая модель; файлы читала тоже она и каждый раз показывала модели, что получилось. А перед тем как что-то изменить, программа остановилась и спросила человека.</p>
+<blockquote>
+<p><strong>Понятие.</strong> <strong><em>Агент</em></strong> — система, которая не только отвечает, но и действует: модель участвует в выборе шага, программа выполняет его и показывает модели, что получилось. Строгое определение ты найдёшь в главе 1; как шаги складываются в цикл — в главе 2.</p>
+<p><strong>Понятие.</strong> <strong><em>Инструмент</em></strong> — отдельное действие, которое программа умеет выполнить: прочитать файл, найти в интернете, создать файл. Строгое определение ты найдёшь в главах 1 и 4; как инструменты проектируют — в главах 6–8.</p>
+<p><strong>Понятие.</strong> <strong><em>Подтверждение человеком</em></strong> — вопрос программы человеку перед изменением; без ответа «да» изменение не выполняется. Строгое определение ты найдёшь в главе 14.</p>
+</blockquote>
+<p>Спросит ли агент в следующий раз, зависит от режима, который выбрал человек. В нашем показе агент спрашивает перед каждым изменением. Бывают и режимы, в которых он меняет файлы без вопросов. Такой режим удобнее, и только; безопаснее от него действия ИИ не становятся. Да и вопрос «Разрешить?» ни от чего не защитит, если ты всегда будешь отвечать на него «да», не читая.</p>
+<p>Заметь и ещё одно. Чат из показа 2 умел искать в интернете. Значит, инструмент есть и у него, а во многих чатах модель сама участвует в выборе, искать или нет. Легко решить, что помощник Марка «умнее» чата Ани. На деле они различаются тем, какие действия обвязка дала модели и до чего эти действия могут «дотянуться».</p>
+<blockquote>
+<p><strong>Проверь себя на ходу.</strong> Перед созданием файла агент спросил подтверждение. От чего зависит, спросит ли он в следующий раз?</p>
+</blockquote>
+<p><strong>Вывод.</strong> Агент — это модель вместе с программой, которая даёт ей инструменты, выполняет шаги и, если так настроено, спрашивает подтверждение у человека. Чат без доступа к данным может только советовать.</p>
+<p><em>На карте в рамку «агент для кода» допиши: инструменты — читать, создавать, запускать; подтверждение человека.</em></p>
+<h3 id="показ-6-папка-агента">Показ 6. Папка агента<a class="headerlink" href="#показ-6-папка-агента" title="Permanent link">&para;</a></h3>
+<blockquote>
+<p><strong>Вопрос-Прогноз.</strong> Где агент хранит свои правила и настройки? И можно ли их прочитать?</p>
+</blockquote>
+<p>Учитель открывает папку, в которой работал агент, обычным текстовым редактором. Рядом с заметками в ней лежат ещё четыре вещи.</p>
+<ul>
+<li><strong>Файл инструкций проекта.</strong> Обычный текст с правилами для этой папки. Агент читает его в начале каждого <strong><em>сеанса</em></strong> — так мы назовём одну непрерывную работу с программой.</li>
+<li><strong>Папка настроек.</strong> В ней, среди прочего, записано, какие действия агенту разрешены без вопроса, а какие запрещены. Модель тут ни о чём не просят: это настройка самой программы, и права доступа проверяет обвязка. Подробно о них рассказано в главах 3 и 14.</li>
+<li><strong>Папка с записанными процедурами.</strong> О ней речь пойдёт в следующем показе.</li>
+<li><strong>Файл подключений.</strong> В нём перечислены внешние сервисы, к которым подключён агент. О нём тоже в следующем показе.</li>
+</ul>
+<p>Файл инструкций мог бы выглядеть так:</p>
+<div class="highlight"><pre><span></span><code># пример
+Правила проекта
+- Работай только в этой папке.
+- Не удаляй файлы.
+- Оглавления сохраняй в виде «имя файла — заголовок».
+</code></pre></div>
+<p>Самое главное здесь то, что никакой тайны нет. Правила агента не запрятаны внутрь модели: они лежат в файлах, и, поправив их, можно проверить, изменилось ли поведение.</p>
+<blockquote>
+<p><strong>Справка: имена на октябрь 2026 года.</strong> У агента для кода Claude Code файл инструкций называется <code>CLAUDE.md</code>, папка настроек — <code>.claude</code>, процедуры лежат в папках внутри <code>.claude/skills</code>, а файл подключений — <code>.mcp.json</code>. У других агентов имена другие.</p>
+</blockquote>
+<p>В учебном комплекте нашего курса есть такие же места: папка <a href="../starter/skills/"><code>skills/</code></a> с записанной процедурой и папка <a href="../starter/workspace/my_agent/"><code>workspace/my_agent/</code></a> для настроек твоего собственного помощника. Открывать их пока незачем: вторая понадобится в главе 1, первая — в главе 9.</p>
+<p><strong>Вывод.</strong> Настройка агента — это файлы: их можно открыть, прочитать и исправить. Такие же файлы ты будешь заполнять в курсе.</p>
+<h3 id="показ-7-skill-и-mcp">Показ 7. Skill и MCP<a class="headerlink" href="#показ-7-skill-и-mcp" title="Permanent link">&para;</a></h3>
+<blockquote>
+<p><strong>Вопрос-Прогноз.</strong> Сегодня агент собрал оглавление. Завтра появится другая папка с заметками, а бюро к тому же захочет ставить задачи в сервисе, где ведёт свой проект. Чего агенту не хватает для первого и чего для второго?</p>
+</blockquote>
+<p><strong>Записанная процедура.</strong> Учитель просит агента записать порядок, по которому тот собирал оглавление: когда его применять, какие шаги делать, чего делать нельзя и как понять, что работа готова. Агент спрашивает подтверждение и создаёт в папке процедур новую папку с одним-единственным файлом. Откроем его.</p>
+<div class="highlight"><pre><span></span><code><span class="gh"># пример</span>
+---
+name: make-index
+<span class="gu">description: Собирает оглавление папки с заметками — по строке на заметку. Применять, когда просят оглавление или список заметок.</span>
+<span class="gu">---</span>
+
+<span class="k">1.</span> Просмотри папку и найди файлы заметок.
+<span class="k">2.</span> В каждом файле прочитай первую строку — заголовок.
+<span class="k">3.</span> Запиши строки «имя файла — заголовок» в файл INDEX.md в той же папке.
+
+Не меняй сами заметки. Не удаляй файлы.
+Готово, когда строк в оглавлении столько же, сколько заметок.
+</code></pre></div>
+<p>В файле три части: имя; описание, то есть когда процедуру применять; и шаги вместе с запретами и признаком «готово». На следующий день, получив просьбу собрать оглавление другой папки, агент находит подходящую процедуру по описанию и работает по ней. А может и человек сам назвать её по имени.</p>
+<blockquote>
+<p><strong>Понятие.</strong> <strong><em>Agent Skill</em></strong> (<em>«Навык Агента»</em>) — записанная процедура: папка с файлом <code>SKILL.md</code>, где сказано, когда её применять, по каким шагам работать и как понять, что готово. Строгое определение ты найдёшь в главе 4; как такой файл устроен и как его написать — в главе 9.</p>
+</blockquote>
+<p>Agent Skills придумали не для этого учебника: это открытый формат, и им пользуются разные агенты. Сама процедура ничего не выполняет и новых прав не даёт. Действия по-прежнему совершают инструменты, а разрешает их обвязка.</p>
+<p><strong>Подключение.</strong> Бюро ведёт свой проект во внешнем сервисе — на сайте, где хранят файлы проекта и список задач к нему. Такое хранилище проекта называют <strong><em>репозиторием</em></strong>. Учитель подключает сервис к агенту. До подключения в списке инструментов агента были одни только действия с файлами и командами. После подключения появились новые: «создать задачу», «прочитать список задач». Теперь в ответ на просьбу «поставь задачу „Проверить оглавление“» агент, получив подтверждение, создаёт её в сервисе.</p>
+<blockquote>
+<p><strong>Понятие.</strong> <strong><em>MCP</em></strong> — общий способ подключить к программе внешние инструменты и данные. Строгое определение ты найдёшь в главе 4.</p>
+</blockquote>
+<p>Почему способ назван «общим»? Его не придумывают заново для каждой пары «агент — сервис»: один и тот же способ годится для разных программ и разных сервисов. Однако подключить сервис ещё не значит ему довериться. Всё, что приходит из внешнего сервиса, — чужие данные, и верить им на слово нельзя. Этому посвящена глава 15.</p>
+<p><strong>Вывод.</strong> Инструмент — действие. MCP — способ подключить инструменты и данные. Agent Skill — записанная процедура.</p>
+<p><em>На карте рядом с рамкой «агент для кода» допиши три строки: отдельное действие; подключённый сервис; записанная процедура.</em></p>
+<h3 id="показ-8-всё-вместе">Показ 8. Всё вместе<a class="headerlink" href="#показ-8-всё-вместе" title="Permanent link">&para;</a></h3>
+<blockquote>
+<p><strong>Вопрос-Прогноз.</strong> Нужна маленькая программа: она читает абзац из учебника и печатает три вопроса для самопроверки. Что из трёх — чат, агент, API — понадобится, чтобы её сделать, и для чего именно?</p>
+</blockquote>
+<p>Назовём программу «Вопросник» и проследим её путь от замысла до запуска.</p>
+<p><strong>Шаг 1. Чат помогает обдумать.</strong> Учитель описывает в чате замысел и просит короткий план: какие нужны файлы и как проверить программу. Чат отвечает планом. Кроме текста на экране, ничего не появилось.</p>
+<p><strong>Шаг 2. Агент делает.</strong> План передают агенту для кода, запущенному в пустой папке. Агент создаёт файлы программы, проверяет её на ошибки и сохраняет проект в репозиторий. На каждое изменение он спрашивает подтверждение, а учитель читает и решает, что подтвердить.</p>
+<p><strong>Шаг 3. Программа работает сама.</strong> Готовый «Вопросник» запускает человек, и ни чат, ни агент ему больше не нужны. Внутри программы те же несколько строк, что в показе 4: она обращается к модели через API, передаёт ей абзац и просит три вопроса. Обвязку для неё написал агент, а человек за ним присматривал.</p>
+<p>Одна семья моделей побывала в трёх обвязках; по именам они названы в справке в начале урока Э1. Сведём всё в таблицу.</p>
+<table>
+<thead>
+<tr>
+<th></th>
+<th>Чат</th>
+<th>Агент для кода</th>
+<th>Программа через API</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Где работает</td>
+<td>в браузере; модель — на сервере</td>
+<td>на компьютере, в выбранной папке; модель — на сервере</td>
+<td>внутри твоей программы; модель — на сервере</td>
+</tr>
+<tr>
+<td>Что видит и что может изменить</td>
+<td>то, что ты написал или приложил; в твоей папке не видит ничего</td>
+<td>файлы папки: читает, создаёт, изменяет, запускает команды — в пределах настроек</td>
+<td>только то, что прислала твоя программа; сама ничего не меняет</td>
+</tr>
+<tr>
+<td>Где история и настройки</td>
+<td>у приложения</td>
+<td>в файлах папки и в настройках на компьютере</td>
+<td>там, где их сохранит твоя программа</td>
+</tr>
+<tr>
+<td>Кто отвечает за действие</td>
+<td>действий в твоей папке нет</td>
+<td>человек, который подтвердил действие или выбрал режим без вопросов</td>
+<td>автор программы</td>
+</tr>
+<tr>
+<td>Как обычно платят</td>
+<td>подписка или бесплатно с ограничениями</td>
+<td>подписка или оплата за объём</td>
+<td>оплата за объём текста</td>
+</tr>
+<tr>
+<td>Когда брать</td>
+<td>обдумать, обсудить, объяснить</td>
+<td>сделать работу в файлах под присмотром</td>
+<td>встроить модель в свою программу</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Вывод.</strong> Одна семья моделей — три обвязки. Выбирают по делу:</p>
+<ol>
+<li>обсудить,</li>
+<li>сделать в файлах,</li>
+<li>встроить в программу.</li>
+</ol>
+<h3 id="какие-бывают-агенты">Какие бывают агенты<a class="headerlink" href="#какие-бывают-агенты" title="Permanent link">&para;</a></h3>
+<p>Агент для кода — далеко не единственный вид агента. Различать их проще всего по тому, где они действуют.</p>
+<ul>
+<li>В папке с файлами и в командной строке — как в показах 5–8.</li>
+<li>В браузере: открывают страницы, нажимают кнопки, заполняют формы.</li>
+<li>В почте, календаре и документах.</li>
+<li>Внутри чата — когда чат сам ищет в интернете или что-то вычисляет.</li>
+<li>Собственные: их собирает программист под одну задачу, со своей обвязкой вокруг модели. Таким будет и помощник нашего бюро.</li>
+</ul>
+<p>Любому из них стоит задать три вопроса. Что он может изменить? Кто подтверждает его действия? Где записаны его шаги? Чем уже ответ на первый вопрос и чем точнее ответы на второй и третий, тем спокойнее с таким агентом работать.</p>
+<h3 id="мини-проверка-практика-и-выходной-билет-урока-э2">Мини-проверка, практика и выходной билет урока Э2<a class="headerlink" href="#мини-проверка-практика-и-выходной-билет-урока-э2" title="Permanent link">&para;</a></h3>
+<p><strong>Мини-проверка.</strong> Для каждой ситуации выбери вход: «обсудить в чате», «поручить агенту для кода вместе с учителем» или «написать программу с обращением через API». Объясни выбор по трём вопросам.</p>
+<ol>
+<li>Понять, с чего начать доклад о маятнике.</li>
+<li>Разобрать папку с заметками кружка и собрать по ним сводку в файл.</li>
+<li>Сделать сайт-викторину, где вопросы к каждому тексту составляются автоматически.</li>
+<li>Попросить объяснить непонятное место в параграфе.</li>
+<li>Разложить сорок файлов проекта по папкам, разобравшись, что в каком лежит.</li>
+</ol>
+<p><strong>Ответ.</strong> 1 и 4 — чат: нужно обсудить, менять нечего. 2 и 5 — агент вместе с учителем: работа идёт в файлах, и каждое изменение кто-то должен подтвердить. 3 — программа через API: модель должна отвечать внутри сайта, без человека у окна чата.</p>
+<p><strong>Практика, трек A.</strong> Дополни таблицу наблюдений строками показов 5–8 и закончи карту. <strong>Результат:</strong> восемь строк таблицы и заполненная карта «что есть что».</p>
+<p><strong>Выходной билет урока Э2.</strong> Назови три вопроса, которые нужно задать любому агенту, прежде чем пустить его в папку.</p>
+<h3 id="обязательные-проверки">Обязательные проверки<a class="headerlink" href="#обязательные-проверки" title="Permanent link">&para;</a></h3>
+<table>
+<thead>
+<tr>
+<th>Проверка</th>
+<th>ПРАВИЛЬНО</th>
+<th>НЕПРАВИЛЬНО</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Должен</td>
+<td>в режиме с подтверждением агент создаёт файл только после ответа «да»</td>
+<td>агент спрашивает всегда: на деле это зависит от режима</td>
+</tr>
+<tr>
+<td>Не должен</td>
+<td>чат без доступа к папке ничего в ней не меняет</td>
+<td>чат «ничего не умеет»: у него могут быть свои инструменты, например поиск</td>
+</tr>
+<tr>
+<td>Ошибка</td>
+<td>обращение через API с неверным ключом возвращает сообщение об ошибке</td>
+<td>модель «отказалась отвечать»: до неё запрос даже не дошёл</td>
+</tr>
+<tr>
+<td>Граница</td>
+<td>сравнение моделей — несколько задач, один запуск, одна дата</td>
+<td>«модель А лучше модели Б» вообще</td>
+</tr>
+</tbody>
+</table>
+<h3 id="безопасность">Безопасность<a class="headerlink" href="#безопасность" title="Permanent link">&para;</a></h3>
+<blockquote>
+<p><strong>Безопасность.</strong> Личные данные, свои и чужие, в чат не вводят: всё, что ты написал, уходит на чужой сервер. Ключ — секрет, его не должно быть ни в тексте программы, ни в репозитории, ни в книге. Агента запускают в отдельной папке, а человек читает, что именно подтверждает; режим без вопросов безопасности не прибавляет, скорее наоборот. Адрес сайта проверяют прежде, чем что-нибудь на нём вводить. У сервисов есть возрастные правила: одни рассчитаны только на взрослых, другие допускают школьников лишь с согласия родителей. Учётные записи заводят только с разрешения взрослых и по этим правилам; обходить ограничения сервиса или школы нельзя.</p>
+</blockquote>
+<h2 id="why">Зачем это тебе<a class="headerlink" href="#why" title="Permanent link">&para;</a></h2>
+<ol>
+<li><strong>«ИИ сказал…»</strong> Одноклассник ссылается на ответ ИИ. Задай ему три вопроса: через что он спрашивал; было ли программе откуда узнать то, о чём она говорит, — поиск, файл; на какую дату это верно.</li>
+<li><strong>Доклад или реферат.</strong> Чат не видит твой файл, пока ты его не передал, а всё переданное уходит на чужой сервер. Что можно передавать и чей это сайт, решают до первого сообщения.</li>
+<li><strong>Проект кружка.</strong> Замысел удобно обсудить в чате. Работа в папке — дело агента, и только вместе с учителем. Встроить модель в свою программу — это обращение через API; в нашем курсе оно остаётся необязательным продолжением.</li>
+</ol>
+<h2 id="check">Проверь себя<a class="headerlink" href="#check" title="Permanent link">&para;</a></h2>
+<ol>
+<li>Чем приложение-чат отличается от модели?</li>
+<li>Откуда модель в чате «знает» начало разговора?</li>
+<li>На два одинаковых вопроса пришли два разных ответа. Что из этого следует для проверки ответов?</li>
+<li>Что значит «эта модель лучше» и как проверить это для своей задачи?</li>
+<li>Что программа должна прислать через API, чтобы модель учла прошлые реплики?</li>
+<li>По каким трём вопросам сравнить чат без доступа к папке и агента для кода?</li>
+<li>В папке агента лежат файл инструкций проекта, файл с записанной процедурой и файл подключений. За что отвечает каждый?</li>
+<li>Найди ошибку: «Агент спросил подтверждение — значит, действие безопасно».</li>
+<li>Что в этой главе — общий принцип, а что верно только на дату справки?</li>
+</ol>
+<h3 id="ответы">Ответы<a class="headerlink" href="#ответы" title="Permanent link">&para;</a></h3>
+<ol>
+<li>Модель составляет ответ по переданным сведениям. Приложение принимает вопрос, передаёт сведения модели и показывает ответ.</li>
+<li>Приложение каждый раз присылает ей прошлые реплики этого разговора.</li>
+<li>По одному ответу судить нельзя: ответ проверяют, а сравнения повторяют.</li>
+<li>«Лучше» бывает только для своих задач и критериев на определённую дату. Проверяют на наборе задач с известными ответами, в одинаковых условиях.</li>
+<li>Весь прошлый разговор: иначе модель о прошлых репликах не узнает.</li>
+<li>Что система может изменить; кто подтверждает действие; где записаны шаги.</li>
+<li>Файл инструкций — правила для этой папки; файл процедуры — как выполнять повторяемую работу; файл подключений — список внешних сервисов.</li>
+<li>Подтверждение защищает, только если человек читает, что подтверждает; и задаётся вопрос не во всяком режиме.</li>
+<li>Принцип — роли и то, кто что делает. На дату справки верны названия продуктов, имена файлов настроек и возможности конкретных чатов.</li>
+</ol>
+<h2 id="homework">Домашняя работа — необязательно<a class="headerlink" href="#homework" title="Permanent link">&para;</a></h2>
+<p>Выбери одну систему с ИИ, о которой ты слышал; пользоваться ею для этого не нужно. Запиши, что это: приложение-чат, агент или программа, которая сама обращается к модели? По каким признакам ты так решил и что нужно узнать, чтобы это проверить?</p>
+<h2 id="glossary">Словарь главы<a class="headerlink" href="#glossary" title="Permanent link">&para;</a></h2>
+<p>Все формулировки здесь рабочие, такие же, как в рамках «Понятие». Точные определения даны в главах, названных в третьем столбце.</p>
+<table>
+<thead>
+<tr>
+<th>Слово в этой главе-экскурсии</th>
+<th>Понятие</th>
+<th>Строгое определение: статья словаря и глава</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>модель</td>
+<td>часть системы, которая по переданным ей сведениям составляет ответ; сама она ничего не открывает — ни сайтов, ни файлов</td>
+<td>Языковая модель / LLM — глава 1</td>
+</tr>
+<tr>
+<td>приложение (чат)</td>
+<td>программа, которой пользуется человек: принимает вопрос, обращается к модели и показывает ответ; чат в браузере — её пример</td>
+<td>ИИ-приложение — глава 1</td>
+</tr>
+<tr>
+<td>контекст</td>
+<td>всё, что передано модели в данном конкретном обращении: вопрос и то, что программа добавила к нему, например прошлые реплики</td>
+<td>Контекст — глава 1</td>
+</tr>
+<tr>
+<td>версия модели</td>
+<td>имя и номер выпуска модели, по которым можно сказать, к какому именно варианту модели обращались</td>
+<td>слово вводной главы</td>
+</tr>
+<tr>
+<td>API</td>
+<td>вход для программ: способ, которым одна программа обращается к другой по заранее описанным правилам и получает ответ в виде данных</td>
+<td>слово вводной главы</td>
+</tr>
+<tr>
+<td>ключ API</td>
+<td>секретная строка, по которой сервис узнаёт, чья программа к нему обращается</td>
+<td>Secret / секрет — глава 10</td>
+</tr>
+<tr>
+<td>обвязка</td>
+<td>та часть программы, которая стоит между человеком и моделью: собирает то, что будет передано модели, хранит разговор, выполняет действия и следит за ограничениями</td>
+<td>Harness / agent harness — глава 3</td>
+</tr>
+<tr>
+<td>агент</td>
+<td>система, которая не только отвечает, но и действует: модель участвует в выборе шага, программа выполняет его и показывает модели, что получилось</td>
+<td>ИИ-агент — глава 1</td>
+</tr>
+<tr>
+<td>инструмент</td>
+<td>отдельное действие, которое программа умеет выполнить: прочитать файл, найти в интернете, создать файл</td>
+<td>Tool / инструмент — главы 1 и 4</td>
+</tr>
+<tr>
+<td>подтверждение человеком</td>
+<td>вопрос программы человеку перед изменением; без ответа «да» изменение не выполняется</td>
+<td>Human approval / подтверждение человеком — глава 14</td>
+</tr>
+<tr>
+<td>Agent Skill</td>
+<td>записанная процедура: папка с файлом <code>SKILL.md</code>, где сказано, когда её применять, по каким шагам работать и как понять, что готово</td>
+<td>Agent Skill — глава 4; <code>SKILL.md</code> — глава 9</td>
+</tr>
+<tr>
+<td>MCP</td>
+<td>общий способ подключить к программе внешние инструменты и данные</td>
+<td>MCP / Model Context Protocol — глава 4</td>
+</tr>
+</tbody>
+</table>
+<h2 id="return">Возвращаемся к первоначальной сцене<a class="headerlink" href="#return" title="Permanent link">&para;</a></h2>
+<p>Теперь на вопрос Ани можно ответить. У неё был чат — приложение без доступа к папке бюро. Оно передало модели просьбу, модель составила ответ, и ответ этот оказался советом: действия «прочитать файлы Ани» у этого приложения нет. У Марка был агент, запущенный прямо в папке. Его обвязка дала модели инструменты — просмотреть папку, прочитать файлы, создать новый — и перед изменением спросила Марка.</p>
+<p>Что же было одинаковым? Возможно, модель, а вернее, семья моделей; поэтому и название на экране совпало. Что было разным? Обвязка: что она передаёт модели, какие действия умеет выполнять и о чём спрашивает человека. ИИ Ани не был сломан, и ИИ Марка не был умнее.</p>
+<p>Как это можно было проверить? Спрашивать «какой у тебя ИИ» почти бесполезно. Надо задать три вопроса:</p>
+<ol>
+<li>Что этой программе доступно?</li>
+<li>Какие действия она умеет выполнять?</li>
+<li>О чём она спрашивает человека?</li>
+</ol>
+<p>Аня и Марк решают собрать для бюро собственного помощника. С этого начинается глава 1.</p>
+<h2 id="bridge">Мост к главе 1 учебника<a class="headerlink" href="#bridge" title="Permanent link">&para;</a></h2>
+<p>Напоследок два честных предупреждения.</p>
+<p><strong>Первое.</strong> На экскурсии работали живые системы. В практиках курса живой модели почти не будет: её место займёт учебная заглушка, а позже — ответы, подготовленные заранее. Одну причину ты уже видел в опыте 2: на один и тот же вопрос живая модель отвечает по-разному, и класс не смог бы сверить результаты. Об остальных причинах сказано во Введении, в разделе «Почему здесь не сразу живая модель».</p>
+<p><strong>Второе.</strong> Агент для кода на экскурсии создавал файлы и сохранял проект в репозиторий. Помощник, которого будешь строить ты, намеренно устроен скромнее: он читает учебные карточки задач и готовит черновик, а изменить что-либо может только после решения человека. Зато его можно разобрать целиком, до последней проверки, и доказать, что именно он сделал. О нём рассказано во Введении, в разделе «Что мы будем строить».</p>
+<p>Эта глава-экскурсия показала, что есть что. Как всё это устроено внутри и как самому запрограммировать агента, она не объясняла. Начнём с вопроса, который с виду проще всех.</p>
+<blockquote>
+<p><strong>Следующий вопрос.</strong> Кто отвечает, а кто действует?</p>
+</blockquote>
+<p>Ответ ты найдёшь в главе 1, «Модель, приложение и агент».</p>
+
+
+
+
+
+
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+    
+      
+      <nav class="md-footer__inner md-grid" aria-label="Нижний колонтитул" >
+        
+          
+          <a href="../intro/" class="md-footer__link md-footer__link--prev" aria-label="Назад: Введение">
+            <div class="md-footer__button md-icon">
+              
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+            </div>
+            <div class="md-footer__title">
+              <span class="md-footer__direction">
+                Назад
+              </span>
+              <div class="md-ellipsis">
+                Введение
+              </div>
+            </div>
+          </a>
+        
+        
+          
+          <a href="../ch01/" class="md-footer__link md-footer__link--next" aria-label="Вперед: Глава 1. Модель, приложение и агент: кто отвечает, а кто действует?">
+            <div class="md-footer__title">
+              <span class="md-footer__direction">
+                Вперед
+              </span>
+              <div class="md-ellipsis">
+                Глава 1. Модель, приложение и агент: кто отвечает, а кто действует?
+              </div>
+            </div>
+            <div class="md-footer__button md-icon">
+              
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M4 11v2h12l-5.5 5.5 1.42 1.42L19.84 12l-7.92-7.92L10.5 5.5 16 11z"/></svg>
+            </div>
+          </a>
+        
+      </nav>
+    
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+    <div class="md-copyright__highlight">
+      Редакция r0002 · 2026-10-14 · техническая редакция, пилот не проводился
+    </div>
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    
+      
+      
+      <script id="__config" type="application/json">{"annotate": null, "base": "../..", "features": ["content.code.copy", "navigation.sections", "navigation.footer", "search.highlight"], "search": "../../assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "\u0421\u043a\u043e\u043f\u0438\u0440\u043e\u0432\u0430\u043d\u043e \u0432 \u0431\u0443\u0444\u0435\u0440", "clipboard.copy": "\u041a\u043e\u043f\u0438\u0440\u043e\u0432\u0430\u0442\u044c \u0432 \u0431\u0443\u0444\u0435\u0440", "search.result.more.one": "\u0415\u0449\u0451 1 \u043d\u0430 \u044d\u0442\u043e\u0439 \u0441\u0442\u0440\u0430\u043d\u0438\u0446\u0435", "search.result.more.other": "\u0415\u0449\u0451 # \u043d\u0430 \u044d\u0442\u043e\u0439 \u0441\u0442\u0440\u0430\u043d\u0438\u0446\u0435", "search.result.none": "\u0421\u043e\u0432\u043f\u0430\u0434\u0435\u043d\u0438\u0439 \u043d\u0435 \u043d\u0430\u0439\u0434\u0435\u043d\u043e", "search.result.one": "\u041d\u0430\u0439\u0434\u0435\u043d\u043e 1 \u0441\u043e\u0432\u043f\u0430\u0434\u0435\u043d\u0438\u0435", "search.result.other": "\u041d\u0430\u0439\u0434\u0435\u043d\u043e \u0441\u043e\u0432\u043f\u0430\u0434\u0435\u043d\u0438\u0439: #", "search.result.placeholder": "\u041d\u0430\u0447\u043d\u0438\u0442\u0435 \u043f\u0435\u0447\u0430\u0442\u0430\u0442\u044c \u0434\u043b\u044f \u043f\u043e\u0438\u0441\u043a\u0430", "search.result.term.missing": "\u041e\u0442\u0441\u0443\u0442\u0441\u0442\u0432\u0443\u0435\u0442", "select.version": "\u0412\u044b\u0431\u0435\u0440\u0438\u0442\u0435 \u0432\u0435\u0440\u0441\u0438\u044e"}, "version": {"provider": "mike"}}</script>
+    
+    
+      <script src="../../assets/javascripts/bundle.79ae519e.min.js"></script>
+      
+    
+  </body>
+</html>

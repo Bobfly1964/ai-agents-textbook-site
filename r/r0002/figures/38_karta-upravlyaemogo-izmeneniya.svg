@@ -1,0 +1,74 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 820" width="800" height="820" role="img" aria-labelledby="t d">
+  <title id="t">Фигура 38. Карта управляемого изменения</title>
+  <desc id="d">Глава 13, урок 26, раздел 5 «Центральный артефакт: карта управляемого изменения». Цепочка по схеме главы: неуспешный Test case и evidence → Feedback → Change proposal → Version A и Version B → diff → один и тот же Eval-набор → Regression? да / нет → revert / keep; справа — какой вопрос закрывает каждый шаг (по таблице главы).</desc>
+  <defs>
+    <marker id="arrow" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="8" markerHeight="8" orient="auto-start-reverse">
+      <path d="M0,0 L10,5 L0,10 z" fill="#52606D"/>
+    </marker>
+  </defs>
+  <rect x="0" y="0" width="800" height="820" fill="#FFFFFF"/>
+  <g font-family="PT Sans, DejaVu Sans, Arial, sans-serif" font-size="20" fill="#1F2933" text-anchor="middle">
+    <!-- заголовки столбцов -->
+    <text x="216" y="36" font-size="18" fill="#52606D">Шаг</text>
+    <text x="448" y="36" font-size="18" fill="#52606D" text-anchor="start">Какой вопрос закрываем</text>
+    <!-- 0. evidence -->
+    <rect class="stage" data-role="evidence" x="16" y="52" width="400" height="64" rx="6" fill="#F5F7FA" stroke="#52606D" stroke-width="1.5"/>
+    <text x="216" y="79">неуспешный Test case</text>
+    <text x="216" y="105">+ evidence</text>
+    <text x="448" y="91" font-size="18" text-anchor="start">что наблюдаемо произошло?</text>
+    <line x1="216" y1="116" x2="216" y2="142" stroke="#52606D" stroke-width="1.5" marker-end="url(#arrow)"/>
+    <!-- 1. Feedback -->
+    <rect class="stage" data-role="feedback" x="16" y="144" width="400" height="52" rx="6" fill="#F5F7FA" stroke="#52606D" stroke-width="1.5"/>
+    <text x="216" y="177">Feedback</text>
+    <text x="448" y="177" font-size="18" text-anchor="start">что требует внимания?</text>
+    <line x1="216" y1="196" x2="216" y2="222" stroke="#52606D" stroke-width="1.5" marker-end="url(#arrow)"/>
+    <!-- 2. Change proposal -->
+    <rect class="stage" data-role="proposal" x="16" y="224" width="400" height="52" rx="6" fill="#F5F7FA" stroke="#52606D" stroke-width="1.5"/>
+    <text x="216" y="257">Change proposal</text>
+    <text x="448" y="257" font-size="18" text-anchor="start">что хотим поменять?</text>
+    <!-- 3. Version A → Version B -->
+    <polyline points="216,276 216,290 101,290 101,302" fill="none" stroke="#52606D" stroke-width="1.5" marker-end="url(#arrow)"/>
+    <rect class="stage" data-role="version" x="16" y="304" width="170" height="52" rx="6" fill="#F5F7FA" stroke="#52606D" stroke-width="1.5"/>
+    <text x="101" y="337">Version A</text>
+    <line x1="186" y1="330" x2="244" y2="330" stroke="#52606D" stroke-width="1.5" marker-end="url(#arrow)"/>
+    <rect class="stage" data-role="version" x="246" y="304" width="170" height="52" rx="6" fill="#F5F7FA" stroke="#52606D" stroke-width="1.5"/>
+    <text x="331" y="337">Version B</text>
+    <text x="448" y="337" font-size="18" text-anchor="start">что именно сравниваем?</text>
+    <polyline points="101,356 101,370 216,370 216,382" fill="none" stroke="#52606D" stroke-width="1.5" marker-end="url(#arrow)"/>
+    <polyline points="331,356 331,370 216,370" fill="none" stroke="#52606D" stroke-width="1.5"/>
+    <!-- 4. diff -->
+    <rect class="stage" data-role="diff" x="16" y="384" width="400" height="52" rx="6" fill="#F5F7FA" stroke="#52606D" stroke-width="1.5"/>
+    <text x="216" y="417">diff</text>
+    <text x="448" y="417" font-size="18" text-anchor="start">что изменилось?</text>
+    <line x1="216" y1="436" x2="216" y2="462" stroke="#52606D" stroke-width="1.5" marker-end="url(#arrow)"/>
+    <!-- 5. тот же Eval-набор -->
+    <rect class="stage" data-role="eval" x="16" y="464" width="400" height="52" rx="6" fill="#F5F7FA" stroke="#1D4ED8" stroke-width="1.5"/>
+    <text x="216" y="497">один и тот же Eval-набор</text>
+    <text x="448" y="485" font-size="18" text-anchor="start">как изменилось</text>
+    <text x="448" y="509" font-size="18" text-anchor="start">проверяемое поведение?</text>
+    <line x1="216" y1="516" x2="216" y2="542" stroke="#52606D" stroke-width="1.5" marker-end="url(#arrow)"/>
+    <!-- 6. Regression? -->
+    <rect class="stage" data-role="regression" x="16" y="544" width="400" height="52" rx="6" fill="#F5F7FA" stroke="#1D4ED8" stroke-width="1.5"/>
+    <text x="216" y="577">Regression? да / нет</text>
+    <text x="448" y="565" font-size="18" text-anchor="start">что ранее работало,</text>
+    <text x="448" y="589" font-size="18" text-anchor="start">а теперь нет?</text>
+    <!-- 7. revert / keep -->
+    <polyline points="216,596 216,612 101,612 101,642" fill="none" stroke="#52606D" stroke-width="1.5" marker-end="url(#arrow)"/>
+    <polyline points="216,612 331,612 331,642" fill="none" stroke="#52606D" stroke-width="1.5" marker-end="url(#arrow)"/>
+    <text x="91" y="634" font-size="18" text-anchor="end">да</text>
+    <text x="341" y="634" font-size="18" text-anchor="start">нет</text>
+    <rect class="stage" data-role="decision" x="16" y="644" width="170" height="52" rx="6" fill="#F5F7FA" stroke="#52606D" stroke-width="1.5"/>
+    <text x="101" y="677" font-family="PT Mono, DejaVu Sans Mono, monospace">revert</text>
+    <rect class="stage" data-role="decision" x="246" y="644" width="170" height="52" rx="6" fill="#F5F7FA" stroke="#52606D" stroke-width="1.5"/>
+    <text x="331" y="677" font-family="PT Mono, DejaVu Sans Mono, monospace">keep</text>
+    <text x="448" y="665" font-size="18" text-anchor="start">какую Version</text>
+    <text x="448" y="689" font-size="18" text-anchor="start">выбираем дальше?</text>
+    <!-- подписи-неравенства -->
+    <g font-family="PT Mono, DejaVu Sans Mono, monospace" font-size="18" text-anchor="middle">
+      <rect x="220" y="724" width="360" height="40" rx="6" fill="#F5F7FA" stroke="#1F2933" stroke-width="1.5" stroke-dasharray="6 4"/>
+      <text class="inequality" x="400" y="750">proposal ≠ new norm</text>
+      <rect x="220" y="772" width="360" height="40" rx="6" fill="#F5F7FA" stroke="#1F2933" stroke-width="1.5" stroke-dasharray="6 4"/>
+      <text class="inequality" x="400" y="798">diff ≠ eval</text>
+    </g>
+  </g>
+</svg>

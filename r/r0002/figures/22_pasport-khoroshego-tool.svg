@@ -1,0 +1,48 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 780" width="800" height="780" role="img" aria-labelledby="t d">
+  <title id="t">Фигура 22. Паспорт хорошего tool</title>
+  <desc id="d">Глава 8, урок 15, раздел 3 «Contract: что обещает операция». Паспорт tool — восемь отдельных строк в порядке name → scope → contract → description → arguments schema → positive / negative / error: поле паспорта и вопрос, на который оно отвечает (по таблице паспорта главы). Внизу — три неравенства с полей паспорта.</desc>
+  <rect x="0" y="0" width="800" height="780" fill="#FFFFFF"/>
+  <g font-family="PT Sans, DejaVu Sans, Arial, sans-serif" font-size="20" fill="#1F2933">
+    <!-- заголовки столбцов -->
+    <text x="36" y="46" font-size="18" fill="#52606D">Поле паспорта</text>
+    <text x="262" y="46" font-size="18" fill="#52606D">Вопрос</text>
+    <!-- восемь отдельных строк, сверху вниз в порядке паспорта -->
+    <rect class="row" data-role="row" x="24" y="60" width="752" height="60" rx="6" fill="#F5F7FA" stroke="#1D4ED8" stroke-width="1.5"/>
+    <text x="36" y="97" font-family="PT Mono, DejaVu Sans Mono, monospace">name</text>
+    <text x="262" y="96" font-size="18">Как точно называется операция?</text>
+    <rect class="row" data-role="row" x="24" y="128" width="752" height="60" rx="6" fill="#F5F7FA" stroke="#1D4ED8" stroke-width="1.5"/>
+    <text x="36" y="165" font-family="PT Mono, DejaVu Sans Mono, monospace">scope</text>
+    <text x="262" y="164" font-size="18">Где её задача начинается и заканчивается?</text>
+    <rect class="row" data-role="row" x="24" y="196" width="752" height="60" rx="6" fill="#F5F7FA" stroke="#1D4ED8" stroke-width="1.5"/>
+    <text x="36" y="233" font-family="PT Mono, DejaVu Sans Mono, monospace">contract</text>
+    <text x="262" y="221" font-size="18">Что она принимает, возвращает, ограничивает</text>
+    <text x="262" y="245" font-size="18">и как ошибается?</text>
+    <rect class="row" data-role="row" x="24" y="264" width="752" height="60" rx="6" fill="#F5F7FA" stroke="#1D4ED8" stroke-width="1.5"/>
+    <text x="36" y="301" font-family="PT Mono, DejaVu Sans Mono, monospace">description</text>
+    <text x="262" y="289" font-size="18">Как кратко объяснить назначение,</text>
+    <text x="262" y="313" font-size="18">«когда» и «когда не»?</text>
+    <rect class="row" data-role="row" x="24" y="332" width="752" height="60" rx="6" fill="#F5F7FA" stroke="#1D4ED8" stroke-width="1.5"/>
+    <text x="36" y="369" font-family="PT Mono, DejaVu Sans Mono, monospace">arguments schema</text>
+    <text x="262" y="368" font-size="18">Какая структура arguments допустима?</text>
+    <rect class="row" data-role="row" x="24" y="400" width="752" height="60" rx="6" fill="#F5F7FA" stroke="#1D4ED8" stroke-width="1.5"/>
+    <text x="36" y="437" font-family="PT Mono, DejaVu Sans Mono, monospace">positive test</text>
+    <text x="262" y="436" font-size="18">Какой случай обязан привести к этой операции?</text>
+    <rect class="row" data-role="row" x="24" y="468" width="752" height="60" rx="6" fill="#F5F7FA" stroke="#1D4ED8" stroke-width="1.5"/>
+    <text x="36" y="505" font-family="PT Mono, DejaVu Sans Mono, monospace">negative test</text>
+    <text x="262" y="504" font-size="18">Какой похожий случай не должен привести к ней?</text>
+    <rect class="row" data-role="row" x="24" y="536" width="752" height="60" rx="6" fill="#F5F7FA" stroke="#1D4ED8" stroke-width="1.5"/>
+    <text x="36" y="573" font-family="PT Mono, DejaVu Sans Mono, monospace">error case</text>
+    <text x="262" y="561" font-size="18">Какой некорректный вход или сбой должен</text>
+    <text x="262" y="585" font-size="18">обрабатываться явно?</text>
+    <line x1="252" y1="60" x2="252" y2="596" stroke="#52606D" stroke-width="1" stroke-dasharray="3 3"/>
+    <!-- подписи-неравенства -->
+    <g font-family="PT Mono, DejaVu Sans Mono, monospace" font-size="18" text-anchor="middle">
+      <rect x="160" y="620" width="480" height="40" rx="6" fill="#F5F7FA" stroke="#1F2933" stroke-width="1.5" stroke-dasharray="6 4"/>
+      <text class="inequality" x="400" y="646">scope ≠ permission</text>
+      <rect x="160" y="668" width="480" height="40" rx="6" fill="#F5F7FA" stroke="#1F2933" stroke-width="1.5" stroke-dasharray="6 4"/>
+      <text class="inequality" x="400" y="694">contract ≠ schema</text>
+      <rect x="160" y="716" width="480" height="40" rx="6" fill="#F5F7FA" stroke="#1F2933" stroke-width="1.5" stroke-dasharray="6 4"/>
+      <text class="inequality" x="400" y="742">schema valid ≠ правильный выбор tool</text>
+    </g>
+  </g>
+</svg>

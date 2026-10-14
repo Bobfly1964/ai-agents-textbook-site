@@ -1,0 +1,88 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 726" width="800" height="726" role="img" aria-labelledby="t d">
+  <title id="t">Фигура 48. Один агент / Subagent / человек</title>
+  <desc id="d">Глава 16, урок 32, раздел 3 «Кто отвечает за итог». Одна и та же подзадача в трёх архитектурах; в каждой — карта ответственности главы: исполнитель → Handoff → проверка → Owner → итоговое решение. Меняется исполнитель или Owner, но Owner везде назван отдельно от исполнителя.</desc>
+  <defs>
+    <marker id="arrow" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="8" markerHeight="8" orient="auto-start-reverse">
+      <path d="M0,0 L10,5 L0,10 z" fill="#52606D"/>
+    </marker>
+  </defs>
+  <rect x="0" y="0" width="800" height="726" fill="#FFFFFF"/>
+  <g font-family="PT Sans, DejaVu Sans, Arial, sans-serif" font-size="20" fill="#1F2933" text-anchor="middle">
+    <!-- заголовки столбцов: три архитектуры (название фигуры) -->
+    <text class="column-head" x="144" y="40" fill="#52606D">Один агент</text>
+    <text class="column-head" x="400" y="40" fill="#52606D">Subagent</text>
+    <text class="column-head" x="656" y="40" fill="#52606D">человек</text>
+    <!-- одна подзадача на все три архитектуры -->
+    <rect data-role="subtask" x="24" y="58" width="752" height="48" rx="6" fill="#F5F7FA" stroke="#52606D" stroke-width="1.5"/>
+    <text x="400" y="88">подзадача — одинаковая для трёх архитектур</text>
+    <!-- Один агент -->
+    <g stroke="#52606D" stroke-width="1.5" fill="none" marker-end="url(#arrow)">
+      <line x1="144" y1="106" x2="144" y2="132"/>
+      <line x1="144" y1="204" x2="144" y2="232"/>
+      <line x1="144" y1="282" x2="144" y2="310"/>
+      <line x1="144" y1="360" x2="144" y2="388"/>
+      <line x1="144" y1="460" x2="144" y2="488"/>
+    </g>
+    <rect class="executor" data-role="executor" x="24" y="134" width="240" height="70" rx="6" fill="#F5F7FA" stroke="#1D4ED8" stroke-width="1.5"/>
+    <text x="144" y="164" font-size="18">исполнитель</text>
+    <text x="144" y="190">тот же агент</text>
+    <rect class="handoff" data-role="handoff" x="24" y="234" width="240" height="48" rx="6" fill="#F5F7FA" stroke="#52606D" stroke-width="1.5"/>
+    <text x="144" y="265">Handoff</text>
+    <rect class="check" data-role="check" x="24" y="312" width="240" height="48" rx="6" fill="#F5F7FA" stroke="#52606D" stroke-width="1.5"/>
+    <text x="144" y="343">проверка</text>
+    <rect class="owner" data-role="owner" x="24" y="390" width="240" height="70" rx="6" fill="#FFFFFF" stroke="#B45309" stroke-width="2"/>
+    <text x="144" y="420">Owner</text>
+    <text x="144" y="446" font-size="18" font-family="PT Mono, DejaVu Sans Mono, monospace">project-team</text>
+    <rect class="final" data-role="final" x="24" y="490" width="240" height="48" rx="6" fill="#F5F7FA" stroke="#52606D" stroke-width="1.5"/>
+    <text x="144" y="520" font-size="18">итоговое решение</text>
+    <!-- Subagent -->
+    <g stroke="#52606D" stroke-width="1.5" fill="none" marker-end="url(#arrow)">
+      <line x1="400" y1="106" x2="400" y2="132"/>
+      <line x1="400" y1="204" x2="400" y2="232"/>
+      <line x1="400" y1="282" x2="400" y2="310"/>
+      <line x1="400" y1="360" x2="400" y2="388"/>
+      <line x1="400" y1="460" x2="400" y2="488"/>
+    </g>
+    <rect class="executor" data-role="executor" x="280" y="134" width="240" height="70" rx="6" fill="#F5F7FA" stroke="#1D4ED8" stroke-width="1.5"/>
+    <text x="400" y="164" font-size="18">исполнитель</text>
+    <text x="400" y="190">Subagent</text>
+    <rect class="handoff" data-role="handoff" x="280" y="234" width="240" height="48" rx="6" fill="#F5F7FA" stroke="#52606D" stroke-width="1.5"/>
+    <text x="400" y="265">Handoff</text>
+    <rect class="check" data-role="check" x="280" y="312" width="240" height="48" rx="6" fill="#F5F7FA" stroke="#52606D" stroke-width="1.5"/>
+    <text x="400" y="343">проверка</text>
+    <rect class="owner" data-role="owner" x="280" y="390" width="240" height="70" rx="6" fill="#FFFFFF" stroke="#B45309" stroke-width="2"/>
+    <text x="400" y="420">Owner</text>
+    <text x="400" y="446" font-size="18" font-family="PT Mono, DejaVu Sans Mono, monospace">project-team</text>
+    <rect class="final" data-role="final" x="280" y="490" width="240" height="48" rx="6" fill="#F5F7FA" stroke="#52606D" stroke-width="1.5"/>
+    <text x="400" y="520" font-size="18">итоговое решение</text>
+    <!-- человек -->
+    <g stroke="#52606D" stroke-width="1.5" fill="none" marker-end="url(#arrow)">
+      <line x1="656" y1="106" x2="656" y2="132"/>
+      <line x1="656" y1="204" x2="656" y2="232"/>
+      <line x1="656" y1="282" x2="656" y2="310"/>
+      <line x1="656" y1="360" x2="656" y2="388"/>
+      <line x1="656" y1="460" x2="656" y2="488"/>
+    </g>
+    <rect class="executor" data-role="executor" x="536" y="134" width="240" height="70" rx="6" fill="#F5F7FA" stroke="#1D4ED8" stroke-width="1.5"/>
+    <text x="656" y="164" font-size="18">исполнитель</text>
+    <text x="656" y="190">агент</text>
+    <rect class="handoff" data-role="handoff" x="536" y="234" width="240" height="48" rx="6" fill="#F5F7FA" stroke="#52606D" stroke-width="1.5"/>
+    <text x="656" y="265">Handoff</text>
+    <rect class="check" data-role="check" x="536" y="312" width="240" height="48" rx="6" fill="#F5F7FA" stroke="#52606D" stroke-width="1.5"/>
+    <text x="656" y="343">проверка</text>
+    <rect class="owner" data-role="owner" x="536" y="390" width="240" height="70" rx="6" fill="#FFFFFF" stroke="#B45309" stroke-width="2"/>
+    <text x="656" y="420">Owner</text>
+    <text x="656" y="446" font-size="18">человек</text>
+    <rect class="final" data-role="final" x="536" y="490" width="240" height="48" rx="6" fill="#F5F7FA" stroke="#52606D" stroke-width="1.5"/>
+    <text x="656" y="520" font-size="18">итоговое решение</text>
+    <!-- подписи-неравенства -->
+    <g font-family="PT Mono, DejaVu Sans Mono, monospace" font-size="18">
+      <rect x="180" y="566" width="440" height="40" rx="6" fill="#F5F7FA" stroke="#1F2933" stroke-width="1.5" stroke-dasharray="6 4"/>
+      <text class="inequality" x="400" y="592">Subagent ≠ smarter system</text>
+      <rect x="180" y="614" width="440" height="40" rx="6" fill="#F5F7FA" stroke="#1F2933" stroke-width="1.5" stroke-dasharray="6 4"/>
+      <text class="inequality" x="400" y="640">Owner ≠ executor</text>
+      <rect x="180" y="662" width="440" height="40" rx="6" fill="#F5F7FA" stroke="#1F2933" stroke-width="1.5" stroke-dasharray="6 4"/>
+      <text class="inequality" x="400" y="688">Handoff ≠ more permissions</text>
+    </g>
+  </g>
+</svg>

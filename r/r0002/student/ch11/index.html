@@ -1,0 +1,2852 @@
+
+<!doctype html>
+<html lang="ru" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+        <meta name="description" content="Учебник для 9–10 классов">
+      
+      
+      
+        <link rel="canonical" href="https://book.stemschool.online/r0002/student/ch11/">
+      
+      
+        <link rel="prev" href="../ch10/">
+      
+      
+        <link rel="next" href="../ch12/">
+      
+      
+        
+      
+      
+      <link rel="icon" href="../../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.6">
+    
+    
+      
+        <title>Глава 11. Тесты и evals: как доказать качество не одним удачным запуском? - ИИ-агенты и Agent Skills</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../assets/stylesheets/main.484c7ddc.min.css">
+      
+        
+        <link rel="stylesheet" href="../../assets/stylesheets/palette.ab4e12ef.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+    <script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+  </head>
+  
+  
+    
+    
+      
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="indigo">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#глава-11-тесты-и-evals-как-доказать-качество-не-одним-удачным-запуском" class="md-skip">
+          Перейти к содержанию
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+        <aside class="md-banner">
+          <div class="md-banner__inner md-grid md-typeset">
+            
+            
+  
+    <strong>Техническая редакция: пилот не проводился</strong> · редакция r0002
+  
+
+          </div>
+          
+        </aside>
+      
+    </div>
+    
+      <div data-md-color-scheme="default" data-md-component="outdated" hidden>
+        
+      </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Верхний колонтитул">
+    <a href="../.." title="ИИ-агенты и Agent Skills" class="md-header__button md-logo" aria-label="ИИ-агенты и Agent Skills" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            ИИ-агенты и Agent Skills
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Глава 11. Тесты и evals: как доказать качество не одним удачным запуском?
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+        <form class="md-header__option" data-md-component="palette">
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="indigo"  aria-hidden="true"  type="radio" name="__palette" id="__palette_0">
+    
+  
+</form>
+      
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+      
+      
+        <label class="md-header__button md-icon" for="__search">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        </label>
+        <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Поиск" placeholder="Поиск" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Поиск">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Очистить" aria-label="Очистить" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Инициализация поиска
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+      
+    
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+
+<nav class="md-nav md-nav--primary" aria-label="Навигация" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../.." title="ИИ-агенты и Agent Skills" class="md-nav__button md-logo" aria-label="ИИ-агенты и Agent Skills" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    ИИ-агенты и Agent Skills
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../.." class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Главная
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    
+    
+    
+    
+      
+        
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2" checked>
+        
+          
+          <label class="md-nav__link" for="__nav_2" id="__nav_2_label" tabindex="">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Ученик
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_2">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Ученик
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../intro/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Введение
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../tour/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Экскурсия по AI: что есть что
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../ch01/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Глава 1. Модель, приложение и агент: кто отвечает, а кто действует?
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../ch02/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Глава 2. Агентный цикл: как результат действия меняет следующий шаг?
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../ch03/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Глава 3. Agent harness: что работает вокруг модели?
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../ch04/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Глава 4. Prompt, structured output, tool, MCP и Agent Skill: какие задачи решают разные уровни системы?
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../ch05/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Глава 5. Договор задачи: что нужно определить до реализации?
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../ch06/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Глава 6. Первый tool
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../ch07/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Глава 7. Диспетчер и ошибки
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../ch08/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Глава 8. Хороший tool
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../ch09/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Глава 9. Первый Agent Skill
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../ch10/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Глава 10. Состояние и память
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Глава 11. Тесты и evals: как доказать качество не одним удачным запуском?
+  
+
+    
+  </span>
+  
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Глава 11. Тесты и evals: как доказать качество не одним удачным запуском?
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Содержание">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Содержание
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#scene" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        С чего всё началось
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#goals" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        После главы ты сможешь
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#lesson-21" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Урок 21. От теста к Eval
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Урок 21. От теста к Eval">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#1-один-правильный-случай--ещё-не-ответ" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1. Один правильный случай — ещё не ответ
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#2-проверка-на-наборе-случаев" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2. Проверка на наборе случаев
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#3-центральный-артефакт-таблица-доказательств" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3. Центральный артефакт: таблица доказательств
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#4-две-дорожки-harness-и-model_behavior" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        4. Две дорожки: harness и model_behavior
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#5-фиксируем-исходную-точку" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        5. Фиксируем исходную точку
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#6-практика-a-шесть-карточек-вместо-одного-красивого-примера" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        6. Практика A: шесть карточек вместо одного красивого примера
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#7-практика-b-читаем-честный-результат-программы" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        7. Практика B: читаем честный результат программы
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#8-мини-проверка-урока-21" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        8. Мини-проверка урока 21
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="8. Мини-проверка урока 21">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#ответы" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Ответы
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#выходной-билет-урока-21" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Выходной билет урока 21
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#lesson-22" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Урок 22. Сравниваем две версии на одном наборе
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Урок 22. Сравниваем две версии на одном наборе">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#1-сравнение-ломается-если-одновременно-менять-правила" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1. Сравнение ломается, если одновременно менять правила
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#2-критерии-должны-быть-одинаковыми" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2. Критерии должны быть одинаковыми
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#3-сводим-результаты-в-долю" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3. Сводим результаты в долю
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#4-почему-один-процент-не-заменяет-таблицу" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        4. Почему один процент не заменяет таблицу
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#5-практика-a-слепое-сравнение-двух-комплектов" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        5. Практика A: слепое сравнение двух комплектов
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#6-практика-b-фиксируем-baseline-отчёт" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        6. Практика B: фиксируем Baseline-отчёт
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#7-обязательные-проверки-должен--не-должен--ошибка--граница" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        7. Обязательные проверки: должен / не должен / ошибка / граница
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="7. Обязательные проверки: должен / не должен / ошибка / граница">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#должен" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Должен
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#не-должен" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Не должен
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#ошибка" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Ошибка
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#граница" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Граница
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#8-врезка-безопасности-критический-провал-не-усредняется" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        8. Врезка безопасности: критический провал не усредняется
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#9-мини-проверка-урока-22" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        9. Мини-проверка урока 22
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="9. Мини-проверка урока 22">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#ответы_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Ответы
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#выходной-билет-урока-22" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Выходной билет урока 22
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#homework" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Домашняя работа
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#why" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Зачем это тебе
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#dezhurny" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Шаг сквозного проекта
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Шаг сквозного проекта">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#достраиваем-дежурного" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Достраиваем «Дежурного»
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#return" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Возвращаемся к сцене
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#check" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Проверь себя
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Проверь себя">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#ответы_2" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Ответы
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#glossary" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Словарь главы
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#bridge" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Мост к главе 12
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../ch12/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Глава 12. Traces: как понять, что происходило на самом деле?
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../ch13/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Глава 13. Обратная связь и версии: когда исправление должно менять процедуру?
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../ch14/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Глава 14. Permissions и участие человека
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../ch15/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Глава 15. Prompt injection и недоверенные подключения: что делать с данными и кодом, которым нельзя автоматически доверять?
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../ch16/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Глава 16. Долгая и совместная работа
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../ch17/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Глава 17. Итоговый проект: может ли команда доказать качество и ограниченность системы?
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../app-a/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Приложение А. Урок 0. Готовность рабочего места
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../app-b/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Приложение Б. Словарь курса
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../app-c/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Приложение В. Список фигур
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+        
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3" >
+        
+          
+          <label class="md-nav__link" for="__nav_3" id="__nav_3_label" tabindex="">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Учитель
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Учитель
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../teacher/teacher-guide/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Методическое руководство для учителя
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../teacher/lesson-map/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Поурочная карта
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../routes/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Маршруты A/B
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../files/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Файлы практикума
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../about/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Выходные данные
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Содержание">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Содержание
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#scene" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        С чего всё началось
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#goals" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        После главы ты сможешь
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#lesson-21" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Урок 21. От теста к Eval
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Урок 21. От теста к Eval">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#1-один-правильный-случай--ещё-не-ответ" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1. Один правильный случай — ещё не ответ
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#2-проверка-на-наборе-случаев" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2. Проверка на наборе случаев
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#3-центральный-артефакт-таблица-доказательств" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3. Центральный артефакт: таблица доказательств
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#4-две-дорожки-harness-и-model_behavior" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        4. Две дорожки: harness и model_behavior
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#5-фиксируем-исходную-точку" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        5. Фиксируем исходную точку
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#6-практика-a-шесть-карточек-вместо-одного-красивого-примера" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        6. Практика A: шесть карточек вместо одного красивого примера
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#7-практика-b-читаем-честный-результат-программы" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        7. Практика B: читаем честный результат программы
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#8-мини-проверка-урока-21" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        8. Мини-проверка урока 21
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="8. Мини-проверка урока 21">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#ответы" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Ответы
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#выходной-билет-урока-21" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Выходной билет урока 21
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#lesson-22" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Урок 22. Сравниваем две версии на одном наборе
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Урок 22. Сравниваем две версии на одном наборе">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#1-сравнение-ломается-если-одновременно-менять-правила" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1. Сравнение ломается, если одновременно менять правила
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#2-критерии-должны-быть-одинаковыми" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2. Критерии должны быть одинаковыми
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#3-сводим-результаты-в-долю" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3. Сводим результаты в долю
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#4-почему-один-процент-не-заменяет-таблицу" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        4. Почему один процент не заменяет таблицу
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#5-практика-a-слепое-сравнение-двух-комплектов" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        5. Практика A: слепое сравнение двух комплектов
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#6-практика-b-фиксируем-baseline-отчёт" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        6. Практика B: фиксируем Baseline-отчёт
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#7-обязательные-проверки-должен--не-должен--ошибка--граница" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        7. Обязательные проверки: должен / не должен / ошибка / граница
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="7. Обязательные проверки: должен / не должен / ошибка / граница">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#должен" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Должен
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#не-должен" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Не должен
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#ошибка" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Ошибка
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#граница" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Граница
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#8-врезка-безопасности-критический-провал-не-усредняется" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        8. Врезка безопасности: критический провал не усредняется
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#9-мини-проверка-урока-22" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        9. Мини-проверка урока 22
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="9. Мини-проверка урока 22">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#ответы_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Ответы
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#выходной-билет-урока-22" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Выходной билет урока 22
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#homework" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Домашняя работа
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#why" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Зачем это тебе
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#dezhurny" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Шаг сквозного проекта
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Шаг сквозного проекта">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#достраиваем-дежурного" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Достраиваем «Дежурного»
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#return" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Возвращаемся к сцене
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#check" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Проверь себя
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Проверь себя">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#ответы_2" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Ответы
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#glossary" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Словарь главы
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#bridge" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Мост к главе 12
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+
+<h1 id="глава-11-тесты-и-evals-как-доказать-качество-не-одним-удачным-запуском">Глава 11. Тесты и evals: как доказать качество не одним удачным запуском?<a class="headerlink" href="#глава-11-тесты-и-evals-как-доказать-качество-не-одним-удачным-запуском" title="Permanent link">&para;</a></h1>
+<h2 id="scene">С чего всё началось<a class="headerlink" href="#scene" title="Permanent link">&para;</a></h2>
+<p>До Фестиваля науки осталось несколько дней. Программа «Дежурный» подготовила статус-сводку проектного бюро: правильно назвала заблокированную задачу, указала следующий шаг и не включила лишних подробностей. Аня показала результат команде и сказала, что теперь можно считать систему готовой к проверочной работе.</p>
+<p>Марк не спорил. Он положил рядом ещё три карточки: в одной две задачи подходили под один запрос, в другой поиск ничего не находил, а в третьей человек просил выполнить действие, которого системе не разрешали. Потом он спросил: «Мы знаем, что один раз получилось. А откуда мы знаем, что “Дежурный” вообще работает хорошо?»</p>
+<p>На первый взгляд удачная сводка даёт основание согласиться с Аней. Но рядом с одним проверенным случаем лежат три непроверенных. О первом команда знает, что программа получила правильный результат. О трёх остальных пока известно только, какие ситуации предстоит проверить. Реакцию системы на остальные карточки команда ещё не наблюдала.</p>
+<blockquote>
+<p><strong>Вопрос-Прогноз.</strong> Достаточно ли одного удачного запуска, чтобы заявить, что система работает хорошо? Если нет, какие наблюдаемые свидетельства ты потребуешь до такого вывода?</p>
+<p><strong>Главный вопрос главы.</strong> Как доказать качество не одним удачным запуском?</p>
+</blockquote>
+<p><img alt="Фигура 30. Один успех против набора случаев" src="../../figures/30_odin-uspekh-protiv-nabora-sluchaev.png" /></p>
+<p><em>Фигура 30. Один успех против набора случаев</em></p>
+<h2 id="goals">После главы ты сможешь<a class="headerlink" href="#goals" title="Permanent link">&para;</a></h2>
+<ul>
+<li>отличать одну заранее заданную ситуацию от воспроизводимой проверки на заранее выбранном наборе случаев;</li>
+<li>составлять набор случаев с заранее указанным наблюдаемым поведением;</li>
+<li>отделять программные проверки приложения от оценки поведения модели;</li>
+<li>объяснять, почему авторский сценарий не является доказательством надёжности живой модели;</li>
+<li>фиксировать исходный результат перед изменениями;</li>
+<li>применять заранее записанные критерии и вычислять долю пройденных проверок;</li>
+<li>сравнивать результаты только на одинаковых случаях и критериях;</li>
+<li>замечать ситуацию, где высокий общий процент скрывает критическое нарушение безопасности.</li>
+</ul>
+<hr />
+<h2 id="lesson-21">Урок 21. От теста к Eval<a class="headerlink" href="#lesson-21" title="Permanent link">&para;</a></h2>
+<h3 id="1-один-правильный-случай--ещё-не-ответ">1. Один правильный случай — ещё не ответ<a class="headerlink" href="#1-один-правильный-случай--ещё-не-ответ" title="Permanent link">&para;</a></h3>
+<p>В главе 8 ты уже работал с Test case — тестовым случаем. Вспомним определение: <strong>Test case / тестовый случай — заранее заданная ситуация с ожидаемым наблюдаемым поведением.</strong> Например, перед проверкой <code>task-003</code> ты записываешь ожидаемое действие или результат. Перед подачей ошибочного входа ты записываешь, какой отказ должен быть заметен.</p>
+<p>Один Test case заставляет заменить впечатление наблюдением. Но на какой вопрос отвечает такой случай? Только на вопрос «что система сделала в этой ситуации?». Даже идеально пройденный положительный пример ничего не говорит о случаях, которых в проверке не было:</p>
+<ol>
+<li>запрос допускает несколько толкований;</li>
+<li>поиск не даёт результата;</li>
+<li>доступная операция завершается ошибкой;</li>
+<li>человек просит выполнить запрещённое действие.</li>
+</ol>
+<p>Чтобы проверить разные ситуации, мы заранее выбираем несколько случаев и для каждого записываем, какое наблюдаемое поведение будем считать успехом. Затем применяем записанные правила. Проверку можно повторить, а не только показать однажды удачный результат.</p>
+<blockquote>
+<p><strong>Проверь себя на ходу.</strong> Система правильно обработала один запрос из десяти возможных типов. Что именно доказал этот запуск — и чего он не доказал?</p>
+</blockquote>
+<h3 id="2-проверка-на-наборе-случаев">2. Проверка на наборе случаев<a class="headerlink" href="#2-проверка-на-наборе-случаев" title="Permanent link">&para;</a></h3>
+<p>На столе бюро теперь лежит не одна удачная сводка, а набор ситуаций с записанными ожиданиями. Команда может проверить каждый случай, сохранить результат и повторить проверку по прежним правилам. Назовём такой способ оценки.</p>
+<p><strong>Eval — воспроизводимая оценка поведения системы на заранее определённом наборе случаев и критериев.</strong></p>
+<p><strong><em>Eval</em></strong> означает оценку. Вместо вопроса «понравился ли нам ответ?» мы задаём три вопроса:</p>
+<ol>
+<li>Какие случаи мы заранее выбрали?</li>
+<li>Какое наблюдаемое поведение считаем успехом в каждом случае?</li>
+<li>Можем ли мы повторить проверку по записанным правилам?</li>
+</ol>
+<p>Когда случаи и критерии названы явно, легче увидеть, что результат подтверждает, а чего не подтверждает. Eval не равен одному запуску или красивому отчёту и не гарантирует качество за пределами выбранного набора. Если в наборе нет запрещённого действия, успешная оценка ничего не доказывает о реакции на запрет. Если в набор вошли только лёгкие ситуации, высокий результат относится только к этим ситуациям.</p>
+<p>Сравним Eval с контрольной работой: всем дают одинаковые задачи и заранее сообщают правила проверки. Набор задач соответствует случаям для системы, а правила проверки соответствуют критериям оценки. Контрольная не выявляет все знания ученика, как и Eval не устанавливает все свойства системы. Сравнение помогает понять только одно: правила не меняются по ходу проверки.</p>
+<p>Набор случаев тоже нужно назвать точно. <strong>Dataset / набор случаев — заранее выбранный и зафиксированный набор test cases, на котором проводится Eval.</strong></p>
+<p><strong><em>Dataset</em></strong> переводится как «набор данных»; здесь речь идёт именно о наборе тестовых случаев. Dataset фиксирует, что мы проверяем. Если заменить случаи, изменится смысл результата: новый результат уже нельзя сравнивать с прежним.</p>
+<h3 id="3-центральный-артефакт-таблица-доказательств">3. Центральный артефакт: таблица доказательств<a class="headerlink" href="#3-центральный-артефакт-таблица-доказательств" title="Permanent link">&para;</a></h3>
+<p>Как связать вывод о «Дежурном» с наблюдением? Запишем для каждого случая ожидание, результат и основание для оценки. В учебной программе проверки разделены на две группы:</p>
+<ol>
+<li>Метка <code>harness</code> относится к программным инвариантам приложения — знакомым по главе 2 правилам, которые обязаны выполняться всегда.</li>
+<li>Метка <code>model_behavior</code> относится к реальным решениям модели.</li>
+</ol>
+<p>Подготовленный автором сценарий помечается <code>scripted</code>, то есть «задан сценарием». Пока живого результата нет, сценарий помогает отлаживать приложение, но не входит в численную оценку поведения модели.</p>
+<p>В колонке ожидаемого поведения слово «терминал» означает знакомый по главе 2 итог запуска: <code>success</code>, <code>needs_input</code>, <code>error</code> или <code>limit</code>.</p>
+<p>Образец таблицы содержит семь колонок:</p>
+<table>
+<thead>
+<tr>
+<th>случай</th>
+<th>слой</th>
+<th>ожидаемое наблюдаемое поведение</th>
+<th>фактический результат</th>
+<th>входит в счёт?</th>
+<th>причина</th>
+<th>исходная отметка</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>one_match</code></td>
+<td>harness</td>
+<td>терминал <code>success</code></td>
+<td>…</td>
+<td>да</td>
+<td>программный инвариант</td>
+<td>…</td>
+</tr>
+<tr>
+<td><code>two_matches</code></td>
+<td>harness</td>
+<td>терминал <code>needs_input</code></td>
+<td>…</td>
+<td>да</td>
+<td>неоднозначность не угадывается</td>
+<td>…</td>
+</tr>
+<tr>
+<td><code>missing_file</code></td>
+<td>harness</td>
+<td>явная ошибка после разрешённого повтора</td>
+<td>…</td>
+<td>да</td>
+<td>ошибка не скрыта</td>
+<td>…</td>
+</tr>
+<tr>
+<td>поведение модели A</td>
+<td><code>model_behavior</code></td>
+<td>заранее записанный критерий</td>
+<td>scripted</td>
+<td>нет</td>
+<td>нет подтверждённого живого результата</td>
+<td>…</td>
+</tr>
+</tbody>
+</table>
+<p>Каждую строку нужно прочитать как ответы на три отдельных вопроса:</p>
+<ol>
+<li>Что мы хотим проверить?</li>
+<li>Какой наблюдаемый признак подтвердит успех?</li>
+<li>Насколько широкий вывод разрешает этот признак?</li>
+</ol>
+<p>Например, терминал <code>needs_input</code> при двух подходящих карточках показывает, что программа не стала угадывать, какая карточка нужна. Чтобы подтвердить, что лишнее действие не выполнялось, нужно проверить и отсутствие действия. Эти наблюдения относятся к данному случаю, а не к любой возможной неоднозначности.</p>
+<p>Критерий стоит проверить ещё до запуска. По записи «система ведёт себя разумно» непонятно, что искать в результате. Запись «при двух подходящих карточках программа завершает запуск с <code>needs_input</code> и не выполняет лишнее действие» задаёт два наблюдаемых признака. Другая группа сможет проверить оба признака, даже если не участвовала в первом запуске и не знает ожиданий авторов.</p>
+<p>Здесь легко подменить проверку подгонкой: увидеть результат, а затем придумать подходящий критерий. Если до запуска ожидался <code>needs_input</code>, неожиданно полученный <code>success</code> нельзя задним числом объявить успехом проверки. Критерий должен быть записан заранее, иначе мы не отличим подтверждённое ожидание от удобного объяснения.</p>
+<p>Для <code>model_behavior</code> критерий тоже задаётся заранее, но требуется свидетельство реального решения модели. При отсутствии живого ответа строка не получает ни успех, ни провал: у строки нет подтверждённого результата. Отсутствие свидетельства нельзя превратить в хороший или плохой балл.</p>
+<p>Представим, что бюро получило два одинаковых текста сводки. Один текст автор заранее написал для показа, а второй в условном сеансе сформировала модель. Совпадение слов не делает происхождение текстов одинаковым. Первый текст помогает проверить работу приложения с подготовленным ответом; второй можно рассматривать как наблюдение поведения модели, если происхождение ответа подтверждено.</p>
+<p>Колонка «входит в счёт?» не даёт смешать эти свидетельства. Harness-проверка подтверждает соблюдение программного правила в выбранном случае. Авторский сценарий помогает отладить последовательность шагов. Но без реального решения модели сценарий не может попасть в число случаев, которые «прошла модель».</p>
+<p>С главы 6 действует правило: replay воспроизводит авторский сценарий. Даже если replay проходит через тот же интерфейс, что и живой ответ, происхождение результата не меняется.</p>
+<h3 id="4-две-дорожки-harness-и-model_behavior">4. Две дорожки: harness и <code>model_behavior</code><a class="headerlink" href="#4-две-дорожки-harness-и-model_behavior" title="Permanent link">&para;</a></h3>
+<p>Из главы 3 тебе знакомы harness и runtime, из главы 7 — Dispatcher, а из главы 8 — Validator. Вспомним, какую работу выполняет каждая часть:</p>
+<ol>
+<li>Harness организует работу приложения.</li>
+<li>Dispatcher связывает разрешённое имя операции с функцией.</li>
+<li>Validator проверяет входные данные.</li>
+<li>Runtime фактически выполняет действие.</li>
+</ol>
+<p>Tool означает отдельную операцию из главы 1. Многие правила работы приложения можно проверить детерминированно, без решения живой модели. Например, от программы требуется следующее:</p>
+<ol>
+<li>Отклонить неизвестный tool.</li>
+<li>Явно сообщить об ошибке.</li>
+<li>Соблюсти лимит.</li>
+<li>Не выполнять лишний вызов после терминала.</li>
+</ol>
+<p>Проверка каждого правила относится к коду приложения.</p>
+<p>Отдельно нужно наблюдать, как реальная модель выбирает действие или формирует ответ. Авторский replay такого наблюдения не заменяет. Если подтверждённых живых результатов нет, для <code>model_behavior</code> указывают статус, исключающий численную оценку модели.</p>
+<p>Поэтому фраза «агент прошёл 90%» без состава проверок ничего не объясняет. Что вошло в эти 90%: программные проверки, scripted-сценарии или реальные решения модели? В нашей таблице источники результатов всегда разделены.</p>
+<blockquote>
+<p><strong>Проверь себя на ходу.</strong> Шесть harness-проверок прошли, а для поведения живой модели нет подтверждённых сеансов. Можно ли написать «модель прошла 6 из 6»? Почему?</p>
+</blockquote>
+<h3 id="5-фиксируем-исходную-точку">5. Фиксируем исходную точку<a class="headerlink" href="#5-фиксируем-исходную-точку" title="Permanent link">&para;</a></h3>
+<p>Допустим, сегодня «Дежурный» проходит все наши программные случаи. Завтра Марк изменит описание tool или <code>SKILL.md</code>, знакомый с главы 9 файл процедуры. Новый удачный запуск сам по себе не покажет, что изменилось. С чем сравнить новый результат? С записью проверки до изменения.</p>
+<p><strong>Baseline — зафиксированный исходный уровень поведения, с которым сравниваются изменения.</strong></p>
+<p><strong><em>Baseline</em></strong> переводится как «исходный уровень». В такой записи указано, какое поведение система показала до изменения. Baseline нужен, чтобы сравнивать результаты, а не впечатления. При различии результатов можно проверить, совпадали ли случаи и правила оценивания.</p>
+<p>Исходный уровень не запрещено превзойти, и запись Baseline не доказывает, что исходная версия была хорошей. Плохой результат тоже годится как точка сравнения: после исправления будет видно, какие проверки начали проходить.</p>
+<p>Baseline похож на отметку роста на дверном косяке. Отметка фиксирует прежний рост, но не предписывает, каким рост должен быть. Через месяц измерение можно повторить по той же шкале. У сравнения есть граница: Baseline хранит не физическую величину, а результат проверки системы на определённых случаях и критериях.</p>
+<h3 id="6-практика-a-шесть-карточек-вместо-одного-красивого-примера">6. Практика A: шесть карточек вместо одного красивого примера<a class="headerlink" href="#6-практика-a-шесть-карточек-вместо-одного-красивого-примера" title="Permanent link">&para;</a></h3>
+<p>Работай в паре. Получи шесть карточек, каждая из которых задаёт отдельную ситуацию:</p>
+<ol>
+<li>Поиск даёт один однозначный результат.</li>
+<li>Запрос допускает несколько вариантов.</li>
+<li>Поиск не даёт результата.</li>
+<li>Чтение завершается ошибкой.</li>
+<li>Запуск достигает лимита.</li>
+<li>Человек запрашивает запрещённое действие.</li>
+</ol>
+<p>Для каждой карточки заполни три поля:</p>
+<ol>
+<li>Укажи входные данные.</li>
+<li>Запиши ожидаемое наблюдаемое поведение.</li>
+<li>Опиши, что будет считаться провалом.</li>
+</ol>
+<p>Начни не с оценки «хорошо/плохо», а с признака, который можно увидеть: нужного терминала или отказа до выполнения. Для других случаев признаком может быть явная ошибка или отсутствие лишнего действия. Если критерий звучит «ответ должен быть разумным», уточни критерий до наблюдаемого признака. Если уточнить критерий пока не удаётся, отметь, что текущая формулировка непроверяема.</p>
+<p>Затем вместе с напарником раздели карточки на две группы. Проверка кода, не зависящая от выбора модели, относится к harness. Проверка, требующая реального решения модели, относится к <code>model_behavior</code>. При отсутствии живого результата оставь такой случай вне численной оценки модели. Не придумывай результат.</p>
+<p><strong>Результат практики A:</strong> план Eval из шести случаев и заполненные первые три колонки центральной таблицы доказательств.</p>
+<h3 id="7-практика-b-читаем-честный-результат-программы">7. Практика B: читаем честный результат программы<a class="headerlink" href="#7-практика-b-читаем-честный-результат-программы" title="Permanent link">&para;</a></h3>
+<p>В знакомом с главы 1 starter есть локальная программа <code>eval_runner.py</code>. Одна команда запускает подготовленные проверки и отдельно показывает результаты harness и <code>model_behavior</code>. Читать код программы для выполнения этой практики не требуется.</p>
+<p>Программа берёт набор случаев из папки <code>workspace/evals/</code>. Индекс занимает шесть строк без метки файла:</p>
+<div class="highlight"><pre><span></span><code><span class="err">#</span><span class="w"> </span><span class="err">файл</span><span class="p">:</span><span class="w"> </span><span class="err">workspace/evals/</span><span class="kc">test</span><span class="err">_cases.jso</span><span class="kc">n</span>
+<span class="p">{</span>
+<span class="w">  </span><span class="nt">&quot;format_version&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">2</span><span class="p">,</span>
+<span class="w">  </span><span class="nt">&quot;harness&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;harness_cases.json&quot;</span><span class="p">,</span>
+<span class="w">  </span><span class="nt">&quot;model_behavior&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;model_behavior_cases.json&quot;</span><span class="p">,</span>
+<span class="w">  </span><span class="nt">&quot;note&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;Индекс двух разных классов проверок; общей доли успешности модели нет.&quot;</span>
+<span class="p">}</span>
+</code></pre></div>
+<p>Индекс называет два файла: один с программными проверками, другой со сценариями поведения модели. Собственных случаев в индексе нет. Строка <code>note</code> предупреждает, что общий показатель для двух групп не вычисляется.</p>
+<p>Перед запуском сделай прогноз. Если программные проверки проходят, а подтверждённых живых сеансов модели ещё нет, должна ли программа выдавать процент качества модели? Должна ли программа объявлять проект полностью готовым к публикации? Счётчик <code>verified_sessions</code> показывает число подтверждённых живых сеансов, а <code>publication_ready</code> служит флагом готовности проекта к публикации.</p>
+<div class="highlight"><pre><span></span><code><span class="c1"># запуск из корня starter</span>
+python<span class="w"> </span>eval_runner.py<span class="w"> </span>--summary
+</code></pre></div>
+<div class="highlight"><pre><span></span><code>harness: 6/6 passed
+model_behavior: not_evaluated (verified_sessions: 0; scripted: 3, excluded from scoring)
+publication_ready: false (classroom_pilot_pending, live_model_evidence_pending)
+</code></pre></div>
+<p>Сопоставь три строки вывода с тремя отдельными утверждениями:</p>
+<ol>
+<li>Подготовленные программные проверки прошли: шесть из шести.</li>
+<li>Поведение живой модели не оценено: подтверждённых сеансов нет, а три авторских сценария исключены из подсчёта.</li>
+<li>Проект пока не готов к публикации: ещё нужны учебный пилот и свидетельства работы живой модели.</li>
+</ol>
+<p>Локальный успех harness не заменяет недостающие свидетельства. Полный отчёт позволяет увидеть, из каких случаев сложился каждый результат. Чтобы получить отчёт, запусти программу без флага:</p>
+<div class="highlight"><pre><span></span><code><span class="c1"># запуск из корня starter</span>
+python<span class="w"> </span>eval_runner.py
+</code></pre></div>
+<div class="highlight"><pre><span></span><code>{
+  &quot;harness&quot;: {
+    &quot;passed&quot;: 6,
+    &quot;total&quot;: 6,
+    &quot;cases&quot;: [
+      {
+        &quot;id&quot;: &quot;allowlist&quot;,
+        &quot;passed&quot;: true
+      },
+      {
+        &quot;id&quot;: &quot;pathless_contract&quot;,
+        &quot;passed&quot;: true
+      },
+      {
+        &quot;id&quot;: &quot;workspace_boundary&quot;,
+        &quot;passed&quot;: true
+      },
+      {
+        &quot;id&quot;: &quot;proposal_no_write&quot;,
+        &quot;passed&quot;: true
+      },
+      {
+        &quot;id&quot;: &quot;step_budget&quot;,
+        &quot;passed&quot;: true
+      },
+      {
+        &quot;id&quot;: &quot;retry_terminal&quot;,
+        &quot;passed&quot;: true
+      }
+    ]
+  },
+  &quot;model_behavior&quot;: {
+    &quot;status&quot;: &quot;not_evaluated&quot;,
+    &quot;verified_sessions&quot;: 0,
+    &quot;cases&quot;: [
+      {
+        &quot;id&quot;: &quot;must-produce-grounded-report&quot;,
+        &quot;status&quot;: &quot;scripted&quot;,
+        &quot;scoring&quot;: &quot;excluded&quot;,
+        &quot;actual_terminal&quot;: &quot;success&quot;,
+        &quot;expected_script_terminal&quot;: &quot;success&quot;,
+        &quot;script_contract_matches&quot;: true,
+        &quot;model_quality_verified&quot;: false
+      },
+      {
+        &quot;id&quot;: &quot;must-ask-on-ambiguity&quot;,
+        &quot;status&quot;: &quot;scripted&quot;,
+        &quot;scoring&quot;: &quot;excluded&quot;,
+        &quot;actual_terminal&quot;: &quot;needs_input&quot;,
+        &quot;expected_script_terminal&quot;: &quot;needs_input&quot;,
+        &quot;script_contract_matches&quot;: true,
+        &quot;model_quality_verified&quot;: false
+      },
+      {
+        &quot;id&quot;: &quot;must-treat-injection-as-data&quot;,
+        &quot;status&quot;: &quot;scripted&quot;,
+        &quot;scoring&quot;: &quot;excluded&quot;,
+        &quot;actual_terminal&quot;: &quot;success&quot;,
+        &quot;expected_script_terminal&quot;: &quot;success&quot;,
+        &quot;script_contract_matches&quot;: true,
+        &quot;model_quality_verified&quot;: false
+      }
+    ]
+  },
+  &quot;model_quality_gate&quot;: &quot;pending_verified_live_evidence_and_review&quot;,
+  &quot;publication_ready&quot;: false,
+  &quot;publication_blockers&quot;: [
+    &quot;classroom_pilot_pending&quot;,
+    &quot;live_model_evidence_pending&quot;
+  ]
+}
+</code></pre></div>
+<p>В <code>harness.cases</code> перечислены шесть программных проверок:</p>
+<ol>
+<li>Проверка <code>allowlist</code> относится к списку разрешённых операций.</li>
+<li>Проверка <code>pathless_contract</code> относится к отсутствию пути в arguments.</li>
+<li>Проверка <code>workspace_boundary</code> относится к границе рабочей папки.</li>
+<li>Проверка <code>proposal_no_write</code> относится к предложению изменения без записи.</li>
+<li>Проверка <code>step_budget</code> относится к бюджету шагов.</li>
+<li>Проверка <code>retry_terminal</code> относится к повтору с итоговым терминалом.</li>
+</ol>
+<p>У всех шести проверок стоит <code>passed: true</code>; именно эти строки дают <code>6/6</code>. Это список из отчёта программы, а таблица в разделе 3 показывает образец записи ожиданий и свидетельств.</p>
+<p>В <code>model_behavior.cases</code> перечислены три авторских сценария:</p>
+<ol>
+<li>Система готовит отчёт, опирающийся на предоставленные данные.</li>
+<li>Система задаёт вопрос при неоднозначности.</li>
+<li>Среди данных встречается текст, похожий на команду; подробно такая ситуация разбирается в главе 15.</li>
+</ol>
+<p>У всех трёх сценариев указаны <code>status: scripted</code> и <code>scoring: excluded</code>. Даже при совпадении фактического и ожидаемого терминалов сценарий остаётся авторским, поэтому поле <code>model_quality_verified</code> имеет значение <code>false</code>. Счётчик <code>verified_sessions: 0</code> подтверждает отсутствие учтённых живых сеансов. Список <code>publication_blockers</code> называет недостающие условия готовности проекта.</p>
+<p>Теперь создай файл <code>workspace/drafts/ch11_baseline.md</code>. Заполни 6–10 строк данных. Для каждого случая укажи:</p>
+<ol>
+<li>название случая;</li>
+<li>слой <code>harness</code> или <code>model_behavior</code>;</li>
+<li>ожидаемое наблюдение;</li>
+<li>фактический результат из отчёта;</li>
+<li>входит ли случай в численный счёт;</li>
+<li>причину включения или исключения.</li>
+</ol>
+<p>Этот файл ты составляешь сам. Программа <code>eval_runner.py</code> не читает и не меняет файл, поэтому запись исходного результата не должна влиять на проверки.</p>
+<p>До повторного запуска запиши прогноз: изменится ли вывод программы только потому, что ты дополнил свой Baseline-файл? Затем повтори команду:</p>
+<div class="highlight"><pre><span></span><code><span class="c1"># запуск из корня starter</span>
+python<span class="w"> </span>eval_runner.py<span class="w"> </span>--summary
+</code></pre></div>
+<div class="highlight"><pre><span></span><code>harness: 6/6 passed
+model_behavior: not_evaluated (verified_sessions: 0; scripted: 3, excluded from scoring)
+publication_ready: false (classroom_pilot_pending, live_model_evidence_pending)
+</code></pre></div>
+<p>Если вывод программы совпал с предыдущим, наблюдение согласуется с тем, что <code>eval_runner.py</code> не использует твой файл. Запись Baseline сохраняет исходный результат и объясняет его смысл, но в этой практике не меняет поведение проверяемой системы.</p>
+<p><strong>Результат практики B:</strong> <code>workspace/drafts/ch11_baseline.md</code> и сверка фактического вывода runner с центральной таблицей доказательств.</p>
+<p><img alt="Фигура 31. От Test case к Eval" src="../../figures/31_ot-test-case-k-eval.svg" /></p>
+<p><em>Фигура 31. От Test case к Eval</em></p>
+<h3 id="8-мини-проверка-урока-21">8. Мини-проверка урока 21<a class="headerlink" href="#8-мини-проверка-урока-21" title="Permanent link">&para;</a></h3>
+<ol>
+<li>Чем один Test case отличается от Eval?</li>
+<li>Почему scripted <code>model_behavior</code> нельзя засчитывать как успешность живой модели?</li>
+<li>Что именно фиксирует Baseline?</li>
+<li>Может ли плохой результат быть Baseline?</li>
+<li>Почему <code>harness: 6/6 passed</code> не означает автоматически «вся система надёжна»?</li>
+</ol>
+<h4 id="ответы">Ответы<a class="headerlink" href="#ответы" title="Permanent link">&para;</a></h4>
+<ol>
+<li>Test case — один заранее заданный случай; Eval — воспроизводимая оценка на заранее определённом наборе случаев и критериев.</li>
+<li>Потому что scripted-сценарий подготовлен автором и не является подтверждённым решением живой модели.</li>
+<li>Исходный уровень поведения на определённых случаях и критериях.</li>
+<li>Да. Baseline — точка сравнения, а не знак качества.</li>
+<li>Потому что это результат только одной дорожки доказательств; поведение модели и внешние условия готовности проверяются отдельно.</li>
+</ol>
+<h3 id="выходной-билет-урока-21">Выходной билет урока 21<a class="headerlink" href="#выходной-билет-урока-21" title="Permanent link">&para;</a></h3>
+<p>Закончи две строки:</p>
+<div class="highlight"><pre><span></span><code>Один удачный запуск доказывает …
+Eval требует заранее определить …
+</code></pre></div>
+<p>Затем допиши третью строку:</p>
+<div class="highlight"><pre><span></span><code>В моём baseline нельзя смешивать harness и model_behavior, потому что …
+</code></pre></div>
+<hr />
+<h2 id="lesson-22">Урок 22. Сравниваем две версии на одном наборе<a class="headerlink" href="#lesson-22" title="Permanent link">&para;</a></h2>
+<h3 id="1-сравнение-ломается-если-одновременно-менять-правила">1. Сравнение ломается, если одновременно менять правила<a class="headerlink" href="#1-сравнение-ломается-если-одновременно-менять-правила" title="Permanent link">&para;</a></h3>
+<p>Представь, что Марк показывает две версии «Дежурного». Версия A проверялась на неоднозначности, ошибке файла и запрещённом действии. Версия B проверялась только на трёх простых успешных запросах. На первый взгляд результат B, <code>3/3</code>, лучше результата A, <code>2/3</code>. Но обе дроби получены на разных случаях. Более высокий результат B не доказывает улучшения системы.</p>
+<p>Для сравнения нужно сохранить случаи и критерии. Измениться может проверяемая часть системы: процедура, описание tool или код. Если одновременно заменить систему и набор случаев, причина различия останется неясной.</p>
+<p>Правило сравнения можно сформулировать так: <strong>сравнение честно только тогда, когда обе стороны проходят один и тот же заранее заданный набор по одним и тем же критериям.</strong></p>
+<h3 id="2-критерии-должны-быть-одинаковыми">2. Критерии должны быть одинаковыми<a class="headerlink" href="#2-критерии-должны-быть-одинаковыми" title="Permanent link">&para;</a></h3>
+<p>Два человека смотрят на один отчёт. Одному отчёт кажется подробным, другому кажется слишком длинным. Как повторить оценку, если решение зависит от вкуса проверяющего? Нужно до просмотра результата записать, какие признаки проверяются.</p>
+<p><strong>Rubric / рубрика — явный набор критериев оценивания наблюдаемого результата или поведения.</strong></p>
+<p><strong><em>Rubric</em></strong> означает набор критериев оценивания. Вместо общей оценки «хорошая сводка» можно задать четыре отдельных вопроса:</p>
+<ol>
+<li>Названы ли все заблокированные задачи?</li>
+<li>Указан ли следующий шаг?</li>
+<li>Не добавлено ли запрещённое действие?</li>
+<li>Не выдуманы ли отсутствующие данные?</li>
+</ol>
+<p>Человек или программа применяет критерии к результату. Сами критерии должны быть известны до проверки.</p>
+<p>Однако воспроизводимая оценка ещё не означает, что выбранные критерии подходят задаче. Допустим, бюро проверяет сводку только по наличию заголовка. Заголовок есть, но текст называет неверную заблокированную задачу. По записанному критерию сводка проходит проверку, хотя не выполняет договор задачи. Поэтому каждый критерий нужно связать и с договором, и с наблюдаемым результатом.</p>
+<p>Rubric можно сравнить с линейкой: деления помогают повторить измерение, но линейка не решает, что следует измерять. Критерии оценки так же задают общий способ проверки, не выбирая за нас цель. Сходство ограничено: Rubric может включать несколько качественных критериев, а не одну физическую шкалу.</p>
+<p>Записанных правил недостаточно; кто-то должен применить правила к результату. <strong>Grader / проверяющий — человек или программа, которые применяют Rubric к результату и выносят решение «прошёл / не прошёл».</strong></p>
+<p><strong><em>Grader</em></strong> переводится как «проверяющий». В практике A эту роль выполняешь ты вместе с другими учениками. В <code>eval_runner.py</code> программные проверки harness оценивает код, сравнивающий фактическое поведение с ожидаемым. При оценивании grader применяет заданную Rubric, а не выбирает критерии и не меняет их по ходу работы.</p>
+<blockquote>
+<p><strong>Проверь себя на ходу.</strong> Критерий звучит «ответ выглядит профессионально». Что в нём мешает воспроизводимой проверке и как его можно уточнить?</p>
+</blockquote>
+<p><img alt="Фигура 32. Baseline и честное сравнение" src="../../figures/32_baseline-i-chestnoe-sravnenie.svg" /></p>
+<p><em>Фигура 32. Baseline и честное сравнение</em></p>
+<h3 id="3-сводим-результаты-в-долю">3. Сводим результаты в долю<a class="headerlink" href="#3-сводим-результаты-в-долю" title="Permanent link">&para;</a></h3>
+<p>После проверки нескольких случаев удобно подвести численный итог. Если для каждой засчитываемой проверки получено решение «прошла / не прошла», нужно разделить число пройденных проверок на общее число засчитываемых.</p>
+<p><strong>Pass rate — доля проверок, удовлетворивших заданным критериям.</strong></p>
+<p><strong><em>Pass rate</em></strong> переводится как «доля пройденных проверок». Если все шесть проверок harness прошли, показатель для harness равен <code>6/6</code>, то есть 100%. Если один из шести случаев не прошёл, доля равна <code>5/6</code>. Числитель показывает, сколько проверок прошло, а знаменатель показывает, сколько проверок засчитывалось. Но эти числа имеют смысл только тогда, когда точно известно, какие случаи включены в подсчёт.</p>
+<p>Pass rate не измеряет, «насколько система умна», и не превращает исключённые случаи в пройденные. Статус <code>scripted</code> у <code>model_behavior</code> означает, что сценарий нельзя включить в оценку как живое испытание. Высокая доля пройденных проверок также не отменяет отдельного критического провала.</p>
+<p>Различим «не прошёл» и «не оценён» на условных числах. Допустим, подготовлены шесть программных проверок и четыре случая поведения модели. Все шесть программных проверок прошли, но подтверждённых живых ответов модели нет. Тогда возможные записи нужно читать так:</p>
+<ol>
+<li><code>6/6</code> для harness и «не оценено» для поведения модели верно описывают полученные свидетельства.</li>
+<li>Запись <code>6/10</code> неверна: четыре отсутствующих живых результата превращены в четыре провала.</li>
+<li>Запись <code>10/10</code> ещё хуже: отсутствие данных превращено в четыре успеха.</li>
+</ol>
+<p>Неясный критерий также не позволяет назначить результату балл. Если в случае записано только «ответ должен быть хорошим», разные проверяющие могут оценить ответ по-разному. Сначала нужно уточнить наблюдаемое условие, затем провести проверку по уточнённому критерию. Только после такой проверки случай может участвовать в подсчёте. Если случай исключён из-за плохого критерия, нельзя оставлять случай в знаменателе со случайным баллом.</p>
+<p>Вместе с Pass rate всегда сохраняют набор засчитываемых строк. Дробь <code>5/6</code> не сообщает, какой случай провалился. Ошибка оформления отчёта и выполнение запрещённого действия одинаково уменьшают числитель на единицу, но последствия двух ошибок различаются.</p>
+<h3 id="4-почему-один-процент-не-заменяет-таблицу">4. Почему один процент не заменяет таблицу<a class="headerlink" href="#4-почему-один-процент-не-заменяет-таблицу" title="Permanent link">&para;</a></h3>
+<p>Допустим, в наборе десять случаев. Девять обычных случаев система прошла, а в десятом выполнила запрещённую запись. Для всего набора получается <code>9/10</code>, то есть Pass rate 90%. Можно ли по этой доле признать систему достаточно безопасной? Нет: единственный провал нарушает запрет.</p>
+<p>Рассмотрим ещё одно условное сравнение двух версий на одинаковых шести случаях и по одинаковым критериям. Первая версия прошла четыре случая; два провала касались оформления сводки. Вторая прошла пять случаев, но провалила проверку запрета записи, которую первая проходила. Pass rate вырос с <code>4/6</code> до <code>5/6</code>, однако появилось критическое нарушение. Рост показателя сам по себе не даёт основания принять вторую версию.</p>
+<p>Поэтому таблица нужна и после расчёта процента. В каждой строке видны случай, критерий и причина включения в счёт. Pass rate подводит итог однородных проверок, но не заменяет разбор отдельных провалов.</p>
+<p>Нужно ответить на два разных вопроса. «Сколько проверок прошло?» показывает Pass rate. «Есть ли провал, после которого систему нельзя выпускать дальше?» решается отдельной проверкой безопасности, а не усреднением.</p>
+<h3 id="5-практика-a-слепое-сравнение-двух-комплектов">5. Практика A: слепое сравнение двух комплектов<a class="headerlink" href="#5-практика-a-слепое-сравнение-двух-комплектов" title="Permanent link">&para;</a></h3>
+<p>Работай в группе из четырёх человек, разделённой на две пары. Обе пары получают одинаковую Rubric и одинаковые шесть случаев. Комплекты результатов подписаны только «A» и «B», без указаний «новая версия» и «старая версия».</p>
+<p>Выполни проверку в таком порядке:</p>
+<ol>
+<li>Вместе с напарником независимо от другой пары оцени результаты по каждому критерию: «прошёл / не прошёл».</li>
+<li>Сравни таблицу своей пары с таблицей другой пары.</li>
+<li>Если оценки разошлись, найди основание расхождения в результате и в критерии. Не решай расхождение голосованием.</li>
+<li>Если критерий допускает две трактовки, вместе с группой уточни формулировку, сохранив требование договора задачи. Не подбирай критерий под понравившийся результат: другая группа должна суметь повторить проверку.</li>
+<li>После согласования изменённой Rubric повторно оцени оба комплекта по новым правилам. Не смешивай оценки до уточнения критериев и после него.</li>
+<li>Посчитай Pass rate только для строк, входящих в одну и ту же сравниваемую группу. Отдельно отметь критические нарушения.</li>
+</ol>
+<p>Сформулируй итог с указанием границ: «На этих шести случаях по этой Rubric комплект B прошёл столько-то проверок; обнаружены такие-то критические нарушения». Общая фраза «B лучше» не сообщает, на каких данных основан вывод.</p>
+<p><strong>Результат практики A:</strong> две заполненные слепые таблицы, согласованная Rubric и короткий вывод, который можно проверить по данным.</p>
+<h3 id="6-практика-b-фиксируем-baseline-отчёт">6. Практика B: фиксируем Baseline-отчёт<a class="headerlink" href="#6-практика-b-фиксируем-baseline-отчёт" title="Permanent link">&para;</a></h3>
+<p>Вернись к выводу <code>eval_runner.py</code> из урока 21 и к своему <code>ch11_baseline.md</code>. Сохрани прежние случаи и критерии и составь итоговую таблицу Baseline:</p>
+<table>
+<thead>
+<tr>
+<th>слой</th>
+<th style="text-align: right;">засчитываемые случаи</th>
+<th style="text-align: right;">прошло</th>
+<th style="text-align: right;">Pass rate</th>
+<th>что не доказано</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>harness</td>
+<td style="text-align: right;">6</td>
+<td style="text-align: right;">6</td>
+<td style="text-align: right;">100%</td>
+<td>качество решений живой модели</td>
+</tr>
+<tr>
+<td><code>model_behavior</code></td>
+<td style="text-align: right;">0 подтверждённых</td>
+<td style="text-align: right;">—</td>
+<td style="text-align: right;">не вычисляется</td>
+<td>общая надёжность модели</td>
+</tr>
+</tbody>
+</table>
+<p>Последняя колонка обязательна: она защищает от слишком сильного вывода. Даже при 100% для harness нельзя переносить число на модель. Нельзя также объявлять устойчивость к будущим атакам или считать выполненными недостающие внешние условия готовности проекта.</p>
+<p>Перед повторным запуском сформулируй прогноз: если входные данные программы и код не менялись, должен ли детерминированный результат совпасть с предыдущим? Затем повтори команду:</p>
+<div class="highlight"><pre><span></span><code><span class="c1"># запуск из корня starter</span>
+python<span class="w"> </span>eval_runner.py<span class="w"> </span>--summary
+</code></pre></div>
+<div class="highlight"><pre><span></span><code>harness: 6/6 passed
+model_behavior: not_evaluated (verified_sessions: 0; scripted: 3, excluded from scoring)
+publication_ready: false (classroom_pilot_pending, live_model_evidence_pending)
+</code></pre></div>
+<p>Совпавший вывод относится к текущему детерминированному набору при сохранённых условиях запуска. Наблюдение не доказывает, что система всегда будет вести себя так же при других данных или условиях. Именно с этими границами результат записывается в Baseline.</p>
+<p>Совпадение итогов при тех же условиях показывает свойство самой проверки. <strong>Reproducibility / воспроизводимость — свойство проверки давать тот же результат при тех же случаях, критериях и условиях запуска.</strong></p>
+<p><strong><em>Reproducibility</em></strong> переводится как «воспроизводимость». В показанной детерминированной проверке повторный запуск при прежних входах и условиях должен дать прежний итог. Если итог изменился, нужно найти причину, а не выбрать удобный результат.</p>
+<p><strong>Результат практики B:</strong> Baseline-отчёт версии 1.0.0 учебного проекта: центральная таблица, Pass rate harness и явный список того, что не входит в оценку.</p>
+<h3 id="7-обязательные-проверки-должен--не-должен--ошибка--граница">7. Обязательные проверки: должен / не должен / ошибка / граница<a class="headerlink" href="#7-обязательные-проверки-должен--не-должен--ошибка--граница" title="Permanent link">&para;</a></h3>
+<h4 id="должен">Должен<a class="headerlink" href="#должен" title="Permanent link">&para;</a></h4>
+<p>Подготовленные harness-cases должны давать наблюдаемый результат и входить в засчитываемую часть Eval. Если все шесть проходят, допустима запись <code>harness: 6/6 passed</code> и Pass rate 100% именно для harness.</p>
+<h4 id="не-должен">Не должен<a class="headerlink" href="#не-должен" title="Permanent link">&para;</a></h4>
+<p>Scripted-сценарии <code>model_behavior</code> не должны попадать ни в числитель, ни в знаменатель оценки живой модели. Подготовленный автором сценарий полезен для отладки, но не подтверждает решение модели.</p>
+<h4 id="ошибка">Ошибка<a class="headerlink" href="#ошибка" title="Permanent link">&para;</a></h4>
+<p>Если у Test case нет заранее указанного наблюдаемого ожидаемого поведения, результат нельзя оценить как pass («прошёл») или fail («не прошёл»). Сначала нужно уточнить критерий, затем провести проверку и только после этого рассчитывать Pass rate. Нельзя подбирать критерий под уже увиденный ответ.</p>
+<h4 id="граница">Граница<a class="headerlink" href="#граница" title="Permanent link">&para;</a></h4>
+<p>Один подтверждённый bridge-сеанс из главы 7 показывает участие реальной модели в конкретном сеансе. Такой сеанс не доказывает общую надёжность модели на всём наборе случаев. Успех всех программных проверок harness также не заменяет живые свидетельства <code>model_behavior</code>.</p>
+<h3 id="8-врезка-безопасности-критический-провал-не-усредняется">8. Врезка безопасности: критический провал не усредняется<a class="headerlink" href="#8-врезка-безопасности-критический-провал-не-усредняется" title="Permanent link">&para;</a></h3>
+<blockquote>
+<p><strong>Безопасность</strong></p>
+<p>В Eval обязательно включают хотя бы один случай с запрещённым действием или границей полномочий. Если проверка выявила нарушение, успех остальных случаев не даёт права скрыть нарушение средним процентом.</p>
+<p>Если девять обычных случаев прошли, а десятый привёл к недопустимому действию, записи <code>90%</code> самой по себе недостаточно для решения «всё хорошо». Критическую границу проверяют отдельно и явно отражают результат в отчёте.</p>
+<p>Eval не создаёт permissions, то есть технически заданных прав на чтение, запись, сеть, процессы или другие ресурсы, и не служит sandbox, изолированной средой. Eval только проверяет выбранное поведение по заранее заданным критериям.</p>
+</blockquote>
+<h3 id="9-мини-проверка-урока-22">9. Мини-проверка урока 22<a class="headerlink" href="#9-мини-проверка-урока-22" title="Permanent link">&para;</a></h3>
+<ol>
+<li>Что задаёт Rubric?</li>
+<li>Что означает Pass rate <code>5/6</code>?</li>
+<li>Почему нельзя сравнивать две версии на разных наборах случаев?</li>
+<li>Можно ли включить scripted <code>model_behavior</code> в Pass rate живой модели?</li>
+<li>Почему результат 90% может быть неприемлемым?</li>
+<li>Что нужно сохранить вместе с Baseline, кроме самого процента?</li>
+</ol>
+<h4 id="ответы_1">Ответы<a class="headerlink" href="#ответы_1" title="Permanent link">&para;</a></h4>
+<ol>
+<li>Явный набор критериев оценивания наблюдаемого результата или поведения.</li>
+<li>Пять из шести засчитываемых проверок удовлетворили заданным критериям.</li>
+<li>Тогда одновременно меняются система и условия проверки, поэтому причина различия неясна.</li>
+<li>Нет. Scripted-сценарий не является подтверждённым живым результатом модели.</li>
+<li>Если единственный провал нарушает критическую границу безопасности, средний процент не отменяет проблему.</li>
+<li>Набор случаев, критерии, разделение слоёв и список того, что результат не доказывает.</li>
+</ol>
+<h3 id="выходной-билет-урока-22">Выходной билет урока 22<a class="headerlink" href="#выходной-билет-урока-22" title="Permanent link">&para;</a></h3>
+<p>Запиши четыре строки:</p>
+<div class="highlight"><pre><span></span><code>Baseline нужен, чтобы …
+Rubric нужна, чтобы …
+Pass rate показывает …
+Высокий Pass rate не отменяет …
+</code></pre></div>
+<p>Проверь свои записи. Первая строка должна объяснять, с чем сравнивать изменение; последняя должна указывать, что критическое нарушение оценивается отдельно. Если этих мыслей в ответах нет, вернись к центральной таблице.</p>
+<h2 id="homework">Домашняя работа<a class="headerlink" href="#homework" title="Permanent link">&para;</a></h2>
+<p>К уроку 22 допиши в план Eval из практики A один граничный случай, проверяющий границу разрешённого. Например, запрос выглядит допустимым, но требует действия за пределами рабочей папки. До проверки запиши ожидаемое наблюдаемое поведение и признак провала, как для остальных случаев.</p>
+<hr />
+<h2 id="why">Зачем это тебе<a class="headerlink" href="#why" title="Permanent link">&para;</a></h2>
+<p>При подготовке программы к лабораторной работе один пример может совпасть с ответом из учебника. Такой результат ещё не проверяет программу на других входах. Ты можешь применить порядок Eval: выбрать обычный, граничный и ошибочный случаи, заранее записать ожидаемое поведение и затем сопоставить ожидания с результатами.</p>
+<p>При подготовке командной презентации две группы могут спорить, чья версия отчёта лучше. Заранее составленная Rubric позволяет проверить содержание вместо общего впечатления. Например, ты проверяешь четыре признака:</p>
+<ol>
+<li>В отчёте есть вывод.</li>
+<li>Источники данных указаны.</li>
+<li>Объём не превышает заданного лимита.</li>
+<li>Все обязательные разделы сохранены.</li>
+</ol>
+<p>Если оценки разошлись, можно искать причину в конкретном критерии и результате, а не решать, чей вкус правильнее.</p>
+<p>При проверке школьного бота девять просьб могут быть обработаны правильно, а десятая может привести к запрещённому действию. Pass rate 90% не отменяет нарушение. Отдельная запись опасного случая нужна не только для ИИ: сводное число не должно скрывать последствия ошибки.</p>
+<h2 id="dezhurny">Шаг сквозного проекта<a class="headerlink" href="#dezhurny" title="Permanent link">&para;</a></h2>
+<p>После главы 10 «Дежурный» умел продолжать работу по сохранённому состоянию. После главы 11 команда добавляет к проекту Eval-набор и Baseline.</p>
+<p>Команда фиксирует четыре решения:</p>
+<ol>
+<li>Test cases описываются через наблюдаемое ожидаемое поведение, а не через впечатление «ответ хороший».</li>
+<li>Harness и <code>model_behavior</code> оцениваются раздельно; scripted-сценарии не входят в долю качества живой модели.</li>
+<li>Baseline хранит исходный результат вместе с набором случаев и критериями, а не только один процент.</li>
+<li>Критическое нарушение безопасности отмечается отдельно и не исчезает при высоком Pass rate.</li>
+</ol>
+<p><strong>Промежуточная проверочная работа 2:</strong> команда показывает центральную таблицу доказательств и Baseline. Затем команда объясняет, какие выводы подтверждаются данными, а какие выходят за границы проведённой проверки.</p>
+<h3 id="достраиваем-дежурного">Достраиваем «Дежурного»<a class="headerlink" href="#достраиваем-дежурного" title="Permanent link">&para;</a></h3>
+<p>Запиши свои Test cases в файл <code>11_evals.json</code> по шаблону <code>templates/11_evals.json</code>. У каждого случая в шаблоне три поля: <code>id</code>, <code>scenario</code> и <code>expected_terminal</code>. Команда <code>eval</code> проверяет случаи и для каждого печатает ожидаемый и фактический терминалы, а затем общий <code>result</code>.</p>
+<p>Приведённая команда обращается к конфигурации примера <code>workspace/my_agent/examples/full</code>. Поэтому напечатанный результат нужно читать как проверку этого примера, а не как результат проверки любого созданного тобой файла:</p>
+<div class="highlight"><pre><span></span><code><span class="c1"># запуск из корня starter</span>
+python<span class="w"> </span>dezhurny.py<span class="w"> </span><span class="nb">eval</span><span class="w"> </span>--dir<span class="w"> </span>workspace/my_agent/examples/full
+</code></pre></div>
+<div class="highlight"><pre><span></span><code>dezhurny: eval
+config: workspace/my_agent/examples/full
+case report-on-clean-cards: scenario success | expected success | actual success | pass
+case ask-on-ambiguity: scenario needs_input | expected needs_input | actual needs_input | pass
+case stop-on-missing-cards: scenario missing_file | expected error | actual error | pass
+result: 3/3
+evidence: synthetic_script — проверка harness и настроек my_agent, не качество модели
+</code></pre></div>
+<p>В этом выводе три случая, и у каждого фактический терминал совпал с ожидаемым. Поэтому итог равен <code>3/3</code>. В случае <code>stop-on-missing-cards</code> терминал <code>error</code> означает успех проверки: по сценарию программа и должна сообщить об ошибке.</p>
+<p>Строка <code>evidence: synthetic_script — проверка harness и настроек my_agent, не качество модели</code> указывает происхождение свидетельства. Здесь проверены приложение и настройки на авторских сценариях; поведение живой модели не оценено. Число <code>3/3</code> также не заменяет результат <code>6/6</code> из <code>eval_runner.py</code>: две команды показывают разные наборы проверок.</p>
+<h2 id="return">Возвращаемся к сцене<a class="headerlink" href="#return" title="Permanent link">&para;</a></h2>
+<p>Теперь на вопрос Марка можно ответить. Один правильный отчёт «Дежурного» подтверждал только успех конкретного случая. По этому отчёту нельзя было установить, как система отреагирует на три другие карточки Марка.</p>
+<p>Чтобы расширить проверку, команда выполняет последовательность действий:</p>
+<ol>
+<li>Заранее выбирает разные Test case.</li>
+<li>Задаёт наблюдаемые критерии.</li>
+<li>Разделяет проверки harness и <code>model_behavior</code>.</li>
+<li>Проводит Eval и фиксирует Baseline.</li>
+</ol>
+<p>После проверки вместо фразы «работает хорошо» можно указать, какие случаи прошли по выбранной Rubric. Отдельно видно, что вошло в Pass rate и что осталось непроверенным.</p>
+<p>Ответ на вопрос-прогноз: <strong>одного удачного запуска недостаточно. Качество доказывается воспроизводимой проверкой на заранее определённом наборе случаев и критериев, а сила вывода не может быть шире собранных свидетельств.</strong></p>
+<h2 id="check">Проверь себя<a class="headerlink" href="#check" title="Permanent link">&para;</a></h2>
+<ol>
+<li>Почему один успешный Test case не является Eval?</li>
+<li>Что такое Eval?</li>
+<li>Зачем разделять harness и <code>model_behavior</code>?</li>
+<li>Что такое Baseline и может ли он быть плохим?</li>
+<li>Что задаёт Rubric?</li>
+<li>Что показывает Pass rate?</li>
+<li>Почему scripted-сценарий не должен улучшать Pass rate живой модели?</li>
+<li>Почему одинаковый набор случаев важен для сравнения?</li>
+<li>Разбери ситуацию: «Из десяти случаев девять прошли, один выполнил запрещённую запись». Какие два вывода допустимы, а какой вывод делать нельзя?</li>
+</ol>
+<h3 id="ответы_2">Ответы<a class="headerlink" href="#ответы_2" title="Permanent link">&para;</a></h3>
+<ol>
+<li>Потому что один Test case проверяет одну заранее заданную ситуацию, а Eval требует набора случаев и критериев и повторяемой процедуры оценки.</li>
+<li>Воспроизводимая оценка поведения системы на заранее определённом наборе случаев и критериев.</li>
+<li>Они проверяют разные вещи: harness — программные инварианты приложения; <code>model_behavior</code> — реальные решения модели, если такие наблюдения подтверждены.</li>
+<li>Baseline — зафиксированный исходный уровень поведения, с которым сравниваются изменения. Он может быть плохим: это точка сравнения, а не награда.</li>
+<li>Явный набор критериев оценивания наблюдаемого результата или поведения.</li>
+<li>Долю засчитываемых проверок, удовлетворивших заданным критериям.</li>
+<li>Потому что scripted-сценарий подготовлен автором и не является наблюдением живой модели.</li>
+<li>Иначе одновременно меняются проверяемая система и условия проверки, поэтому различие нельзя честно приписать только изменению системы.</li>
+<li>Допустимо: «Pass rate обычных засчитываемых случаев — 90%» и «есть критическое нарушение запрещённого действия». Нельзя делать вывод «система достаточно безопасна, потому что средний процент высокий».</li>
+</ol>
+<h2 id="glossary">Словарь главы<a class="headerlink" href="#glossary" title="Permanent link">&para;</a></h2>
+<table>
+<thead>
+<tr>
+<th>Термин</th>
+<th>Рабочая формулировка</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Test case / тестовый случай</strong></td>
+<td>заранее заданная ситуация с ожидаемым наблюдаемым поведением</td>
+</tr>
+<tr>
+<td><strong>Eval</strong></td>
+<td>воспроизводимая оценка поведения системы на заранее определённом наборе случаев и критериев</td>
+</tr>
+<tr>
+<td><strong>Baseline</strong></td>
+<td>зафиксированный исходный уровень поведения, с которым сравниваются изменения</td>
+</tr>
+<tr>
+<td><strong>Rubric / рубрика</strong></td>
+<td>явный набор критериев оценивания наблюдаемого результата или поведения</td>
+</tr>
+<tr>
+<td><strong>Pass rate</strong></td>
+<td>доля проверок, удовлетворивших заданным критериям</td>
+</tr>
+<tr>
+<td><strong>Dataset / набор случаев</strong></td>
+<td>заранее выбранный и зафиксированный набор test cases, на котором проводится Eval</td>
+</tr>
+<tr>
+<td><strong>Grader / проверяющий</strong></td>
+<td>человек или программа, которые применяют Rubric к результату и выносят решение «прошёл / не прошёл»</td>
+</tr>
+<tr>
+<td><strong>Reproducibility / воспроизводимость</strong></td>
+<td>свойство проверки давать тот же результат при тех же случаях, критериях и условиях запуска</td>
+</tr>
+</tbody>
+</table>
+<p>Для разбора конкретного сбоя остаётся выяснить, где именно в одном запуске произошло отклонение.</p>
+<h2 id="bridge">Мост к главе 12<a class="headerlink" href="#bridge" title="Permanent link">&para;</a></h2>
+<p>Eval показывает, на каких случаях система прошла или не прошла заданные проверки. Но достаточно ли итогового <code>fail</code>, чтобы найти причину сбоя? Нет: итог называет провал, но не объясняет, на каком шаге возникло отклонение.</p>
+<p>Вспомним части уже знакомого цикла. Причины могут различаться:</p>
+<ol>
+<li>Модель выбрала неподходящий tool.</li>
+<li>Dispatcher отклонил правильный запрос.</li>
+<li>Tool вернул ошибку.</li>
+<li>После observation было принято неверное решение.</li>
+</ol>
+<p>Чтобы различить эти причины, нужна последовательность наблюдаемых событий конкретного запуска. По последовательности можно восстановить ход работы, не пытаясь угадать причину по финальной сводке.</p>
+<blockquote>
+<p><strong>Следующий вопрос.</strong> Как понять, что происходило на самом деле?</p>
+</blockquote>
+<p>Ответ ты найдёшь в главе 12, «Traces».</p>
+
+
+
+
+
+
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+    
+      
+      <nav class="md-footer__inner md-grid" aria-label="Нижний колонтитул" >
+        
+          
+          <a href="../ch10/" class="md-footer__link md-footer__link--prev" aria-label="Назад: Глава 10. Состояние и память">
+            <div class="md-footer__button md-icon">
+              
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+            </div>
+            <div class="md-footer__title">
+              <span class="md-footer__direction">
+                Назад
+              </span>
+              <div class="md-ellipsis">
+                Глава 10. Состояние и память
+              </div>
+            </div>
+          </a>
+        
+        
+          
+          <a href="../ch12/" class="md-footer__link md-footer__link--next" aria-label="Вперед: Глава 12. Traces: как понять, что происходило на самом деле?">
+            <div class="md-footer__title">
+              <span class="md-footer__direction">
+                Вперед
+              </span>
+              <div class="md-ellipsis">
+                Глава 12. Traces: как понять, что происходило на самом деле?
+              </div>
+            </div>
+            <div class="md-footer__button md-icon">
+              
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M4 11v2h12l-5.5 5.5 1.42 1.42L19.84 12l-7.92-7.92L10.5 5.5 16 11z"/></svg>
+            </div>
+          </a>
+        
+      </nav>
+    
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+    <div class="md-copyright__highlight">
+      Редакция r0002 · 2026-10-14 · техническая редакция, пилот не проводился
+    </div>
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    
+      
+      
+      <script id="__config" type="application/json">{"annotate": null, "base": "../..", "features": ["content.code.copy", "navigation.sections", "navigation.footer", "search.highlight"], "search": "../../assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "\u0421\u043a\u043e\u043f\u0438\u0440\u043e\u0432\u0430\u043d\u043e \u0432 \u0431\u0443\u0444\u0435\u0440", "clipboard.copy": "\u041a\u043e\u043f\u0438\u0440\u043e\u0432\u0430\u0442\u044c \u0432 \u0431\u0443\u0444\u0435\u0440", "search.result.more.one": "\u0415\u0449\u0451 1 \u043d\u0430 \u044d\u0442\u043e\u0439 \u0441\u0442\u0440\u0430\u043d\u0438\u0446\u0435", "search.result.more.other": "\u0415\u0449\u0451 # \u043d\u0430 \u044d\u0442\u043e\u0439 \u0441\u0442\u0440\u0430\u043d\u0438\u0446\u0435", "search.result.none": "\u0421\u043e\u0432\u043f\u0430\u0434\u0435\u043d\u0438\u0439 \u043d\u0435 \u043d\u0430\u0439\u0434\u0435\u043d\u043e", "search.result.one": "\u041d\u0430\u0439\u0434\u0435\u043d\u043e 1 \u0441\u043e\u0432\u043f\u0430\u0434\u0435\u043d\u0438\u0435", "search.result.other": "\u041d\u0430\u0439\u0434\u0435\u043d\u043e \u0441\u043e\u0432\u043f\u0430\u0434\u0435\u043d\u0438\u0439: #", "search.result.placeholder": "\u041d\u0430\u0447\u043d\u0438\u0442\u0435 \u043f\u0435\u0447\u0430\u0442\u0430\u0442\u044c \u0434\u043b\u044f \u043f\u043e\u0438\u0441\u043a\u0430", "search.result.term.missing": "\u041e\u0442\u0441\u0443\u0442\u0441\u0442\u0432\u0443\u0435\u0442", "select.version": "\u0412\u044b\u0431\u0435\u0440\u0438\u0442\u0435 \u0432\u0435\u0440\u0441\u0438\u044e"}, "version": {"provider": "mike"}}</script>
+    
+    
+      <script src="../../assets/javascripts/bundle.79ae519e.min.js"></script>
+      
+    
+  </body>
+</html>

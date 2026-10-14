@@ -1,0 +1,63 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 850" width="800" height="850" role="img" aria-labelledby="t d">
+  <title id="t">Фигура 20. Два calls, два результата, один порядок событий</title>
+  <desc id="d">Глава 7, урок 14, разделы 4–5 и выходной билет урока. Event log сценария two-calls: call-1 даёт result и continue, call-2 — tool error и needs_input; каждое событие связано со своим call_id, ошибка второго вызова не стирает результат первого. Отдельная ветка — сценарий stop-after-decision: после терминального решения оставшийся call-2 пакета не исполняется (not executed).</desc>
+  <defs>
+    <marker id="arrow" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="8" markerHeight="8" orient="auto-start-reverse">
+      <path d="M0,0 L10,5 L0,10 z" fill="#52606D"/>
+    </marker>
+  </defs>
+  <rect x="0" y="0" width="800" height="850" fill="#FFFFFF"/>
+  <g font-family="PT Sans, DejaVu Sans, Arial, sans-serif" font-size="20" fill="#1F2933">
+    <!-- сценарий two-calls -->
+    <text x="24" y="40">Два вызова: первый результат не исчезает из-за второй ошибки</text>
+    <text x="77" y="72" text-anchor="middle" font-family="PT Mono, DejaVu Sans Mono, monospace" font-size="18" fill="#52606D">call_id</text>
+    <text x="146" y="72" font-family="PT Mono, DejaVu Sans Mono, monospace" font-size="18" fill="#52606D">python dispatcher_demo.py run two-calls</text>
+    <text x="776" y="72" text-anchor="end" font-family="PT Mono, DejaVu Sans Mono, monospace" font-size="18" fill="#52606D">event log</text>
+  <g font-family="PT Mono, DejaVu Sans Mono, monospace" font-size="18">
+    <rect class="call-id" data-role="call-1" x="24" y="84" width="106" height="152" rx="6" fill="#F5F7FA" stroke="#52606D" stroke-width="1.5"/>
+    <text x="77" y="166" text-anchor="middle">call-1</text>
+    <rect class="call-id" data-role="call-2" x="24" y="260" width="106" height="152" rx="6" fill="#F5F7FA" stroke="#52606D" stroke-width="1.5"/>
+    <text x="77" y="342" text-anchor="middle">call-2</text>
+    <rect class="row" data-role="event" x="146" y="84" width="630" height="64" rx="6" fill="#F5F7FA" stroke="#52606D" stroke-width="1.5"/>
+    <text x="160" y="110">event: tool_requested | call_id: call-1</text>
+    <text x="160" y="136">tool: read_task_cards</text>
+    <line x1="460" y1="148" x2="460" y2="170" stroke="#52606D" stroke-width="1.5" marker-end="url(#arrow)"/>
+    <rect class="row" data-role="event" x="146" y="172" width="630" height="64" rx="6" fill="#F5F7FA" stroke="#15803D" stroke-width="1.5"/>
+    <text x="160" y="198">event: tool_observation | call_id: call-1</text>
+    <text x="160" y="224">outcome: result | decision: continue</text>
+    <line x1="460" y1="236" x2="460" y2="258" stroke="#52606D" stroke-width="1.5" marker-end="url(#arrow)"/>
+    <rect class="row" data-role="event" x="146" y="260" width="630" height="64" rx="6" fill="#F5F7FA" stroke="#52606D" stroke-width="1.5"/>
+    <text x="160" y="286">event: tool_requested | call_id: call-2</text>
+    <text x="160" y="312">tool: validate_task_card</text>
+    <line x1="460" y1="324" x2="460" y2="346" stroke="#52606D" stroke-width="1.5" marker-end="url(#arrow)"/>
+    <rect class="row" data-role="event" x="146" y="348" width="630" height="64" rx="6" fill="#FFFFFF" stroke="#B91C1C" stroke-width="1.5"/>
+    <text x="160" y="374">event: tool_observation | call_id: call-2</text>
+    <text x="160" y="400">outcome: tool error | decision: needs_input</text>
+    <line x1="460" y1="412" x2="460" y2="434" stroke="#52606D" stroke-width="1.5" marker-end="url(#arrow)"/>
+    <rect class="row" data-role="run-finished" x="146" y="436" width="630" height="44" rx="6" fill="#F5F7FA" stroke="#52606D" stroke-width="1.5"/>
+    <text x="160" y="464">event: run_finished | terminal: needs_input | steps: 2</text>
+  </g>
+    <!-- отдельная ветка: stop-after-decision -->
+    <text x="24" y="524">После решения остановиться оставшийся пакет не исполняется</text>
+    <text x="146" y="552" font-family="PT Mono, DejaVu Sans Mono, monospace" font-size="18" fill="#52606D">python dispatcher_demo.py run stop-after-decision</text>
+  <g font-family="PT Mono, DejaVu Sans Mono, monospace" font-size="18">
+    <rect class="call-id" data-role="call-X" x="24" y="564" width="106" height="64" rx="6" fill="#F5F7FA" stroke="#52606D" stroke-width="1.5"/>
+    <text x="77" y="602" text-anchor="middle">call-X</text>
+    <rect class="row" data-role="stop-event" x="146" y="564" width="630" height="64" rx="6" fill="#FFFFFF" stroke="#B91C1C" stroke-width="1.5"/>
+    <text x="160" y="590">event: tool_observation | call_id: call-X</text>
+    <text x="160" y="616">outcome: tool error | decision: error</text>
+    <line x1="460" y1="628" x2="460" y2="650" stroke="#52606D" stroke-width="1.5" marker-end="url(#arrow)"/>
+    <rect class="row" data-role="stop-finished" x="146" y="652" width="630" height="44" rx="6" fill="#F5F7FA" stroke="#52606D" stroke-width="1.5"/>
+    <text x="160" y="680">event: run_finished | terminal: error | steps: 0</text>
+    <rect class="call-id" data-role="not-executed-id" x="24" y="720" width="106" height="44" rx="6" fill="#F5F7FA" stroke="#52606D" stroke-width="1.5" stroke-dasharray="6 4"/>
+    <text x="77" y="748" text-anchor="middle">call-2</text>
+    <rect class="remaining" data-role="not-executed" x="146" y="720" width="630" height="44" rx="6" fill="#F5F7FA" stroke="#52606D" stroke-width="1.5" stroke-dasharray="6 4"/>
+    <text x="160" y="748">not executed: call-2 read_task_cards</text>
+  </g>
+    <!-- подпись-неравенство -->
+    <g font-family="PT Mono, DejaVu Sans Mono, monospace" font-size="18" text-anchor="middle">
+      <rect x="220" y="790" width="360" height="40" rx="6" fill="#F5F7FA" stroke="#1F2933" stroke-width="1.5" stroke-dasharray="6 4"/>
+      <text class="inequality" x="400" y="816">event log ≠ Trace</text>
+    </g>
+  </g>
+</svg>

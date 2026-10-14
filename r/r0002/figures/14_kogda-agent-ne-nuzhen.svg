@@ -1,0 +1,50 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 528" width="800" height="528" role="img" aria-labelledby="t d">
+  <title id="t">Фигура 14. Когда агент не нужен</title>
+  <desc id="d">Глава 5, урок 10, раздел 3 «Когда достаточно обычного кода, когда нужна модель, когда нужен агентный цикл». Шесть отдельных строк рабочей матрицы выбора: что требуется → разумная отправная точка (по таблице главы): фиксированное правило — обычная функция, текст по фактам — prompt к модели, продолжение после observation — agent loop, изменение общего статуса — отдельное решение человека. Строки одинаковы и не образуют лестницу.</desc>
+  <defs>
+    <marker id="arrow" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="8" markerHeight="8" orient="auto-start-reverse">
+      <path d="M0,0 L10,5 L0,10 z" fill="#52606D"/>
+    </marker>
+  </defs>
+  <rect x="0" y="0" width="800" height="528" fill="#FFFFFF"/>
+  <g font-family="PT Sans, DejaVu Sans, Arial, sans-serif" font-size="18" fill="#1F2933">
+    <!-- заголовки столбцов -->
+    <text x="36" y="46" fill="#52606D">Что требуется</text>
+    <text x="338" y="46" fill="#52606D">Разумная отправная точка</text>
+    <!-- шесть отдельных строк одинаковой ширины: не лестница -->
+    <rect class="row" data-role="row" x="24" y="60" width="752" height="64" rx="6" fill="#F5F7FA" stroke="#1D4ED8" stroke-width="1.5"/>
+    <text x="36" y="87">применить</text>
+    <text x="36" y="111">фиксированное правило</text>
+    <text x="338" y="99">обычная детерминированная функция</text>
+    <rect class="row" data-role="row" x="24" y="136" width="752" height="64" rx="6" fill="#F5F7FA" stroke="#1D4ED8" stroke-width="1.5"/>
+    <text x="36" y="163">сравнить со списком</text>
+    <text x="36" y="187">допустимых значений</text>
+    <text x="338" y="175">обычная детерминированная функция</text>
+    <rect class="row" data-role="row" x="24" y="212" width="752" height="64" rx="6" fill="#F5F7FA" stroke="#1D4ED8" stroke-width="1.5"/>
+    <text x="36" y="251">преобразовать структуру</text>
+    <text x="338" y="239">обычный код; при языковом тексте</text>
+    <text x="338" y="263">может понадобиться модель</text>
+    <rect class="row" data-role="row" x="24" y="288" width="752" height="64" rx="6" fill="#F5F7FA" stroke="#1D4ED8" stroke-width="1.5"/>
+    <text x="36" y="315">сформулировать текст</text>
+    <text x="36" y="339">по известным фактам</text>
+    <text x="338" y="327">prompt к модели может быть полезен</text>
+    <rect class="row" data-role="row" x="24" y="364" width="752" height="64" rx="6" fill="#F5F7FA" stroke="#1D4ED8" stroke-width="1.5"/>
+    <text x="36" y="391">выбрать продолжение</text>
+    <text x="36" y="415">по состоянию</text>
+    <text x="338" y="403">знакомый agent loop</text>
+    <rect class="row" data-role="human" x="24" y="440" width="752" height="64" rx="6" fill="#FFFFFF" stroke="#B45309" stroke-width="2"/>
+    <text x="36" y="467">затронуть состояние</text>
+    <text x="36" y="491">проекта</text>
+    <text x="338" y="467">не выполнять самостоятельно;</text>
+    <text x="338" y="491" fill="#B45309">требуется отдельное решение человека</text>
+    <!-- стрелки только внутри строки: что требуется → отправная точка -->
+    <g stroke="#52606D" stroke-width="1.5" fill="none" marker-end="url(#arrow)">
+      <line x1="292" y1="92" x2="326" y2="92"/>
+      <line x1="292" y1="168" x2="326" y2="168"/>
+      <line x1="292" y1="244" x2="326" y2="244"/>
+      <line x1="292" y1="320" x2="326" y2="320"/>
+      <line x1="292" y1="396" x2="326" y2="396"/>
+      <line x1="292" y1="472" x2="326" y2="472"/>
+    </g>
+  </g>
+</svg>

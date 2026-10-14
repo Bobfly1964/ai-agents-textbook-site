@@ -1,0 +1,57 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 740" width="800" height="740" role="img" aria-labelledby="t d">
+  <title id="t">Фигура 13. Технический паспорт проекта</title>
+  <desc id="d">Глава 5, урок 9, раздел 8 «Центральный артефакт: технический паспорт проекта версии 0.1». Цепочка полей договора проекта «Дежурный», версия 0.1: цель → вход → результат → готово, когда → ограничения → неопределённость → цена ошибки — словами таблицы главы. Рядом, вне цепочки, пометка: способ реализации выбирается после договора.</desc>
+  <defs>
+    <marker id="arrow" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="8" markerHeight="8" orient="auto-start-reverse">
+      <path d="M0,0 L10,5 L0,10 z" fill="#52606D"/>
+    </marker>
+  </defs>
+  <rect x="0" y="0" width="800" height="740" fill="#FFFFFF"/>
+  <g font-family="PT Sans, DejaVu Sans, Arial, sans-serif" font-size="18" fill="#1F2933">
+    <!-- заголовки столбцов -->
+    <text x="36" y="46" fill="#52606D">Поле</text>
+    <text x="240" y="46" fill="#52606D">Договор проекта «Дежурный», версия 0.1</text>
+    <!-- семь полей договора — цепочка -->
+    <rect class="row" data-role="row" x="24" y="60" width="752" height="64" rx="6" fill="#F5F7FA" stroke="#1D4ED8" stroke-width="1.5"/>
+    <text x="36" y="99" font-size="20">Цель</text>
+    <text x="240" y="87">дать бюро проверяемый черновик статуса проекта</text>
+    <text x="240" y="111">и показать блокеры</text>
+    <rect class="row" data-role="row" x="24" y="144" width="752" height="64" rx="6" fill="#F5F7FA" stroke="#1D4ED8" stroke-width="1.5"/>
+    <text x="36" y="183" font-size="20">Вход</text>
+    <text x="240" y="171">локальные карточки задач, доступные приложению</text>
+    <text x="240" y="195">в разрешённой рабочей области</text>
+    <rect class="row" data-role="row" x="24" y="228" width="752" height="64" rx="6" fill="#F5F7FA" stroke="#1D4ED8" stroke-width="1.5"/>
+    <text x="36" y="267" font-size="20">Результат</text>
+    <text x="240" y="267" font-family="PT Mono, DejaVu Sans Mono, monospace">summary, blocked_tasks, next_step</text>
+    <rect class="row" data-role="row" x="24" y="312" width="752" height="64" rx="6" fill="#F5F7FA" stroke="#1D4ED8" stroke-width="1.5"/>
+    <text x="36" y="351" font-size="20">Готово, когда</text>
+    <text x="240" y="339">три части заполнены по прочитанным данным;</text>
+    <text x="240" y="363">неопределённость не скрыта; карточки не изменены</text>
+    <rect class="row" data-role="row" x="24" y="396" width="752" height="64" rx="6" fill="#F5F7FA" stroke="#1D4ED8" stroke-width="1.5"/>
+    <text x="36" y="435" font-size="20">Ограничения</text>
+    <text x="240" y="423">не удалять карточки; не менять статусы</text>
+    <text x="240" y="447">автоматически; не отправлять результат наружу</text>
+    <rect class="row" data-role="row" x="24" y="480" width="752" height="64" rx="6" fill="#F5F7FA" stroke="#1D4ED8" stroke-width="1.5"/>
+    <text x="36" y="519">Неопределённость</text>
+    <text x="240" y="507">явно сообщить, чего не хватает,</text>
+    <text x="240" y="531">и передать вопрос человеку</text>
+    <rect class="row" data-role="row" x="24" y="564" width="752" height="64" rx="6" fill="#F5F7FA" stroke="#1D4ED8" stroke-width="1.5"/>
+    <text x="36" y="603" font-size="20">Цена ошибки</text>
+    <text x="240" y="591">изменение состояния считается более</text>
+    <text x="240" y="615">рискованным, чем черновик текста</text>
+    <line x1="230" y1="60" x2="230" y2="628" stroke="#52606D" stroke-width="1" stroke-dasharray="3 3"/>
+    <!-- стрелки цепочки между полями -->
+    <g stroke="#52606D" stroke-width="1.5" fill="none" marker-end="url(#arrow)">
+      <line x1="60" y1="124" x2="60" y2="142"/>
+      <line x1="60" y1="208" x2="60" y2="226"/>
+      <line x1="60" y1="292" x2="60" y2="310"/>
+      <line x1="60" y1="376" x2="60" y2="394"/>
+      <line x1="60" y1="460" x2="60" y2="478"/>
+      <line x1="60" y1="544" x2="60" y2="562"/>
+    </g>
+    <!-- пометка рядом, вне цепочки -->
+    <rect data-role="note" x="90" y="652" width="620" height="68" rx="6" fill="#FFFFFF" stroke="#52606D" stroke-width="1.5" stroke-dasharray="6 4"/>
+    <text x="400" y="680" text-anchor="middle">способ реализации выбирается после договора</text>
+    <text x="400" y="706" text-anchor="middle">пока не выбран; для каждого шага будет решено отдельно</text>
+  </g>
+</svg>

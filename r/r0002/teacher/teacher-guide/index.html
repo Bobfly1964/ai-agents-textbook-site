@@ -1,0 +1,2324 @@
+
+<!doctype html>
+<html lang="ru" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+        <meta name="description" content="Учебник для 9–10 классов">
+      
+      
+      
+        <link rel="canonical" href="https://book.stemschool.online/r0002/teacher/teacher-guide/">
+      
+      
+        <link rel="prev" href="../../student/app-c/">
+      
+      
+        <link rel="next" href="../lesson-map/">
+      
+      
+        
+      
+      
+      <link rel="icon" href="../../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.6">
+    
+    
+      
+        <title>Методическое руководство для учителя - ИИ-агенты и Agent Skills</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../assets/stylesheets/main.484c7ddc.min.css">
+      
+        
+        <link rel="stylesheet" href="../../assets/stylesheets/palette.ab4e12ef.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+    <script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+  </head>
+  
+  
+    
+    
+      
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="indigo">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#методическое-руководство-для-учителя" class="md-skip">
+          Перейти к содержанию
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+        <aside class="md-banner">
+          <div class="md-banner__inner md-grid md-typeset">
+            
+            
+  
+    <strong>Техническая редакция: пилот не проводился</strong> · редакция r0002
+  
+
+          </div>
+          
+        </aside>
+      
+    </div>
+    
+      <div data-md-color-scheme="default" data-md-component="outdated" hidden>
+        
+      </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Верхний колонтитул">
+    <a href="../.." title="ИИ-агенты и Agent Skills" class="md-header__button md-logo" aria-label="ИИ-агенты и Agent Skills" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            ИИ-агенты и Agent Skills
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Методическое руководство для учителя
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+        <form class="md-header__option" data-md-component="palette">
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="indigo"  aria-hidden="true"  type="radio" name="__palette" id="__palette_0">
+    
+  
+</form>
+      
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+      
+      
+        <label class="md-header__button md-icon" for="__search">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        </label>
+        <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Поиск" placeholder="Поиск" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Поиск">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Очистить" aria-label="Очистить" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Инициализация поиска
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+      
+    
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+
+<nav class="md-nav md-nav--primary" aria-label="Навигация" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../.." title="ИИ-агенты и Agent Skills" class="md-nav__button md-logo" aria-label="ИИ-агенты и Agent Skills" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    ИИ-агенты и Agent Skills
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../.." class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Главная
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+        
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2" >
+        
+          
+          <label class="md-nav__link" for="__nav_2" id="__nav_2_label" tabindex="">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Ученик
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Ученик
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../student/intro/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Введение
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../student/tour/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Экскурсия по AI: что есть что
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../student/ch01/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Глава 1. Модель, приложение и агент: кто отвечает, а кто действует?
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../student/ch02/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Глава 2. Агентный цикл: как результат действия меняет следующий шаг?
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../student/ch03/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Глава 3. Agent harness: что работает вокруг модели?
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../student/ch04/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Глава 4. Prompt, structured output, tool, MCP и Agent Skill: какие задачи решают разные уровни системы?
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../student/ch05/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Глава 5. Договор задачи: что нужно определить до реализации?
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../student/ch06/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Глава 6. Первый tool
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../student/ch07/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Глава 7. Диспетчер и ошибки
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../student/ch08/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Глава 8. Хороший tool
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../student/ch09/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Глава 9. Первый Agent Skill
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../student/ch10/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Глава 10. Состояние и память
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../student/ch11/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Глава 11. Тесты и evals: как доказать качество не одним удачным запуском?
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../student/ch12/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Глава 12. Traces: как понять, что происходило на самом деле?
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../student/ch13/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Глава 13. Обратная связь и версии: когда исправление должно менять процедуру?
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../student/ch14/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Глава 14. Permissions и участие человека
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../student/ch15/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Глава 15. Prompt injection и недоверенные подключения: что делать с данными и кодом, которым нельзя автоматически доверять?
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../student/ch16/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Глава 16. Долгая и совместная работа
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../student/ch17/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Глава 17. Итоговый проект: может ли команда доказать качество и ограниченность системы?
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../student/app-a/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Приложение А. Урок 0. Готовность рабочего места
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../student/app-b/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Приложение Б. Словарь курса
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../student/app-c/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Приложение В. Список фигур
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    
+    
+    
+    
+      
+        
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3" checked>
+        
+          
+          <label class="md-nav__link" for="__nav_3" id="__nav_3_label" tabindex="">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Учитель
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_3">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Учитель
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Методическое руководство для учителя
+  
+
+    
+  </span>
+  
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Методическое руководство для учителя
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Содержание">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Содержание
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#how-to-use" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        0. Как пользоваться этим руководством
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="0. Как пользоваться этим руководством">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#слова-которые-встретятся-в-руководстве" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Слова, которые встретятся в руководстве
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#audience" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1. Для кого курс и какой результат ожидается
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#schedules" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2. Два расписания: 34 и 18 часов
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="2. Два расписания: 34 и 18 часов">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#сокращённый-маршрут-18-занятий-по-45-минут" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Сокращённый маршрут: 18 занятий по 45 минут
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#tracks" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3. Треки A и B
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#model-and-evidence" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        4. Какая «модель» работает на уроках и что считать доказательством
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#chapters-and-checkpoints" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        5. Как устроены главы и контрольные точки
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#dezhurny" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        6. Конструктор «Дежурного»: что ученик накапливает и как это проверить
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#safety-lesson-0" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        7. Безопасность практикума и Урок 0
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#pilot" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        8. Что ещё не проверено и как учитель помогает пилоту
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../lesson-map/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Поурочная карта
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../routes/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Маршруты A/B
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../files/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Файлы практикума
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../about/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Выходные данные
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Содержание">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Содержание
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#how-to-use" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        0. Как пользоваться этим руководством
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="0. Как пользоваться этим руководством">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#слова-которые-встретятся-в-руководстве" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Слова, которые встретятся в руководстве
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#audience" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1. Для кого курс и какой результат ожидается
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#schedules" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2. Два расписания: 34 и 18 часов
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="2. Два расписания: 34 и 18 часов">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#сокращённый-маршрут-18-занятий-по-45-минут" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Сокращённый маршрут: 18 занятий по 45 минут
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#tracks" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3. Треки A и B
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#model-and-evidence" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        4. Какая «модель» работает на уроках и что считать доказательством
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#chapters-and-checkpoints" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        5. Как устроены главы и контрольные точки
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#dezhurny" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        6. Конструктор «Дежурного»: что ученик накапливает и как это проверить
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#safety-lesson-0" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        7. Безопасность практикума и Урок 0
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#pilot" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        8. Что ещё не проверено и как учитель помогает пилоту
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+
+<h1 id="методическое-руководство-для-учителя">Методическое руководство для учителя<a class="headerlink" href="#методическое-руководство-для-учителя" title="Permanent link">&para;</a></h1>
+<h2 id="how-to-use">0. Как пользоваться этим руководством<a class="headerlink" href="#how-to-use" title="Permanent link">&para;</a></h2>
+<p>Руководство написано для учителя информатики или математики, который ведёт курс впервые. Специальной подготовки по машинному обучению не нужно: всё, что требуется на уроках, есть в книге ученика и в учебном комплекте программ starter. Ссылки вида «с. 39» ведут на страницы книги ученика.</p>
+<p>В руководстве четыре части: разделы 1–8 — как устроен курс и как его вести; поурочная карта — что происходит на каждом из 34 уроков; конспект глав — одна страница на главу для быстрой подготовки; список фигур — где в книге стоит каждая схема.</p>
+<p>Ответы. Ответы на мини-проверки уроков и на вопросы «Проверь себя» напечатаны в самой книге — в разделах «Ответы» сразу после вопросов. Исключение — «Проверь себя» глав 1 и 2: напечатанных ответов там нет. Ответы к главе 1 сверяются по уроку 2 ( <a href="../../student/ch01/#lesson-2">↗</a>– <a href="../../student/ch01/">↗</a>), а к главе 2 — по урокам 3 и 4 ( <a href="../../student/ch02/#lesson-3">↗</a>– <a href="../../student/ch02/">↗</a>); ответы мини-проверки ролей — <a href="../../student/ch01/#lesson-1">↗</a>. Ответ на вопрос-прогноз, с которого начинается глава, — в её конце, где класс возвращается к сцене. Отдельного сборника ответов нет: курс строится на том, что ученик сначала записывает прогноз, а потом проверяет его, поэтому ответ не сообщают раньше механизма.</p>
+<h3 id="слова-которые-встретятся-в-руководстве">Слова, которые встретятся в руководстве<a class="headerlink" href="#слова-которые-встретятся-в-руководстве" title="Permanent link">&para;</a></h3>
+<p>Точные определения — в Приложении Б книги ученика ( <a href="../../student/app-b/">↗</a>). Здесь — коротко, чтобы читать руководство.</p>
+<table>
+<thead>
+<tr>
+<th>Слово</th>
+<th>Что это простыми словами</th>
+<th>Где в книге</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>«Дежурный»</td>
+<td>учебный проект курса: программа-помощник школьного проектного бюро, которая читает карточки задач и готовит черновик отчёта о состоянии проекта; ученик настраивает её от главы к главе</td>
+<td>гл. 1, <a href="../../student/ch01/">↗</a></td>
+</tr>
+<tr>
+<td>starter</td>
+<td>учебный комплект: папка с программами на Python, учебными данными и проверками; все команды курса выполняются из неё</td>
+<td>Приложение А, <a href="../../student/app-a/">↗</a></td>
+</tr>
+<tr>
+<td>агентный цикл (agent loop)</td>
+<td>повторение «состояние → выбор действия → выполнение → наблюдение → решение»; решение определяет, продолжать или остановиться</td>
+<td>гл. 2, <a href="../../student/ch02/">↗</a></td>
+</tr>
+<tr>
+<td>терминал</td>
+<td>итог запуска: success (готово), needs_input (нужен ответ человека), error (ошибка), limit (исчерпан предел шагов)</td>
+<td>гл. 2, <a href="../../student/ch02/">↗</a></td>
+</tr>
+<tr>
+<td>tool</td>
+<td>конкретная операция, которую программа умеет выполнять, например прочитать карточки задач</td>
+<td>гл. 1, 4, 6</td>
+</tr>
+<tr>
+<td>harness</td>
+<td>программная среда вокруг модели: организует цикл, выполнение действий, состояние, ограничения, ошибки и участие человека</td>
+<td>гл. 3, <a href="../../student/ch03/">↗</a></td>
+</tr>
+<tr>
+<td>Agent Skill</td>
+<td>переносимая процедура, записанная в файле SKILL.md, с дополнительными файлами при необходимости</td>
+<td>гл. 4 и 9, <a href="../../student/ch09/">↗</a></td>
+</tr>
+<tr>
+<td>заглушка (stub)</td>
+<td>маленькая функция на месте модели с заранее заданным поведением</td>
+<td>гл. 1–5</td>
+</tr>
+<tr>
+<td>replay (воспроизведение)</td>
+<td>ответы модели, подготовленные заранее; это сценарий, а не запись живой модели</td>
+<td>гл. 2 и 6</td>
+</tr>
+<tr>
+<td>bridge-сеанс</td>
+<td>единственный обязательный ручной сеанс с живой моделью: человек переносит подготовленный запрос в разрешённый чат и возвращает ответ на проверку</td>
+<td>гл. 7,</td>
+</tr>
+<tr>
+<td>trace</td>
+<td>сохранённая запись событий одного запуска: что произошло, кем начато, чем закончилось</td>
+<td>гл. 12, <a href="../../student/ch12/">↗</a></td>
+</tr>
+<tr>
+<td>test case, eval</td>
+<td>заранее заданная ситуация с ожидаемым результатом; eval — проверка поведения на наборе таких ситуаций</td>
+<td>гл. 8 и 11</td>
+</tr>
+<tr>
+<td>approval gate</td>
+<td>место, где программа останавливается и ждёт решения человека</td>
+<td>гл. 14, <a href="../../student/ch14/">↗</a></td>
+</tr>
+<tr>
+<td>checkpoint, handoff</td>
+<td>сохранённое состояние, по которому работу можно продолжить, и передача работы следующему запуску или человеку; не путать с контрольной точкой курса (КТ)</td>
+<td>гл. 10 и 16</td>
+</tr>
+<tr>
+<td>Release candidate</td>
+<td>версия проекта, зафиксированная для итоговых проверок перед защитой</td>
+<td>гл. 17, <a href="../../student/ch17/">↗</a></td>
+</tr>
+<tr>
+<td>golden</td>
+<td>файл с эталонным выводом программы; по нему проверяется, что программа печатает то же, что книга</td>
+<td>раздел 4 руководства</td>
+</tr>
+</tbody>
+</table>
+<h2 id="audience">1. Для кого курс и какой результат ожидается<a class="headerlink" href="#audience" title="Permanent link">&para;</a></h2>
+<p>Курс рассчитан прежде всего на учащихся 9–10 классов. Он не требует вузовской подготовки по машинному обучению, коммерческого API-ключа, сложной инфраструктуры или уверенного владения Python. Ученик рассматривается как начинающий инженер: он должен различать роли частей системы, читать простые схемы, проектировать ограничения, сравнивать ожидание с наблюдением, находить ошибку и аргументировать решение.</p>
+<p>Образовательный маршрут строится как последовательность наблюдаемых действий: понять устройство системы, смоделировать её, собрать учебную версию, проверить, ограничить последствия, улучшить и объяснить другому. Итогом является локальный проект «Дежурный» — программа-помощник школьного проектного бюро, которую ученик настраивает от главы к главе, — и его защита. От ученика не требуется собрать профессиональную автономную систему; требуется показать связную архитектуру, корректные границы, проверяемые результаты и умение объяснить, какие утверждения подтверждены практикой, а какие остаются предположениями.</p>
+<p>Руководство не является ключом к заданиям. Сцены, прогнозы и спорные вопросы следует проходить с классом в том порядке, в каком они даны в главах. Учителю важно не сообщать ответ раньше механизма: ценность курса во многом состоит в том, что ученик сначала делает прогноз, а затем сталкивает его с наблюдаемым результатом.</p>
+<h2 id="schedules">2. Два расписания: 34 и 18 часов<a class="headerlink" href="#schedules" title="Permanent link">&para;</a></h2>
+<p>Полный маршрут занимает 34 академических часа: 17 глав по два урока. Урок 0 вынесен в Приложение А и является организационной подготовкой рабочего места, а не 35-м часом. Перед главой 1 стоит вводная глава «Экскурсия по AI: что есть что» — два урока-показа Э1–Э2 сверх 34 часов (итого 36): ученик предсказывает, наблюдает и заполняет таблицу наблюдений, практик со starter и шага проекта в них нет; карточки — в поурочной карте ( <a href="../../student/tour/#lesson-e1">↗</a>, <a href="../../student/tour/#lesson-e2">↗</a>). В сокращённом маршруте Экскурсия сжимается до одного урока-показа или выносится в домашний просмотр (строка «Э» таблицы ниже). В полном маршруте главы идут последовательно: от различения модели, приложения и агента к циклу, harness, механизмам взаимодействия, договору задачи, tools, Agent Skill, состоянию, проверкам, traces, версиям, безопасности, долгой работе и итоговой защите.</p>
+<p>Сокращённый маршрут занимает 18 занятий по 45 минут. Он объединяет пары уроков, но сохраняет главные понятия, безопасность, проектирование и защиту; какие уроки в какое занятие входят — в таблице ниже. Нельзя исключать точные роли, остановку, договор задачи, tool, <code>SKILL.md</code>, состояние вне чата, три типа проверок, trace, минимальные полномочия и итоговую защиту. Личный skill и реальный bridge-сеанс для трека B также остаются обязательными.</p>
+<p>В расширение можно вынести прямое подключение программы к модели через API, настоящее MCP-подключение, автоматический запуск проверок (CI), сложную автоматизацию, дополнительные реализации и часть углубляющих инженерных упражнений. Такое сокращение не должно превращать курс в демонстрацию готового кода. Даже в 18-часовой версии ученик проходит путь «спрогнозировал → проверил → объяснил границу» и предъявляет наблюдаемый продукт.</p>
+<h3 id="сокращённый-маршрут-18-занятий-по-45-минут">Сокращённый маршрут: 18 занятий по 45 минут<a class="headerlink" href="#сокращённый-маршрут-18-занятий-по-45-минут" title="Permanent link">&para;</a></h3>
+<table>
+<thead>
+<tr>
+<th style="text-align: right;">Занятие</th>
+<th>Уроки полного курса</th>
+<th>Обязательное</th>
+<th>Расширение</th>
+<th>с. в книге</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: right;">Э</td>
+<td>Э1–Э2</td>
+<td>Один урок-показ: показы 1, 4, 5, 7 (только три роли), 8 и карта «что есть что»; показы 2, 3, 6 — домашний просмотр видео или чтение. Либо вся Экскурсия — домашним просмотром, тогда первые 5 минут занятия 1 — сверка таблиц наблюдений</td>
+<td>Второй урок-показ</td>
+<td><a href="../../student/tour/#lesson-e1">↗</a>, <a href="../../student/tour/#lesson-e2">↗</a></td>
+</tr>
+<tr>
+<td style="text-align: right;">1</td>
+<td>1–2</td>
+<td>Роли, одинаковая фраза и различное наблюдение</td>
+<td>Правка заглушки</td>
+<td><a href="../../student/ch01/#lesson-1">↗</a>, <a href="../../student/ch01/#lesson-2">↗</a></td>
+</tr>
+<tr>
+<td style="text-align: right;">2</td>
+<td>3–4</td>
+<td>4 стадии + решение, 4 терминала; показ учителя в конце главы 2</td>
+<td>Пять программных сценариев</td>
+<td><a href="../../student/ch02/#lesson-3">↗</a>, <a href="../../student/ch02/#lesson-4">↗</a></td>
+</tr>
+<tr>
+<td style="text-align: right;">3</td>
+<td>5–6</td>
+<td>Harness, workspace, состояние и права</td>
+<td>Реализация проверки пути</td>
+<td><a href="../../student/ch03/#lesson-5">↗</a>, <a href="../../student/ch03/#lesson-6">↗</a></td>
+</tr>
+<tr>
+<td style="text-align: right;">4</td>
+<td>7–8</td>
+<td>Пять механизмов; контроль зависимостей</td>
+<td>Учебная MCP-карточка</td>
+<td><a href="../../student/ch04/#lesson-7">↗</a>, <a href="../../student/ch04/#lesson-8">↗</a></td>
+</tr>
+<tr>
+<td style="text-align: right;">5</td>
+<td>9–10</td>
+<td>Договор задачи; когда агент не нужен</td>
+<td>Дополнительные кейсы</td>
+<td><a href="../../student/ch05/#lesson-9">↗</a>, <a href="../../student/ch05/#lesson-10">↗</a></td>
+</tr>
+<tr>
+<td style="text-align: right;">6</td>
+<td>11–12</td>
+<td>Чтение без пути от модели; task_id; schema; подготовка bridge</td>
+<td>Сложные схемы</td>
+<td><a href="../../student/ch06/#lesson-11">↗</a>, <a href="../../student/ch06/#lesson-12">↗</a></td>
+</tr>
+<tr>
+<td style="text-align: right;">7</td>
+<td>13–14</td>
+<td>Allowlist, retry/error; реальный bridge минимум B</td>
+<td>Дополнительный сеанс</td>
+<td><a href="../../student/ch07/#lesson-13">↗</a>, <a href="../../student/ch07/#lesson-14">↗</a></td>
+</tr>
+<tr>
+<td style="text-align: right;">8</td>
+<td>15–16</td>
+<td>Паспорт tool и три проверки</td>
+<td>Автовалидатор</td>
+<td><a href="../../student/ch08/#lesson-15">↗</a>, <a href="../../student/ch08/#lesson-16">↗</a></td>
+</tr>
+<tr>
+<td style="text-align: right;">9</td>
+<td>17</td>
+<td>Каталог Agent Skill: описание, инструкции, ресурсы</td>
+<td>Лицензия и расширенные поля</td>
+<td><a href="../../student/ch09/#lesson-17">↗</a></td>
+</tr>
+<tr>
+<td style="text-align: right;">10</td>
+<td>18</td>
+<td>Проектный skill и личный skill v1; три проверки</td>
+<td>Script после аудита</td>
+<td><a href="../../student/ch09/#lesson-18">↗</a></td>
+</tr>
+<tr>
+<td style="text-align: right;">11</td>
+<td>19–20</td>
+<td>project_state, handoff, отсутствие секретов</td>
+<td>RAG-демо</td>
+<td><a href="../../student/ch10/#lesson-19">↗</a>, <a href="../../student/ch10/#lesson-20">↗</a></td>
+</tr>
+<tr>
+<td style="text-align: right;">12</td>
+<td>21–22</td>
+<td>Harness отдельно от model_behavior; критерии</td>
+<td>Автоматический eval-runner</td>
+<td><a href="../../student/ch11/#lesson-21">↗</a>, <a href="../../student/ch11/#lesson-22">↗</a></td>
+</tr>
+<tr>
+<td style="text-align: right;">13</td>
+<td>23–24</td>
+<td>Trace: инициатор события, поиск сбоя</td>
+<td>Анализатор trace</td>
+<td><a href="../../student/ch12/#lesson-23">↗</a>, <a href="../../student/ch12/#lesson-24">↗</a></td>
+</tr>
+<tr>
+<td style="text-align: right;">14</td>
+<td>25–26</td>
+<td>Личный skill v2, diff, регрессия, keep/revert (КТ 7)</td>
+<td>Git</td>
+<td><a href="../../student/ch13/#lesson-25">↗</a>, <a href="../../student/ch13/#lesson-26">↗</a></td>
+</tr>
+<tr>
+<td style="text-align: right;">15</td>
+<td>27–28</td>
+<td>Минимальные права, read-only, approval</td>
+<td>Полная матрица угроз</td>
+<td><a href="../../student/ch14/#lesson-27">↗</a>, <a href="../../student/ch14/#lesson-28">↗</a></td>
+</tr>
+<tr>
+<td style="text-align: right;">16</td>
+<td>29–30</td>
+<td>Инъекция и аудит стороннего skill/MCP</td>
+<td>Статический сканер</td>
+<td><a href="../../student/ch15/#lesson-29">↗</a>, <a href="../../student/ch15/#lesson-30">↗</a></td>
+</tr>
+<tr>
+<td style="text-align: right;">17</td>
+<td>31–32</td>
+<td>Возобновление и выбор один/несколько/человек</td>
+<td>Запуск нескольких агентов</td>
+<td><a href="../../student/ch16/#lesson-31">↗</a>, <a href="../../student/ch16/#lesson-32">↗</a></td>
+</tr>
+<tr>
+<td style="text-align: right;">18</td>
+<td>33–34</td>
+<td>Интеграция, защита, bridge-доказательство B, личный skill</td>
+<td>Развёрнутая рефлексия</td>
+<td><a href="../../student/ch17/#lesson-33">↗</a>, <a href="../../student/ch17/#lesson-34">↗</a></td>
+</tr>
+</tbody>
+</table>
+<table>
+<thead>
+<tr>
+<th>Маршрут</th>
+<th>Что сохраняется обязательно</th>
+<th>Что можно оставить расширением</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>34 часа</td>
+<td>17 глав, КТ 1–8, три проверочные работы, интеграция, защита</td>
+<td>дополнительные реализации и факультативные сервисы</td>
+</tr>
+<tr>
+<td>18 часов</td>
+<td>понятийное ядро, безопасность, личный skill, bridge B, trace, версии, защита</td>
+<td>API/live, настоящий MCP, CI, сложная автоматизация</td>
+</tr>
+</tbody>
+</table>
+<p>При планировании стоит учитывать, что хронометраж отдельных сжатых занятий ещё требует классной проверки. Поэтому 18-часовой маршрут следует вести с запасом на обсуждение ошибок и не компенсировать нехватку времени пропуском безопасности или итогового доказательства.</p>
+<h2 id="tracks">3. Треки A и B<a class="headerlink" href="#tracks" title="Permanent link">&para;</a></h2>
+<p>Трек A и трек B равноправны. Трек A использует карточки, схемы, ролевое моделирование, проектирование, анализ и защиту без обязательного программирования. Трек B использует Python и локальный starter. Различается форма практической реализации, но архитектурное понимание и безопасность оцениваются одинаково.</p>
+<p>Если на уроке возникает технический сбой, ученик не должен терять содержательную часть занятия. Он начинает с трека A, фиксирует прогноз, строит схему и разбирает границы, а школа организует доступ к треку B позже. Инструкции по установке и подготовке среды не нужно переписывать в это руководство: единственный источник — Приложение А «Урок 0. Готовность рабочего места».</p>
+<p>Учителю полезно проверять не объём написанного кода, а качество инженерного объяснения. Ученик должен уметь показать, где выполняется действие, какой результат наблюдаем, что ограничивает последствия и почему один удачный запуск не доказывает устойчивость всей системы. Трек B добавляет программное свидетельство, но не отменяет необходимость объяснения.</p>
+<h2 id="model-and-evidence">4. Какая «модель» работает на уроках и что считать доказательством<a class="headerlink" href="#model-and-evidence" title="Permanent link">&para;</a></h2>
+<p>Режимы модели в курсе: stub — заглушка в обязательных практиках глав 1–5 (в главе 5 модель в практике не участвует); replay — авторский сценарий с указанным происхождением, с главы 6 в практиках и с главы 1 в конструкторе «Дежурного»; bridge — единственный обязательный ручной сеанс с живой моделью (глава 7), его свидетельство — на защите; live/API — факультатив. Replay не оценивает качество живой модели; bridge не закрывается заранее подготовленным ответом.</p>
+<table>
+<thead>
+<tr>
+<th>Режим</th>
+<th>Что это</th>
+<th>Где в курсе</th>
+<th>Что можно утверждать по результату</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>заглушка (stub)</td>
+<td>функция с заранее заданным поведением на месте модели</td>
+<td>практики глав 1–5</td>
+<td>программа вокруг модели работает так, как описано</td>
+</tr>
+<tr>
+<td>replay</td>
+<td>ответы, подготовленные заранее</td>
+<td>практики с главы 6; «Дежурный» с главы 1</td>
+<td>программа правильно обрабатывает такой ответ; о живой модели — ничего</td>
+</tr>
+<tr>
+<td>bridge</td>
+<td>человек переносит запрос в разрешённый чат с живой моделью и возвращает ответ на проверку</td>
+<td>один раз, глава 7 (); свидетельство — на защите</td>
+<td>этот конкретный ответ живой модели прошёл проверки программы</td>
+</tr>
+<tr>
+<td>live/API</td>
+<td>прямое подключение программы к модели</td>
+<td>факультатив</td>
+<td>в обязательную часть курса не входит</td>
+</tr>
+</tbody>
+</table>
+<p>Это различие нужно проговаривать всякий раз, когда класс видит убедительный текстовый результат. Заглушка и replay позволяют воспроизводить учебные ситуации и проверять harness, формат данных, правила остановки, обработку ошибок и настройки проекта. Они не дают основания утверждать, что живая модель в похожей ситуации ответит так же.</p>
+<p>Bridge устроен иначе: код не обязан подключаться к сети. Harness готовит контекст, человек переносит его в доступный живой чат и возвращает структурированный ответ, который проверяется до выполнения. Для курса важен не эффект «мы поговорили с ИИ», а паспорт реального сеанса: происхождение ответа, условия запуска и наблюдаемое продолжение работы. Заранее известный эталонный вывод (в starter такие файлы называются golden) не может быть доказательством такого сеанса.</p>
+<p>Платный API и личная регистрация ученика не обязательны. Доступный живой чат для обязательного сеанса организует школа или учитель с соблюдением правил выбранного сервиса. Если такого доступа в момент урока нет, класс продолжает офлайн, а live-доказательство остаётся открытым до организованной школьной сессии. Для сеанса подойдёт любой чат с живой моделью, которым школа разрешает пользоваться. Что перенести в чат и что вернуть, описано в главе 7 (); итог записывается в паспорт по шаблону <code>workspace/ch07/bridge_passport_template.md</code> ().</p>
+<h2 id="chapters-and-checkpoints">5. Как устроены главы и контрольные точки<a class="headerlink" href="#chapters-and-checkpoints" title="Permanent link">&para;</a></h2>
+<p>Рабочий ритм главы стабилен: сцена проектного бюро → вопрос-прогноз → объяснение механизма → «Проверь себя на ходу» → практика → шаг сквозного проекта → возврат к сцене → мост к следующему вопросу. Эта повторяемость помогает ученику отличать содержание главы от формы работы. Учителю полезно сохранять прогнозы до запуска: после практики их можно сравнить с результатом и увидеть не только ошибку программы, но и ошибку в рассуждении.</p>
+<p>Контрольные точки курса привязаны к наблюдаемым продуктам. «КТ курса» — это организационная контрольная точка учебного маршрута; её не следует смешивать с техническим <code>Checkpoint</code>, который появляется позже как часть продолжения долгой работы.</p>
+<table>
+<thead>
+<tr>
+<th>Урок</th>
+<th>Контроль</th>
+<th>Что сдаёт ученик</th>
+<th>с. в книге</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>4</td>
+<td>КТ 1: цикл</td>
+<td>программа проходит пять учебных сценариев; получены все четыре итога запуска; ошибка — на втором действии</td>
+<td></td>
+</tr>
+<tr>
+<td>8</td>
+<td>КТ 2: архитектура</td>
+<td>карта системы: роль каждого механизма и связи между ними</td>
+<td></td>
+</tr>
+<tr>
+<td>14</td>
+<td>КТ 3: цикл и bridge</td>
+<td>чтение, ошибка и результат в одном запуске; в треке B — паспорт bridge-сеанса</td>
+<td></td>
+</tr>
+<tr>
+<td>16</td>
+<td>Проверочная работа 1</td>
+<td>tool, схема параметров (schema), проверка (validator), три теста</td>
+<td></td>
+</tr>
+<tr>
+<td>18</td>
+<td>КТ 4: skill</td>
+<td>skill проекта и личный skill; три проверки</td>
+<td></td>
+</tr>
+<tr>
+<td>20</td>
+<td>КТ 5: состояние</td>
+<td>передача работы между запусками (handoff)</td>
+<td></td>
+</tr>
+<tr>
+<td>22</td>
+<td>Проверочная работа 2</td>
+<td>проверка программы отдельно от поведения модели; исходный уровень (baseline)</td>
+<td></td>
+</tr>
+<tr>
+<td>24</td>
+<td>КТ 6: диагностика</td>
+<td>отчёт об инциденте по trace</td>
+<td></td>
+</tr>
+<tr>
+<td>26</td>
+<td>КТ 7: версии</td>
+<td>личный skill v1 и v2, сравнение (diff), повтор случаев, решение keep или revert</td>
+<td></td>
+</tr>
+<tr>
+<td>28</td>
+<td>Проверочная работа 3</td>
+<td>разрешения (permissions) и approval gate</td>
+<td></td>
+</tr>
+<tr>
+<td>30</td>
+<td>КТ 8: аудит доверия</td>
+<td>внешний аудит skill другой группы: обоснованный отказ или условия подключения</td>
+<td></td>
+</tr>
+<tr>
+<td>33</td>
+<td>Интеграция</td>
+<td>кандидат проекта для итоговой проверки</td>
+<td><a href="../../student/ch17/#lesson-33">↗</a></td>
+</tr>
+<tr>
+<td>34</td>
+<td>Итог</td>
+<td>защита, свидетельство bridge-сеанса (трек B), личный skill; рубрика —</td>
+<td><a href="../../student/ch17/#lesson-34">↗</a></td>
+</tr>
+</tbody>
+</table>
+<p>На защите ценится не количество функций, а связность доказательств. Ученик должен показать архитектуру, договор задачи, качество tools и skill, состояние, проверки, trace, безопасность и решение человека там, где оно требуется. Критическое нарушение — например, произвольное выполнение команды, выход за учебную папку, хранение секрета или значимое изменение без нужного подтверждения — не компенсируется хорошей презентацией. Стобалльная рубрика защиты и правило бонуса приведены в главе 17 () — ученик видит те же критерии.</p>
+<table>
+<thead>
+<tr>
+<th>Компонент</th>
+<th style="text-align: right;">Баллы</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Понимание архитектуры</td>
+<td style="text-align: right;">15</td>
+</tr>
+<tr>
+<td>Постановка задачи и критерий готовности</td>
+<td style="text-align: right;">10</td>
+</tr>
+<tr>
+<td>Качество tools</td>
+<td style="text-align: right;">10</td>
+</tr>
+<tr>
+<td>Качество Agent Skill</td>
+<td style="text-align: right;">10</td>
+</tr>
+<tr>
+<td>Состояние и возобновление</td>
+<td style="text-align: right;">10</td>
+</tr>
+<tr>
+<td>Тесты и evals</td>
+<td style="text-align: right;">15</td>
+</tr>
+<tr>
+<td>Trace и обработка ошибок</td>
+<td style="text-align: right;">10</td>
+</tr>
+<tr>
+<td>Безопасность и подтверждения</td>
+<td style="text-align: right;">15</td>
+</tr>
+<tr>
+<td>Документация и защита</td>
+<td style="text-align: right;">5</td>
+</tr>
+<tr>
+<td><strong>Итого</strong></td>
+<td style="text-align: right;"><strong>100</strong></td>
+</tr>
+</tbody>
+</table>
+<p>Бонус до 5 баллов сверх 100: 2 — измеримое улучшение личного skill на неизменном наборе; 2 — перенос процедуры на другой учебный пример; 1 — воспроизводимые diff/версия/keep-revert. Отчётность: основной результат /100 и бонус /5 отдельно. Бонус не компенсирует нарушения безопасности и не заменяет обязательный bridge-сеанс в треке B.</p>
+<h2 id="dezhurny">6. Конструктор «Дежурного»: что ученик накапливает и как это проверить<a class="headerlink" href="#dezhurny" title="Permanent link">&para;</a></h2>
+<p>Ученик не пишет заново весь harness. По ходу курса он добавляет настройки в <code>workspace/my_agent/</code>, а «Дежурный» показывает, как они влияют на один и тот же локальный проект. В главах 4 и 6 отдельного файла настройки нет: это намеренно, потому что не каждая тема курса должна превращаться в новую строку конфигурации.</p>
+<table>
+<thead>
+<tr>
+<th style="text-align: right;">Глава</th>
+<th>Настройка ученика</th>
+<th>Что наблюдает учитель</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: right;">1</td>
+<td><code>01_goal.md</code></td>
+<td>цель в строке <code>goal:</code></td>
+</tr>
+<tr>
+<td style="text-align: right;">2</td>
+<td><code>02_stop_policy.json</code></td>
+<td>предел шагов и повторов</td>
+</tr>
+<tr>
+<td style="text-align: right;">3</td>
+<td><code>03_workspace_policy.json</code></td>
+<td>разрешённая область записи; отказ вне неё</td>
+</tr>
+<tr>
+<td style="text-align: right;">4</td>
+<td>отдельного файла нет</td>
+<td>понятийная глава; фиктивная настройка не создаётся</td>
+</tr>
+<tr>
+<td style="text-align: right;">5</td>
+<td><code>05_task_contract.md</code></td>
+<td><code>contract: ok/violated</code> по «Готово, когда»</td>
+</tr>
+<tr>
+<td style="text-align: right;">6</td>
+<td>отдельного файла нет</td>
+<td>вызов операции входит в общий harness</td>
+</tr>
+<tr>
+<td style="text-align: right;">7</td>
+<td><code>07_tools.json</code></td>
+<td>разрешённый список; неизвестный tool отклоняется до диспетчера</td>
+</tr>
+<tr>
+<td style="text-align: right;">8</td>
+<td><code>08_my_tool.py</code></td>
+<td>имя и описание функции; программа читает текст файла, но не запускает его код</td>
+</tr>
+<tr>
+<td style="text-align: right;">9</td>
+<td><code>09_skills/&lt;имя&gt;/SKILL.md</code></td>
+<td>skill ученика в каталоге; загрузка тремя слоями; три проверки главы 9</td>
+</tr>
+<tr>
+<td style="text-align: right;">10</td>
+<td><code>10_state.json</code></td>
+<td>второй запуск видит сохранённое состояние</td>
+</tr>
+<tr>
+<td style="text-align: right;">11</td>
+<td><code>11_evals.json</code></td>
+<td>случаи ученика и итог <code>result: n/m</code></td>
+</tr>
+<tr>
+<td style="text-align: right;">12</td>
+<td><code>12_trace.json</code></td>
+<td>запись trace и разбор последнего запуска</td>
+</tr>
+<tr>
+<td style="text-align: right;">13</td>
+<td><code>13_versions/</code></td>
+<td>снимки конфигурации и сравнение без автоматического изменения файлов</td>
+</tr>
+<tr>
+<td style="text-align: right;">14</td>
+<td><code>14_permissions.json</code></td>
+<td>gate закрыт по умолчанию; изменение не применяется без решения человека</td>
+</tr>
+<tr>
+<td style="text-align: right;">15</td>
+<td><code>15_trust.json</code></td>
+<td>решение аудита для skills; подключение не разрешает scripts автоматически</td>
+</tr>
+<tr>
+<td style="text-align: right;">16</td>
+<td><code>16_run_plan.json</code></td>
+<td>одна команда <code>run</code> = одна Session; предел числа сессий</td>
+</tr>
+<tr>
+<td style="text-align: right;">17</td>
+<td><code>17_release_candidate.json</code></td>
+<td>фиксация одной версии для итоговых проверок; метка не доказывает качество</td>
+</tr>
+</tbody>
+</table>
+<p>Счётчик <code>configured: k/15</code> относится к пятнадцати реально настраиваемым строкам. Для быстрой проверки удобно идти в порядке <code>status → run → eval</code>, а при разборе конкретного запуска — к последнему trace. Файлы <code>08_my_tool.py</code>, <code>09_skills/.../SKILL.md</code> и <code>05_task_contract.md</code> дополнительно требуют ручного просмотра по правилам соответствующих глав.</p>
+<p>Все команды набираются в командной строке, открытой в папке starter — той, где лежит файл <code>dezhurny.py</code>. Строка <code># запуск из корня starter</code> в примерах напоминает об этом; набирать её не нужно. В примерах написано <code>python</code>; на Windows обычно набирают <code>py -3</code>, на macOS и Linux — <code>python3</code>, как в Приложении А ( <a href="../../student/app-a/">↗</a>).</p>
+<p>Прежде чем смотреть настройки учеников, проверь целостность самой поставки — на свежераспакованном starter, до первого запуска. Команда рассчитана на нетронутый комплект: на папке, где уже лежат trace, черновики или файлы учеников в <code>my_agent/</code>, она честно ответит <code>false</code>, хотя starter исправен.</p>
+<div class="highlight"><pre><span></span><code><span class="c1"># запуск из корня starter</span>
+python<span class="w"> </span>scripts/verify_release.py
+</code></pre></div>
+<p>Команда печатает отчёт в формате JSON и занимает около десяти секунд; смотреть нужно на строку <code>"all_passed": true</code> в конце: starter цел, тесты проходят; о качестве модели это ничего не говорит. Полный вывод здесь намеренно не приводится, потому что технические счётчики меняются вместе с версией starter.</p>
+<p>Держите две копии starter. Первая — чистая: её проверяют командой <code>verify_release.py</code> и с неё раздают комплект ученикам; в ней ничего не запускают. Вторая — рабочая: на ней учитель повторяет примеры этого раздела и смотрит работы учеников. Команды <code>run</code> и <code>trace</code> записывают в папку файлы — черновики и trace, поэтому после них <code>verify_release.py</code> на той же папке ответит <code>false</code>. Это не поломка.</p>
+<p>Первая команда показывает состав настроек и счётчик. Смотрите на третий столбец (настроено / не настроено / ошибка) и на последнюю строку <code>configured: k/15</code>. Ниже — проверенный пример для базовой учебной конфигурации.</p>
+<div class="highlight"><pre><span></span><code><span class="c1"># запуск из корня starter</span>
+python<span class="w"> </span>dezhurny.py<span class="w"> </span>status
+</code></pre></div>
+<p><div class="highlight"><pre><span></span><code>dezhurny: status
+config: workspace/my_agent
+глава 1 | 01_goal.md | не настроено | run: заголовок цитирует первую строку цели
+глава 2 | 02_stop_policy.json | не настроено | run: предел шагов и повторов
+глава 3 | 03_workspace_policy.json | не настроено | run: сохранение черновика только в разрешённую область
+глава 5 | 05_task_contract.md | не настроено | run: contract ok/violated по разделу «Готово, когда»
+глава 7 | 07_tools.json | не настроено | run: tool вне списка отклоняется до диспетчера
+глава 8 | 08_my_tool.py | не настроено | каталог tools: описание функции ученика
+глава 9 | 09_skills | не настроено | каталог skills: skill ученика, три слоя загрузки
+глава 10 | 10_state.json | не настроено | run: второй запуск видит первый
+глава 11 | 11_evals.json | не настроено | eval: таблица случаев ученика
+глава 12 | 12_trace.json | не настроено | run: trace в workspace/traces/dezhurny/; trace --last
+глава 13 | 13_versions | не настроено | version save сохраняет снимок конфигурации
+глава 14 | 14_permissions.json | не настроено | approval gate закрыт: изменение статуса не применяется
+глава 15 | 15_trust.json | не настроено | skills из 09_skills подключаются без записанного решения аудита
+глава 16 | 16_run_plan.json | не настроено | run — одна Session без checkpoint
+глава 17 | 17_release_candidate.json | не настроено | run: печатает метку Release candidate; изменение любого файла после фиксации делает её недействительной
+configured: 0/15
+</code></pre></div>
+Этот вывод доказывает, какие строки конфигурации распознаны и каков счётчик. Он не доказывает, что полный запуск успешен, что все ручные артефакты качественны или что живая модель работает хорошо.</p>
+<p>Следующая команда показывает техническую границу записи на заранее подготовленном случае.</p>
+<div class="highlight"><pre><span></span><code><span class="c1"># запуск из корня starter</span>
+python<span class="w"> </span>dezhurny.py<span class="w"> </span>run<span class="w"> </span>--dir<span class="w"> </span>workspace/my_agent/examples/denied
+</code></pre></div>
+<div class="highlight"><pre><span></span><code>dezhurny: run
+goal: не настроено (глава 1)
+config: workspace/my_agent/examples/denied
+model: replay — авторский сценарий, не запись модели
+scenario: success
+stop_policy: max_steps 5, max_retries 1 (по умолчанию, глава 2)
+tools: allowlist диспетчера (по умолчанию, глава 7)
+Шаг 1 | read_task_cards | continue
+Шаг 2 | validate_task_card | continue
+Шаг 3 | validate_task_card | continue
+Шаг 4 | validate_task_card | continue
+Шаг 5 | build_status_report | success
+Остановка: success
+# Черновик статуса проекта
+
+Всего задач: 3.
+Незавершённых: 2.
+Заблокированных: 1.
+
+## Незавершённые задачи
+- `task-002` — Подготовить макет афиши (in_progress)
+- `task-003` — Проверить список оборудования (blocked)
+
+## Блокеры
+- `task-003`: Нет подтверждённого списка оборудования
+
+Черновик. Отправка и изменение карточек не выполнялись.
+contract: не настроено (глава 5)
+save: denied | path_not_writable | tasks/dezhurny_report.md
+state: не настроено (глава 10)
+trace: не настроено (глава 12)
+Качество модели не подтверждено этим техническим прогоном.
+</code></pre></div>
+<p>Здесь наблюдаемо доказан отказ записи вне разрешённой области. Этот прогон не доказывает наличие системной изоляции уровня ОС и сам прямо не подтверждает качество модели.</p>
+<p>Ограничение числа шагов можно проверить отдельным подготовленным случаем.</p>
+<div class="highlight"><pre><span></span><code><span class="c1"># запуск из корня starter</span>
+python<span class="w"> </span>dezhurny.py<span class="w"> </span>run<span class="w"> </span>--dir<span class="w"> </span>workspace/my_agent/examples/limit2
+</code></pre></div>
+<div class="highlight"><pre><span></span><code>dezhurny: run
+goal: не настроено (глава 1)
+config: workspace/my_agent/examples/limit2
+model: replay — авторский сценарий, не запись модели
+scenario: success
+stop_policy: max_steps 2, max_retries 1
+tools: allowlist диспетчера (по умолчанию, глава 7)
+Шаг 1 | read_task_cards | continue
+Шаг 2 | validate_task_card | limit
+Остановка: limit
+contract: не настроено (глава 5)
+save: не настроено (глава 3)
+state: не настроено (глава 10)
+trace: не настроено (глава 12)
+Качество модели не подтверждено этим техническим прогоном.
+</code></pre></div>
+<p>Этот вывод доказывает, что настройка предела меняет наблюдаемый терминал на <code>limit</code>. Он не доказывает, что выбранный предел оптимален для всех задач.</p>
+<p>Для проверки набора случаев используется <code>eval</code>.</p>
+<div class="highlight"><pre><span></span><code><span class="c1"># запуск из корня starter</span>
+python<span class="w"> </span>dezhurny.py<span class="w"> </span><span class="nb">eval</span><span class="w"> </span>--dir<span class="w"> </span>workspace/my_agent/examples/full
+</code></pre></div>
+<div class="highlight"><pre><span></span><code>dezhurny: eval
+config: workspace/my_agent/examples/full
+case report-on-clean-cards: scenario success | expected success | actual success | pass
+case ask-on-ambiguity: scenario needs_input | expected needs_input | actual needs_input | pass
+case stop-on-missing-cards: scenario missing_file | expected error | actual error | pass
+result: 3/3
+evidence: synthetic_script — проверка harness и настроек my_agent, не качество модели
+</code></pre></div>
+<p>Результат <code>3/3</code> доказывает прохождение именно этих подготовленных случаев для harness и настроек. Он не является оценкой поведения живой модели и не заменяет новые случаи, если ученик изменил границы задачи.</p>
+<p>Trace пишется, только если в папке <code>workspace/my_agent/</code> лежит файл <code>12_trace.json</code> с текстом <code>{"enabled": true}</code>; без такого файла и без предшествующего запуска команда <code>trace --last</code> честно отвечает, что записанных запусков нет. Чтобы повторить пример ниже, создайте этот файл в рабочей копии starter и выполните две команды подряд.</p>
+<div class="highlight"><pre><span></span><code><span class="c1"># запуск из корня starter</span>
+<span class="c1"># фикстура: tests/fixtures/ch12/12_trace.json -&gt; workspace/my_agent/12_trace.json</span>
+python<span class="w"> </span>dezhurny.py<span class="w"> </span>run
+</code></pre></div>
+<div class="highlight"><pre><span></span><code>dezhurny: run
+goal: не настроено (глава 1)
+config: workspace/my_agent
+model: replay — авторский сценарий, не запись модели
+scenario: success
+stop_policy: max_steps 5, max_retries 1 (по умолчанию, глава 2)
+tools: allowlist диспетчера (по умолчанию, глава 7)
+Шаг 1 | read_task_cards | continue
+Шаг 2 | validate_task_card | continue
+Шаг 3 | validate_task_card | continue
+Шаг 4 | validate_task_card | continue
+Шаг 5 | build_status_report | success
+Остановка: success
+# Черновик статуса проекта
+
+Всего задач: 3.
+Незавершённых: 2.
+Заблокированных: 1.
+
+## Незавершённые задачи
+- `task-002` — Подготовить макет афиши (in_progress)
+- `task-003` — Проверить список оборудования (blocked)
+
+## Блокеры
+- `task-003`: Нет подтверждённого списка оборудования
+
+Черновик. Отправка и изменение карточек не выполнялись.
+contract: не настроено (глава 5)
+save: не настроено (глава 3)
+state: не настроено (глава 10)
+trace: workspace/traces/dezhurny/run-001.jsonl
+Качество модели не подтверждено этим техническим прогоном.
+</code></pre></div>
+<div class="highlight"><pre><span></span><code><span class="c1"># запуск из корня starter</span>
+python<span class="w"> </span>dezhurny.py<span class="w"> </span>trace<span class="w"> </span>--last
+</code></pre></div>
+<div class="highlight"><pre><span></span><code>trace: workspace/traces/dezhurny/run-001.jsonl
+terminal: success
+tool_calls: 5
+errors: 0
+failure_point: нет наблюдаемого отклонения
+</code></pre></div>
+<p>Эта команда доказывает, что в сохранённом trace наблюдаемы терминал, число вызовов, ошибки и место отклонения. Она не объясняет причину сама по себе: если отклонение есть, учитель возвращается к событиям запуска и проверяет цепочку по материалу главы 12.</p>
+<h2 id="safety-lesson-0">7. Безопасность практикума и Урок 0<a class="headerlink" href="#safety-lesson-0" title="Permanent link">&para;</a></h2>
+<p>Рабочее место готовит школа. Python, редактор кода, командная строка и starter должны быть доступны до основного занятия; платный API, Git, pip и локальный сервер не являются обязательными входными требованиями. Если подготовка ещё не завершена, содержательная работа начинается в треке A. Инструкции установки и проверки платформы берутся только из Приложения А и здесь не дублируются.</p>
+<p>Основные правила практикума действуют с первого урока: синтетические или обезличенные данные, только чтение по умолчанию (read-only), работа внутри учебной папки, отсутствие секретов в коде и данных, отказ от обхода школьных ограничений, решение человека перед значимым изменением. Внешний документ, skill или подключение не становится доверенным только потому, что внутри содержится убедительная инструкция.</p>
+<p>Перед занятием учитель проверяет целостность starter командой из начала раздела 6 — только на свежераспакованном комплекте, до первого запуска.</p>
+<p>Эта проверка не отменяет педагогическую подготовку. Даже полностью прошедшие тесты не показывают, сколько времени займёт урок, поймут ли ученики формулировку или будет ли живая модель отвечать устойчиво. Для этого нужны отдельные наблюдения в классе и реальный сеанс там, где он предусмотрен.</p>
+<h2 id="pilot">8. Что ещё не проверено и как учитель помогает пилоту<a class="headerlink" href="#pilot" title="Permanent link">&para;</a></h2>
+<p>Программы и тексты курса проверены; не хватает двух свидетельств, которые можно получить только в жизни. Поле <code>classroom_pilot_pending</code> означает, что уроки 1–4 ещё должны пройти классный пилот с наблюдением хронометража и нагрузки. Поле <code>live_model_evidence_pending</code> означает, что требуется подтверждённый ручной сеанс с живой моделью. Пока оба свидетельства не получены, <code>publication_ready</code> остаётся false.</p>
+<p>Состояние можно увидеть в кратком отчёте:</p>
+<div class="highlight"><pre><span></span><code><span class="c1"># запуск из корня starter</span>
+python<span class="w"> </span>eval_runner.py<span class="w"> </span>--summary
+</code></pre></div>
+<div class="highlight"><pre><span></span><code>harness: 6/6 passed
+model_behavior: not_evaluated (verified_sessions: 0; scripted: 3, excluded from scoring)
+publication_ready: false (classroom_pilot_pending, live_model_evidence_pending)
+</code></pre></div>
+<p>Этот вывод доказывает, что технические проверки harness пройдены и что два внешних свидетельства ещё открыты. Он не означает, что главы книги «не готовы», и не позволяет закрыть эти два пункта текстом, replay-сценарием или дополнительным эталонным выводом. Классный пилот должен дать наблюдение за реальными учениками, а bridge-сеанс — реальное свидетельство работы с живой моделью.</p>
+<p>Для подготовки к урокам в этом руководстве есть поурочная карта, конспект глав с одной страницей на каждую главу и список фигур со страницами книги. Они помогают быстро увидеть, что делать на уроке, что вводится, что запрещено, какой наблюдаемый продукт ожидается и где в книге расположена схема. Эти материалы не заменяют текст глав и не создают новых требований к ученику.</p>
+<p>Перед стартом класса удобно проверить четыре вещи: рабочее место подготовлено по Приложению А; выбран маршрут 34 или 18 часов; понятно, как класс разделится между треками A и B; для обязательного bridge предусмотрен доступный живой чат или заранее назначена школьная сессия. После этого курс можно вести по единому принципу: каждое сильное утверждение должно опираться на наблюдаемое доказательство, а граница этого доказательства проговаривается так же явно, как сам результат.</p>
+<p>Если вы ведёте пилотные уроки 1–4, после каждого урока заполните одну страницу: сколько минут ушло на каждый блок урока против плана; что из практик A и B группы успели, а что нет; на чём ученики споткнулись — какая команда, какая строка вывода, какая фраза книги вызвала вопрос. Нужны факты, а не общие впечатления: по ним авторы исправляют книгу.</p>
+
+
+
+
+
+
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+    
+      
+      <nav class="md-footer__inner md-grid" aria-label="Нижний колонтитул" >
+        
+          
+          <a href="../../student/app-c/" class="md-footer__link md-footer__link--prev" aria-label="Назад: Приложение В. Список фигур">
+            <div class="md-footer__button md-icon">
+              
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+            </div>
+            <div class="md-footer__title">
+              <span class="md-footer__direction">
+                Назад
+              </span>
+              <div class="md-ellipsis">
+                Приложение В. Список фигур
+              </div>
+            </div>
+          </a>
+        
+        
+          
+          <a href="../lesson-map/" class="md-footer__link md-footer__link--next" aria-label="Вперед: Поурочная карта">
+            <div class="md-footer__title">
+              <span class="md-footer__direction">
+                Вперед
+              </span>
+              <div class="md-ellipsis">
+                Поурочная карта
+              </div>
+            </div>
+            <div class="md-footer__button md-icon">
+              
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M4 11v2h12l-5.5 5.5 1.42 1.42L19.84 12l-7.92-7.92L10.5 5.5 16 11z"/></svg>
+            </div>
+          </a>
+        
+      </nav>
+    
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+    <div class="md-copyright__highlight">
+      Редакция r0002 · 2026-10-14 · техническая редакция, пилот не проводился
+    </div>
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    
+      
+      
+      <script id="__config" type="application/json">{"annotate": null, "base": "../..", "features": ["content.code.copy", "navigation.sections", "navigation.footer", "search.highlight"], "search": "../../assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "\u0421\u043a\u043e\u043f\u0438\u0440\u043e\u0432\u0430\u043d\u043e \u0432 \u0431\u0443\u0444\u0435\u0440", "clipboard.copy": "\u041a\u043e\u043f\u0438\u0440\u043e\u0432\u0430\u0442\u044c \u0432 \u0431\u0443\u0444\u0435\u0440", "search.result.more.one": "\u0415\u0449\u0451 1 \u043d\u0430 \u044d\u0442\u043e\u0439 \u0441\u0442\u0440\u0430\u043d\u0438\u0446\u0435", "search.result.more.other": "\u0415\u0449\u0451 # \u043d\u0430 \u044d\u0442\u043e\u0439 \u0441\u0442\u0440\u0430\u043d\u0438\u0446\u0435", "search.result.none": "\u0421\u043e\u0432\u043f\u0430\u0434\u0435\u043d\u0438\u0439 \u043d\u0435 \u043d\u0430\u0439\u0434\u0435\u043d\u043e", "search.result.one": "\u041d\u0430\u0439\u0434\u0435\u043d\u043e 1 \u0441\u043e\u0432\u043f\u0430\u0434\u0435\u043d\u0438\u0435", "search.result.other": "\u041d\u0430\u0439\u0434\u0435\u043d\u043e \u0441\u043e\u0432\u043f\u0430\u0434\u0435\u043d\u0438\u0439: #", "search.result.placeholder": "\u041d\u0430\u0447\u043d\u0438\u0442\u0435 \u043f\u0435\u0447\u0430\u0442\u0430\u0442\u044c \u0434\u043b\u044f \u043f\u043e\u0438\u0441\u043a\u0430", "search.result.term.missing": "\u041e\u0442\u0441\u0443\u0442\u0441\u0442\u0432\u0443\u0435\u0442", "select.version": "\u0412\u044b\u0431\u0435\u0440\u0438\u0442\u0435 \u0432\u0435\u0440\u0441\u0438\u044e"}, "version": {"provider": "mike"}}</script>
+    
+    
+      <script src="../../assets/javascripts/bundle.79ae519e.min.js"></script>
+      
+    
+  </body>
+</html>

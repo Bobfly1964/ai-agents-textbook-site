@@ -1,0 +1,2753 @@
+
+<!doctype html>
+<html lang="ru" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+        <meta name="description" content="Учебник для 9–10 классов">
+      
+      
+      
+        <link rel="canonical" href="https://book.stemschool.online/r0002/student/ch02/">
+      
+      
+        <link rel="prev" href="../ch01/">
+      
+      
+        <link rel="next" href="../ch03/">
+      
+      
+        
+      
+      
+      <link rel="icon" href="../../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.6">
+    
+    
+      
+        <title>Глава 2. Агентный цикл: как результат действия меняет следующий шаг? - ИИ-агенты и Agent Skills</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../assets/stylesheets/main.484c7ddc.min.css">
+      
+        
+        <link rel="stylesheet" href="../../assets/stylesheets/palette.ab4e12ef.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+    <script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+  </head>
+  
+  
+    
+    
+      
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="indigo">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#глава-2-агентный-цикл-как-результат-действия-меняет-следующий-шаг" class="md-skip">
+          Перейти к содержанию
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+        <aside class="md-banner">
+          <div class="md-banner__inner md-grid md-typeset">
+            
+            
+  
+    <strong>Техническая редакция: пилот не проводился</strong> · редакция r0002
+  
+
+          </div>
+          
+        </aside>
+      
+    </div>
+    
+      <div data-md-color-scheme="default" data-md-component="outdated" hidden>
+        
+      </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Верхний колонтитул">
+    <a href="../.." title="ИИ-агенты и Agent Skills" class="md-header__button md-logo" aria-label="ИИ-агенты и Agent Skills" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            ИИ-агенты и Agent Skills
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Глава 2. Агентный цикл: как результат действия меняет следующий шаг?
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+        <form class="md-header__option" data-md-component="palette">
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="indigo"  aria-hidden="true"  type="radio" name="__palette" id="__palette_0">
+    
+  
+</form>
+      
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+      
+      
+        <label class="md-header__button md-icon" for="__search">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        </label>
+        <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Поиск" placeholder="Поиск" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Поиск">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Очистить" aria-label="Очистить" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Инициализация поиска
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+      
+    
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+
+<nav class="md-nav md-nav--primary" aria-label="Навигация" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../.." title="ИИ-агенты и Agent Skills" class="md-nav__button md-logo" aria-label="ИИ-агенты и Agent Skills" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    ИИ-агенты и Agent Skills
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../.." class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Главная
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    
+    
+    
+    
+      
+        
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2" checked>
+        
+          
+          <label class="md-nav__link" for="__nav_2" id="__nav_2_label" tabindex="">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Ученик
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_2">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Ученик
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../intro/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Введение
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../tour/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Экскурсия по AI: что есть что
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../ch01/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Глава 1. Модель, приложение и агент: кто отвечает, а кто действует?
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Глава 2. Агентный цикл: как результат действия меняет следующий шаг?
+  
+
+    
+  </span>
+  
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Глава 2. Агентный цикл: как результат действия меняет следующий шаг?
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Содержание">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Содержание
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#scene" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Две карточки с одним номером
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#goals" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        После главы ты сможешь
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#lesson-3" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Урок 3. Один шаг и обратная связь
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Урок 3. Один шаг и обратная связь">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#1-от-последовательности-к-циклу" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1. От последовательности к циклу
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#2-tool-действие-и-observation" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2. Tool, действие и observation
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#3-состояние-в-программе" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3. Состояние в программе
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#4-практика-a-сыграй-один-проход" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        4. Практика A: сыграй один проход
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#5-практика-b-полный-loop_demopy" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        5. Практика B: полный loop_demo.py
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#6-два-запуска" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        6. Два запуска
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="6. Два запуска">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#разбери-observation-по-полям" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Разбери observation по полям
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#почему-решение-находится-внутри-того-же-шага" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Почему решение находится внутри того же шага
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#выходной-билет-урока-3" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Выходной билет урока 3
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#lesson-4" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Урок 4. Четыре способа завершить запуск
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Урок 4. Четыре способа завершить запуск">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#7-продолжение-и-завершение-запуска" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        7. Продолжение и завершение запуска
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#8-retry-и-limit-повторная-попытка-и-предел-шагов" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        8. Retry и limit: повторная попытка и предел шагов
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="8. Retry и limit: повторная попытка и предел шагов">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#порядок-проверок-в-decide" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Порядок проверок в decide
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#9-ошибка-на-втором-действии" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        9. Ошибка на втором действии
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#10-все-сценарии-и-эталоны" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        10. Все сценарии и эталоны
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="10. Все сценарии и эталоны">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#матрица-причин-а-не-названий" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Матрица причин, а не названий
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#11-что-происходит-после-needs_input" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        11. Что происходит после needs_input
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#12-практика-a-жетоны-остановки" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        12. Практика A: жетоны остановки
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#13-практика-b-сравни-записи-шагов" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        13. Практика B: сравни записи шагов
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="13. Практика B: сравни записи шагов">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#дополнительный-опыт-со-счётчиками" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Дополнительный опыт со счётчиками
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#14-проверки-должен--не-должен--ошибка--граница" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        14. Проверки «должен / не должен / ошибка / граница»
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#15-безопасность-цикла" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        15. Безопасность цикла
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="15. Безопасность цикла">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#четыре-частые-ошибки-объяснения" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Четыре частые ошибки объяснения
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#16-короткий-показ-учителя-куда-развивается-проект" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        16. Короткий показ учителя: куда развивается проект
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#17-шаг-сквозного-проекта" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        17. Шаг сквозного проекта
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="17. Шаг сквозного проекта">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#достраиваем-дежурного" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Достраиваем «Дежурного»
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#18-проверь-себя" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        18. Проверь себя
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#словарь-главы" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Словарь главы
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#bridge" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Мост к главе 3
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../ch03/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Глава 3. Agent harness: что работает вокруг модели?
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../ch04/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Глава 4. Prompt, structured output, tool, MCP и Agent Skill: какие задачи решают разные уровни системы?
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../ch05/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Глава 5. Договор задачи: что нужно определить до реализации?
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../ch06/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Глава 6. Первый tool
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../ch07/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Глава 7. Диспетчер и ошибки
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../ch08/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Глава 8. Хороший tool
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../ch09/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Глава 9. Первый Agent Skill
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../ch10/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Глава 10. Состояние и память
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../ch11/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Глава 11. Тесты и evals: как доказать качество не одним удачным запуском?
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../ch12/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Глава 12. Traces: как понять, что происходило на самом деле?
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../ch13/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Глава 13. Обратная связь и версии: когда исправление должно менять процедуру?
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../ch14/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Глава 14. Permissions и участие человека
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../ch15/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Глава 15. Prompt injection и недоверенные подключения: что делать с данными и кодом, которым нельзя автоматически доверять?
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../ch16/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Глава 16. Долгая и совместная работа
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../ch17/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Глава 17. Итоговый проект: может ли команда доказать качество и ограниченность системы?
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../app-a/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Приложение А. Урок 0. Готовность рабочего места
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../app-b/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Приложение Б. Словарь курса
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../app-c/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Приложение В. Список фигур
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+        
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3" >
+        
+          
+          <label class="md-nav__link" for="__nav_3" id="__nav_3_label" tabindex="">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Учитель
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Учитель
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../teacher/teacher-guide/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Методическое руководство для учителя
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../teacher/lesson-map/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Поурочная карта
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../routes/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Маршруты A/B
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../files/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Файлы практикума
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../about/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Выходные данные
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Содержание">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Содержание
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#scene" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Две карточки с одним номером
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#goals" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        После главы ты сможешь
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#lesson-3" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Урок 3. Один шаг и обратная связь
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Урок 3. Один шаг и обратная связь">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#1-от-последовательности-к-циклу" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1. От последовательности к циклу
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#2-tool-действие-и-observation" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2. Tool, действие и observation
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#3-состояние-в-программе" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3. Состояние в программе
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#4-практика-a-сыграй-один-проход" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        4. Практика A: сыграй один проход
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#5-практика-b-полный-loop_demopy" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        5. Практика B: полный loop_demo.py
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#6-два-запуска" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        6. Два запуска
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="6. Два запуска">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#разбери-observation-по-полям" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Разбери observation по полям
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#почему-решение-находится-внутри-того-же-шага" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Почему решение находится внутри того же шага
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#выходной-билет-урока-3" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Выходной билет урока 3
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#lesson-4" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Урок 4. Четыре способа завершить запуск
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Урок 4. Четыре способа завершить запуск">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#7-продолжение-и-завершение-запуска" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        7. Продолжение и завершение запуска
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#8-retry-и-limit-повторная-попытка-и-предел-шагов" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        8. Retry и limit: повторная попытка и предел шагов
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="8. Retry и limit: повторная попытка и предел шагов">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#порядок-проверок-в-decide" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Порядок проверок в decide
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#9-ошибка-на-втором-действии" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        9. Ошибка на втором действии
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#10-все-сценарии-и-эталоны" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        10. Все сценарии и эталоны
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="10. Все сценарии и эталоны">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#матрица-причин-а-не-названий" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Матрица причин, а не названий
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#11-что-происходит-после-needs_input" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        11. Что происходит после needs_input
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#12-практика-a-жетоны-остановки" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        12. Практика A: жетоны остановки
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#13-практика-b-сравни-записи-шагов" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        13. Практика B: сравни записи шагов
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="13. Практика B: сравни записи шагов">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#дополнительный-опыт-со-счётчиками" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Дополнительный опыт со счётчиками
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#14-проверки-должен--не-должен--ошибка--граница" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        14. Проверки «должен / не должен / ошибка / граница»
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#15-безопасность-цикла" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        15. Безопасность цикла
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="15. Безопасность цикла">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#четыре-частые-ошибки-объяснения" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Четыре частые ошибки объяснения
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#16-короткий-показ-учителя-куда-развивается-проект" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        16. Короткий показ учителя: куда развивается проект
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#17-шаг-сквозного-проекта" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        17. Шаг сквозного проекта
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="17. Шаг сквозного проекта">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#достраиваем-дежурного" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Достраиваем «Дежурного»
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#18-проверь-себя" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        18. Проверь себя
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#словарь-главы" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Словарь главы
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#bridge" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Мост к главе 3
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+
+<h1 id="глава-2-агентный-цикл-как-результат-действия-меняет-следующий-шаг">Глава 2. Агентный цикл: как результат действия меняет следующий шаг?<a class="headerlink" href="#глава-2-агентный-цикл-как-результат-действия-меняет-следующий-шаг" title="Permanent link">&para;</a></h1>
+<h2 id="scene">Две карточки с одним номером<a class="headerlink" href="#scene" title="Permanent link">&para;</a></h2>
+<p>В главе 1 мы научились отличать фразу «карточки прочитаны» от настоящего чтения. Теперь «Дежурный», программа-помощник проектного бюро, умеет по-настоящему читать доску задач — папку с карточками. Кажется, достаточно прочитать карточки и составить ответ. Но уже на второй день чтение вернуло результат, которого Аня не ожидала.</p>
+<p>Марк из лабораторной группы разделил задачу про оборудование на две: одну для зала, другую для стендов. В спешке он создал вторую карточку с номером, почти совпадающим с прежним: <code>task-003-copy</code>. Аня о новой карточке не знала. Вечером она спросила «Дежурного», что там с оборудованием.</p>
+<p>Сравним два результата одного и того же действия — чтения карточек. В первый день среда вернула одно совпадение. Ответ записан в знакомом по главе 1 формате JSON: имена полей связаны со значениями. Поле <code>ok</code> сообщает, удалось ли чтение; <code>true</code> означает «да», <code>false</code> — «нет». В поле <code>matches</code> находится список найденных совпадений: номера записаны в квадратных скобках. Такой результат действия, вернувшийся системе, мы называем <strong><em>observation</em></strong> (наблюдением):</p>
+<div class="highlight"><pre><span></span><code><span class="p">{</span><span class="nt">&quot;ok&quot;</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w"> </span><span class="nt">&quot;matches&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="s2">&quot;task-003&quot;</span><span class="p">]}</span>
+</code></pre></div>
+<p>Во второй день среда вернула уже два совпадения:</p>
+<div class="highlight"><pre><span></span><code><span class="p">{</span><span class="nt">&quot;ok&quot;</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w"> </span><span class="nt">&quot;matches&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="s2">&quot;task-003&quot;</span><span class="p">,</span><span class="w"> </span><span class="s2">&quot;task-003-copy&quot;</span><span class="p">]}</span>
+</code></pre></div>
+<p>Действие одно и то же, а результаты разные. Можно ли после обоих результатов сделать один и тот же следующий шаг? Нет. В первом случае задача найдена, и можно готовить сводку. Во втором случае непонятно, о какой из двух карточек спрашивала Аня. Помощнику нужно переспросить, а не выбирать карточку наугад.</p>
+<p>Значит, следующий шаг зависит не от того, что мы собирались сделать, а от того, что получилось. Как именно результат действия определяет следующий шаг, мы и разберём в этой главе.</p>
+<blockquote>
+<p><strong>Главный вопрос главы.</strong> Как система превращает результат действия в решение — продолжить работу или остановиться?</p>
+<p><strong>Вопрос-Прогноз.</strong> Чтение дважды подряд не удалось. Что нужно сохранить после первой попытки, чтобы после второй программа могла обоснованно остановиться? Запиши версию и вернись к ней после запуска с ошибкой.</p>
+</blockquote>
+<h2 id="goals">После главы ты сможешь<a class="headerlink" href="#goals" title="Permanent link">&para;</a></h2>
+<ul>
+<li>восстановить четыре стадии работы и показать, где после них принимается решение;</li>
+<li>различать tool, выполненное действие и полученное observation и показать их в коде;</li>
+<li>объяснить, какие данные текущего запуска сохраняет программа и как она использует последний результат;</li>
+<li>различать продолжение работы и четыре способа завершить запуск;</li>
+<li>объяснять, когда можно попробовать ещё раз и когда нужно остановиться;</li>
+<li>читать и запускать полный учебный файл, напечатанный в практике B;</li>
+<li>проверять успешный, неоднозначный, ошибочный и граничный маршруты.</li>
+</ul>
+<h2 id="lesson-3">Урок 3. Один шаг и обратная связь<a class="headerlink" href="#lesson-3" title="Permanent link">&para;</a></h2>
+<h3 id="1-от-последовательности-к-циклу">1. От последовательности к циклу<a class="headerlink" href="#1-от-последовательности-к-циклу" title="Permanent link">&para;</a></h3>
+<p>Вспомни программу Ани из главы 1 — систему B. Разработчик заранее задал её маршрут. Ниже показан ещё один пример последовательности с заранее заданным порядком действий:</p>
+<div class="highlight"><pre><span></span><code>прочитать → посчитать → напечатать
+</code></pre></div>
+<p>На короткой схеме не видно, что делать при двух совпадениях или ошибке чтения. Если разработчик не предусмотрел проверки результатов, программа может продолжить работу по неверному предположению. При этом обычный код тоже умеет проверять результаты и выбирать ветви. Само наличие проверки ещё не делает систему агентом.</p>
+<p>Что нужно программе, чтобы следующий шаг опирался на результат предыдущего? Результат выполненного действия должен вернуться в программу и повлиять на дальнейшую работу. Так действует <strong><em>обратная связь</em></strong> по результату внутри одного запуска. Программа повторно выбирает действие, уже располагая новыми сведениями: последовательность замыкается в цикл. На экскурсии ты видел такой цикл, когда агент шаг за шагом составлял оглавление. Теперь разберём стадии цикла. (Слово «обратная связь» встретится ещё раз в главе 13 в другом значении — как замечание людей или проверок о самой процедуре; там оно станет термином Feedback.)</p>
+<p>Представь, что Аня отмечает неудачные попытки чтения на листке, но после каждой попытки стирает запись. По пустому листку нельзя отличить первый отказ от второго. Для решения об остановке нужно сохранить сведения о предыдущих попытках. Это сравнение касается только учёта попыток: программа хранит сведения в своих данных, а не на бумаге.</p>
+<p>Чтобы сделать следующий шаг, программе нужны сведения о том, что уже произошло: сколько попыток выполнено и что вернула последняя попытка. Это <strong><em>состояние запуска</em></strong> — данные текущего запуска, с которыми программа продолжает работу. Отдельный момент проверки этих данных после результата назовём <strong><em>точкой решения</em></strong>. В точке решения программа определяет, продолжать или остановиться; ещё одно чтение для такой проверки не требуется.</p>
+<p><strong><em>Агентный цикл</em></strong> (agent loop) связывает четыре стадии: состояние, выбор действия, выполнение и observation; после них в том же шаге принимается решение о продолжении или остановке. Результат не теряется после вывода на экран: программа учитывает полученные сведения при следующем шаге. Но повторение команд само по себе ещё не доказывает, что модель участвует в выборе. В этой главе место модели занимает заглушка. Ниже показана минимальная схема цикла; мы будем возвращаться к ней на протяжении всей главы:</p>
+<div class="highlight"><pre><span></span><code>состояние → выбор действия → выполнение → observation
+                                             ↓
+                               решение: продолжить или остановиться
+</code></pre></div>
+<p>Схема показывает четыре стадии и отдельную точку решения после observation; дальше каждая из них станет строками кода. В списке ниже первые четыре пункта описывают стадии, а пятый описывает проверку, которая следует за получением результата:</p>
+<ol>
+<li><strong>Состояние</strong> хранит всё, что известно о текущем запуске: сколько шагов сделано, чем закончился последний шаг, не пора ли останавливаться.</li>
+<li><strong>Выбор действия</strong> задаёт один следующий шаг — например, «прочитать карточки».</li>
+<li><strong>Выполнение</strong> действительно запускает разрешённую операцию в среде.</li>
+<li><strong>observation</strong> — результат, который вернула среда: данные или сообщение о сбое.</li>
+<li><strong>Решение</strong> — точка, где по observation и состоянию определяется, продолжать или завершить запуск.</li>
+</ol>
+<p>При решении <code>continue</code> («продолжить») обновлённое состояние снова поступает на стадию выбора. Начинается новый проход цикла. При решении завершить работу текущий запуск заканчивается.</p>
+<p><img alt="Фигура 4. Четыре стадии и точка решения" src="../../figures/04_chetyre-stadii-i-tochka-resheniya.svg" /></p>
+<p><em>Фигура 4. Четыре стадии и точка решения</em></p>
+<h3 id="2-tool-действие-и-observation">2. Tool, действие и observation<a class="headerlink" href="#2-tool-действие-и-observation" title="Permanent link">&para;</a></h3>
+<p>В главе 1 слова tool, действие и observation появились почти вместе. В цикле нужно различать доступную операцию, её выполнение и полученный результат. Проследим переход от одного к другому на примере чтения карточек.</p>
+<p><code>read_task_cards</code> — операция, которую система умеет выполнять, то есть <strong><em>tool</em></strong> (инструмент). Одного наличия операции в списке доступных возможностей недостаточно: чтение ещё не началось.</p>
+<p>Когда система на конкретном шаге выбирает операцию и выполняет её, происходит <strong><em>действие</em></strong>. Одному действию соответствует один вызов.</p>
+<p>После выполнения среда возвращает <strong><em>observation</em></strong> (наблюдение): результат действия или сообщение о сбое, возвращённое в рабочий цикл.</p>
+<p>Просьба «прочитай карточки» ещё не подтверждает ни доступность операции, ни её выполнение, ни получение данных. Чтобы проверить весь путь от выбора до результата, нужно различить три события:</p>
+<div class="highlight"><pre><span></span><code>выбрано read_task_cards
+→ приложение выполнило read_task_cards
+→ среда вернула observation
+</code></pre></div>
+<p>Решение опирается на observation вместе со счётчиками и условиями продолжения работы; одного намерения выполнить действие недостаточно. Это главная мысль главы.</p>
+<p><em>Объясни своими словами, какие данные нужны для решения о следующем шаге, прежде чем читать дальше.</em></p>
+<h3 id="3-состояние-в-программе">3. Состояние в программе<a class="headerlink" href="#3-состояние-в-программе" title="Permanent link">&para;</a></h3>
+<p>Где программа хранит сведения о запуске? В нашем примере для этого используется <strong><em>словарь Python</em></strong> — набор именованных полей. Каждому имени соответствует значение, которое можно прочитать или изменить. Словарь похож на карточку самого запуска, только хранится в работающей программе. Словарь Python и JSON-запись похожи внешне, но словарь содержит данные программы, а JSON служит текстовым форматом для передачи или хранения данных.</p>
+<p>Перед чтением блока разберём три обозначения:</p>
+<ol>
+<li><code>False</code> означает «нет»: в поле <code>done</code> это значит, что запуск ещё не закончен.</li>
+<li><code>None</code> означает отсутствие значения: в поле <code>terminal</code> это значит, что причина завершения пока не выбрана.</li>
+<li><code>phase</code> обозначает этап, а значение <code>start</code> указывает, что работа только начинается.</li>
+</ol>
+<p>В начале работы состояние выглядит так:</p>
+<div class="highlight"><pre><span></span><code><span class="c1"># пример</span>
+<span class="p">{</span>
+    <span class="s2">&quot;phase&quot;</span><span class="p">:</span> <span class="s2">&quot;start&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;steps&quot;</span><span class="p">:</span> <span class="mi">0</span><span class="p">,</span>
+    <span class="s2">&quot;failures&quot;</span><span class="p">:</span> <span class="mi">0</span><span class="p">,</span>
+    <span class="s2">&quot;done&quot;</span><span class="p">:</span> <span class="kc">False</span><span class="p">,</span>
+    <span class="s2">&quot;terminal&quot;</span><span class="p">:</span> <span class="kc">None</span><span class="p">,</span>
+    <span class="s2">&quot;max_steps&quot;</span><span class="p">:</span> <span class="mi">5</span><span class="p">,</span>
+    <span class="s2">&quot;max_retries&quot;</span><span class="p">:</span> <span class="mi">1</span>
+<span class="p">}</span>
+</code></pre></div>
+<p>В словаре записаны сведения о ходе работы и её ограничениях:</p>
+<ol>
+<li><code>steps</code> хранит число выполненных действий.</li>
+<li><code>failures</code> хранит число действий, которые закончились отказом.</li>
+<li><code>done</code> показывает, завершён ли запуск.</li>
+<li><code>terminal</code> указывает, чем завершился запуск; в начальном состоянии результат ещё не выбран.</li>
+<li><code>max_steps</code> и <code>max_retries</code> задают допустимое число действий и повторов. Эти настройки подробнее проверим на уроке 4.</li>
+</ol>
+<p>Поле <code>phase</code> обозначает только этап работы. После выполненного действия поле получает значение <code>observed</code>: «observation уже записано, можно принимать решение». Одной отметки этапа недостаточно для описания всего состояния: в словаре также есть счётчики, пределы и последний результат.</p>
+<p>Показанный словарь иллюстрирует основные поля состояния. Фактическая функция <code>new_state</code> добавляет ещё поле <code>scenario</code> с именем сценария. Имя нужно только среде, чтобы подготовить observation для опыта; функция решения имя сценария не читает. Зачем разделять подготовку результата и принятие решения, проверим на уроке 4.</p>
+<p>В полном листинге ты встретишь обозначения результатов работы. Завершающий результат называется <strong><em>терминалом</em></strong>. В демо предусмотрены четыре терминала:</p>
+<ol>
+<li><code>success</code> означает, что цель достигнута.</li>
+<li><code>needs_input</code> означает, что нужны новые сведения.</li>
+<li><code>error</code> означает, что после сбоя продолжать нельзя.</li>
+<li><code>limit</code> означает, что предел действий исчерпан.</li>
+</ol>
+<p>Решение <code>continue</code> разрешает продолжить текущий запуск, поэтому к терминалам не относится. Повторная попытка после сбоя называется <strong><em>retry</em></strong> (повтор); разрешённое число действий ограничивает <strong><em>limit</em></strong> (предел). В нашем опыте разрешены пять действий и один повтор. Точные условия выбора результата мы проверим на уроке 4.</p>
+<h3 id="4-практика-a-сыграй-один-проход">4. Практика A: сыграй один проход<a class="headerlink" href="#4-практика-a-сыграй-один-проход" title="Permanent link">&para;</a></h3>
+<p>Вместе с четырьмя одноклассниками распредели пять ролей, по одной на человека:</p>
+<ul>
+<li>хранитель состояния;</li>
+<li>выбирающий действие;</li>
+<li>исполнитель;</li>
+<li>среда, выдающая observation;</li>
+<li>проверяющий решение.</li>
+</ul>
+<p>В начале игры используй состояние: «нужно определить заблокированную задачу; карточки не прочитаны». Участник, выбирающий действие, предлагает <code>read_task_cards</code>, а исполнитель передаёт операцию среде.</p>
+<p>В раунде 1 среда возвращает одно совпадение — <code>task-003</code>. В раунде 2 среда возвращает два совпадения — <code>task-003</code> и <code>task-003-copy</code>. После каждого observation хранитель вслух обновляет состояние. Проверяющий называет решение и объясняет, на каких данных основан выбор.</p>
+<p><strong>Результат:</strong> запиши две цепочки с одинаковым действием и разными решениями. Закончи фразу: «Решение изменилось, потому что observation показало…»</p>
+<h3 id="5-практика-b-полный-loop_demopy">5. Практика B: полный <code>loop_demo.py</code><a class="headerlink" href="#5-практика-b-полный-loop_demopy" title="Permanent link">&para;</a></h3>
+<p>Теперь проследим цикл в коде. В <strong>корне starter</strong>, то есть в самой папке учебного комплекта, находится файл <a href="../../starter/loop_demo.py"><code>loop_demo.py</code></a>. Как выбрать рабочую папку в терминале, смотри во врезке «Как устроен наш практикум» главы 1. Ниже напечатан весь файл.</p>
+<p>Подготовка сценариев и вывод на экран вынесены в отдельный <strong><em>модуль</em></strong> — файл с используемыми функциями: <a href="../../starter/school_agent/lesson_support.py"><code>school_agent/lesson_support.py</code></a>. Запись <code>from ... import ...</code> указывает, откуда программа получает функции; точка в имени модуля показывает его расположение внутри набора файлов.</p>
+<p>Функция <code>perform_action</code> из этого модуля возвращает в наших опытах заранее подготовленные observation. Карточки с диска здесь заново не читаются. Мы проверяем, как программа управляет работой по полученному результату, а не качество выбора живой модели или реальный поиск по папке.</p>
+<div class="highlight"><pre><span></span><code><span class="c1"># файл: loop_demo.py</span>
+<span class="sd">&quot;&quot;&quot;Глава 2. Шаг = действие; решение принимается после observation.&quot;&quot;&quot;</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">school_agent.lesson_support</span><span class="w"> </span><span class="kn">import</span> <span class="n">perform_action</span><span class="p">,</span> <span class="n">new_state</span><span class="p">,</span> <span class="n">show_loop</span>
+
+<span class="n">MAX_STEPS</span> <span class="o">=</span> <span class="mi">5</span>
+<span class="n">MAX_RETRIES</span> <span class="o">=</span> <span class="mi">1</span>
+
+
+<span class="k">def</span><span class="w"> </span><span class="nf">planner_stub</span><span class="p">(</span><span class="n">state</span><span class="p">):</span>
+    <span class="k">return</span> <span class="p">{</span><span class="s2">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;read_task_cards&quot;</span><span class="p">}</span>
+
+
+<span class="k">def</span><span class="w"> </span><span class="nf">update_state</span><span class="p">(</span><span class="n">state</span><span class="p">,</span> <span class="n">observation</span><span class="p">):</span>
+    <span class="n">state</span><span class="p">[</span><span class="s2">&quot;observation&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">observation</span>
+    <span class="n">state</span><span class="p">[</span><span class="s2">&quot;steps&quot;</span><span class="p">]</span> <span class="o">+=</span> <span class="mi">1</span>
+    <span class="k">if</span> <span class="ow">not</span> <span class="n">observation</span><span class="p">[</span><span class="s2">&quot;ok&quot;</span><span class="p">]:</span>
+        <span class="n">state</span><span class="p">[</span><span class="s2">&quot;failures&quot;</span><span class="p">]</span> <span class="o">+=</span> <span class="mi">1</span>
+    <span class="n">state</span><span class="p">[</span><span class="s2">&quot;phase&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="s2">&quot;observed&quot;</span>
+
+
+<span class="k">def</span><span class="w"> </span><span class="nf">decide</span><span class="p">(</span><span class="n">state</span><span class="p">):</span>
+    <span class="n">observation</span> <span class="o">=</span> <span class="n">state</span><span class="p">[</span><span class="s2">&quot;observation&quot;</span><span class="p">]</span>
+    <span class="k">if</span> <span class="ow">not</span> <span class="n">observation</span><span class="p">[</span><span class="s2">&quot;ok&quot;</span><span class="p">]:</span>
+        <span class="k">if</span> <span class="n">state</span><span class="p">[</span><span class="s2">&quot;failures&quot;</span><span class="p">]</span> <span class="o">&gt;</span> <span class="n">state</span><span class="p">[</span><span class="s2">&quot;max_retries&quot;</span><span class="p">]:</span>
+            <span class="k">return</span> <span class="s2">&quot;error&quot;</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="k">if</span> <span class="n">observation</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;search_complete&quot;</span><span class="p">,</span> <span class="kc">True</span><span class="p">):</span>
+            <span class="n">matches</span> <span class="o">=</span> <span class="n">observation</span><span class="p">[</span><span class="s2">&quot;matches&quot;</span><span class="p">]</span>
+            <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">matches</span><span class="p">)</span> <span class="o">==</span> <span class="mi">1</span><span class="p">:</span>
+                <span class="k">return</span> <span class="s2">&quot;success&quot;</span>
+            <span class="k">return</span> <span class="s2">&quot;needs_input&quot;</span>
+    <span class="k">if</span> <span class="n">state</span><span class="p">[</span><span class="s2">&quot;steps&quot;</span><span class="p">]</span> <span class="o">&gt;=</span> <span class="n">state</span><span class="p">[</span><span class="s2">&quot;max_steps&quot;</span><span class="p">]:</span>
+        <span class="k">return</span> <span class="s2">&quot;limit&quot;</span>
+    <span class="k">return</span> <span class="s2">&quot;continue&quot;</span>
+
+
+<span class="k">def</span><span class="w"> </span><span class="nf">run_loop</span><span class="p">(</span><span class="n">scenario</span><span class="o">=</span><span class="s2">&quot;one_match&quot;</span><span class="p">,</span> <span class="n">max_steps</span><span class="o">=</span><span class="n">MAX_STEPS</span><span class="p">,</span> <span class="n">max_retries</span><span class="o">=</span><span class="n">MAX_RETRIES</span><span class="p">):</span>
+    <span class="n">state</span> <span class="o">=</span> <span class="n">new_state</span><span class="p">(</span><span class="n">scenario</span><span class="p">,</span> <span class="n">max_steps</span><span class="p">,</span> <span class="n">max_retries</span><span class="p">)</span>
+    <span class="n">events</span> <span class="o">=</span> <span class="p">[]</span>
+    <span class="k">while</span> <span class="ow">not</span> <span class="n">state</span><span class="p">[</span><span class="s2">&quot;done&quot;</span><span class="p">]:</span>
+        <span class="n">action</span> <span class="o">=</span> <span class="n">planner_stub</span><span class="p">(</span><span class="n">state</span><span class="p">)</span>
+        <span class="n">observation</span> <span class="o">=</span> <span class="n">perform_action</span><span class="p">(</span><span class="n">action</span><span class="p">,</span> <span class="n">state</span><span class="p">)</span>
+        <span class="n">update_state</span><span class="p">(</span><span class="n">state</span><span class="p">,</span> <span class="n">observation</span><span class="p">)</span>
+        <span class="n">decision</span> <span class="o">=</span> <span class="n">decide</span><span class="p">(</span><span class="n">state</span><span class="p">)</span>
+        <span class="n">events</span><span class="o">.</span><span class="n">append</span><span class="p">({</span>
+            <span class="s2">&quot;step&quot;</span><span class="p">:</span> <span class="n">state</span><span class="p">[</span><span class="s2">&quot;steps&quot;</span><span class="p">],</span> <span class="s2">&quot;state&quot;</span><span class="p">:</span> <span class="n">state</span><span class="p">[</span><span class="s2">&quot;phase&quot;</span><span class="p">],</span> <span class="s2">&quot;action&quot;</span><span class="p">:</span> <span class="n">action</span><span class="p">,</span>
+            <span class="s2">&quot;observation&quot;</span><span class="p">:</span> <span class="n">observation</span><span class="p">,</span> <span class="s2">&quot;decision&quot;</span><span class="p">:</span> <span class="n">decision</span><span class="p">,</span>
+        <span class="p">})</span>
+        <span class="n">state</span><span class="p">[</span><span class="s2">&quot;done&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">decision</span> <span class="o">!=</span> <span class="s2">&quot;continue&quot;</span>
+        <span class="k">if</span> <span class="n">state</span><span class="p">[</span><span class="s2">&quot;done&quot;</span><span class="p">]:</span>
+            <span class="n">state</span><span class="p">[</span><span class="s2">&quot;terminal&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">decision</span>
+    <span class="k">return</span> <span class="p">{</span><span class="s2">&quot;terminal&quot;</span><span class="p">:</span> <span class="n">state</span><span class="p">[</span><span class="s2">&quot;terminal&quot;</span><span class="p">],</span> <span class="s2">&quot;state&quot;</span><span class="p">:</span> <span class="n">state</span><span class="p">,</span> <span class="s2">&quot;events&quot;</span><span class="p">:</span> <span class="n">events</span><span class="p">}</span>
+
+
+<span class="k">if</span> <span class="vm">__name__</span> <span class="o">==</span> <span class="s2">&quot;__main__&quot;</span><span class="p">:</span>
+    <span class="n">show_loop</span><span class="p">(</span><span class="n">run_loop</span><span class="p">)</span>
+</code></pre></div>
+<p>В файле определены четыре небольшие функции. Внутри <code>run_loop</code> работает цикл <code>while</code>: команды повторяются, пока выполняется условие. Выражение <code>not state["done"]</code> читается как «запуск ещё не завершён». Квадратные скобки после <code>state</code> позволяют получить значение по имени поля. Запись <code>+= 1</code> увеличивает счётчик на единицу, а <code>!=</code> проверяет, что значения различны.</p>
+<p>В функции <code>decide</code> вызов <code>len</code> считает элементы списка совпадений. Вызов <code>.get("search_complete", True)</code> читает признак завершённого поиска; если поле не передано, признак считается истинным. Запись <code>events.append(...)</code> добавляет сведения о шаге в список результатов запуска.</p>
+<p>Переписывать полный файл по памяти не требуется. Найди в листинге четыре стадии и точку решения со схемы: внутри <code>run_loop</code> порядок сохранён. Проследи один проход по строкам:</p>
+<ol>
+<li><code>planner_stub(state)</code> выбирает действие. Заглушка всегда предлагает <code>read_task_cards</code>. Позже с этим местом программы будет связан выбор живой модели. Для подключения модели потребуется подготовить вход и проверить ответ; заменить имя функции недостаточно.</li>
+<li><code>perform_action(action, state)</code> выполняет действие в среде и возвращает observation.</li>
+<li><code>update_state</code> записывает observation в состояние и увеличивает число выполненных действий. Отказ тоже считается выполненной попыткой: действие было, хотя операция завершилась сбоем.</li>
+<li><code>decide(state)</code> вызывается после получения и записи observation, в том же проходе цикла. Функция читает из состояния только последнее observation, счётчики и пределы.</li>
+<li>Только решение <code>continue</code> оставляет <code>done</code> равным <code>False</code> и разрешает новый проход. Любое другое решение записывается в <code>terminal</code>, и цикл заканчивается.</li>
+</ol>
+<p>Следи отдельно за повторением цикла и за проверкой предела. Условие <code>while not state["done"]</code> само не считает шаги. Общий предел проверяет только <code>decide</code>: функция сначала оценивает observation и лишь затем, если работа допускает продолжение, сравнивает <code>steps</code> с <code>max_steps</code>. При допустимых настройках этого демо успех на пятом шаге остаётся успехом, но шестое действие уже не выполняется. К этому различию мы вернёмся на уроке 4.</p>
+<h3 id="6-два-запуска">6. Два запуска<a class="headerlink" href="#6-два-запуска" title="Permanent link">&para;</a></h3>
+<p>До запуска запиши прогноз: какие пять строк напечатает программа для сценария с одним совпадением? Затем выполни команду из корня starter:</p>
+<div class="highlight"><pre><span></span><code><span class="c1"># запуск из корня starter</span>
+python<span class="w"> </span>loop_demo.py<span class="w"> </span>--scenario<span class="w"> </span>one_match
+</code></pre></div>
+<div class="highlight"><pre><span></span><code>step: 1
+state: observed
+action: read_task_cards
+observation: {&quot;ok&quot;: true, &quot;matches&quot;: [&quot;task-003&quot;]}
+decision: success
+</code></pre></div>
+<p>Пять строк описывают один проход цикла. В выводе указаны:</p>
+<ol>
+<li>Номер шага.</li>
+<li>Отметка <code>phase</code>.</li>
+<li>Выбранное действие.</li>
+<li>Результат, который вернула среда.</li>
+<li>Решение функции <code>decide</code>.</li>
+</ol>
+<p>Теперь измени только сценарий. Код программы останется прежним, а подготовленное observation изменится. До запуска предскажи, какое поле результата заставит программу остановиться без выбора одной карточки:</p>
+<div class="highlight"><pre><span></span><code><span class="c1"># запуск из корня starter</span>
+python<span class="w"> </span>loop_demo.py<span class="w"> </span>--scenario<span class="w"> </span>two_matches
+</code></pre></div>
+<div class="highlight"><pre><span></span><code>step: 1
+state: observed
+action: read_task_cards
+observation: {&quot;ok&quot;: true, &quot;matches&quot;: [&quot;task-003&quot;, &quot;task-003-copy&quot;]}
+decision: needs_input
+</code></pre></div>
+<p>В обоих запусках выполнено действие <code>read_task_cards</code> на шаге 1, но решения различаются. Два совпадения привели к <code>needs_input</code>: нужно уточнение. Система завершает запуск с сообщением о нехватке сведений. Ни молчаливого выбора карточки, ни уже проведённого разговора с человеком за этой меткой нет.</p>
+<p>Обычная программа тоже может завершить работу таким образом, если разработчик предусмотрел нужную проверку. В нашем опыте проверку выполняет <code>decide</code>; участие модели здесь не имитируется.</p>
+<h4 id="разбери-observation-по-полям">Разбери observation по полям<a class="headerlink" href="#разбери-observation-по-полям" title="Permanent link">&para;</a></h4>
+<p>Почему observation содержит поля, а не одну фразу? Поля позволяют связать решение с конкретными данными, а не с впечатлением от уверенного текста. Посмотрим на первый результат:</p>
+<div class="highlight"><pre><span></span><code><span class="p">{</span><span class="nt">&quot;ok&quot;</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w"> </span><span class="nt">&quot;matches&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="s2">&quot;task-003&quot;</span><span class="p">]}</span>
+</code></pre></div>
+<p>Легко принять <code>ok: true</code> за сообщение об успехе всей задачи. Но поле подтверждает только то, что операция чтения выполнилась без сбоя. Для проверки цели нужно ещё прочитать <code>matches</code>: в поле перечислены найденные совпадения. Наше демо считает цель достигнутой, когда в завершённом поиске найдено ровно одно совпадение.</p>
+<div class="highlight"><pre><span></span><code><span class="p">{</span><span class="nt">&quot;ok&quot;</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w"> </span><span class="nt">&quot;matches&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="s2">&quot;task-003&quot;</span><span class="p">,</span><span class="w"> </span><span class="s2">&quot;task-003-copy&quot;</span><span class="p">]}</span>
+</code></pre></div>
+<p>Во втором результате тоже стоит <code>ok: true</code>, но найдены две карточки. Операция выполнена без сбоя, а выбрать карточку для ответа нельзя. Поэтому <code>ok: true</code> сообщает об операции tool, а <code>success</code> сообщает о достижении цели запуска. Успешное выполнение операции ещё не означает достижения цели.</p>
+<p>При сбое структура другая:</p>
+<div class="highlight"><pre><span></span><code><span class="p">{</span><span class="nt">&quot;ok&quot;</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w"> </span><span class="nt">&quot;error&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;Ошибка: учебные карточки недоступны&quot;</span><span class="p">}</span>
+</code></pre></div>
+<p>В результате сбоя нет поля <code>matches</code>. Программа сначала обрабатывает <code>ok: false</code>, поэтому к отсутствующему списку совпадений обращаться не нужно. Функция <code>update_state</code> увеличит <code>failures</code>, а <code>decide</code> сравнит число отказов с разрешённым числом повторов. Решение опирается на полученные данные, а не на имя сценария.</p>
+<h4 id="почему-решение-находится-внутри-того-же-шага">Почему решение находится внутри того же шага<a class="headerlink" href="#почему-решение-находится-внутри-того-же-шага" title="Permanent link">&para;</a></h4>
+<p>Нужно ли ещё одно действие, чтобы решить, продолжать работу или нет? Нет: после возвращения observation уже известно, чем закончилось выполненное действие. В этот момент шаг считается выполненным и можно сразу принять решение.</p>
+<p>Если отложить решение «на следующий шаг» и посчитать проверку отдельным действием, запись окажется неверной. После второго отказа программа будто бы выполнит действие 3 «решить error», хотя разрешённый повтор уже исчерпан на действии 2. Проверка не должна добавлять фиктивную попытку.</p>
+<p>Сравни две записи:</p>
+<div class="highlight"><pre><span></span><code>неверно: действие 2 → второй отказ → действие 3 «решить error»
+верно:   действие 2 → второй отказ → решение error в действии 2
+</code></pre></div>
+<p>Решение управляет продолжением работы и не выполняет внешнюю операцию. Поэтому принятие решения не увеличивает <code>steps</code>.</p>
+<h3 id="выходной-билет-урока-3">Выходной билет урока 3<a class="headerlink" href="#выходной-билет-урока-3" title="Permanent link">&para;</a></h3>
+<p>Восстанови без подсказки:</p>
+<div class="highlight"><pre><span></span><code>________ → ________ → ________ → ________ → точка решения
+</code></pre></div>
+<p>Затем покажи в листинге три строки: где программа получает observation, где записывает observation в состояние и где после записи принимает решение.</p>
+<h2 id="lesson-4">Урок 4. Четыре способа завершить запуск<a class="headerlink" href="#lesson-4" title="Permanent link">&para;</a></h2>
+<h3 id="7-продолжение-и-завершение-запуска">7. Продолжение и завершение запуска<a class="headerlink" href="#7-продолжение-и-завершение-запуска" title="Permanent link">&para;</a></h3>
+<p>Цикл остановился. Значит ли остановка, что задача решена? Нет: запуск может закончиться по разным причинам. Представь возможные исходы работы Ани:</p>
+<ol>
+<li>Сводка готова.</li>
+<li>Ане нужно получить уточнение у Марка.</li>
+<li>Флешка с карточками не читается.</li>
+<li>Карточек стало так много, что до конца дня Аня не успевает перебрать все карточки.</li>
+</ol>
+<p>Соотнесём эти четыре исхода с терминалами учебного запуска:</p>
+<table>
+<thead>
+<tr>
+<th>Результат</th>
+<th>Что установлено</th>
+<th>Текущий запуск</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>success</code></td>
+<td>найден ровно один результат завершённого поиска</td>
+<td>завершён успешно</td>
+</tr>
+<tr>
+<td><code>needs_input</code></td>
+<td>данных нет или они неоднозначны</td>
+<td>завершён; нужен новый ввод</td>
+</tr>
+<tr>
+<td><code>error</code></td>
+<td>сбой повторился после разрешённого повтора</td>
+<td>завершён без результата</td>
+</tr>
+<tr>
+<td><code>limit</code></td>
+<td>работа могла продолжаться, но исчерпан предел действий</td>
+<td>завершён без успеха</td>
+</tr>
+</tbody>
+</table>
+<p>Решение <code>continue</code> разрешает следующий проход текущего запуска. Запуск ещё работает, поэтому <code>continue</code> к терминалам не относится.</p>
+<p>Покажем на одной схеме, как решение связано с продолжением и завершением работы:</p>
+<div class="highlight"><pre><span></span><code>observation
+   ↓ decide
+   ├─ continue ──→ новое состояние и следующий выбор
+   ├─ success  ──→ завершить успешно
+   ├─ needs_input → завершить и передать вопрос человеку
+   ├─ error ─────→ завершить после исчерпания retry
+   └─ limit ─────→ завершить после исчерпания бюджета шагов
+</code></pre></div>
+<p>Здесь легко спутать <code>needs_input</code> и <code>error</code>, потому что оба результата завершают запуск без готового ответа. Но причины остановки различаются. При <code>needs_input</code> система знает, каких сведений не хватает для продолжения, и не подменяет недостающие сведения догадкой. Такая остановка сама по себе не означает поломку. При <code>error</code> операция не удалась даже после разрешённого повтора. Поэтому и сообщения человеку нужны разные: в первом случае «уточни, пожалуйста», во втором случае «не получилось прочитать».</p>
+<p><img alt="Фигура 5. Ветви decide: продолжение и четыре терминала" src="../../figures/05_vetvi-decide-prodolzhenie-i-chetyre-terminala.svg" /></p>
+<p><em>Фигура 5. Ветви decide: продолжение и четыре терминала</em></p>
+<h3 id="8-retry-и-limit-повторная-попытка-и-предел-шагов">8. Retry и limit: повторная попытка и предел шагов<a class="headerlink" href="#8-retry-и-limit-повторная-попытка-и-предел-шагов" title="Permanent link">&para;</a></h3>
+<p>Для двух из четырёх терминалов, <code>error</code> и <code>limit</code>, нужно сравнить счётчики с пределами из состояния. Один предел ограничивает повторы после сбоя, другой ограничивает общее число действий.</p>
+<p>Сбой чтения может быть временным: например, флешка могла не прочитаться из-за секундной помехи. Поэтому программа допускает повторную попытку. В учебном проекте задано <code>MAX_RETRIES = 1</code>: после первого отказа можно повторить чтение один раз. Счётчик <code>failures</code> хранит число отказов. После второго отказа выполняется условие <code>failures &gt; max_retries</code>, и <code>decide</code> сразу возвращает <code>error</code>. При одном разрешённом повторе две неудачные попытки уже исчерпывают возможность читать ещё раз.</p>
+<p>Общее число действий ограничено настройкой <code>MAX_STEPS = 5</code>. Предел защищает от бесконечной работы, но не служит критерием успеха. Представь, что на доске накопились сотни карточек всех групп и программа читает данные страницами. В граничном сценарии каждое observation сообщает, что поиск ещё не закончен (<code>search_complete: false</code>) и есть следующая страница. Продолжать поиск имеет смысл, однако после пятого действия разрешённых шагов не остаётся. Программа возвращает <code>limit</code>.</p>
+<p>Если поиск закончен, но список <code>matches</code> пуст, причина остановки другая: системе не хватает данных. Такой результат приводит к <code>needs_input</code>. Пустой завершённый поиск не означает ошибку чтения и не разрешает скрыто продолжать работу.</p>
+<p>Сформулируем главный <strong><em>инвариант</em></strong> этой главы — правило, которое обязано выполняться всегда:</p>
+<blockquote>
+<p>При одинаковых пределах одинаковые observation и счётчики приводят к одинаковому решению — независимо от названия учебного сценария.</p>
+</blockquote>
+<p>Если убрать имя сценария сразу после получения observation, функция <code>decide</code> по-прежнему найдёт в состоянии все данные для решения. Имя определяло, какой результат подготовит среда; само решение определяется результатом, счётчиками и пределами.</p>
+<h4 id="порядок-проверок-в-decide">Порядок проверок в <code>decide</code><a class="headerlink" href="#порядок-проверок-в-decide" title="Permanent link">&para;</a></h4>
+<p>Перечитай <code>decide</code>: порядок проверок определяет, какое решение будет принято. Функция проверяет условия по очереди и возвращает найденный результат.</p>
+<p>Сначала функция оценивает observation. При отказе функция проверяет счётчик <code>failures</code>: второй отказ при одном разрешённом повторе приводит к <code>error</code>. После первого отказа повтор ещё возможен, но до новой попытки нужно проверить общий предел действий. Если общий предел уже исчерпан, программа вернёт <code>limit</code>, а не <code>continue</code>.</p>
+<p>Допустим, в работе бюро первые четыре действия дали незавершённые результаты поиска, а пятое закончилось первым отказом чтения. Право на один повтор ещё есть, но повтор стал бы шестым действием. При пределе пять действий программа должна вернуть <code>limit</code>: разрешение повторить чтение не увеличивает общий предел.</p>
+<p>Если операция прошла без сбоя и поиск завершён, функция оценивает число совпадений. Одно совпадение даёт <code>success</code>, ноль или несколько совпадений дают <code>needs_input</code>. Причина завершения уже известна, поэтому результат не заменяется на <code>limit</code>, даже если получен на последнем разрешённом шаге.</p>
+<p>Общий предел проверяется только тогда, когда observation допускает дальнейшую работу. Поэтому в граничном маршруте результат должен сообщать, что поиск ещё не завершён:</p>
+<div class="highlight"><pre><span></span><code><span class="p">{</span>
+<span class="w">  </span><span class="nt">&quot;ok&quot;</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span>
+<span class="w">  </span><span class="nt">&quot;matches&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="s2">&quot;candidate-005&quot;</span><span class="p">],</span>
+<span class="w">  </span><span class="nt">&quot;search_complete&quot;</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span>
+<span class="w">  </span><span class="nt">&quot;next_page&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">6</span>
+<span class="p">}</span>
+</code></pre></div>
+<p>На пятом шаге ещё есть следующая страница, но новое действие уже запрещено пределом. Именно поэтому выбран <code>limit</code>. Если бы поле <code>search_complete</code> содержало <code>true</code>, решение зависело бы от списка <code>matches</code>, а не от счётчика шагов.</p>
+<p>Такой порядок проверок даёт ещё один инвариант: успех на предельном шаге остаётся <code>success</code>. Предел запрещает новое действие, но не отменяет уже полученный правильный результат.</p>
+<h3 id="9-ошибка-на-втором-действии">9. Ошибка на втором действии<a class="headerlink" href="#9-ошибка-на-втором-действии" title="Permanent link">&para;</a></h3>
+<p>Проверим, как программа ведёт себя при подготовленном постоянном сбое. До запуска предскажи число действий и решение после каждой попытки. Затем выполни команду:</p>
+<div class="highlight"><pre><span></span><code><span class="c1"># запуск из корня starter</span>
+python<span class="w"> </span>loop_demo.py<span class="w"> </span>--scenario<span class="w"> </span>permanent_error
+</code></pre></div>
+<div class="highlight"><pre><span></span><code>step: 1
+state: observed
+action: read_task_cards
+observation: {&quot;ok&quot;: false, &quot;error&quot;: &quot;Ошибка: учебные карточки недоступны&quot;}
+decision: continue
+step: 2
+state: observed
+action: read_task_cards
+observation: {&quot;ok&quot;: false, &quot;error&quot;: &quot;Ошибка: учебные карточки недоступны&quot;}
+decision: error
+</code></pre></div>
+<p>После первого чтения программа получила отказ. Один повтор разрешён, а общий предел ещё не исчерпан, поэтому принято решение <code>continue</code>. Второе чтение тоже закончилось отказом. Повтор использован, и программа вернула <code>error</code> на действии 2, без третьей попытки. Оба чтения вошли в счётчик шагов: неудачная попытка тоже была выполнена.</p>
+<p>В сценарии <code>temporary_error</code> меняется только второе observation: повтор удаётся, среда возвращает одно совпадение, и на действии 2 программа принимает решение <code>success</code>. Код программы не изменился. К другому завершению привёл другой подготовленный результат.</p>
+<blockquote>
+<p><strong>Проверь себя на ходу.</strong> Первый отказ получен на последнем разрешённом действии, а право на повтор ещё осталось. Какое ограничение нужно проверить перед новой попыткой?</p>
+</blockquote>
+<h3 id="10-все-сценарии-и-эталоны">10. Все сценарии и эталоны<a class="headerlink" href="#10-все-сценарии-и-эталоны" title="Permanent link">&para;</a></h3>
+<p>У «Дежурного» есть учебные сценарии с заранее подготовленными средами. На этих сценариях можно проверить каждый способ завершения запуска. Выполняй команды из корня starter. Для каждого сценария задан <strong><em>эталонный вывод</em></strong> — файл, в котором записано, что именно программа обязана напечатать; ссылка на этот файл приведена в последней колонке таблицы. Автоматический тест сверяет каждый запуск с соответствующим эталоном.</p>
+<table>
+<thead>
+<tr>
+<th>Сценарий</th>
+<th>Команда</th>
+<th>Конечное решение</th>
+<th>Эталон</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>одно совпадение</td>
+<td><code>python loop_demo.py --scenario one_match</code></td>
+<td><code>success</code>, шаг 1</td>
+<td><a href="../../starter/tests/golden/loop_one_match.txt"><code>loop_one_match.txt</code></a></td>
+</tr>
+<tr>
+<td>два совпадения</td>
+<td><code>python loop_demo.py --scenario two_matches</code></td>
+<td><code>needs_input</code>, шаг 1</td>
+<td><a href="../../starter/tests/golden/loop_two_matches.txt"><code>loop_two_matches.txt</code></a></td>
+</tr>
+<tr>
+<td>временный сбой</td>
+<td><code>python loop_demo.py --scenario temporary_error</code></td>
+<td><code>success</code>, шаг 2</td>
+<td><a href="../../starter/tests/golden/loop_temporary_error.txt"><code>loop_temporary_error.txt</code></a></td>
+</tr>
+<tr>
+<td>постоянный сбой</td>
+<td><code>python loop_demo.py --scenario permanent_error</code></td>
+<td><code>error</code>, шаг 2</td>
+<td><a href="../../starter/tests/golden/loop_permanent_error.txt"><code>loop_permanent_error.txt</code></a></td>
+</tr>
+<tr>
+<td>незавершённый поиск</td>
+<td><code>python loop_demo.py --scenario limit</code></td>
+<td><code>limit</code>, шаг 5</td>
+<td><a href="../../starter/tests/golden/loop_limit.txt"><code>loop_limit.txt</code></a></td>
+</tr>
+</tbody>
+</table>
+<p>Набор дополняют ещё два сценария. Сценарий <code>missing_file</code> воспроизводит постоянную недоступность карточек; вывод проверяется по файлу <a href="../../starter/tests/golden/loop_missing_file.txt"><code>loop_missing_file.txt</code></a>. Пустой завершённый поиск приводит к <code>needs_input</code>; для проверки служит <a href="../../starter/tests/golden/loop_no_matches.txt"><code>loop_no_matches.txt</code></a>.</p>
+<h4 id="матрица-причин-а-не-названий">Матрица причин, а не названий<a class="headerlink" href="#матрица-причин-а-не-названий" title="Permanent link">&para;</a></h4>
+<p>Можно ли объяснить решение, не называя сценарий? Да: достаточно указать результат действия и изменения состояния. Эти основания собраны в следующей таблице — самой важной в главе.</p>
+<table>
+<thead>
+<tr>
+<th>Что вернуло действие</th>
+<th>Что изменилось в состоянии</th>
+<th>Почему принято решение</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>одно совпадение, поиск закончен</td>
+<td><code>steps += 1</code>, сохранено observation</td>
+<td>цель наблюдаемо выполнена → <code>success</code></td>
+</tr>
+<tr>
+<td>два совпадения, поиск закончен</td>
+<td>сохранена неоднозначность</td>
+<td>нельзя выбрать без основания → <code>needs_input</code></td>
+</tr>
+<tr>
+<td>ни одного совпадения, поиск закончен</td>
+<td>сохранено отсутствие данных</td>
+<td>нужно новое основание → <code>needs_input</code></td>
+</tr>
+<tr>
+<td>первый отказ, общий предел не исчерпан</td>
+<td><code>failures = 1</code></td>
+<td>один повтор и ещё одно действие разрешены → <code>continue</code></td>
+</tr>
+<tr>
+<td>второй отказ</td>
+<td><code>failures = 2</code></td>
+<td>допустимый повтор исчерпан → <code>error</code></td>
+</tr>
+<tr>
+<td>поиск не закончен до шага 5</td>
+<td>есть <code>next_page</code></td>
+<td>следующий шаг содержательно возможен → <code>continue</code></td>
+</tr>
+<tr>
+<td>поиск не закончен на шаге 5</td>
+<td><code>steps = max_steps</code></td>
+<td>новый шаг запрещён бюджетом → <code>limit</code></td>
+</tr>
+</tbody>
+</table>
+<p>Названия <code>one_match</code> и <code>limit</code> позволяют выбрать подготовленную среду при запуске. Функция решения не использует названия сценариев как основание для выбора результата.</p>
+<h3 id="11-что-происходит-после-needs_input">11. Что происходит после <code>needs_input</code><a class="headerlink" href="#11-что-происходит-после-needs_input" title="Permanent link">&para;</a></h3>
+<p>Вернёмся к вопросу Ани об оборудовании. Найдены две карточки, и запуск завершился с меткой <code>needs_input</code>. Человек может объяснить метку Ане словами: «Нашёл две карточки с похожим номером — task-003 и task-003-copy. Какую имеешь в виду?» Сам <code>loop_demo.py</code> такого вопроса не формирует и ответа не принимает.</p>
+<p>Аня отвечает: «Ту, что для зала». Куда должно попасть уточнение? В новый вход следующего запуска. Прежний запуск уже завершён, поэтому ответ Ани нельзя задним числом записать в старое observation. Приложение должно отдельно принять уточнение и сделать ответ доступным для дальнейшей работы.</p>
+<p>Сохранение нужных данных обсудим в главе 10, а продолжение между запусками и участниками — в главе 16. Пока запомни принцип: настоящее уточнение человека нельзя подменять заранее заготовленным ответом.</p>
+<h3 id="12-практика-a-жетоны-остановки">12. Практика A: жетоны остановки<a class="headerlink" href="#12-практика-a-жетоны-остановки" title="Permanent link">&para;</a></h3>
+<p>Возьми пять жетонов действий и один жетон повтора. После каждого выполненного действия убирай один жетон действий. Вместе с группой разыграй четыре маршрута:</p>
+<ol>
+<li>одно совпадение — <code>success</code>;</li>
+<li>два совпадения — <code>needs_input</code>;</li>
+<li>два последовательных отказа — <code>error</code>;</li>
+<li>пять незавершённых страниц — <code>limit</code>.</li>
+</ol>
+<p>Для каждого терминала сформулируй честное сообщение человеку. Правило одно: нельзя писать «готово» после <code>error</code> или <code>limit</code>.</p>
+<h3 id="13-практика-b-сравни-записи-шагов">13. Практика B: сравни записи шагов<a class="headerlink" href="#13-практика-b-сравни-записи-шагов" title="Permanent link">&para;</a></h3>
+<p>Запусти <code>temporary_error</code>, <code>permanent_error</code> и <code>limit</code>. Для каждого шага по строкам вывода восстанови:</p>
+<ul>
+<li>observation текущего действия;</li>
+<li>значения <code>steps</code> и, для ошибки, <code>failures</code>;</li>
+<li>правило из <code>decide</code>, которое выбрало решение.</li>
+</ul>
+<p><strong>Результат:</strong> составь таблицу из трёх строк, по одной строке на сценарий. В каждой строке перечисли все шаги соответствующего запуска, описывая каждый шаг по формуле:</p>
+<div class="highlight"><pre><span></span><code>observation → изменение состояния → решение
+</code></pre></div>
+<p>Файлы сценариев не редактируй: переключатель <code>--scenario</code> уже даёт безопасный способ менять среду.</p>
+<h4 id="дополнительный-опыт-со-счётчиками">Дополнительный опыт со счётчиками<a class="headerlink" href="#дополнительный-опыт-со-счётчиками" title="Permanent link">&para;</a></h4>
+<p>Функцию <code>run_loop</code> можно вызвать из <strong><em>интерактивного Python</em></strong> — режима, в котором выражения вводят по очереди и сразу получают результат. Учитель открывает этот режим из корня starter. Не смешивай места ввода: в терминале запускают программу, а внутри интерактивного Python выполняют выражения языка. В следующем примере пределы передаются при вызове функции, поэтому исходный файл менять не нужно:</p>
+<div class="highlight"><pre><span></span><code><span class="c1"># пример</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">loop_demo</span><span class="w"> </span><span class="kn">import</span> <span class="n">run_loop</span>
+
+<span class="n">result</span> <span class="o">=</span> <span class="n">run_loop</span><span class="p">(</span><span class="s2">&quot;permanent_error&quot;</span><span class="p">,</span> <span class="n">max_steps</span><span class="o">=</span><span class="mi">5</span><span class="p">,</span> <span class="n">max_retries</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">result</span><span class="p">[</span><span class="s2">&quot;terminal&quot;</span><span class="p">])</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">result</span><span class="p">[</span><span class="s2">&quot;state&quot;</span><span class="p">][</span><span class="s2">&quot;steps&quot;</span><span class="p">])</span>
+</code></pre></div>
+<p>До запуска предскажи результат. При <code>max_retries=0</code> ни одного повтора не разрешено. Первый отказ уже превышает число разрешённых повторов, поэтому ожидаются <code>error</code> и один выполненный шаг. Сценарий и набор терминалов остаются прежними; меняется только настройка предела повторов.</p>
+<p>В практикуме допустимы настройки <code>1 ≤ max_steps ≤ 5</code> и <code>0 ≤ max_retries ≤ 1</code>: диапазоны намеренно ограничены бюджетом этого практикума. Значение вне этих учебных диапазонов завершит вызов ошибкой <code>ValueError</code>: Python сообщит о недопустимом значении. Выход за диапазон не делает демо «автономнее».</p>
+<blockquote>
+<p><strong>Проверь себя на ходу.</strong> В двух запусках совпали observation, счётчики и пределы, но имена сценариев различны. Может ли <code>decide</code> выбрать разные решения? Найди в функции основание своего ответа.</p>
+</blockquote>
+<p>Затем реши мысленный пример: на пятом действии завершённый поиск дал одно совпадение. Что имеет приоритет — <code>success</code> или <code>limit</code>? Проверь ответ по порядку ветвей <code>decide</code>. Различай уже выполненный пятый шаг и запрещённый шестой шаг.</p>
+<h3 id="14-проверки-должен--не-должен--ошибка--граница">14. Проверки «должен / не должен / ошибка / граница»<a class="headerlink" href="#14-проверки-должен--не-должен--ошибка--граница" title="Permanent link">&para;</a></h3>
+<table>
+<thead>
+<tr>
+<th>Проверка</th>
+<th>Вход</th>
+<th>Ожидаемое поведение</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Должен</td>
+<td>одно совпадение</td>
+<td><code>success</code> в том же шаге</td>
+</tr>
+<tr>
+<td>Не должен</td>
+<td>два совпадения</td>
+<td>не выбирать карточку; <code>needs_input</code></td>
+</tr>
+<tr>
+<td>Нехватка данных</td>
+<td>пустой завершённый поиск</td>
+<td><code>needs_input</code>, не скрытое продолжение</td>
+</tr>
+<tr>
+<td>Ошибка</td>
+<td>два отказа при одном повторе</td>
+<td><code>error</code> на действии 2</td>
+</tr>
+<tr>
+<td>Граница</td>
+<td>пять неполных страниц</td>
+<td><code>limit</code>, шестого действия нет</td>
+</tr>
+</tbody>
+</table>
+<h3 id="15-безопасность-цикла">15. Безопасность цикла<a class="headerlink" href="#15-безопасность-цикла" title="Permanent link">&para;</a></h3>
+<p>Демо читает только синтетические данные, не изменяет карточки и не обращается к сети. Даже для цикла, который только читает, нужны технические границы: бесконечные повторы расходуют время и скрывают отсутствие прогресса.</p>
+<p>Соблюдай два принципа:</p>
+<ol>
+<li>Словесная просьба «не зацикливайся» в инструкции модели не заменяет счётчиков в коде. Предел должна проверять программа.</li>
+<li>Предел не подтверждает правильность результата. Для <code>success</code> нужен отдельный наблюдаемый критерий.</li>
+</ol>
+<h4 id="четыре-частые-ошибки-объяснения">Четыре частые ошибки объяснения<a class="headerlink" href="#четыре-частые-ошибки-объяснения" title="Permanent link">&para;</a></h4>
+<ol>
+<li><strong>«Если <code>ok: true</code>, вся задача успешна».</strong> Нет: tool мог исправно вернуть ноль или два совпадения.</li>
+<li><strong>«Любая ошибка немедленно завершает запуск».</strong> Нет: первый отказ допускает один явно ограниченный повтор.</li>
+<li><strong>«<code>continue</code> — пятый терминал».</strong> Нет: это переход внутри работающего запуска.</li>
+<li><strong>«Предел выбирает наиболее правдоподобный ответ».</strong> Нет: предел только запрещает ещё одно действие и не создаёт недостающих данных.</li>
+</ol>
+<p>Когда разбираешь чужой сбой, не начинай с вопроса «какой был сценарий?». Начни с последнего observation, затем проверь <code>failures</code>, <code>steps</code> и пределы: в таком же порядке идут проверки в <code>decide</code>.</p>
+<h3 id="16-короткий-показ-учителя-куда-развивается-проект">16. Короткий показ учителя: куда развивается проект<a class="headerlink" href="#16-короткий-показ-учителя-куда-развивается-проект" title="Permanent link">&para;</a></h3>
+<p>На уроке 3 или 4 учитель может показать будущую работу «Дежурного» над сводкой. Для показа используется <strong><em>воспроизведение</em></strong> (replay) — выполнение заранее подготовленного авторами сценария. Это не запись ответов живой модели и не проверка её качества. Перед показом предположи, хватит ли одного чтения для подготовки проверенной сводки:</p>
+<div class="highlight"><pre><span></span><code><span class="c1"># запуск из корня starter</span>
+python<span class="w"> </span>agent_demo.py<span class="w"> </span>--scenario<span class="w"> </span>success
+</code></pre></div>
+<p>В выводе показаны пять действий: одно чтение, три проверки карточек и подготовка черновика сводки. После чтения до готового черновика остаются ещё четыре действия. Режим <code>replay</code> воспроизводит авторский сценарий, поэтому полученные результаты не доказывают, как поведёт себя живая модель. Устройство сценария пока разбирать не нужно: задача показа — увидеть, зачем мы так подробно изучаем стадии цикла.</p>
+<h3 id="17-шаг-сквозного-проекта">17. Шаг сквозного проекта<a class="headerlink" href="#17-шаг-сквозного-проекта" title="Permanent link">&para;</a></h3>
+<p>Здесь проходит контрольная точка 1 курса: цикл «Дежурного» проверен на пяти сценариях таблицы раздела 10, все четыре терминала получены, а при постоянном сбое <code>error</code> возникает на втором действии. Запиши в тетрадь проекта первую <strong><em>политику остановки</em></strong> «Дежурного» — согласованный набор правил, когда продолжать и когда завершать запуск:</p>
+<ul>
+<li>не более пяти выполненных действий за запуск;</li>
+<li>не более одной повторной попытки чтения;</li>
+<li>неоднозначность и отсутствие данных завершаются <code>needs_input</code>;</li>
+<li>повторный сбой завершается <code>error</code>;</li>
+<li>достижение предела не объявляется успехом.</li>
+</ul>
+<p>Правила остановки пригодятся и за пределами демо:</p>
+<ol>
+<li>Если при поиске файла к школьному докладу найдены два совпадения, нужно уточнить выбор, а не брать случайный файл.</li>
+<li>Если чтение в кабинете информатики временно не удалось, можно повторить попытку, пока остаётся разрешённое число попыток и действий.</li>
+<li>Если проверка большого списка материалов к фестивалю остановилась по пределу, сообщение должно означать «проверено не всё», а не «всё готово».</li>
+</ol>
+<p>В каждой ситуации сообщение должно соответствовать полученному результату.</p>
+<h4 id="достраиваем-дежурного">Достраиваем «Дежурного»<a class="headerlink" href="#достраиваем-дежурного" title="Permanent link">&para;</a></h4>
+<p>Политика остановки из тетради проекта записывается в файл <code>02_stop_policy.json</code>. В файле задаются <code>max_steps</code> и <code>max_retries</code> в учебных пределах этой главы. Как увидеть влияние настройки на работу? В запуске ниже с <code>max_steps: 2</code> программа выполняет два действия и останавливается с результатом <code>limit</code>: предел теперь виден в работе программы, а не остаётся только записанным правилом.</p>
+<p>Команда ниже использует папку-пример. В выводе этой команды стоит <code>goal: не настроено (глава 1)</code>, а в твоей папке <code>my_agent/</code> цель уже настроена. При проверке политики остановки смотри на строку своей главы. Остальные служебные строки полного <code>run</code> показаны как в главе 1: они дают предварительное представление о следующих настройках курса.
+<div class="highlight"><pre><span></span><code><span class="c1"># запуск из корня starter</span>
+python<span class="w"> </span>dezhurny.py<span class="w"> </span>run<span class="w"> </span>--dir<span class="w"> </span>workspace/my_agent/examples/limit2
+</code></pre></div>
+<div class="highlight"><pre><span></span><code>dezhurny: run
+goal: не настроено (глава 1)
+config: workspace/my_agent/examples/limit2
+model: replay — авторский сценарий, не запись модели
+scenario: success
+stop_policy: max_steps 2, max_retries 1
+tools: allowlist диспетчера (по умолчанию, глава 7)
+Шаг 1 | read_task_cards | continue
+Шаг 2 | validate_task_card | limit
+Остановка: limit
+contract: не настроено (глава 5)
+save: не настроено (глава 3)
+state: не настроено (глава 10)
+trace: не настроено (глава 12)
+Качество модели не подтверждено этим техническим прогоном.
+</code></pre></div></p>
+<h3 id="18-проверь-себя">18. Проверь себя<a class="headerlink" href="#18-проверь-себя" title="Permanent link">&para;</a></h3>
+<ol>
+<li>Назови четыре стадии и точку решения.</li>
+<li>Почему выбор tool и выполненное действие — разные события?</li>
+<li>Где в листинге observation меняет состояние?</li>
+<li>Почему <code>continue</code> не входит в четыре терминала?</li>
+<li>На каком действии заканчивается <code>permanent_error</code> и почему?</li>
+<li>Чем <code>needs_input</code> отличается от <code>error</code>?</li>
+<li>Почему пустой поиск и граничный поиск дают разные решения?</li>
+<li>Какая функция единственная проверяет общий предел действий?</li>
+<li>Почему остановка по <code>limit</code> не означает успех?</li>
+</ol>
+<p><strong>Выходной билет урока 4.</strong> Объясни два исхода без имён сценариев: два отказа при одном разрешённом повторе; пятая незавершённая страница при пределе пять действий. Назови наблюдаемое основание каждой остановки.</p>
+<p><strong>Ответ для сверки.</strong> В первом случае <code>error</code>: допустимый повтор исчерпан. Во втором — <code>limit</code>: поиск допускает продолжение, но нового действия бюджет не разрешает. Допустимо объяснить это жетонами практики A или полями состояния практики B.</p>
+<h3 id="словарь-главы">Словарь главы<a class="headerlink" href="#словарь-главы" title="Permanent link">&para;</a></h3>
+<table>
+<thead>
+<tr>
+<th>Термин</th>
+<th>Рабочая формулировка</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Агентный цикл / agent loop</td>
+<td>повторяющаяся последовательность «состояние → выбор действия → выполнение → observation → решение», где решение определяет продолжение или остановку</td>
+</tr>
+<tr>
+<td>Состояние / state</td>
+<td>набор именованных полей с данными текущего запуска: шаги, отказы, последнее observation, пределы, признак завершения</td>
+</tr>
+<tr>
+<td>Наблюдение / observation</td>
+<td>результат действия или обратная связь от среды, возвращённая в рабочий цикл</td>
+</tr>
+<tr>
+<td>точка решения</td>
+<td>момент сразу после observation, когда по нему и счётчикам выбирается <code>continue</code> или один из терминалов</td>
+</tr>
+<tr>
+<td>терминал</td>
+<td>результат, завершающий запуск: <code>success</code>, <code>needs_input</code>, <code>error</code>, <code>limit</code></td>
+</tr>
+<tr>
+<td>retry (повторная попытка)</td>
+<td>разрешённая ещё одна попытка после сбоя; в этом демо — не более одной</td>
+</tr>
+<tr>
+<td>limit (предел)</td>
+<td>заранее заданная граница числа действий; в этом демо — не более пяти</td>
+</tr>
+</tbody>
+</table>
+<h2 id="bridge">Мост к главе 3<a class="headerlink" href="#bridge" title="Permanent link">&para;</a></h2>
+<p>Посмотри ещё раз на <code>run_loop</code>. Кто хранит состояние? Кто выполняет действие? Кто следит, чтобы шестого шага не было? Кто вообще решил, что модели можно предложить только <code>read_task_cards</code>, а не «удалить папку»? В этой главе все эти роли выполняли простые заготовки. Пора объединить их одним понятием.</p>
+<blockquote>
+<p>Какая программная среда вокруг модели хранит состояние, исполняет разрешённые действия, применяет ограничения и возвращает observation?</p>
+</blockquote>
+<p>В главе 3 от маршрута работы перейдём к программной среде, которая организует этот маршрут.</p>
+
+
+
+
+
+
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+    
+      
+      <nav class="md-footer__inner md-grid" aria-label="Нижний колонтитул" >
+        
+          
+          <a href="../ch01/" class="md-footer__link md-footer__link--prev" aria-label="Назад: Глава 1. Модель, приложение и агент: кто отвечает, а кто действует?">
+            <div class="md-footer__button md-icon">
+              
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+            </div>
+            <div class="md-footer__title">
+              <span class="md-footer__direction">
+                Назад
+              </span>
+              <div class="md-ellipsis">
+                Глава 1. Модель, приложение и агент: кто отвечает, а кто действует?
+              </div>
+            </div>
+          </a>
+        
+        
+          
+          <a href="../ch03/" class="md-footer__link md-footer__link--next" aria-label="Вперед: Глава 3. Agent harness: что работает вокруг модели?">
+            <div class="md-footer__title">
+              <span class="md-footer__direction">
+                Вперед
+              </span>
+              <div class="md-ellipsis">
+                Глава 3. Agent harness: что работает вокруг модели?
+              </div>
+            </div>
+            <div class="md-footer__button md-icon">
+              
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M4 11v2h12l-5.5 5.5 1.42 1.42L19.84 12l-7.92-7.92L10.5 5.5 16 11z"/></svg>
+            </div>
+          </a>
+        
+      </nav>
+    
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+    <div class="md-copyright__highlight">
+      Редакция r0002 · 2026-10-14 · техническая редакция, пилот не проводился
+    </div>
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    
+      
+      
+      <script id="__config" type="application/json">{"annotate": null, "base": "../..", "features": ["content.code.copy", "navigation.sections", "navigation.footer", "search.highlight"], "search": "../../assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "\u0421\u043a\u043e\u043f\u0438\u0440\u043e\u0432\u0430\u043d\u043e \u0432 \u0431\u0443\u0444\u0435\u0440", "clipboard.copy": "\u041a\u043e\u043f\u0438\u0440\u043e\u0432\u0430\u0442\u044c \u0432 \u0431\u0443\u0444\u0435\u0440", "search.result.more.one": "\u0415\u0449\u0451 1 \u043d\u0430 \u044d\u0442\u043e\u0439 \u0441\u0442\u0440\u0430\u043d\u0438\u0446\u0435", "search.result.more.other": "\u0415\u0449\u0451 # \u043d\u0430 \u044d\u0442\u043e\u0439 \u0441\u0442\u0440\u0430\u043d\u0438\u0446\u0435", "search.result.none": "\u0421\u043e\u0432\u043f\u0430\u0434\u0435\u043d\u0438\u0439 \u043d\u0435 \u043d\u0430\u0439\u0434\u0435\u043d\u043e", "search.result.one": "\u041d\u0430\u0439\u0434\u0435\u043d\u043e 1 \u0441\u043e\u0432\u043f\u0430\u0434\u0435\u043d\u0438\u0435", "search.result.other": "\u041d\u0430\u0439\u0434\u0435\u043d\u043e \u0441\u043e\u0432\u043f\u0430\u0434\u0435\u043d\u0438\u0439: #", "search.result.placeholder": "\u041d\u0430\u0447\u043d\u0438\u0442\u0435 \u043f\u0435\u0447\u0430\u0442\u0430\u0442\u044c \u0434\u043b\u044f \u043f\u043e\u0438\u0441\u043a\u0430", "search.result.term.missing": "\u041e\u0442\u0441\u0443\u0442\u0441\u0442\u0432\u0443\u0435\u0442", "select.version": "\u0412\u044b\u0431\u0435\u0440\u0438\u0442\u0435 \u0432\u0435\u0440\u0441\u0438\u044e"}, "version": {"provider": "mike"}}</script>
+    
+    
+      <script src="../../assets/javascripts/bundle.79ae519e.min.js"></script>
+      
+    
+  </body>
+</html>

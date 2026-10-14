@@ -1,0 +1,111 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 920" width="800" height="920" role="img" aria-labelledby="t d">
+  <title id="t">Фигура 50. Карта доказательств Release candidate</title>
+  <desc id="d">Глава 17, урок 33, раздел 8 «Центральная карта доказательств». Одна выбранная Version — Release candidate — в центре; от неё отдельные ветви: status, run, eval, trace, шесть обязательных границ, Version evidence с решением keep / revert и live bridge evidence отдельно от replay. Для каждого вывода: утверждение → артефакт → что этот артефакт не доказывает.</desc>
+  <defs>
+    <marker id="arrow" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="8" markerHeight="8" orient="auto-start-reverse">
+      <path d="M0,0 L10,5 L0,10 z" fill="#52606D"/>
+    </marker>
+  </defs>
+  <rect x="0" y="0" width="800" height="920" fill="#FFFFFF"/>
+  <g font-family="PT Sans, DejaVu Sans, Arial, sans-serif" font-size="18" fill="#1F2933" text-anchor="start">
+    <!-- центр: Release candidate -->
+    <rect data-role="release-candidate" x="200" y="20" width="400" height="76" rx="6" fill="#F5F7FA" stroke="#52606D" stroke-width="1.5"/>
+    <text x="400" y="52" font-size="22" text-anchor="middle">Release candidate:</text>
+    <text x="400" y="82" font-size="20" text-anchor="middle">одна выбранная Version</text>
+    <!-- ствол: все ветви отходят от одного кандидата -->
+    <line x1="400" y1="96" x2="400" y2="604" stroke="#52606D" stroke-width="1.5"/>
+
+    <!-- слева: четыре линзы (команды программы) -->
+    <line x1="400" y1="144" x2="374" y2="144" stroke="#52606D" stroke-width="1.5" marker-end="url(#arrow)"/>
+    <rect class="lens" data-role="lens" x="24" y="120" width="348" height="48" rx="6" fill="#F5F7FA" stroke="#1D4ED8" stroke-width="1.5"/>
+    <text x="36" y="151" font-size="20" font-family="PT Mono, DejaVu Sans Mono, monospace">status</text>
+    <line x1="112" y1="145" x2="134" y2="145" stroke="#52606D" stroke-width="1.5" marker-end="url(#arrow)"/>
+    <text x="142" y="151">что настроено</text>
+
+    <line x1="400" y1="210" x2="374" y2="210" stroke="#52606D" stroke-width="1.5" marker-end="url(#arrow)"/>
+    <rect class="lens" data-role="lens" x="24" y="178" width="348" height="64" rx="6" fill="#F5F7FA" stroke="#1D4ED8" stroke-width="1.5"/>
+    <text x="36" y="217" font-size="20" font-family="PT Mono, DejaVu Sans Mono, monospace">run</text>
+    <line x1="112" y1="211" x2="134" y2="211" stroke="#52606D" stroke-width="1.5" marker-end="url(#arrow)"/>
+    <text x="142" y="203">что произошло</text>
+    <text x="142" y="227">в одном запуске</text>
+
+    <line x1="400" y1="284" x2="374" y2="284" stroke="#52606D" stroke-width="1.5" marker-end="url(#arrow)"/>
+    <rect class="lens" data-role="lens" x="24" y="252" width="348" height="64" rx="6" fill="#F5F7FA" stroke="#1D4ED8" stroke-width="1.5"/>
+    <text x="36" y="291" font-size="20" font-family="PT Mono, DejaVu Sans Mono, monospace">eval</text>
+    <line x1="112" y1="285" x2="134" y2="285" stroke="#52606D" stroke-width="1.5" marker-end="url(#arrow)"/>
+    <text x="142" y="277">что произошло</text>
+    <text x="142" y="301">на наборе случаев</text>
+
+    <line x1="400" y1="370" x2="374" y2="370" stroke="#52606D" stroke-width="1.5" marker-end="url(#arrow)"/>
+    <rect class="lens" data-role="lens" x="24" y="326" width="348" height="88" rx="6" fill="#F5F7FA" stroke="#1D4ED8" stroke-width="1.5"/>
+    <text x="36" y="377" font-size="20" font-family="PT Mono, DejaVu Sans Mono, monospace">trace</text>
+    <line x1="112" y1="371" x2="134" y2="371" stroke="#52606D" stroke-width="1.5" marker-end="url(#arrow)"/>
+    <text x="142" y="351">какие наблюдаемые</text>
+    <text x="142" y="375">события привели</text>
+    <text x="142" y="399">к исходу</text>
+
+    <!-- слева ниже: Version evidence -->
+    <line x1="400" y1="486" x2="374" y2="486" stroke="#52606D" stroke-width="1.5" marker-end="url(#arrow)"/>
+    <rect class="evidence" data-role="version" x="24" y="436" width="348" height="100" rx="6" fill="#F5F7FA" stroke="#52606D" stroke-width="1.5"/>
+    <text x="36" y="464" font-size="20">Version evidence</text>
+    <text x="36" y="492">diff + тот же Eval-набор</text>
+    <line x1="36" y1="515" x2="66" y2="515" stroke="#52606D" stroke-width="1.5" marker-end="url(#arrow)"/>
+    <text x="74" y="521" font-family="PT Mono, DejaVu Sans Mono, monospace">keep / revert</text>
+
+    <!-- слева ниже: live bridge evidence -->
+    <line x1="400" y1="604" x2="374" y2="604" stroke="#52606D" stroke-width="1.5" marker-end="url(#arrow)"/>
+    <rect class="evidence" data-role="live" x="24" y="554" width="348" height="100" rx="6" fill="#F5F7FA" stroke="#52606D" stroke-width="1.5"/>
+    <text x="36" y="582" font-size="20">live bridge evidence</text>
+    <text x="36" y="610">фактический bridge-сеанс</text>
+    <line x1="36" y1="633" x2="66" y2="633" stroke="#52606D" stroke-width="1.5" marker-end="url(#arrow)"/>
+    <text x="74" y="639">отдельно от replay</text>
+
+    <!-- справа: обязательные границы, шесть маршрутов -->
+    <line x1="400" y1="250" x2="426" y2="250" stroke="#52606D" stroke-width="1.5" marker-end="url(#arrow)"/>
+    <rect data-role="routes" x="428" y="120" width="348" height="534" rx="6" fill="#FFFFFF" stroke="#52606D" stroke-width="1.5"/>
+    <text x="602" y="151" font-size="20" text-anchor="middle">обязательные границы</text>
+
+    <rect class="route" data-role="route" x="440" y="166" width="324" height="58" rx="6" fill="#F5F7FA" stroke="#52606D" stroke-width="1.5"/>
+    <text x="452" y="190" font-size="20">normal</text>
+    <text x="452" y="214">terminal и отчёт</text>
+
+    <rect class="route" data-role="route" x="440" y="232" width="324" height="58" rx="6" fill="#F5F7FA" stroke="#52606D" stroke-width="1.5"/>
+    <text x="452" y="256" font-size="20">not execute</text>
+    <text x="452" y="280" font-family="PT Mono, DejaVu Sans Mono, monospace">execution: not performed</text>
+
+    <rect class="route" data-role="route" x="440" y="298" width="324" height="82" rx="6" fill="#F5F7FA" stroke="#52606D" stroke-width="1.5"/>
+    <text x="452" y="322" font-size="20">tool error</text>
+    <text x="452" y="346">попытка началась,</text>
+    <text x="452" y="370">есть tool error и terminal</text>
+
+    <rect class="route" data-role="route" x="440" y="388" width="324" height="82" rx="6" fill="#F5F7FA" stroke="#52606D" stroke-width="1.5"/>
+    <text x="452" y="412" font-size="20">prompt injection</text>
+    <text x="452" y="436">подготовленный replay</text>
+    <text x="452" y="460">проходит ожидаемую границу</text>
+
+    <rect class="route" data-role="route" x="440" y="478" width="324" height="58" rx="6" fill="#FFFFFF" stroke="#B45309" stroke-width="2"/>
+    <text x="452" y="502" font-size="20">approval refusal</text>
+    <text x="452" y="526" font-family="PT Mono, DejaVu Sans Mono, monospace">not applied</text>
+    <text x="572" y="526">, status прежний</text>
+
+    <rect class="route" data-role="route" x="440" y="544" width="324" height="82" rx="6" fill="#F5F7FA" stroke="#52606D" stroke-width="1.5"/>
+    <text x="452" y="568" font-size="20">resume</text>
+    <text x="452" y="592">checkpoint saved → loaded</text>
+    <text x="452" y="616">→ outer stop</text>
+
+    <!-- для каждого вывода -->
+    <rect data-role="formula" x="24" y="676" width="752" height="76" rx="6" fill="#F5F7FA" stroke="#52606D" stroke-width="1.5"/>
+    <text x="400" y="704" text-anchor="middle">для каждого вывода:</text>
+    <text x="400" y="736" font-size="20" text-anchor="middle">утверждение → артефакт → что этот артефакт НЕ доказывает</text>
+
+    <!-- подписи-неравенства -->
+    <g font-family="PT Mono, DejaVu Sans Mono, monospace" font-size="18" text-anchor="middle">
+      <rect x="140" y="772" width="520" height="40" rx="6" fill="#F5F7FA" stroke="#1F2933" stroke-width="1.5" stroke-dasharray="6 4"/>
+      <text class="inequality" x="400" y="798">success ≠ доказательство всего проекта</text>
+      <rect x="140" y="820" width="520" height="40" rx="6" fill="#F5F7FA" stroke="#1F2933" stroke-width="1.5" stroke-dasharray="6 4"/>
+      <text class="inequality" x="400" y="846">replay ≠ live evidence</text>
+      <rect x="140" y="868" width="520" height="40" rx="6" fill="#F5F7FA" stroke="#1F2933" stroke-width="1.5" stroke-dasharray="6 4"/>
+      <text class="inequality" x="400" y="894">Release candidate ≠ publication_ready</text>
+    </g>
+  </g>
+</svg>
