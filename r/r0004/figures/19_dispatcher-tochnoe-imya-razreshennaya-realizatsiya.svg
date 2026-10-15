@@ -1,0 +1,70 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 700" width="800" height="700" role="img" aria-labelledby="t d">
+  <title id="t">Фигура 19. Dispatcher: точное имя → разрешённая реализация</title>
+  <desc id="d">Глава 7, урок 13, раздел 1. Имя из tool call Dispatcher сверяет с allowlist — таблицей AVAILABLE_TOOLS; при точном совпадении следующей, отдельной проверкой идут arguments по schema, затем вызывается конкретная реализация. Неизвестное имя и неподходящие arguments дают tool error без выполнения.</desc>
+  <defs>
+    <marker id="arrow" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="8" markerHeight="8" orient="auto-start-reverse">
+      <path d="M0,0 L10,5 L0,10 z" fill="#52606D"/>
+    </marker>
+  </defs>
+  <rect x="0" y="0" width="800" height="700" fill="#FFFFFF"/>
+  <g font-family="PT Sans, DejaVu Sans, Arial, sans-serif" font-size="20" fill="#1F2933" text-anchor="middle">
+    <!-- tool call -->
+    <rect data-role="request" x="40" y="24" width="330" height="70" rx="6" fill="#F5F7FA" stroke="#52606D" stroke-width="1.5"/>
+    <text x="205" y="54">tool call</text>
+    <text x="205" y="82" font-family="PT Mono, DejaVu Sans Mono, monospace" font-size="18">name + arguments</text>
+    <line x1="205" y1="94" x2="205" y2="128" stroke="#52606D" stroke-width="1.5" marker-end="url(#arrow)"/>
+    <!-- Dispatcher -->
+    <rect data-role="dispatcher" x="40" y="130" width="330" height="80" rx="6" fill="#F5F7FA" stroke="#1D4ED8" stroke-width="1.5"/>
+    <text x="205" y="162" font-size="22">Dispatcher</text>
+    <text x="205" y="192" font-size="18">ищет точное имя, не похожее</text>
+    <!-- Allowlist / dispatch table -->
+    <rect data-role="allowlist" x="450" y="24" width="326" height="190" rx="6" fill="#F5F7FA" stroke="#1D4ED8" stroke-width="1.5"/>
+    <text x="613" y="52">Allowlist / dispatch table</text>
+    <g font-family="PT Mono, DejaVu Sans Mono, monospace" font-size="18">
+      <text x="613" y="78" fill="#52606D">AVAILABLE_TOOLS</text>
+      <text x="613" y="112">read_task_cards</text>
+      <text x="613" y="138">validate_task_card</text>
+      <text x="613" y="164">build_status_report</text>
+      <text x="613" y="190">propose_status_update</text>
+    </g>
+    <line x1="370" y1="160" x2="450" y2="160" stroke="#1D4ED8" stroke-width="1.5"/>
+    <text x="410" y="150" font-size="18">сверка</text>
+    <!-- имени нет → tool error -->
+    <polyline points="370,195 420,195 420,286 448,286" fill="none" stroke="#B91C1C" stroke-width="1.5" marker-end="url(#arrow)"/>
+    <rect data-role="rejected" x="450" y="236" width="326" height="100" rx="6" fill="#FFFFFF" stroke="#B91C1C" stroke-width="1.5"/>
+    <text x="613" y="262" font-size="18" fill="#B91C1C">имени нет:</text>
+    <g font-family="PT Mono, DejaVu Sans Mono, monospace" font-size="18">
+      <text x="613" y="290" fill="#B91C1C">tool error: unknown_tool</text>
+      <text x="613" y="318">execution: not performed</text>
+    </g>
+    <!-- имя в списке → arguments -->
+    <line x1="205" y1="210" x2="205" y2="268" stroke="#15803D" stroke-width="1.5" marker-end="url(#arrow)"/>
+    <text x="215" y="246" font-size="18" fill="#15803D" text-anchor="start">имя в списке</text>
+    <rect data-role="schema" x="40" y="270" width="330" height="80" rx="6" fill="#F5F7FA" stroke="#52606D" stroke-width="1.5"/>
+    <text x="205" y="302">проверка arguments</text>
+    <text x="205" y="330" font-size="18">следующая, отдельная: schema</text>
+    <!-- arguments не подходят → tool error -->
+    <polyline points="370,330 432,330 432,402 448,402" fill="none" stroke="#B91C1C" stroke-width="1.5" marker-end="url(#arrow)"/>
+    <rect data-role="rejected" x="450" y="352" width="326" height="100" rx="6" fill="#FFFFFF" stroke="#B91C1C" stroke-width="1.5"/>
+    <text x="613" y="378" font-size="18" fill="#B91C1C">не подходят:</text>
+    <g font-family="PT Mono, DejaVu Sans Mono, monospace" font-size="18">
+      <text x="613" y="406" fill="#B91C1C">tool error:</text>
+      <text x="613" y="430" fill="#B91C1C">invalid_arguments</text>
+    </g>
+    <!-- подходят → реализация -->
+    <line x1="205" y1="350" x2="205" y2="408" stroke="#15803D" stroke-width="1.5" marker-end="url(#arrow)"/>
+    <text x="215" y="386" font-size="18" fill="#15803D" text-anchor="start">подходят</text>
+    <rect data-role="implementation" x="40" y="410" width="330" height="80" rx="6" fill="#F5F7FA" stroke="#15803D" stroke-width="1.5"/>
+    <text x="205" y="442">конкретная реализация</text>
+    <text x="205" y="472" font-family="PT Mono, DejaVu Sans Mono, monospace" font-size="18">Tools.read_task_cards</text>
+    <!-- подписи-неравенства -->
+    <g font-family="PT Mono, DejaVu Sans Mono, monospace" font-size="18">
+      <rect x="220" y="530" width="360" height="40" rx="6" fill="#F5F7FA" stroke="#1F2933" stroke-width="1.5" stroke-dasharray="6 4"/>
+      <text class="inequality" x="400" y="556">name ≠ permission</text>
+      <rect x="220" y="582" width="360" height="40" rx="6" fill="#F5F7FA" stroke="#1F2933" stroke-width="1.5" stroke-dasharray="6 4"/>
+      <text class="inequality" x="400" y="608">allowlist ≠ schema</text>
+      <rect x="220" y="634" width="360" height="40" rx="6" fill="#F5F7FA" stroke="#1F2933" stroke-width="1.5" stroke-dasharray="6 4"/>
+      <text class="inequality" x="400" y="660">unknown ≠ closest match</text>
+    </g>
+  </g>
+</svg>

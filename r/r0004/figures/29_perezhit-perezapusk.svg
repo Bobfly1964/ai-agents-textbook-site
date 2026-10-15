@@ -1,0 +1,65 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 700" width="800" height="700" role="img" aria-labelledby="t d">
+  <title id="t">Фигура 29. Пережить перезапуск</title>
+  <desc id="d">Глава 10, урок 20, раздел 6 «Передача для продолжения — не архив всего». Маршрут главы: запуск A → актуальный state → сохранить минимум → checkpoint project_state.json → Handoff (состояние, результат, ограничения, next_step) → новый запуск или другая группа. Сбоку зачёркнуты full transcript и Secret: их стрелки к Handoff перечёркнуты и в блок не входят.</desc>
+  <defs>
+    <marker id="arrow" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="8" markerHeight="8" orient="auto-start-reverse">
+      <path d="M0,0 L10,5 L0,10 z" fill="#52606D"/>
+    </marker>
+  </defs>
+  <rect x="0" y="0" width="800" height="700" fill="#FFFFFF"/>
+  <g font-family="PT Sans, DejaVu Sans, Arial, sans-serif" font-size="20" fill="#1F2933" text-anchor="middle">
+    <!-- 1. запуск A -->
+    <rect class="stage" data-role="run-a" x="24" y="24" width="380" height="52" rx="6" fill="#F5F7FA" stroke="#52606D" stroke-width="1.5"/>
+    <text x="214" y="57">запуск A</text>
+    <line x1="214" y1="76" x2="214" y2="110" stroke="#52606D" stroke-width="1.5" marker-end="url(#arrow)"/>
+    <!-- 2. актуальный state -->
+    <rect class="stage" data-role="state" x="24" y="112" width="380" height="52" rx="6" fill="#F5F7FA" stroke="#1D4ED8" stroke-width="1.5"/>
+    <text x="214" y="145">актуальный state</text>
+    <line x1="214" y1="164" x2="214" y2="226" stroke="#52606D" stroke-width="1.5" marker-end="url(#arrow)"/>
+    <text x="228" y="201" font-size="18" text-anchor="start">сохранить минимум</text>
+    <!-- 3. checkpoint -->
+    <rect class="stage" data-role="checkpoint" x="24" y="228" width="380" height="70" rx="6" fill="#F5F7FA" stroke="#1D4ED8" stroke-width="1.5"/>
+    <text x="214" y="256">checkpoint:</text>
+    <text x="214" y="284" font-size="18" font-family="PT Mono, DejaVu Sans Mono, monospace">project_state.json</text>
+    <line x1="214" y1="298" x2="214" y2="344" stroke="#52606D" stroke-width="1.5" marker-end="url(#arrow)"/>
+    <!-- 4. Handoff — нейтральная рамка: не разрешение и не автоматическое действие -->
+    <rect class="stage" data-role="handoff" x="24" y="346" width="380" height="100" rx="6" fill="#F5F7FA" stroke="#52606D" stroke-width="1.5"/>
+    <text x="214" y="376">Handoff:</text>
+    <text x="214" y="406" font-size="18">состояние + результат +</text>
+    <text x="79" y="432" font-size="18" text-anchor="start">ограничения +</text>
+    <text x="233" y="432" font-size="18" text-anchor="start" font-family="PT Mono, DejaVu Sans Mono, monospace">next_step</text>
+    <line x1="214" y1="446" x2="214" y2="492" stroke="#52606D" stroke-width="1.5" marker-end="url(#arrow)"/>
+    <!-- 5. новый запуск / другая группа -->
+    <rect class="stage" data-role="next-run" x="24" y="494" width="380" height="70" rx="6" fill="#F5F7FA" stroke="#52606D" stroke-width="1.5"/>
+    <text x="214" y="522">новый запуск /</text>
+    <text x="214" y="548">другая группа</text>
+    <!-- сбоку: зачёркнутые full transcript и Secret -->
+    <rect data-role="transcript" x="484" y="300" width="292" height="90" rx="6" fill="#FFFFFF" stroke="#B91C1C" stroke-width="1.5"/>
+    <text x="630" y="328">full transcript</text>
+    <line x1="534" y1="321" x2="726" y2="321" stroke="#B91C1C" stroke-width="2"/>
+    <text x="630" y="356" font-size="18" fill="#B91C1C">не сюда: обязательная</text>
+    <text x="630" y="380" font-size="18" fill="#B91C1C">часть handoff</text>
+    <rect data-role="secret" x="484" y="402" width="292" height="70" rx="6" fill="#FFFFFF" stroke="#B91C1C" stroke-width="1.5"/>
+    <text x="630" y="430">Secret</text>
+    <line x1="590" y1="423" x2="670" y2="423" stroke="#B91C1C" stroke-width="2"/>
+    <text x="630" y="458" font-size="18" fill="#B91C1C">не сюда: handoff</text>
+    <!-- запрещающие стрелки: красный пунктир, крест у наконечника, в Handoff не входят -->
+    <g stroke="#B91C1C" stroke-width="1.5" fill="none">
+      <line x1="484" y1="370" x2="426" y2="370" stroke-dasharray="6 4"/>
+      <line x1="432" y1="363" x2="446" y2="377" stroke-width="2"/>
+      <line x1="432" y1="377" x2="446" y2="363" stroke-width="2"/>
+      <line x1="484" y1="430" x2="426" y2="430" stroke-dasharray="6 4"/>
+      <line x1="432" y1="423" x2="446" y2="437" stroke-width="2"/>
+      <line x1="432" y1="437" x2="446" y2="423" stroke-width="2"/>
+    </g>
+    <path d="M416,370 L426,365 L426,375 z" fill="#B91C1C"/>
+    <path d="M416,430 L426,425 L426,435 z" fill="#B91C1C"/>
+    <!-- подписи-неравенства -->
+    <g font-family="PT Mono, DejaVu Sans Mono, monospace" font-size="18">
+      <rect x="220" y="588" width="360" height="40" rx="6" fill="#F5F7FA" stroke="#1F2933" stroke-width="1.5" stroke-dasharray="6 4"/>
+      <text class="inequality" x="400" y="614">handoff ≠ full transcript</text>
+      <rect x="220" y="636" width="360" height="40" rx="6" fill="#F5F7FA" stroke="#1F2933" stroke-width="1.5" stroke-dasharray="6 4"/>
+      <text class="inequality" x="400" y="662">checkpoint ≠ permission</text>
+    </g>
+  </g>
+</svg>

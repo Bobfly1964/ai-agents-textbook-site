@@ -1,0 +1,1629 @@
+
+<!doctype html>
+<html lang="ru" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+        <meta name="description" content="Учебник для 9–10 классов">
+      
+      
+      
+        <link rel="canonical" href="https://book.stemschool.online/r0004/student/app-b/">
+      
+      
+        <link rel="prev" href="../app-a/">
+      
+      
+        <link rel="next" href="../app-c/">
+      
+      
+        
+      
+      
+      <link rel="icon" href="../../assets/images/logo.png">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.6">
+    
+    
+      
+        <title>Приложение Б. Словарь курса - ИИ-агенты и Agent Skills</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../assets/stylesheets/main.484c7ddc.min.css">
+      
+        
+        <link rel="stylesheet" href="../../assets/stylesheets/palette.ab4e12ef.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+      <link rel="stylesheet" href="../../assets/stylesheets/extra.css">
+    
+    <script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+  </head>
+  
+  
+    
+    
+      
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="deep-purple" data-md-color-accent="cyan">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#приложение-б-словарь-курса" class="md-skip">
+          Перейти к содержанию
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+        <aside class="md-banner">
+          <div class="md-banner__inner md-grid md-typeset">
+            
+            
+  
+    <strong>Техническая редакция: пилот не проводился</strong> · редакция r0004
+  
+
+          </div>
+          
+        </aside>
+      
+    </div>
+    
+      <div data-md-color-scheme="default" data-md-component="outdated" hidden>
+        
+          <aside class="md-banner md-banner--warning">
+            <div class="md-banner__inner md-grid md-typeset">
+              
+  Вы читаете редакцию r0004. Последняя — <span data-md-latest>новее</span>.
+  <a href="../../../current/"><strong>Перейти →</strong></a>
+  <script>
+    fetch("../../../versions.json").then(r => r.json()).then(vs => {
+      const v = vs.find(x => (x.aliases || []).includes("current"))
+      if (v) document.querySelectorAll("[data-md-latest]").forEach(e => { e.textContent = v.version })
+    }).catch(() => {})
+  </script>
+
+            </div>
+            <script>var el=document.querySelector("[data-md-component=outdated]"),base=new URL("../.."),outdated=__md_get("__outdated",sessionStorage,base);!0===outdated&&el&&(el.hidden=!1)</script>
+          </aside>
+        
+      </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow md-header--lifted" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Верхний колонтитул">
+    <a href="../.." title="ИИ-агенты и Agent Skills" class="md-header__button md-logo" aria-label="ИИ-агенты и Agent Skills" data-md-component="logo">
+      
+  <img src="../../assets/images/logo.png" alt="logo">
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            ИИ-агенты и Agent Skills
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Приложение Б. Словарь курса
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+        <form class="md-header__option" data-md-component="palette">
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="(prefers-color-scheme: light)" data-md-color-scheme="default" data-md-color-primary="deep-purple" data-md-color-accent="cyan"  aria-label="Переключить на тёмную"  type="radio" name="__palette" id="__palette_0">
+    
+      <label class="md-header__button md-icon" title="Переключить на тёмную" for="__palette_1" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 18c-.89 0-1.74-.2-2.5-.55C11.56 16.5 13 14.42 13 12s-1.44-4.5-3.5-5.45C10.26 6.2 11.11 6 12 6a6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12z"/></svg>
+      </label>
+    
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="(prefers-color-scheme: dark)" data-md-color-scheme="slate" data-md-color-primary="deep-purple" data-md-color-accent="cyan"  aria-label="Переключить на светлую"  type="radio" name="__palette" id="__palette_1">
+    
+      <label class="md-header__button md-icon" title="Переключить на светлую" for="__palette_0" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a4 4 0 0 0-4 4 4 4 0 0 0 4 4 4 4 0 0 0 4-4 4 4 0 0 0-4-4m0 10a6 6 0 0 1-6-6 6 6 0 0 1 6-6 6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12z"/></svg>
+      </label>
+    
+  
+</form>
+      
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+      
+      
+        <label class="md-header__button md-icon" for="__search">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        </label>
+        <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Поиск" placeholder="Поиск" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Поиск">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Очистить" aria-label="Очистить" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+        <div class="md-search__suggest" data-md-component="search-suggest"></div>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Инициализация поиска
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+      
+    
+    
+  </nav>
+  
+    
+      
+<nav class="md-tabs" aria-label="Вкладки" data-md-component="tabs">
+  <div class="md-grid">
+    <ul class="md-tabs__list">
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../.." class="md-tabs__link">
+        
+  
+  
+    
+  
+  Главная
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+    
+  
+  
+    
+    
+      <li class="md-tabs__item md-tabs__item--active">
+        <a href="../intro/" class="md-tabs__link">
+          
+  
+  
+    
+  
+  Ученик
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../teacher/teacher-guide/" class="md-tabs__link">
+          
+  
+  
+    
+  
+  Учитель
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../../routes/" class="md-tabs__link">
+        
+  
+  
+    
+  
+  Маршруты A/B
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../../files/" class="md-tabs__link">
+        
+  
+  
+    
+  
+  Файлы практикума
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../../about/" class="md-tabs__link">
+        
+  
+  
+    
+  
+  Выходные данные
+
+      </a>
+    </li>
+  
+
+      
+    </ul>
+  </div>
+</nav>
+    
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+  
+
+
+<nav class="md-nav md-nav--primary md-nav--lifted" aria-label="Навигация" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../.." title="ИИ-агенты и Agent Skills" class="md-nav__button md-logo" aria-label="ИИ-агенты и Agent Skills" data-md-component="logo">
+      
+  <img src="../../assets/images/logo.png" alt="logo">
+
+    </a>
+    ИИ-агенты и Agent Skills
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../.." class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Главная
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+        
+        
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2" checked>
+        
+          
+          <label class="md-nav__link" for="__nav_2" id="__nav_2_label" tabindex="">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Ученик
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_2">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Ученик
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../intro/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Введение
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../tour/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Экскурсия по AI: что есть что
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../ch01/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Глава 1. Модель, приложение и агент: кто отвечает, а кто действует?
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../ch02/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Глава 2. Агентный цикл: как результат действия меняет следующий шаг?
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../ch03/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Глава 3. Agent harness: что работает вокруг модели?
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../ch04/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Глава 4. Prompt, structured output, tool, MCP и Agent Skill: какие задачи решают разные уровни системы?
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../ch05/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Глава 5. Договор задачи: что нужно определить до реализации?
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../ch06/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Глава 6. Первый tool
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../ch07/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Глава 7. Диспетчер и ошибки
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../ch08/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Глава 8. Хороший tool
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../ch09/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Глава 9. Первый Agent Skill
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../ch10/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Глава 10. Состояние и память
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../ch11/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Глава 11. Тесты и evals: как доказать качество не одним удачным запуском?
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../ch12/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Глава 12. Traces: как понять, что происходило на самом деле?
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../ch13/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Глава 13. Обратная связь и версии: когда исправление должно менять процедуру?
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../ch14/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Глава 14. Permissions и участие человека
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../ch15/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Глава 15. Prompt injection и недоверенные подключения: что делать с данными и кодом, которым нельзя автоматически доверять?
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../ch16/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Глава 16. Долгая и совместная работа
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../ch17/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Глава 17. Итоговый проект: может ли команда доказать качество и ограниченность системы?
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../app-a/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Приложение А. Урок 0. Готовность рабочего места
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Приложение Б. Словарь курса
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../app-c/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Приложение В. Список фигур
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3" >
+        
+          
+          <label class="md-nav__link" for="__nav_3" id="__nav_3_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Учитель
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Учитель
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../teacher/teacher-guide/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Методическое руководство для учителя
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../teacher/lesson-map/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Поурочная карта
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../routes/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Маршруты A/B
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../files/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Файлы практикума
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../about/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Выходные данные
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Содержание">
+  
+  
+  
+    
+  
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+
+<h1 id="приложение-б-словарь-курса">Приложение Б. Словарь курса<a class="headerlink" href="#приложение-б-словарь-курса" title="Permanent link">&para;</a></h1>
+<p>Рабочие формулировки из словарей глав 1–17 по алфавиту: сначала русские названия, затем латинские. В скобках — глава, где термин введён. Если поздняя глава уточняет формулировку ранней, приведены обе: «первое знакомство» и «уточнение». Точные определения и границы понятий — в самих главах.</p>
+<ul>
+<li><strong>Агентный цикл / agent loop</strong> — повторяющаяся последовательность «состояние → выбор действия → выполнение → observation → решение», где решение определяет продолжение или остановку (глава 2).</li>
+<li><strong>Вход</strong> — данные и условия, которые доступны задаче к моменту начала работы (глава 5).</li>
+<li><strong>Гипотеза</strong> — предположение о поведении системы, которое ещё предстоит проверить наблюдением (глава 16).</li>
+<li><strong>Действие / action</strong> — отдельный шаг системы в среде — например, вызов tool (глава 1).</li>
+<li><strong>Детерминированная операция</strong> — операция, которая при одинаковом входе и одинаковых заранее заданных правилах даёт один и тот же результат (глава 5).</li>
+<li><strong>Договор задачи (task contract)</strong> — согласованная и записанная до реализации постановка задачи: зачем выполняется работа, какие сведения даны, что должно получиться, что запрещено и как проверить готовность (глава 5).</li>
+<li><strong>ИИ-агент</strong> — система, в которой модель участвует в выборе следующего действия, а результат действия может повлиять на дальнейшие шаги (глава 1).</li>
+<li><strong>ИИ-приложение</strong> — программная система, которая обращается к модели и организует взаимодействие с пользователем, кодом, данными и внешними возможностями (глава 1).</li>
+<li><strong>Интерфейс</strong> — часть или способ взаимодействия с приложением: поле ввода, кнопка, экран результата или программный запрос (глава 1).</li>
+<li><strong>Контекст</strong> — информация, доступная модели в конкретном обращении (глава 1).</li>
+<li><strong>Критерий готовности</strong> — наблюдаемое условие, по которому команда может проверить, что требуемый результат получен в согласованной форме и не нарушает ограничения задачи (глава 5).</li>
+<li><strong>Наблюдение / observation</strong></li>
+<li>первое знакомство, глава 1: наблюдаемый результат действия, полученный из среды.</li>
+<li>уточнение, глава 2: результат действия или обратная связь от среды, возвращённая в рабочий цикл.</li>
+<li><strong>Неопределённость</strong> — ситуация, в которой имеющихся данных или правил недостаточно, чтобы обоснованно получить один требуемый результат или выбрать один следующий шаг (глава 5).</li>
+<li><strong>Ограничение</strong> — правило, которое сужает допустимые способы выполнения задачи или запрещает определённые действия (глава 5).</li>
+<li><strong>Окно контекста / context window</strong> — ограниченный объём информации, который модель может использовать в конкретном вызове (глава 3).</li>
+<li><strong>Оркестрация / orchestration</strong> — программная логика, которая связывает этапы работы, маршрутизацию, вызовы и проверки (глава 3).</li>
+<li><strong>Память агента</strong> — не самостоятельный единый механизм, а общее слово, требующее уточнения; в зависимости от задачи могут использоваться состояние, Agent Skill, RAG, журнал, защищённая база и другие хранилища (глава 10).</li>
+<li><strong>Прогноз</strong> — ожидание будущего результата, записанное до наблюдения и сравниваемое с ним после (глава 16).</li>
+<li><strong>Результат</strong> — конкретный продукт или набор данных, который должен быть получен после выполнения задачи (глава 5).</li>
+<li><strong>Состояние / state</strong></li>
+<li>первое знакомство, глава 2: набор именованных полей с данными текущего запуска: шаги, отказы, последнее observation, пределы, признак завершения.</li>
+<li>уточнение, глава 10: актуальные данные конкретной работы, необходимые для следующего шага или следующего запуска.</li>
+<li><strong>Среда</strong> — всё, с чем система взаимодействует при выполнении задачи и откуда получает результаты действий (глава 1).</li>
+<li><strong>терминал</strong> — результат, завершающий запуск: <code>success</code>, <code>needs_input</code>, <code>error</code>, <code>limit</code> (глава 2).</li>
+<li><strong>точка решения</strong> — момент сразу после observation, когда по нему и счётчикам выбирается <code>continue</code> или один из терминалов (глава 2).</li>
+<li><strong>Управление контекстом / context management</strong> — решение о том, что оставить в активном контексте, что сократить, записать во внешнее состояние или загрузить позже (глава 3).</li>
+<li><strong>Факт / наблюдаемый факт</strong> — утверждение, подтверждённое сохранённым артефактом: выводом команды, trace, файлом или тестом (глава 16).</li>
+<li><strong>Цель</strong> — польза от работы: какое изменение или решение должен поддержать итоговый результат (глава 5).</li>
+<li><strong>Цена ошибки</strong> — последствия, которые возникнут, если система примет неверный результат или выполнит неверное действие (глава 5).</li>
+<li><strong>Эвристика</strong> — правило выбора, которое обычно помогает, но не гарантирует результат и не является стандартом (глава 16).</li>
+<li><strong>Языковая модель / LLM</strong> — компонент, который получает доступный ему контекст и формирует результат (глава 1).</li>
+<li><strong>Agent Skill</strong> — переносимая процедура в каталоге, центральным обязательным файлом которой является <code>SKILL.md</code>; дополнительные ресурсы используются по необходимости (глава 4).</li>
+<li><strong>Allowlist / белый список</strong> — заранее определённый перечень разрешённых действий, имён или ресурсов (глава 7).</li>
+<li><strong>Approval event / событие подтверждения</strong> — event о наблюдаемом факте запроса, получения или отказа подтверждения; сам механизм и правила подтверждения в этой главе не определяются (глава 12).</li>
+<li><strong>Approval gate</strong> — техническая точка процесса, где дальнейшее действие блокируется до подтверждения человека (глава 14).</li>
+<li><strong>Arguments / аргументы</strong> — данные, которые передаются tool при конкретном вызове (глава 6).</li>
+<li><strong>Asset / защищаемый актив</strong> — данные, файлы, состояние или возможности, которым может быть причинён ущерб (глава 14).</li>
+<li><strong>assets/</strong> — необязательная папка для шаблонов и других вспомогательных ресурсов (глава 9).</li>
+<li><strong>Baseline</strong> — зафиксированный исходный уровень поведения, с которым сравниваются изменения (глава 11).</li>
+<li><strong>Change proposal / предложение изменения</strong> — сформулированное изменение процедуры, которое ещё не является новой нормой (глава 13).</li>
+<li><strong>Checkpoint / контрольная точка состояния</strong> — сохранённое состояние, по которому работу можно продолжить после прерывания (глава 10).</li>
+<li><strong>Client</strong> — компонент на стороне host, который взаимодействует с конкретным MCP-сервером (глава 4).</li>
+<li><strong>Contract / контракт операции</strong> — согласованное описание назначения, входов, выхода, ограничений и ошибок операции (главы 5, 8).</li>
+<li><strong>Data minimization / минимизация данных</strong> — хранить и передавать только те данные, которые нужны следующему шагу или передаче работы (глава 10).</li>
+<li><strong>Dataset / набор случаев</strong> — заранее выбранный и зафиксированный набор test cases, на котором проводится Eval (глава 11).</li>
+<li><strong>Dependency / зависимость</strong> — внешний компонент (библиотека, пакет, сервис или файл), без которого наш код или skill не работает так, как задуман (глава 15).</li>
+<li><strong>Description trigger / описание-триггер</strong> — поле <code>description</code> в frontmatter, по которому решают, подходит ли процедура к текущей задаче, ещё до загрузки полных инструкций; слишком общее описание приводит к ложным и пропущенным вызовам, как у tool в главе 8 (глава 9).</li>
+<li><strong>Diff</strong> — наблюдаемое сравнение различий между двумя сохранёнными Version; показывает, что изменилось, но не оценивает качество поведения (глава 13).</li>
+<li><strong>Dispatch table / таблица соответствий</strong> — явное соответствие каждого разрешённого имени tool одной конкретной реализации; в starter — словарь <code>AVAILABLE_TOOLS</code> (глава 7).</li>
+<li><strong>Dispatcher / диспетчер</strong> — программный слой, который сопоставляет разрешённое имя tool с конкретной реализацией (глава 7).</li>
+<li><strong>Error case / ошибка</strong> — случай, проверяющий реакцию системы на некорректные входы, сбой операции или запрещённое действие (глава 8).</li>
+<li><strong>Eval</strong> — воспроизводимая оценка поведения системы на заранее определённом наборе случаев и критериев (глава 11).</li>
+<li><strong>Event / событие</strong> — одна наблюдаемая запись внутри Trace: что произошло, кем инициировано и с какими диагностическими полями связано (глава 12).</li>
+<li><strong>Event log / журнал событий</strong> — последовательный список наблюдаемых событий запуска: запрос tool, результат или ошибка, решение; каждый результат связан с <code>id</code> своего вызова (глава 7).</li>
+<li><strong>Exception / исключение</strong> — программная ошибка, возникшая во время уже начатого выполнения функции; приложение перехватывает её и превращает в наблюдаемый результат, а не в аварийную остановку (глава 7).</li>
+<li><strong>Failure point</strong> — первое наблюдаемое событие, после которого фактический маршрут перестаёт соответствовать ожидаемому для данного случая (глава 12).</li>
+<li><strong>Feedback / обратная связь</strong> — замечание, исправление или результат проверки, который может стать основанием для изменения процедуры (глава 13).</li>
+<li><strong>Frontmatter</strong> — структурированный блок метаданных в начале <code>SKILL.md</code> (глава 9).</li>
+<li><strong>Function calling / tool calling</strong> — механизм, при котором модель формирует структурированный запрос на использование доступной операции (глава 6).</li>
+<li><strong>Grader / проверяющий</strong> — человек или программа, которые применяют Rubric к результату и выносят решение «прошёл / не прошёл» (глава 11).</li>
+<li><strong>Handoff / передача работы</strong> — структурированная передача следующему исполнителю или запуску состояния, результатов и необходимых ограничений (главы 10, 16).</li>
+<li><strong>Harness / agent harness</strong> — программная среда вокруг модели, которая организует цикл, выполнение действий, состояние, ограничения, ошибки и взаимодействие с человеком (глава 3).</li>
+<li><strong>HITL / human in the loop</strong> — режим, в котором человек встроен в рабочий цикл и подтверждает определённые действия (глава 14).</li>
+<li><strong>Host</strong> — приложение или среда, внутри которой организуется работа MCP-подключений (глава 4).</li>
+<li><strong>HOTL / human on the loop</strong> — режим, в котором система действует более самостоятельно, а человек наблюдает и может вмешаться (глава 14).</li>
+<li><strong>Human approval / подтверждение человеком</strong> — явное решение человека, необходимое до выполнения определённого изменения (глава 14).</li>
+<li><strong>Indirect prompt injection</strong> — prompt injection, находящийся внутри внешнего материала — например документа или другого недоверенного содержимого (глава 15).</li>
+<li><strong>Inner loop</strong> — agent loop внутри одного запуска (глава 16).</li>
+<li><strong>JSON</strong> — текстовый формат представления структурированных данных (глава 6).</li>
+<li><strong>JSON Schema</strong> — способ формально описать ожидаемую структуру JSON-данных и допустимые значения (глава 6).</li>
+<li><strong>Least privilege / минимальные полномочия</strong> — предоставление только тех прав, которые действительно требуются для конкретной задачи (глава 14).</li>
+<li><strong>limit (предел)</strong> — заранее заданная граница числа действий; в этом демо — не более пяти (глава 2).</li>
+<li><strong>MCP / Model Context Protocol</strong> — протокол подключения ИИ-приложения к внешним системам, данным и возможностям через стандартизированное взаимодействие (глава 4).</li>
+<li><strong>Negative test / не должен</strong> — случай, в котором похожая ситуация не должна приводить к вызову данного действия (глава 8).</li>
+<li><strong>Observability / наблюдаемость</strong> — возможность понять поведение системы по журналам, traces, состоянию и проверкам (глава 12).</li>
+<li><strong>Outer loop</strong> — повторение отдельных запусков, каждый из которых продолжает работу по сохранённому внешнему состоянию (глава 16).</li>
+<li><strong>Owner / владелец решения</strong> — человек или явно определённая роль, несущая ответственность за итоговое решение (глава 16).</li>
+<li><strong>Pass rate</strong> — доля проверок, удовлетворивших заданным критериям (глава 11).</li>
+<li><strong>Permission scope / область разрешений</strong> — конкретный набор прав, который компонент запрашивает или получает, например «читать workspace» или «сеть к любому адресу»; не смешивать со Scope главы 8 — границей задачи tool (глава 15).</li>
+<li><strong>Permissions / разрешения</strong> — технически заданные права на чтение, запись, сеть, процессы или другие ресурсы (глава 3).</li>
+<li><strong>Positive test / должен</strong> — случай, в котором система должна выбрать или выполнить требуемое действие (глава 8).</li>
+<li><strong>Procedural experience / процедурный опыт</strong> — проверенное изменение повторяемой процедуры, которое можно перенести на будущие запуски (глава 13).</li>
+<li><strong>Procedural knowledge / процедурное знание</strong> — знание о том, как выполнять повторяемую работу; в курсе Agent Skill рассматривается как способ оформить такую процедуру (глава 10).</li>
+<li><strong>Progressive disclosure / постепенное раскрытие</strong> — подробности процедуры загружаются по мере необходимости, а не все одновременно (глава 4).</li>
+<li><strong>Prompt / инструкция</strong> — текстовая инструкция, передаваемая модели (глава 4).</li>
+<li><strong>Prompt injection</strong> — попытка через входной текст или данные заставить модель следовать инструкциям, конфликтующим с предусмотренной логикой системы (глава 15).</li>
+<li><strong>Provenance / происхождение</strong> — сведения о том, откуда получен код, skill, ресурс или зависимость; harness назначает provenance по каналу получения, а содержимое карточки остаётся <code>untrusted_content</code> (глава 15).</li>
+<li><strong>RAG / Retrieval-Augmented Generation</strong> — получение релевантных фактических материалов из внешнего поискового слоя и предоставление их модели (глава 10).</li>
+<li><strong>Read-only / только чтение</strong> — правило проекта: режим чтения используется по умолчанию, если изменение данных не является необходимым результатом текущего шага (глава 14).</li>
+<li><strong>references/</strong> — необязательная папка для подробных справочных материалов, которые не нужно держать в основной инструкции постоянно (глава 9).</li>
+<li><strong>Regression / регрессия</strong> — ухудшение ранее работавшего поведения после изменения (глава 13).</li>
+<li><strong>Release candidate / кандидат на выпуск</strong> — версия проекта, готовая к итоговому прогону обязательных проверок перед защитой (глава 17).</li>
+<li><strong>Reproducibility / воспроизводимость</strong> — свойство проверки давать тот же результат при тех же случаях, критериях и условиях запуска (глава 11).</li>
+<li><strong>Resource / ресурс</strong> — доступный через интеграционный слой материал или источник данных (глава 4).</li>
+<li><strong>Resumable state / возобновляемое состояние</strong> — сохранённое вне процесса состояние, которого достаточно, чтобы новый запуск проверил, что уже сделано, и продолжил с явно записанного следующего шага (глава 16).</li>
+<li><strong>retry (повторная попытка)</strong> — разрешённая ещё одна попытка после сбоя; в этом демо — не более одной (глава 2).</li>
+<li><strong>Rollback / откат</strong> — возврат к предыдущей проверенной Version после неудачного изменения (глава 13).</li>
+<li><strong>Root cause / первопричина</strong> — первая существенная причина, из-за которой маршрут выполнения отклонился от ожидаемого (глава 12).</li>
+<li><strong>Rubric / рубрика</strong> — явный набор критериев оценивания наблюдаемого результата или поведения (глава 11).</li>
+<li><strong>Runtime / среда выполнения</strong> — часть программной среды, в которой фактически выполняются программы, функции или команды (глава 3).</li>
+<li><strong>Sandbox / изолированная среда</strong> — техническая среда, ограничивающая возможные последствия выполнения (глава 3).</li>
+<li><strong>Scope / граница задачи</strong> — ясное описание того, где задача tool начинается и заканчивается (глава 8).</li>
+<li><strong>scripts/</strong> — необязательная папка для программ, необходимых процедуре (глава 9).</li>
+<li><strong>Secret / секрет</strong> — значение, дающее доступ к защищённому ресурсу, например API-токен; не хранится в обычном коде, <code>SKILL.md</code>, учебном репозитории или trace (глава 10).</li>
+<li><strong>Server</strong> — внешняя сторона MCP-подключения, предоставляющая доступные возможности (глава 4).</li>
+<li><strong>Session / сессия</strong> — один ограниченный по времени и контексту запуск работы системы (глава 16).</li>
+<li><strong>SKILL.md</strong> — основной обязательный файл Agent Skill, содержащий метаданные и инструкции процедуры (глава 9).</li>
+<li><strong>Structured output / структурированный вывод</strong> — требование вернуть результат в заранее определённой машинно-читаемой структуре (глава 4).</li>
+<li><strong>Subagent</strong> — отдельный ограниченный агентный запуск, которому передана конкретная подзадача и необходимый контекст (глава 16).</li>
+<li><strong>Supply chain / цепочка поставки</strong> — совокупность внешних компонентов и зависимостей, через которые в систему может попасть ошибочный или вредоносный код (глава 15).</li>
+<li><strong>Test case / тестовый случай</strong> — заранее заданная ситуация с ожидаемым наблюдаемым поведением (главы 8, 11).</li>
+<li><strong>Threat model / модель угроз</strong> — описание того, что нужно защитить, какие нежелательные события возможны и где проходят границы доверия (глава 14).</li>
+<li><strong>Tool / инструмент</strong></li>
+<li>первое знакомство, глава 1: конкретная операция, которую приложение умеет выполнять.</li>
+<li>уточнение, глава 4: конкретная операция, доступная агентной системе.</li>
+<li><strong>Tool call</strong> — структурированное описание запрошенного вызова: имя операции и аргументы (глава 6).</li>
+<li><strong>Tool call record / запись Tool call</strong> — event, фиксирующий наблюдаемый Tool call с его <code>call_id</code>, именем и arguments; запись запроса не доказывает выполнение (глава 12).</li>
+<li><strong>Tool error / ошибка tool</strong> — структурированный результат неуспешного вызова: отклонение до выполнения (неизвестное имя, неверные arguments) или ошибка во время выполнения; не равен терминалу <code>error</code> всего запуска (глава 7).</li>
+<li><strong>Tool result</strong> — результат фактического выполнения tool, возвращённый в агентную систему (глава 6).</li>
+<li><strong>Trace / трассировка</strong> — последовательность наблюдаемых событий одного запуска; может включать вход, запрос tool, результат, ошибку, событие подтверждения и завершение; не включает скрытые рассуждения модели как обязательный учебный артефакт (глава 12).</li>
+<li><strong>Trust boundary / граница доверия</strong> — место, где данные, код или управление переходят между областями с разным уровнем доверия (глава 14).</li>
+<li><strong>Untrusted content / недоверенное содержимое</strong> — внешние данные, которым нельзя автоматически предоставлять статус системной инструкции (глава 15).</li>
+<li><strong>Validator / валидатор</strong> — проверка соответствия объекта заданным правилам до использования или принятия (глава 8).</li>
+<li><strong>Version / версия</strong> — идентифицируемое состояние процедуры или проекта, которое можно сравнить с другим (глава 13).</li>
+</ul>
+
+
+
+
+
+
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+    
+      
+      <nav class="md-footer__inner md-grid" aria-label="Нижний колонтитул" >
+        
+          
+          <a href="../app-a/" class="md-footer__link md-footer__link--prev" aria-label="Назад: Приложение А. Урок 0. Готовность рабочего места">
+            <div class="md-footer__button md-icon">
+              
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+            </div>
+            <div class="md-footer__title">
+              <span class="md-footer__direction">
+                Назад
+              </span>
+              <div class="md-ellipsis">
+                Приложение А. Урок 0. Готовность рабочего места
+              </div>
+            </div>
+          </a>
+        
+        
+          
+          <a href="../app-c/" class="md-footer__link md-footer__link--next" aria-label="Вперед: Приложение В. Список фигур">
+            <div class="md-footer__title">
+              <span class="md-footer__direction">
+                Вперед
+              </span>
+              <div class="md-ellipsis">
+                Приложение В. Список фигур
+              </div>
+            </div>
+            <div class="md-footer__button md-icon">
+              
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M4 11v2h12l-5.5 5.5 1.42 1.42L19.84 12l-7.92-7.92L10.5 5.5 16 11z"/></svg>
+            </div>
+          </a>
+        
+      </nav>
+    
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+    <div class="md-copyright__highlight">
+      ARISTOTEL · Редакция r0004 · 2026-10-15 · техническая редакция, пилот не проводился
+    </div>
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    
+      
+      
+      <script id="__config" type="application/json">{"annotate": null, "base": "../..", "features": ["navigation.tabs", "navigation.tabs.sticky", "navigation.sections", "navigation.indexes", "search.suggest", "search.highlight", "content.code.copy", "navigation.footer"], "search": "../../assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "\u0421\u043a\u043e\u043f\u0438\u0440\u043e\u0432\u0430\u043d\u043e \u0432 \u0431\u0443\u0444\u0435\u0440", "clipboard.copy": "\u041a\u043e\u043f\u0438\u0440\u043e\u0432\u0430\u0442\u044c \u0432 \u0431\u0443\u0444\u0435\u0440", "search.result.more.one": "\u0415\u0449\u0451 1 \u043d\u0430 \u044d\u0442\u043e\u0439 \u0441\u0442\u0440\u0430\u043d\u0438\u0446\u0435", "search.result.more.other": "\u0415\u0449\u0451 # \u043d\u0430 \u044d\u0442\u043e\u0439 \u0441\u0442\u0440\u0430\u043d\u0438\u0446\u0435", "search.result.none": "\u0421\u043e\u0432\u043f\u0430\u0434\u0435\u043d\u0438\u0439 \u043d\u0435 \u043d\u0430\u0439\u0434\u0435\u043d\u043e", "search.result.one": "\u041d\u0430\u0439\u0434\u0435\u043d\u043e 1 \u0441\u043e\u0432\u043f\u0430\u0434\u0435\u043d\u0438\u0435", "search.result.other": "\u041d\u0430\u0439\u0434\u0435\u043d\u043e \u0441\u043e\u0432\u043f\u0430\u0434\u0435\u043d\u0438\u0439: #", "search.result.placeholder": "\u041d\u0430\u0447\u043d\u0438\u0442\u0435 \u043f\u0435\u0447\u0430\u0442\u0430\u0442\u044c \u0434\u043b\u044f \u043f\u043e\u0438\u0441\u043a\u0430", "search.result.term.missing": "\u041e\u0442\u0441\u0443\u0442\u0441\u0442\u0432\u0443\u0435\u0442", "select.version": "\u0412\u044b\u0431\u0435\u0440\u0438\u0442\u0435 \u0432\u0435\u0440\u0441\u0438\u044e"}, "version": {"default": "current", "provider": "mike"}}</script>
+    
+    
+      <script src="../../assets/javascripts/bundle.79ae519e.min.js"></script>
+      
+    
+  </body>
+</html>

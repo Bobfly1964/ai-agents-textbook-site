@@ -1,0 +1,49 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 790" width="800" height="790" role="img" aria-labelledby="t d">
+  <title id="t">Фигура 16. Цепочка tool calling</title>
+  <desc id="d">Глава 6, урок 11, раздел 5 «Кто действительно выполняет действие». Ответ модели по авторскому сценарию (replay) содержит tool call с name и arguments; приложение получает его, проверяет arguments по заранее заданным правилам и только при прохождении проверки вызывает функцию; после фактического выполнения появляется tool result.</desc>
+  <defs>
+    <marker id="arrow" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="8" markerHeight="8" orient="auto-start-reverse">
+      <path d="M0,0 L10,5 L0,10 z" fill="#52606D"/>
+    </marker>
+  </defs>
+  <rect x="0" y="0" width="800" height="790" fill="#FFFFFF"/>
+  <g font-family="PT Sans, DejaVu Sans, Arial, sans-serif" font-size="20" fill="#1F2933" text-anchor="middle">
+    <!-- 1. replay -->
+    <rect class="stage" data-role="replay" x="160" y="24" width="480" height="70" rx="6" fill="#F5F7FA" stroke="#52606D" stroke-width="1.5"/>
+    <text x="400" y="54">ответ модели по авторскому сценарию</text>
+    <text x="400" y="82" font-size="18">(replay)</text>
+    <line x1="400" y1="94" x2="400" y2="132" stroke="#52606D" stroke-width="1.5" marker-end="url(#arrow)"/>
+    <!-- 2. tool call -->
+    <rect class="stage" data-role="request" x="160" y="134" width="480" height="70" rx="6" fill="#F5F7FA" stroke="#52606D" stroke-width="1.5"/>
+    <text x="400" y="164">tool call</text>
+    <text x="400" y="192" font-family="PT Mono, DejaVu Sans Mono, monospace" font-size="18">name + arguments</text>
+    <line x1="400" y1="204" x2="400" y2="242" stroke="#52606D" stroke-width="1.5" marker-end="url(#arrow)"/>
+    <!-- 3. приложение -->
+    <rect class="stage" data-role="application" x="160" y="244" width="480" height="70" rx="6" fill="#F5F7FA" stroke="#1D4ED8" stroke-width="1.5"/>
+    <text x="400" y="274">приложение</text>
+    <text x="400" y="302" font-size="18">получает name и arguments</text>
+    <line x1="400" y1="314" x2="400" y2="352" stroke="#52606D" stroke-width="1.5" marker-end="url(#arrow)"/>
+    <!-- 4. проверка arguments -->
+    <rect class="stage" data-role="check" x="160" y="354" width="480" height="70" rx="6" fill="#F5F7FA" stroke="#1D4ED8" stroke-width="1.5"/>
+    <text x="400" y="384">приложение проверяет arguments</text>
+    <text x="400" y="412" font-size="18">по заранее заданным правилам</text>
+    <line x1="400" y1="424" x2="400" y2="482" stroke="#15803D" stroke-width="1.5" marker-end="url(#arrow)"/>
+    <text x="412" y="460" font-size="18" fill="#15803D" text-anchor="start">проверка проходит</text>
+    <!-- 5. функция / tool -->
+    <rect class="stage" data-role="tool" x="160" y="484" width="480" height="70" rx="6" fill="#F5F7FA" stroke="#1D4ED8" stroke-width="1.5"/>
+    <text x="400" y="514">tool</text>
+    <text x="400" y="542" font-size="18">приложение вызывает функцию</text>
+    <line x1="400" y1="554" x2="400" y2="592" stroke="#52606D" stroke-width="1.5" marker-end="url(#arrow)"/>
+    <!-- 6. tool result -->
+    <rect class="stage" data-role="result" x="160" y="594" width="480" height="70" rx="6" fill="#F5F7FA" stroke="#52606D" stroke-width="1.5"/>
+    <text x="400" y="624">tool result</text>
+    <text x="400" y="652" font-size="18">результат фактического выполнения</text>
+    <!-- подписи-неравенства -->
+    <g font-family="PT Mono, DejaVu Sans Mono, monospace" font-size="18">
+      <rect x="220" y="688" width="360" height="40" rx="6" fill="#F5F7FA" stroke="#1F2933" stroke-width="1.5" stroke-dasharray="6 4"/>
+      <text class="inequality" x="400" y="714">tool call ≠ execution</text>
+      <rect x="220" y="736" width="360" height="40" rx="6" fill="#F5F7FA" stroke="#1F2933" stroke-width="1.5" stroke-dasharray="6 4"/>
+      <text class="inequality" x="400" y="762">request ≠ permission</text>
+    </g>
+  </g>
+</svg>

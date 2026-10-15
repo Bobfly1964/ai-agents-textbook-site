@@ -1,0 +1,3052 @@
+
+<!doctype html>
+<html lang="ru" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+        <meta name="description" content="Учебник для 9–10 классов">
+      
+      
+      
+        <link rel="canonical" href="https://book.stemschool.online/r0004/student/ch10/">
+      
+      
+        <link rel="prev" href="../ch09/">
+      
+      
+        <link rel="next" href="../ch11/">
+      
+      
+        
+      
+      
+      <link rel="icon" href="../../assets/images/logo.png">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.6">
+    
+    
+      
+        <title>Глава 10. Состояние и память - ИИ-агенты и Agent Skills</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../assets/stylesheets/main.484c7ddc.min.css">
+      
+        
+        <link rel="stylesheet" href="../../assets/stylesheets/palette.ab4e12ef.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+      <link rel="stylesheet" href="../../assets/stylesheets/extra.css">
+    
+    <script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+  </head>
+  
+  
+    
+    
+      
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="deep-purple" data-md-color-accent="cyan">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#глава-10-состояние-и-память" class="md-skip">
+          Перейти к содержанию
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+        <aside class="md-banner">
+          <div class="md-banner__inner md-grid md-typeset">
+            
+            
+  
+    <strong>Техническая редакция: пилот не проводился</strong> · редакция r0004
+  
+
+          </div>
+          
+        </aside>
+      
+    </div>
+    
+      <div data-md-color-scheme="default" data-md-component="outdated" hidden>
+        
+          <aside class="md-banner md-banner--warning">
+            <div class="md-banner__inner md-grid md-typeset">
+              
+  Вы читаете редакцию r0004. Последняя — <span data-md-latest>новее</span>.
+  <a href="../../../current/"><strong>Перейти →</strong></a>
+  <script>
+    fetch("../../../versions.json").then(r => r.json()).then(vs => {
+      const v = vs.find(x => (x.aliases || []).includes("current"))
+      if (v) document.querySelectorAll("[data-md-latest]").forEach(e => { e.textContent = v.version })
+    }).catch(() => {})
+  </script>
+
+            </div>
+            <script>var el=document.querySelector("[data-md-component=outdated]"),base=new URL("../.."),outdated=__md_get("__outdated",sessionStorage,base);!0===outdated&&el&&(el.hidden=!1)</script>
+          </aside>
+        
+      </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow md-header--lifted" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Верхний колонтитул">
+    <a href="../.." title="ИИ-агенты и Agent Skills" class="md-header__button md-logo" aria-label="ИИ-агенты и Agent Skills" data-md-component="logo">
+      
+  <img src="../../assets/images/logo.png" alt="logo">
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            ИИ-агенты и Agent Skills
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Глава 10. Состояние и память
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+        <form class="md-header__option" data-md-component="palette">
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="(prefers-color-scheme: light)" data-md-color-scheme="default" data-md-color-primary="deep-purple" data-md-color-accent="cyan"  aria-label="Переключить на тёмную"  type="radio" name="__palette" id="__palette_0">
+    
+      <label class="md-header__button md-icon" title="Переключить на тёмную" for="__palette_1" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 18c-.89 0-1.74-.2-2.5-.55C11.56 16.5 13 14.42 13 12s-1.44-4.5-3.5-5.45C10.26 6.2 11.11 6 12 6a6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12z"/></svg>
+      </label>
+    
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="(prefers-color-scheme: dark)" data-md-color-scheme="slate" data-md-color-primary="deep-purple" data-md-color-accent="cyan"  aria-label="Переключить на светлую"  type="radio" name="__palette" id="__palette_1">
+    
+      <label class="md-header__button md-icon" title="Переключить на светлую" for="__palette_0" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a4 4 0 0 0-4 4 4 4 0 0 0 4 4 4 4 0 0 0 4-4 4 4 0 0 0-4-4m0 10a6 6 0 0 1-6-6 6 6 0 0 1 6-6 6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12z"/></svg>
+      </label>
+    
+  
+</form>
+      
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+      
+      
+        <label class="md-header__button md-icon" for="__search">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        </label>
+        <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Поиск" placeholder="Поиск" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Поиск">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Очистить" aria-label="Очистить" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+        <div class="md-search__suggest" data-md-component="search-suggest"></div>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Инициализация поиска
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+      
+    
+    
+  </nav>
+  
+    
+      
+<nav class="md-tabs" aria-label="Вкладки" data-md-component="tabs">
+  <div class="md-grid">
+    <ul class="md-tabs__list">
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../.." class="md-tabs__link">
+        
+  
+  
+    
+  
+  Главная
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+    
+  
+  
+    
+    
+      <li class="md-tabs__item md-tabs__item--active">
+        <a href="../intro/" class="md-tabs__link">
+          
+  
+  
+    
+  
+  Ученик
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../teacher/teacher-guide/" class="md-tabs__link">
+          
+  
+  
+    
+  
+  Учитель
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../../routes/" class="md-tabs__link">
+        
+  
+  
+    
+  
+  Маршруты A/B
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../../files/" class="md-tabs__link">
+        
+  
+  
+    
+  
+  Файлы практикума
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../../about/" class="md-tabs__link">
+        
+  
+  
+    
+  
+  Выходные данные
+
+      </a>
+    </li>
+  
+
+      
+    </ul>
+  </div>
+</nav>
+    
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+  
+
+
+<nav class="md-nav md-nav--primary md-nav--lifted" aria-label="Навигация" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../.." title="ИИ-агенты и Agent Skills" class="md-nav__button md-logo" aria-label="ИИ-агенты и Agent Skills" data-md-component="logo">
+      
+  <img src="../../assets/images/logo.png" alt="logo">
+
+    </a>
+    ИИ-агенты и Agent Skills
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../.." class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Главная
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+        
+        
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2" checked>
+        
+          
+          <label class="md-nav__link" for="__nav_2" id="__nav_2_label" tabindex="">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Ученик
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_2">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Ученик
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../intro/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Введение
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../tour/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Экскурсия по AI: что есть что
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../ch01/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Глава 1. Модель, приложение и агент: кто отвечает, а кто действует?
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../ch02/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Глава 2. Агентный цикл: как результат действия меняет следующий шаг?
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../ch03/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Глава 3. Agent harness: что работает вокруг модели?
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../ch04/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Глава 4. Prompt, structured output, tool, MCP и Agent Skill: какие задачи решают разные уровни системы?
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../ch05/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Глава 5. Договор задачи: что нужно определить до реализации?
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../ch06/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Глава 6. Первый tool
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../ch07/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Глава 7. Диспетчер и ошибки
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../ch08/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Глава 8. Хороший tool
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../ch09/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Глава 9. Первый Agent Skill
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Глава 10. Состояние и память
+  
+
+    
+  </span>
+  
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Глава 10. Состояние и память
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Содержание">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Содержание
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#scene" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        С чего всё началось
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#goals" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        После главы ты сможешь
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#lesson-19" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Урок 19. Состояние, память, RAG и журнал — не одно и то же
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Урок 19. Состояние, память, RAG и журнал — не одно и то же">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#1-процедура-не-знает-что-произошло-сегодня" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1. Процедура не знает, что произошло сегодня
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#2-state-что-происходит-с-этой-работой-сейчас" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2. State: что происходит с этой работой сейчас
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#3-одного-слова-память-недостаточно" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3. Одного слова «память» недостаточно
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#4-факты-из-внешнего-поискового-слоя" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        4. Факты из внешнего поискового слоя
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#5-event-log-что-произошло-а-не-что-нужно-делать-дальше" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        5. Event log: что произошло, а не что нужно делать дальше
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#6-центральная-матрица-четыре-разных-вопроса" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        6. Центральная матрица: четыре разных вопроса
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#7-практика-a-пятнадцать-карточек-хранения" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        7. Практика A: пятнадцать карточек хранения
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#8-практика-b-процедура-остаётся-отдельно" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        8. Практика B: процедура остаётся отдельно
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#9-мини-проверка-урока-19" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        9. Мини-проверка урока 19
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="9. Мини-проверка урока 19">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#ответы" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Ответы
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#выходной-билет-урока-19" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Выходной билет урока 19
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#lesson-20" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Урок 20. Как передать работу следующему запуску
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Урок 20. Как передать работу следующему запуску">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#1-state-в-памяти-программы-недостаточно-после-остановки" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1. State в памяти программы недостаточно после остановки
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#2-что-должно-попасть-в-project_statejson" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2. Что должно попасть в project_state.json
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#3-checkpoint-должен-быть-проверяемым" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3. Checkpoint должен быть проверяемым
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#4-сохранить-checkpoint--не-значит-переписать-исходные-карточки" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        4. Сохранить checkpoint — не значит переписать исходные карточки
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#5-защищаемое-значение-нельзя-тащить-вместе-со-state" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        5. Защищаемое значение нельзя тащить вместе со state
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#6-передача-для-продолжения--не-архив-всего" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        6. Передача для продолжения — не архив всего
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#7-практика-a-передай-проект-другой-группе" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        7. Практика A: передай проект другой группе
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#8-практика-b-построить-handoff-и-проверить-границу-secret" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        8. Практика B: построить handoff и проверить границу Secret
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#9-обязательные-проверки-должен--не-должен--ошибка--граница" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        9. Обязательные проверки: должен / не должен / ошибка / граница
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#10-безопасность" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        10. Безопасность
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#11-мини-проверка-урока-20" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        11. Мини-проверка урока 20
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="11. Мини-проверка урока 20">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#ответы_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Ответы
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#выходной-билет-урока-20" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Выходной билет урока 20
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#полная-карта-главы" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Полная карта главы
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#why" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Зачем это тебе
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#dezhurny" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Шаг сквозного проекта
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Шаг сквозного проекта">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#достраиваем-дежурного" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Достраиваем «Дежурного»
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#return" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Возвращаемся к сцене
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#check" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Проверь себя
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Проверь себя">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#ответы_2" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Ответы
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#glossary" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Словарь главы
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#bridge" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Мост к главе 11
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../ch11/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Глава 11. Тесты и evals: как доказать качество не одним удачным запуском?
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../ch12/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Глава 12. Traces: как понять, что происходило на самом деле?
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../ch13/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Глава 13. Обратная связь и версии: когда исправление должно менять процедуру?
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../ch14/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Глава 14. Permissions и участие человека
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../ch15/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Глава 15. Prompt injection и недоверенные подключения: что делать с данными и кодом, которым нельзя автоматически доверять?
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../ch16/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Глава 16. Долгая и совместная работа
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../ch17/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Глава 17. Итоговый проект: может ли команда доказать качество и ограниченность системы?
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../app-a/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Приложение А. Урок 0. Готовность рабочего места
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../app-b/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Приложение Б. Словарь курса
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../app-c/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Приложение В. Список фигур
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3" >
+        
+          
+          <label class="md-nav__link" for="__nav_3" id="__nav_3_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Учитель
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Учитель
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../teacher/teacher-guide/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Методическое руководство для учителя
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../teacher/lesson-map/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Поурочная карта
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../routes/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Маршруты A/B
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../files/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Файлы практикума
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../about/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Выходные данные
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Содержание">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Содержание
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#scene" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        С чего всё началось
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#goals" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        После главы ты сможешь
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#lesson-19" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Урок 19. Состояние, память, RAG и журнал — не одно и то же
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Урок 19. Состояние, память, RAG и журнал — не одно и то же">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#1-процедура-не-знает-что-произошло-сегодня" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1. Процедура не знает, что произошло сегодня
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#2-state-что-происходит-с-этой-работой-сейчас" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2. State: что происходит с этой работой сейчас
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#3-одного-слова-память-недостаточно" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3. Одного слова «память» недостаточно
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#4-факты-из-внешнего-поискового-слоя" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        4. Факты из внешнего поискового слоя
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#5-event-log-что-произошло-а-не-что-нужно-делать-дальше" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        5. Event log: что произошло, а не что нужно делать дальше
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#6-центральная-матрица-четыре-разных-вопроса" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        6. Центральная матрица: четыре разных вопроса
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#7-практика-a-пятнадцать-карточек-хранения" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        7. Практика A: пятнадцать карточек хранения
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#8-практика-b-процедура-остаётся-отдельно" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        8. Практика B: процедура остаётся отдельно
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#9-мини-проверка-урока-19" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        9. Мини-проверка урока 19
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="9. Мини-проверка урока 19">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#ответы" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Ответы
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#выходной-билет-урока-19" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Выходной билет урока 19
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#lesson-20" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Урок 20. Как передать работу следующему запуску
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Урок 20. Как передать работу следующему запуску">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#1-state-в-памяти-программы-недостаточно-после-остановки" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1. State в памяти программы недостаточно после остановки
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#2-что-должно-попасть-в-project_statejson" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2. Что должно попасть в project_state.json
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#3-checkpoint-должен-быть-проверяемым" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3. Checkpoint должен быть проверяемым
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#4-сохранить-checkpoint--не-значит-переписать-исходные-карточки" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        4. Сохранить checkpoint — не значит переписать исходные карточки
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#5-защищаемое-значение-нельзя-тащить-вместе-со-state" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        5. Защищаемое значение нельзя тащить вместе со state
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#6-передача-для-продолжения--не-архив-всего" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        6. Передача для продолжения — не архив всего
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#7-практика-a-передай-проект-другой-группе" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        7. Практика A: передай проект другой группе
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#8-практика-b-построить-handoff-и-проверить-границу-secret" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        8. Практика B: построить handoff и проверить границу Secret
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#9-обязательные-проверки-должен--не-должен--ошибка--граница" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        9. Обязательные проверки: должен / не должен / ошибка / граница
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#10-безопасность" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        10. Безопасность
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#11-мини-проверка-урока-20" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        11. Мини-проверка урока 20
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="11. Мини-проверка урока 20">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#ответы_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Ответы
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#выходной-билет-урока-20" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Выходной билет урока 20
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#полная-карта-главы" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Полная карта главы
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#why" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Зачем это тебе
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#dezhurny" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Шаг сквозного проекта
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Шаг сквозного проекта">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#достраиваем-дежурного" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Достраиваем «Дежурного»
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#return" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Возвращаемся к сцене
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#check" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Проверь себя
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Проверь себя">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#ответы_2" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Ответы
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#glossary" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Словарь главы
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#bridge" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Мост к главе 11
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+
+<h1 id="глава-10-состояние-и-память">Глава 10. Состояние и память<a class="headerlink" href="#глава-10-состояние-и-память" title="Permanent link">&para;</a></h1>
+<h2 id="scene">С чего всё началось<a class="headerlink" href="#scene" title="Permanent link">&para;</a></h2>
+<p>В пятницу очередной запуск программы-помощника «Дежурный» остановился со знакомым исходом: <code>needs_input</code>. Для <code>task-003</code> не хватало уточнения по размерам стенда, поэтому подготовить обоснованную статус-сводку до конца не удалось. Аня написала дизайнерской группе и закрыла ноутбук: ответ обещали прислать в понедельник.</p>
+<p>В понедельник ответ пришёл. Но компьютер уже перезапустили, терминал закрыли, а пятничный запуск закончился. Каталог <code>project-status/</code> остался на месте. В файлах процедуры по-прежнему записано, как прочитать и проверить карточки, а затем подготовить сводку. Только записи о пятничной остановке и об ожидаемом ответе в процедуре нет.</p>
+<p>— Запишем всё это прямо в <code>SKILL.md</code>, — предлагает Марк. — И на всякий случай сохраним весь чат. Тогда точно ничего не потеряется.</p>
+<p>Аня кладёт рядом три вещи: <code>SKILL.md</code>, длинную стенограмму пятничной работы и маленькую пустую карточку с заголовком <code>project_state</code>. Затем Аня спрашивает тебя: что новому запуску действительно нужно знать для продолжения, а что хранится совсем для другой цели?</p>
+<blockquote>
+<p><strong>Вопрос-Прогноз.</strong> Что должно пережить перезапуск: вся переписка, Agent Skill, текущее состояние, журнал событий, найденные факты — или разные части нужно хранить раздельно? Запиши минимальный набор, который позволил бы продолжить работу после <code>needs_input</code>.</p>
+<p><strong>Главный вопрос главы.</strong> Где хранить процедуру, текущие данные и факты?</p>
+</blockquote>
+<p><img alt="Фигура 27. Понедельник после needs_input" src="../../figures/27_ponedelnik-posle-needs-input.png" /></p>
+<p><em>Фигура 27. Понедельник после needs_input</em></p>
+<h2 id="goals">После главы ты сможешь<a class="headerlink" href="#goals" title="Permanent link">&para;</a></h2>
+<ul>
+<li>объяснять, почему Agent Skill хранит способ работы, а не текущее положение конкретной задачи;</li>
+<li>различать способ работы, актуальные данные, внешние факты и журнал событий по их роли;</li>
+<li>объяснять, почему слово «память» требует уточнить конкретный механизм;</li>
+<li>выбирать минимальные данные для <code>project_state.json</code>;</li>
+<li>сохранять состояние так, чтобы продолжить работу после прерывания, и составлять передачу работы, по которой другая группа понимает следующий шаг без полной истории чата;</li>
+<li>объяснять, почему значение доступа к защищённому ресурсу нельзя переносить вместе с обычным состоянием;</li>
+<li>проверять состояние на случаях «должен / не должен / ошибка / граница».</li>
+</ul>
+<hr />
+<h2 id="lesson-19">Урок 19. Состояние, память, RAG и журнал — не одно и то же<a class="headerlink" href="#lesson-19" title="Permanent link">&para;</a></h2>
+<h3 id="1-процедура-не-знает-что-произошло-сегодня">1. Процедура не знает, что произошло сегодня<a class="headerlink" href="#1-процедура-не-знает-что-произошло-сегодня" title="Permanent link">&para;</a></h3>
+<p>В главе 9 мы подготовили Agent Skill <code>project-status</code>, который хранит повторяемый порядок работы. Когда завтра понадобится новая статус-сводка, порядок по-прежнему пригодится:</p>
+<ol>
+<li>Получить нужную справку.</li>
+<li>Прочитать карточки.</li>
+<li>Проверить карточки.</li>
+<li>Подготовить статус-сводку.</li>
+</ol>
+<p>На первый взгляд предложение Марка удобно: если записать всё в <code>SKILL.md</code>, нужные сведения будут в одном месте. Но строки «сегодня уже прочитали <code>task-001</code>» и «ждём ответа дизайнеров по <code>task-003</code>» меняются вместе с конкретной работой. Порядок подготовки сводки при этом может остаться прежним. Если смешать порядок и текущие сведения, придётся переписывать файл процедуры после каждого запуска.</p>
+<p>Запись о том, как повторять работу, отвечает на другой вопрос, чем запись о сегодняшней остановке. Назовём сначала знание о способе работы.</p>
+<p><strong>Procedural knowledge / процедурное знание — знание о том, как выполнять повторяемую работу.</strong></p>
+<p><strong><em>Procedural knowledge</em></strong> («процедурное знание») отвечает на вопрос «как обычно делается такая работа?». В нашем курсе Agent Skill служит способом записать процедуру: в <code>SKILL.md</code> находятся шаги и ограничения, а дополнительные ресурсы программа загружает по необходимости.</p>
+<p>Процедурное знание само по себе не сообщает, какой шаг уже выполнен сегодня. Ответ Ани и сведения о карточке, которая сейчас заблокирована, тоже относятся к текущей работе, а не к порядку её повторения.</p>
+<p>Сравним процедуру с рецептом блюда, а текущие рабочие данные — с листом конкретного заказа. Рецепт объясняет, как готовить; лист заказа сообщает: «суп готов, десерт ждёт». Рецепт не приходится менять только потому, что повар закончил суп. Сходство касается назначения записей: в программе состав полей определяет приложение, а не устройство бумажного рецепта.</p>
+<blockquote>
+<p><strong>Проверь себя на ходу.</strong> Фраза «после чтения карточек проверь каждую обязательную строку» относится к procedural knowledge. А куда отнести фразу «<code>task-003</code> уже проверена и ждёт уточнения» — и почему?</p>
+</blockquote>
+<h3 id="2-state-что-происходит-с-этой-работой-сейчас">2. State: что происходит с этой работой сейчас<a class="headerlink" href="#2-state-что-происходит-с-этой-работой-сейчас" title="Permanent link">&para;</a></h3>
+<p>В главе 2 состояние хранилось внутри одного запуска в словаре Python. Словарь связывает имена полей с их значениями: программа могла узнать текущий <code>phase</code>, прочитать счётчики и последний observation, а также проверить признаки завершения. Теперь нужен ответ ещё на один вопрос: какие рабочие сведения должны сохраниться для следующего запуска?</p>
+<p><strong>Состояние / state — актуальные данные конкретной работы, необходимые для следующего шага или следующего запуска.</strong></p>
+<p><strong><em>State</em></strong> («состояние») отвечает на вопрос «что происходит с этой задачей сейчас?». Пока программа работает, следующий шаг может зависеть от текущего <code>phase</code>, числа выполненных действий и полученных observations — наблюдений. Для нового запуска нужны только те проверенные рабочие данные, которые позволяют определить, откуда продолжать. Набор данных внутри запуска и набор, передаваемый следующему запуску, не обязательно совпадают.</p>
+<p>Состояние не обязано содержать всю историю. В state не нужно копировать Agent Skill или весь event log только потому, что программа имеет доступ к этим данным. Каждая сохранённая запись должна помогать следующему шагу.</p>
+<p>Допустим, размеры стенда уже пришли, но карточку ещё не проверили повторно. Запись «ждём размеров» больше не описывает текущее положение. Для продолжения нужно зафиксировать, что ответ получен и предстоит повторная проверка. Получить ответ и закончить проверку — два разных действия.</p>
+<p>В существующем <code>run_agent</code> состояние текущего запуска хранится в обычном словаре Python. Начало словаря видно во фрагменте <code>school_agent/agent.py</code> из starter; чтобы прочитать запись, достаточно различать имена полей и значения после двоеточий:</p>
+<div class="highlight"><pre><span></span><code><span class="c1"># фрагмент: school_agent/agent.py</span>
+    <span class="n">state</span> <span class="o">=</span> <span class="p">{</span><span class="s2">&quot;phase&quot;</span><span class="p">:</span> <span class="s2">&quot;start&quot;</span><span class="p">,</span> <span class="s2">&quot;steps&quot;</span><span class="p">:</span> <span class="mi">0</span><span class="p">,</span> <span class="s2">&quot;failures&quot;</span><span class="p">:</span> <span class="mi">0</span><span class="p">,</span> <span class="s2">&quot;model_turns&quot;</span><span class="p">:</span> <span class="mi">0</span><span class="p">,</span>
+             <span class="s2">&quot;context_requests&quot;</span><span class="p">:</span> <span class="mi">0</span><span class="p">,</span> <span class="s2">&quot;done&quot;</span><span class="p">:</span> <span class="kc">False</span><span class="p">}</span>
+</code></pre></div>
+<p>Поля словаря нужны работающему harness — программной среде вокруг модели. Однако словарь в оперативной памяти компьютера не становится сохранённым файлом сам по себе. После завершения процесса объект словаря исчезнет. Для следующего запуска приложение должно отдельно сохранить нужные рабочие данные.</p>
+<h3 id="3-одного-слова-память-недостаточно">3. Одного слова «память» недостаточно<a class="headerlink" href="#3-одного-слова-память-недостаточно" title="Permanent link">&para;</a></h3>
+<p>Марк называет все перечисленные записи памятью. В бытовом разговоре просьба «пусть агент запомнит» звучит понятно. Но сможет ли разработчик по одной этой просьбе выбрать, что и где хранить? Не сможет: для сохранения порядка работы и для сохранения места остановки нужны разные решения.</p>
+<p>В нашем курсе действует правило: <strong>память агента — не самостоятельный единый механизм, а общее слово, требующее уточнения.</strong></p>
+<p>Услышав предложение «добавим память», уточни задачу:</p>
+<ol>
+<li>Нужно ли сохранить текущий state?</li>
+<li>Нужно ли получать факты из внешних источников?</li>
+<li>Нужно ли оставлять журнал наблюдаемых событий?</li>
+<li>Нужно ли хранить процедуру?</li>
+<li>Нужно ли передавать следующему запуску сохранённое состояние?</li>
+</ol>
+<p>Словом «память» пользоваться можно. Но само слово не указывает ни состав данных, ни способ хранения, поэтому не заменяет решения о том, какой механизм нужен системе.</p>
+<h3 id="4-факты-из-внешнего-поискового-слоя">4. Факты из внешнего поискового слоя<a class="headerlink" href="#4-факты-из-внешнего-поискового-слоя" title="Permanent link">&para;</a></h3>
+<p>Представь, что для статус-сводки нужно узнать расписание Фестиваля из отдельной базы документов. Расписание не задаёт шаги <code>SKILL.md</code> и не описывает текущий <code>phase</code>. Приложению нужно найти подходящий материал во внешнем источнике и передать найденные сведения модели.</p>
+<p><strong>RAG / Retrieval-Augmented Generation — получение релевантных фактических материалов из внешнего поискового слоя и предоставление их модели.</strong></p>
+<p>Название <strong><em>RAG</em></strong> можно перевести как «генерация с дополнением найденными материалами». Описанный механизм отвечает на вопрос «что известно по теме из доступных источников?». Приложение отбирает материалы, относящиеся к вопросу, а не передаёт все прошлые разговоры. В практиках этой главы поиск не подключается и RAG-система не создаётся: мы только различаем назначения механизмов.</p>
+<p>RAG не заменяет state. Найденный документ может сообщить дату Фестиваля, но не содержать записи о том, что конкретный запуск уже проверил <code>task-003</code>. RAG не заменяет и Agent Skill: из фактического материала самого по себе не следует порядок повторяемой работы.</p>
+<blockquote>
+<p><strong>Проверь себя на ходу.</strong> Внешняя база вернула актуальное расписание кабинетов. Это state текущей работы или материал RAG? Что ещё нужно знать, чтобы решить, какой шаг выполнять дальше?</p>
+</blockquote>
+<h3 id="5-event-log-что-произошло-а-не-что-нужно-делать-дальше">5. Event log: что произошло, а не что нужно делать дальше<a class="headerlink" href="#5-event-log-что-произошло-а-не-что-нужно-делать-дальше" title="Permanent link">&para;</a></h3>
+<p>В главе 7 мы ввели Event log / журнал событий. В журнале последовательно записываются наблюдаемые события запуска: запрос tool, результат или ошибка, принятое решение. При этом event log главы 7 ещё не следует называть формальным Trace главы 12.</p>
+<p>Нужен ли новому запуску весь журнал, чтобы продолжить работу? Не обязательно. Event log отвечает на вопрос «какие наблюдаемые события произошли и в каком порядке?». State отвечает на другой вопрос: «какие актуальные данные нужны для следующего шага?». Некоторые сведения могут встречаться и в журнале, и в состоянии, но назначение записей различается.</p>
+<p>Допустим, event log содержит двадцать событий: запрос сменяется observation, затем следует решение и новый запрос. Для продолжения после перезапуска может оказаться достаточно пяти полей:</p>
+<ol>
+<li>Цель указывает, какую работу нужно продолжить.</li>
+<li>Текущий статус показывает, в каком положении находится работа.</li>
+<li>Проверенный блокер сообщает, что мешает продолжению.</li>
+<li>Ожидаемое уточнение показывает, каких сведений не хватает.</li>
+<li>Следующий шаг указывает, что делать после получения ответа.</li>
+</ol>
+<p>В условном примере двадцать событий описывают ход работы, а пять полей помогают продолжить работу. Из такого сопоставления не следует, что любой журнал можно заменить пятью полями: состав состояния зависит от задачи.</p>
+<p>Формальную структуру Trace и работу с ним мы разберём в главе 12. Для нынешней задачи достаточно различать журнал произошедших событий и актуальные данные для продолжения.</p>
+<h3 id="6-центральная-матрица-четыре-разных-вопроса">6. Центральная матрица: четыре разных вопроса<a class="headerlink" href="#6-центральная-матрица-четыре-разных-вопроса" title="Permanent link">&para;</a></h3>
+<p>Сопоставим четыре механизма по вопросам, на которые они отвечают. Когда слово «память» не помогает выбрать место хранения, найди нужный вопрос в колонке «Главный вопрос».</p>
+<table>
+<thead>
+<tr>
+<th>Что рассматриваем</th>
+<th>Главный вопрос</th>
+<th>Что там уместно</th>
+<th>Что туда не складываем</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Procedural knowledge / Agent Skill</td>
+<td>Как повторять работу?</td>
+<td>шаги, ограничения, нужные references</td>
+<td>текущий <code>phase</code>, ответ Ани, значения доступа</td>
+</tr>
+<tr>
+<td>State</td>
+<td>Что происходит с этой задачей сейчас?</td>
+<td>актуальные данные для следующего шага</td>
+<td>полную процедуру, всю стенограмму</td>
+</tr>
+<tr>
+<td>RAG</td>
+<td>Что известно по теме из доступных источников?</td>
+<td>релевантные фактические материалы</td>
+<td>ход выполнения конкретного запуска</td>
+</tr>
+<tr>
+<td>Event log</td>
+<td>Что наблюдаемо произошло в запуске?</td>
+<td>запросы, observations, решения</td>
+<td>скрытые рассуждения, значения доступа</td>
+</tr>
+</tbody>
+</table>
+<p>Из таблицы следуют две границы:</p>
+<div class="highlight"><pre><span></span><code>procedure ≠ state
+state ≠ event log
+</code></pre></div>
+<p>Первая граница отделяет порядок работы в <code>SKILL.md</code> от текущих рабочих записей. Вторая позволяет выбирать нужное состояние, не копируя весь журнал. В уроке 20 добавится ещё одна граница: что передавать между запусками.</p>
+<p><img alt="Фигура 28. Не одна память" src="../../figures/28_ne-odna-pamyat.svg" /></p>
+<p><em>Фигура 28. Не одна память</em></p>
+<h3 id="7-практика-a-пятнадцать-карточек-хранения">7. Практика A: пятнадцать карточек хранения<a class="headerlink" href="#7-практика-a-пятнадцать-карточек-хранения" title="Permanent link">&para;</a></h3>
+<p>Объединись с одноклассниками в группу из трёх-четырёх человек. Получи вместе с группой пятнадцать карточек и распредели записи по колонкам:</p>
+<ol>
+<li><code>procedural knowledge</code>;</li>
+<li><code>state</code>;</li>
+<li><code>RAG</code>;</li>
+<li><code>event log</code>.</li>
+</ol>
+<p>Карточки с чувствительными или лишними данными помести в область «требует отдельного решения/не хранить в учебном project_state».</p>
+<p>Среди карточек могут встретиться следующие записи:</p>
+<ul>
+<li>«сначала прочитать карточки, затем проверить обязательные поля»;</li>
+<li>«<code>task-003</code> ждёт размеров стенда»;</li>
+<li>«расписание кабинетов найдено в базе материалов»;</li>
+<li>«tool <code>read_task_cards</code> вернул count=3»;</li>
+<li>«API-токен внешнего сервиса»;</li>
+<li>«полная стенограмма пятничного чата»;</li>
+<li>«следующий шаг — после ответа Ани повторно проверить <code>task-003</code>»;</li>
+<li>«порядок действий при неоднозначности»;</li>
+<li>«время события tool_observation»;</li>
+<li>«личный телефон участника команды».</li>
+</ul>
+<p>Для каждой карточки запиши не только выбранную колонку, но и вопрос, на который отвечает запись. Обсуди выбор с группой. Объяснения «это вроде память» недостаточно: нужно назвать роль данных.</p>
+<p><strong>Результат практики A:</strong> таблица пятнадцати карточек и три объяснённые границы: procedure/state, state/event log, рабочие данные/чувствительные данные.</p>
+<h3 id="8-практика-b-процедура-остаётся-отдельно">8. Практика B: процедура остаётся отдельно<a class="headerlink" href="#8-практика-b-процедура-остаётся-отдельно" title="Permanent link">&para;</a></h3>
+<p>Сначала загрузи инструкции уже принятого Agent Skill. Следующая команда показывает слой инструкций <code>project-status</code>, но не меняет файлы:</p>
+<div class="highlight"><pre><span></span><code><span class="c1"># запуск из корня starter</span>
+python<span class="w"> </span>skill_demo.py<span class="w"> </span>load<span class="w"> </span>project-status
+</code></pre></div>
+<div class="highlight"><pre><span></span><code>layer: instructions
+skill: project-status
+SKILL.md: loaded
+frontmatter fields: name, description, compatibility
+instructions lines: 22
+supporting files:
+  references/report-template.md (references)
+  references/task-card-format.md (references)
+  assets/example-report.md (assets)
+  scripts/validate_cards.py (scripts)
+resources read: no
+scripts executed: no
+</code></pre></div>
+<p>Вывод сообщает о загрузке <code>SKILL.md</code> и перечисляет дополнительные файлы. Строки <code>resources read: no</code> и <code>scripts executed: no</code> показывают, что содержимое дополнительных ресурсов не читалось и программы из каталога не выполнялись. Сведений о том, что «<code>task-003</code> ждёт ответ Ани», вывод не содержит. Порядок работы по-прежнему отделён от истории конкретного запуска.</p>
+<p>Для текущих рабочих данных нужен отдельный документ. В starter различие между процедурой и состоянием показывает учебная программа <code>state_demo.py</code>. Программа работает с локальными учебными данными, не создаёт второй Agent Skill и не заменяет <code>run_agent</code>.</p>
+<p>Перед следующей командой сделай прогноз: почему строка <code>project_state.json -&gt; Agent Skill</code> была бы неверной вместо <code>project_state.json -&gt; state</code>?</p>
+<div class="highlight"><pre><span></span><code><span class="c1"># запуск из корня starter</span>
+python<span class="w"> </span>state_demo.py<span class="w"> </span>classify
+</code></pre></div>
+<div class="highlight"><pre><span></span><code>SKILL.md -&gt; procedural knowledge | как повторять работу?
+project_state.json -&gt; state | что происходит с этой работой сейчас?
+retrieved festival schedule -&gt; RAG | что известно по теме из доступных источников?
+tool_observation event -&gt; event log | что наблюдаемо произошло в запуске?
+</code></pre></div>
+<p>После запуска сравни прогноз со строкой <code>project_state.json -&gt; state</code>. Объясни различие между процедурой и состоянием без слова «просто».</p>
+<p><strong>Результат практики B:</strong> две заполненные колонки «процедура / текущее состояние», одна выполненная команда главы 9 и один классификационный прогон главы 10.</p>
+<h3 id="9-мини-проверка-урока-19">9. Мини-проверка урока 19<a class="headerlink" href="#9-мини-проверка-урока-19" title="Permanent link">&para;</a></h3>
+<ol>
+<li>Что хранит procedural knowledge?</li>
+<li>Какой главный вопрос state?</li>
+<li>Почему Agent Skill не должен содержать текущий статус <code>task-003</code>?</li>
+<li>Какой вопрос решает RAG?</li>
+<li>Чем state отличается от event log?</li>
+<li>Почему фраза «добавим память агенту» недостаточна для проектирования?</li>
+</ol>
+<h4 id="ответы">Ответы<a class="headerlink" href="#ответы" title="Permanent link">&para;</a></h4>
+<ol>
+<li>Знание о том, как выполнять повторяемую работу; в курсе оно может быть оформлено как Agent Skill.</li>
+<li>«Что происходит с этой задачей сейчас?»</li>
+<li>Потому что Agent Skill хранит переносимую процедуру, а текущий статус относится к конкретной работе.</li>
+<li>«Что известно по теме из доступных источников?» — через получение релевантных фактических материалов.</li>
+<li>State хранит актуальные данные для следующего шага; event log — последовательность наблюдаемых событий запуска.</li>
+<li>Потому что нужно назвать конкретный механизм и задачу хранения: state, RAG, журнал, защищённое хранилище и т. п.</li>
+</ol>
+<h3 id="выходной-билет-урока-19">Выходной билет урока 19<a class="headerlink" href="#выходной-билет-урока-19" title="Permanent link">&para;</a></h3>
+<p>Заполни четыре строки одним коротким примером из Фестиваля науки:</p>
+<div class="highlight"><pre><span></span><code>как делать → …
+что происходит сейчас → …
+что известно из внешних источников → …
+что произошло в запуске → …
+</code></pre></div>
+<p>Если один и тот же пример оказался во всех четырёх строках, вернись к центральной матрице и снова задай четыре разных вопроса.</p>
+<hr />
+<h2 id="lesson-20">Урок 20. Как передать работу следующему запуску<a class="headerlink" href="#lesson-20" title="Permanent link">&para;</a></h2>
+<h3 id="1-state-в-памяти-программы-недостаточно-после-остановки">1. State в памяти программы недостаточно после остановки<a class="headerlink" href="#1-state-в-памяти-программы-недостаточно-после-остановки" title="Permanent link">&para;</a></h3>
+<p>В пятницу <code>run_agent</code> мог хранить состояние в словаре Python. Пока программа работала, очередной шаг получал из словаря текущий <code>phase</code>, счётчики и observations. Но в понедельник начинается новый запуск: прежнего объекта в памяти программы уже может не быть.</p>
+<p>Что позволит продолжить работу, если прежний объект исчез? Сохранённые отдельно данные о месте остановки. Нужен снимок полезного состояния, а не всей памяти компьютера и не полного чата.</p>
+<p><strong>Checkpoint / контрольная точка состояния — сохранённое состояние, по которому работу можно продолжить после прерывания.</strong></p>
+<p><strong><em>Checkpoint</em></strong> («контрольная точка состояния») позволяет после закрытия программы определить, откуда продолжить работу. В нашем проекте сохранённое состояние будет находиться в <code>project_state.json</code>.</p>
+<p>Checkpoint не обязан повторять event log строка за строкой. Сохранённое состояние не служит резервной копией всего проекта и не гарантирует правильности записанных данных. Приложение должно проверить формат файла: одного имени <code>project_state.json</code> недостаточно, чтобы доверять содержимому.</p>
+<h3 id="2-что-должно-попасть-в-project_statejson">2. Что должно попасть в <code>project_state.json</code><a class="headerlink" href="#2-что-должно-попасть-в-project_statejson" title="Permanent link">&para;</a></h3>
+<p>Вернёмся к пятничной остановке. После получения Аней ответа новому запуску не обязательно читать каждую реплику чата. Для продолжения нужны цель, место остановки и сведения о том, какой шаг зависит от уточнения дизайнеров.</p>
+<p>В учебном состоянии записано шесть полей. Шаблон находится в starter, в файле <code>workspace/ch10/templates/project_state.json</code>:</p>
+<div class="highlight"><pre><span></span><code><span class="p">{</span>
+<span class="w">  </span><span class="nt">&quot;project&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;science-festival&quot;</span><span class="p">,</span>
+<span class="w">  </span><span class="nt">&quot;goal&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;подготовить статус-сводку&quot;</span><span class="p">,</span>
+<span class="w">  </span><span class="nt">&quot;status&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;needs_input&quot;</span><span class="p">,</span>
+<span class="w">  </span><span class="nt">&quot;blocked_tasks&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="s2">&quot;task-003&quot;</span><span class="p">],</span>
+<span class="w">  </span><span class="nt">&quot;pending_question&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;Уточнить размеры стенда у дизайнеров&quot;</span><span class="p">,</span>
+<span class="w">  </span><span class="nt">&quot;next_step&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;После ответа снова проверить task-003&quot;</span>
+<span class="p">}</span>
+</code></pre></div>
+<p>Каждое из шести полей связано с продолжением работы:</p>
+<ol>
+<li><code>project</code> указывает, к какому проекту относятся данные.</li>
+<li><code>goal</code> напоминает, какую работу нужно продолжить.</li>
+<li><code>status</code> сообщает об остановке в ожидании сведений.</li>
+<li><code>blocked_tasks</code> перечисляет заблокированные задачи.</li>
+<li><code>pending_question</code> сохраняет вопрос, ответ на который ещё нужен.</li>
+<li><code>next_step</code> сообщает, что делать после получения ответа.</li>
+</ol>
+<p>В условном примере урока 19 мы назвали пять рабочих полей. В шаблоне к ним добавлено имя проекта, поэтому полей шесть. Число полей определяется задачей, а не требованием всегда сохранять ровно пять записей.</p>
+<p>Если поле не помогает продолжению, доступность сведений сама по себе не служит основанием для сохранения. Такой отбор следует правилу безопасности. <strong>Data minimization / минимизация данных — хранить и передавать только те данные, которые нужны следующему шагу или передаче работы.</strong> Применяя минимизацию данных, сначала назови действие, которому поможет поле. Если нужного действия нет, поле не включают в состояние. Историю можно хранить отдельно для другой задачи, но копировать историю в состояние и передачу «на всякий случай» нельзя. Реальные персональные сведения в учебное состояние не помещают.</p>
+<p>Допустим, в переписке обсуждался цвет афиши, а ближайший шаг требует только проверить размеры стенда. При таком условии цвет афиши не помогает продолжению. Для работы над самой афишей цвет мог бы понадобиться: лишними данные становятся относительно конкретной задачи.</p>
+<h3 id="3-checkpoint-должен-быть-проверяемым">3. Checkpoint должен быть проверяемым<a class="headerlink" href="#3-checkpoint-должен-быть-проверяемым" title="Permanent link">&para;</a></h3>
+<p>Легко решить, что существующего JSON-файла уже достаточно для продолжения. Но что произойдёт, если из файла исчез <code>next_step</code>? Новый запуск может узнать о блокере и всё же не понять, какое действие ожидалось после ответа.</p>
+<p>Поэтому приложение должно проверить обязательные поля и отклонить документ, по которому нельзя однозначно определить продолжение. Сначала запусти проверку полного учебного состояния:</p>
+<div class="highlight"><pre><span></span><code><span class="c1"># запуск из корня starter</span>
+python<span class="w"> </span>state_demo.py<span class="w"> </span>resume<span class="w"> </span>workspace/ch10/cases/project_state_ready.json
+</code></pre></div>
+<div class="highlight"><pre><span></span><code>checkpoint: loaded
+project: science-festival
+status: needs_input
+blocked tasks: task-003
+next step: После ответа снова проверить task-003
+result: resumable
+</code></pre></div>
+<p>В полном случае программа сообщает <code>result: resumable</code>: состояние принято как пригодное для продолжения. Напечатанный вывод показывает статус и следующий шаг, но не показывает выполнение повторной проверки карточки.</p>
+<p>Теперь проверь неполное состояние:</p>
+<div class="highlight"><pre><span></span><code><span class="c1"># запуск из корня starter</span>
+python<span class="w"> </span>state_demo.py<span class="w"> </span>resume<span class="w"> </span>workspace/ch10/cases/project_state_missing_next_step.json
+</code></pre></div>
+<div class="highlight"><pre><span></span><code>checkpoint: not accepted
+error: missing field next_step
+result: not resumable
+</code></pre></div>
+<p>Строка <code>not resumable</code> означает, что состояние не принято для продолжения. Для этой учебной работы поле <code>next_step</code> обязательно. Если следующий шаг не записан, человек должен восстановить недостающие сведения; программа не подменяет отсутствие данных догадкой.</p>
+<blockquote>
+<p><strong>Проверь себя на ходу.</strong> Файл состояния содержит цель и список блокеров, но не содержит <code>next_step</code>. Почему честный статус «not resumable» полезнее, чем попытка программы догадаться, что делать дальше?</p>
+</blockquote>
+<h3 id="4-сохранить-checkpoint--не-значит-переписать-исходные-карточки">4. Сохранить checkpoint — не значит переписать исходные карточки<a class="headerlink" href="#4-сохранить-checkpoint--не-значит-переписать-исходные-карточки" title="Permanent link">&para;</a></h3>
+<p>В сквозном проекте нужно различать состояние работы и данные доски. В <code>workspace/tasks/</code> находятся карточки задач. Сохранение <code>project_state.json</code> не должно менять статусы карточек или давать приложению ещё один способ записи в доску.</p>
+<p>Команда checkpoint сохраняет отдельный рабочий снимок в области черновиков. Сохранение снимка не заменяет будущее подтверждение человеком при изменении карточек и не расширяет permissions — технически заданные права на чтение, запись, сеть, процессы или другие ресурсы. Выполни команду:</p>
+<div class="highlight"><pre><span></span><code><span class="c1"># запуск из корня starter</span>
+python<span class="w"> </span>state_demo.py<span class="w"> </span>checkpoint<span class="w"> </span>workspace/ch10/cases/project_state_ready.json<span class="w"> </span>--out<span class="w"> </span>drafts/ch10/project_state.json
+</code></pre></div>
+<div class="highlight"><pre><span></span><code>checkpoint: saved
+path: drafts/ch10/project_state.json
+fields: project, goal, status, blocked_tasks, pending_question, next_step
+project cards changed: no
+result: ready for resume
+</code></pre></div>
+<p>Вывод сообщает, что checkpoint сохранён, а карточки проекта не изменены. Показ касается только локального сохранения подготовленного учебного состояния; надёжность файловой системы и пригодность формата для промышленной системы такой показ не доказывает.</p>
+<p>В starter запись устроена в два действия: сначала программа записывает данные во временный файл, затем заменяет целевой файл временным. Такая <strong><em>атомарная запись</em></strong> нужна, чтобы при сбое не остался на диске наполовину записанный файл состояния. Из одного успешного сохранения нельзя заключить, как запись поведёт себя при любом сбое.</p>
+<h3 id="5-защищаемое-значение-нельзя-тащить-вместе-со-state">5. Защищаемое значение нельзя тащить вместе со state<a class="headerlink" href="#5-защищаемое-значение-нельзя-тащить-вместе-со-state" title="Permanent link">&para;</a></h3>
+<p>Марк предлагает добавить в <code>project_state.json</code> всё, что может понадобиться следующему запуску, включая токен доступа к внешнему сервису. Но токен отличается от рабочего факта: значение токена даёт доступ к защищённому ресурсу. Копирование такого значения требует отдельного решения о защите.</p>
+<p><strong>Secret / секрет — значение, дающее доступ к защищённому ресурсу, например API-токен.</strong></p>
+<p><strong><em>Secret</em></strong> («секрет») нельзя рассматривать как обычную важную заметку. Получив секрет, посторонний человек или программа может получить и доступ к защищённому ресурсу.</p>
+<p>Название поля <code>private</code> не защищает записанный внутри секрет. В нашем курсе Secret запрещено хранить в обычном коде, <code>SKILL.md</code>, учебном репозитории или trace. Секрет также не включают в <code>project_state.json</code> и передачу работы.</p>
+<p>В реальных системах секреты передают программе через отдельный защищённый механизм среды выполнения или хранилище секретов. Здесь конкретный продукт и его синтаксис не выбираются. Рабочее состояние и значение, дающее доступ к ресурсу, требуют разных режимов хранения.</p>
+<h3 id="6-передача-для-продолжения--не-архив-всего">6. Передача для продолжения — не архив всего<a class="headerlink" href="#6-передача-для-продолжения--не-архив-всего" title="Permanent link">&para;</a></h3>
+<p>Если в понедельник работу продолжит другая группа вместо Ани, что нужно передать исполнителям? Одного сообщения «файл сохранён» недостаточно. Группа должна получить сведения о проекте и месте остановки, готовые результаты, действующие ограничения и следующий шаг.</p>
+<p>Представь, что черновик сводки уже подготовлен, но отправлять сводку пока нельзя. Передача одного черновика не сообщит новой группе о запрете. Вместе с результатом нужно передать ограничение: готовность текста ещё не даёт разрешения на отправку.</p>
+<p><strong>Handoff / передача работы — структурированная передача следующему исполнителю или запуску состояния, результатов и необходимых ограничений.</strong></p>
+<p><strong><em>Handoff</em></strong> («передача работы») отвечает на вопрос «что другому исполнителю нужно получить, чтобы продолжить работу без устного пересказа?». Здесь используется минимальный вариант передачи. Системную архитектуру долгой совместной работы мы разберём только в главе 16.</p>
+<p>Для Handoff не требуется полный чат или все промежуточные события, а Secret в передачу не включают. Достаточность передачи определяется возможностью продолжить работу, а не количеством скопированных записей.</p>
+<p>Проследим, как состояние переходит от одного запуска к следующему:</p>
+<div class="highlight"><pre><span></span><code>запуск A
+   ↓
+актуальный state
+   ↓ сохранить минимум
+checkpoint: project_state.json
+   ↓
+Handoff: состояние + результат + ограничения + next_step
+   ↓
+новый запуск / другая группа
+</code></pre></div>
+<p>Две дополнительные строки показывают границы передачи. Полная стенограмма не становится обязательной частью handoff, а Secret в handoff не передают:</p>
+<div class="highlight"><pre><span></span><code>full transcript ─X→ обязательная часть handoff
+Secret          ─X→ handoff
+</code></pre></div>
+<p><img alt="Фигура 29. Пережить перезапуск" src="../../figures/29_perezhit-perezapusk.svg" /></p>
+<p><em>Фигура 29. Пережить перезапуск</em></p>
+<h3 id="7-практика-a-передай-проект-другой-группе">7. Практика A: передай проект другой группе<a class="headerlink" href="#7-практика-a-передай-проект-другой-группе" title="Permanent link">&para;</a></h3>
+<p>Если ты работаешь в первой группе, получи сцену пятницы: «сводка не завершена, <code>task-003</code> заблокирована, дизайнеры должны уточнить размеры». Вместе с группой составь handoff на одном листе. Используй только четыре раздела:</p>
+<ol>
+<li><code>цель</code>;</li>
+<li><code>актуальное состояние</code>;</li>
+<li><code>готовый результат/факт</code>;</li>
+<li><code>следующий шаг и ограничения</code>.</li>
+</ol>
+<p>Если ты работаешь во второй группе, получи только лист handoff и карточку с новым ответом дизайнеров. Не запрашивай устных пояснений у первой группы. По переданным материалам назови:</p>
+<ol>
+<li>Что уже известно.</li>
+<li>Чего больше не нужно спрашивать.</li>
+<li>Какой следующий шаг нужно выполнить.</li>
+</ol>
+<p>После передачи сравни вместе с обеими группами handoff и полную стенограмму. Найди не менее трёх элементов стенограммы, которые не нужны для продолжения. Такими элементами могут оказаться:</p>
+<ul>
+<li>приветствия;</li>
+<li>повторы формулировки задачи;</li>
+<li>обсуждения вариантов, не нужные следующему шагу;</li>
+<li>уже закрытые организационные реплики.</li>
+</ul>
+<p>История разговора может быть полезна для другой задачи. Но архив разговора и handoff нужны для разных целей.</p>
+<p><strong>Результат практики A:</strong> handoff на одной странице, по которому вместе с карточкой ответа другая группа без устного объяснения правильно называет заблокированную задачу, полученный ответ и следующий шаг.</p>
+<h3 id="8-практика-b-построить-handoff-и-проверить-границу-secret">8. Практика B: построить handoff и проверить границу Secret<a class="headerlink" href="#8-практика-b-построить-handoff-и-проверить-границу-secret" title="Permanent link">&para;</a></h3>
+<p>Сначала выполни команду для состояния, которое соответствует учебным требованиям:</p>
+<div class="highlight"><pre><span></span><code><span class="c1"># запуск из корня starter</span>
+python<span class="w"> </span>state_demo.py<span class="w"> </span>handoff<span class="w"> </span>workspace/ch10/cases/project_state_ready.json
+</code></pre></div>
+<div class="highlight"><pre><span></span><code>handoff: built
+project: science-festival
+status: needs_input
+blocked tasks: task-003
+next step: После ответа снова проверить task-003
+full transcript included: no
+secret fields included: 0
+result: accepted
+</code></pre></div>
+<p>Затем проверь граничный случай. Подготовленная учебная фикстура — файл с заранее заданными данными для проверки — содержит запрещённое поле <code>secret</code>. Значение поля программа не печатает:</p>
+<div class="highlight"><pre><span></span><code><span class="c1"># запуск из корня starter</span>
+python<span class="w"> </span>state_demo.py<span class="w"> </span>handoff<span class="w"> </span>workspace/ch10/cases/project_state_with_secret.json
+</code></pre></div>
+<div class="highlight"><pre><span></span><code>handoff: not built
+error: forbidden secret field
+secret value printed: no
+result: not accepted
+</code></pre></div>
+<p>Сопоставь два результата. В первом случае handoff принят, полная стенограмма не включена, число включённых секретных полей равно нулю. Во втором случае программа отказывается строить handoff из-за поля <code>secret</code> и не выводит значение поля.</p>
+<p>Проверка охватывает два требования: не переносить запрещённое значение и не раскрывать значение при сообщении об ошибке. Сокращение stdout обозначает стандартный вывод программы; секрет не должен попадать в этот вывод.</p>
+<p><strong>Результат практики B:</strong> один сохранённый checkpoint в <code>workspace/drafts/ch10/</code>, два сценария resume и два сценария handoff с объяснением, какое свойство проверял каждый сценарий: пригодность состояния, отсутствие обязательной стенограммы или отказ на Secret без раскрытия значения.</p>
+<h3 id="9-обязательные-проверки-должен--не-должен--ошибка--граница">9. Обязательные проверки: должен / не должен / ошибка / граница<a class="headerlink" href="#9-обязательные-проверки-должен--не-должен--ошибка--граница" title="Permanent link">&para;</a></h3>
+<p><strong>Должен.</strong> Полный учебный <code>project_state</code> с обязательным <code>next_step</code> должен загрузиться как <code>result: resumable</code>. Для проверки найди в выводе текущий статус и следующий шаг. Полный чат программе для этой проверки не нужен.</p>
+<p><strong>Не должен.</strong> Handoff не должен автоматически включать полную стенограмму. В положительном сценарии найди строку <code>full transcript included: no</code>: отказ от включения стенограммы задан как проверяемое требование.</p>
+<p><strong>Ошибка.</strong> Checkpoint без <code>next_step</code> не должен приниматься как пригодный для продолжения. В неполном случае программа печатает <code>missing field next_step</code> и <code>result: not resumable</code>.</p>
+<p><strong>Граница.</strong> Документ с полем Secret не должен приниматься для построения handoff; само значение поля не должно появляться в выводе. В граничном сценарии проверь три строки:</p>
+<ul>
+<li><code>forbidden secret field</code>;</li>
+<li><code>secret value printed: no</code>;</li>
+<li><code>result: not accepted</code>.</li>
+</ul>
+<p>Четыре случая проверяют только учебный контракт локального состояния и передачи. Из результатов не следует, что файловое хранилище защищено операционной системой или что записанные сведения истинны. Проверки также не показывают, умеет ли реальная модель правильно выбирать данные для сохранения.</p>
+<h3 id="10-безопасность">10. Безопасность<a class="headerlink" href="#10-безопасность" title="Permanent link">&para;</a></h3>
+<blockquote>
+<p><strong>Безопасность</strong></p>
+<p>Сохраняй не максимум доступных данных, а минимум, необходимый для следующего шага. Применяй минимизацию данных из урока 20. Чем больше лишней истории ты копируешь между запусками, тем больше риск перенести персональные сведения, недоверенный текст или данные, которые уже не нужны задаче.</p>
+<p>Secret храни отдельно от обычного кода, <code>SKILL.md</code>, репозитория, <code>project_state.json</code>, event log и Handoff. Текст внутри JSON не задаёт защищённый режим хранения.</p>
+<p>Checkpoint не выдаёт новых permissions и не меняет карточки проекта. Handoff передаёт состояние и ограничения, но не даёт разрешения на действие.</p>
+<p>В учебных примерах нет реальных токенов и персональных данных. Значение запрещённого поля в граничном сценарии не печатается.</p>
+</blockquote>
+<h3 id="11-мини-проверка-урока-20">11. Мини-проверка урока 20<a class="headerlink" href="#11-мини-проверка-урока-20" title="Permanent link">&para;</a></h3>
+<ol>
+<li>Что делает checkpoint?</li>
+<li>Почему checkpoint не обязан содержать весь event log?</li>
+<li>Как понять, что поле стоит включить в <code>project_state.json</code>?</li>
+<li>Что такое Secret?</li>
+<li>Почему имя поля <code>private</code> не делает значение защищённым?</li>
+<li>Что передаёт Handoff?</li>
+<li>Почему Handoff не равен полной истории чата?</li>
+</ol>
+<h4 id="ответы_1">Ответы<a class="headerlink" href="#ответы_1" title="Permanent link">&para;</a></h4>
+<ol>
+<li>Сохраняет состояние, по которому работу можно продолжить после прерывания.</li>
+<li>Потому что event log хранит последовательность событий, а checkpoint — актуальные данные, нужные для продолжения.</li>
+<li>Нужно уметь объяснить, какой следующий шаг или решение зависит от этого поля.</li>
+<li>Значение, дающее доступ к защищённому ресурсу, например API-токен.</li>
+<li>Режим доступа задаётся средой и хранилищем, а не текстом внутри данных.</li>
+<li>Состояние, результаты и необходимые ограничения следующему исполнителю или запуску.</li>
+<li>Потому что для продолжения нужен отобранный рабочий минимум, а не все реплики и промежуточные события.</li>
+</ol>
+<h3 id="выходной-билет-урока-20">Выходной билет урока 20<a class="headerlink" href="#выходной-билет-урока-20" title="Permanent link">&para;</a></h3>
+<p>Закончи три строки:</p>
+<div class="highlight"><pre><span></span><code>checkpoint нужен, чтобы …
+handoff нужен, чтобы …
+Secret нельзя класть в handoff, потому что …
+</code></pre></div>
+<p>Добавь одно поле, которое ты не стал бы включать в <code>project_state.json</code>. Объясни, какому следующему шагу поле не помогает.</p>
+<hr />
+<h2 id="полная-карта-главы">Полная карта главы<a class="headerlink" href="#полная-карта-главы" title="Permanent link">&para;</a></h2>
+<p>Как связаны механизмы из двух уроков? Схема показывает отдельно порядок работы, актуальное состояние и материалы из источников. Для состояния выделены хранение внутри запуска и сохранение между запусками:</p>
+<div class="highlight"><pre><span></span><code>                    «память агента»
+               требует уточнить механизм
+                         │
+        ┌────────────────┼────────────────┐
+        │                │                │
+как повторять       что сейчас        что известно
+   работу?          происходит?       из источников?
+        │                │                │
+procedural          state              RAG
+knowledge           │
+        │             ├── внутри запуска: state run_agent
+ Agent Skill          │
+   SKILL.md           └── между запусками: checkpoint
+                              │
+                       project_state.json
+                              │
+                              ↓
+                           Handoff
+                              ↓
+                 новый запуск / другая группа
+
+отдельно:
+event log = что наблюдаемо произошло
+Secret    = защищаемое значение, не часть handoff
+</code></pre></div>
+<p>На схеме нет одной общей коробки <code>memory</code>. Сначала нужно назвать вопрос, на который должны отвечать данные, и только затем выбрать механизм. В предложении Марка «давайте просто всё запомним» как раз не было такого разделения.</p>
+<h2 id="why">Зачем это тебе<a class="headerlink" href="#why" title="Permanent link">&para;</a></h2>
+<ol>
+<li>
+<p>В командном школьном проекте работа может длиться несколько недель. В пятницу твоя группа остановилась на вопросе к учителю, а в понедельник продолжает работу. Если сохранён только длинный чат, новой группе придётся искать в переписке место остановки. Короткий checkpoint с текущим статусом и <code>next_step</code> позволяет проверить, какие сведения переданы для продолжения.</p>
+</li>
+<li>
+<p>При подготовке лабораторной работы инструкция «как оформлять измерения» может оставаться постоянной процедурой. Значения сегодняшнего опыта относятся к текущему state. Журнал эксперимента хранит события и наблюдения, а справочник физических констант может поступать из отдельного источника. Когда все записи смешаны в одном документе, труднее понять, что нужно менять при новом опыте.</p>
+</li>
+<li>
+<p>Школьной программе-помощнику для работы с внешним сервисом может понадобиться Secret. Однако необходимость доступа не даёт основания пересылать токен вместе с handoff однокласснику. Передай цель, проверенный результат и следующий шаг; доступ к защищённому ресурсу нужно организовать отдельно.</p>
+</li>
+</ol>
+<h2 id="dezhurny">Шаг сквозного проекта<a class="headerlink" href="#dezhurny" title="Permanent link">&para;</a></h2>
+<p>После главы 9 у «Дежурного» есть переносимая процедура <code>project-status</code>. Теперь для конкретной работы появляется отдельный документ <code>project_state.json</code>, а для продолжения другим исполнителем подготавливается минимальный Handoff.</p>
+<p><strong>Контрольная точка 5:</strong> проект переживает смену команды или перезапуск без полной истории чата.</p>
+<p>Команда записывает три решения о хранении и передаче:</p>
+<ol>
+<li><code>SKILL.md</code> хранит порядок повторяемой работы. Текущие данные конкретного запуска в файл процедуры не включают.</li>
+<li><code>project_state.json</code> хранит только актуальный минимум, необходимый следующему шагу. Secret в состояние не включают.</li>
+<li>Handoff передаёт состояние, результаты, ограничения и <code>next_step</code>, но не копирует целиком event log или стенограмму.</li>
+</ol>
+<h3 id="достраиваем-дежурного">Достраиваем «Дежурного»<a class="headerlink" href="#достраиваем-дежурного" title="Permanent link">&para;</a></h3>
+<p>Подготовь <code>10_state.json</code> с содержимым <code>{}</code>; дальше учебное состояние обновляет harness. Для двух команд ниже используется папка-пример <code>workspace/my_agent/examples/ch10</code>. Выполни команды именно подряд, ничего не вставляя между ними: второй <code>run</code> читает состояние, записанное первым.</p>
+<p>Образец показывает пару запусков, которая начинается без предыдущей истории: сначала программа печатает <code>state: первый запуск (запусков теперь: 1)</code>, затем — <code>state: предыдущий запуск — success, шагов 5 (запусков теперь: 2)</code>. Счётчик вырос с одного запуска до двух, а второй запуск получил итог первого через внешний файл, не через память завершившегося процесса.</p>
+<p>Оба запуска выполняют по пять шагов сценария <code>success</code>. Поэтому показ относится к передаче сведений о предыдущем запуске, но не показывает продолжение пятничной работы после <code>needs_input</code>. В <code>state_demo.py</code> отдельно проверялась пригодность сохранённых данных для продолжения.</p>
+<p>Команды обращаются к папке-примеру, поэтому в выводе есть строка <code>goal: не настроено (глава 1)</code>. В твоей <code>my_agent/</code> цель уже настроена; смотри на строку своей главы.
+<div class="highlight"><pre><span></span><code><span class="c1"># запуск из корня starter</span>
+python<span class="w"> </span>dezhurny.py<span class="w"> </span>run<span class="w"> </span>--dir<span class="w"> </span>workspace/my_agent/examples/ch10
+</code></pre></div>
+<div class="highlight"><pre><span></span><code>dezhurny: run
+goal: не настроено (глава 1)
+config: workspace/my_agent/examples/ch10
+model: replay — авторский сценарий, не запись модели
+scenario: success
+stop_policy: max_steps 5, max_retries 1 (по умолчанию, глава 2)
+tools: allowlist диспетчера (по умолчанию, глава 7)
+Шаг 1 | read_task_cards | continue
+Шаг 2 | validate_task_card | continue
+Шаг 3 | validate_task_card | continue
+Шаг 4 | validate_task_card | continue
+Шаг 5 | build_status_report | success
+Остановка: success
+# Черновик статуса проекта
+
+Всего задач: 3.
+Незавершённых: 2.
+Заблокированных: 1.
+
+## Незавершённые задачи
+- `task-002` — Подготовить макет афиши (in_progress)
+- `task-003` — Проверить список оборудования (blocked)
+
+## Блокеры
+- `task-003`: Нет подтверждённого списка оборудования
+
+Черновик. Отправка и изменение карточек не выполнялись.
+contract: не настроено (глава 5)
+save: не настроено (глава 3)
+state: первый запуск (запусков теперь: 1)
+trace: не настроено (глава 12)
+Качество модели не подтверждено этим техническим прогоном.
+</code></pre></div></p>
+<p><div class="highlight"><pre><span></span><code><span class="c1"># запуск из корня starter</span>
+python<span class="w"> </span>dezhurny.py<span class="w"> </span>run<span class="w"> </span>--dir<span class="w"> </span>workspace/my_agent/examples/ch10
+</code></pre></div>
+<div class="highlight"><pre><span></span><code>dezhurny: run
+goal: не настроено (глава 1)
+config: workspace/my_agent/examples/ch10
+model: replay — авторский сценарий, не запись модели
+scenario: success
+stop_policy: max_steps 5, max_retries 1 (по умолчанию, глава 2)
+tools: allowlist диспетчера (по умолчанию, глава 7)
+Шаг 1 | read_task_cards | continue
+Шаг 2 | validate_task_card | continue
+Шаг 3 | validate_task_card | continue
+Шаг 4 | validate_task_card | continue
+Шаг 5 | build_status_report | success
+Остановка: success
+# Черновик статуса проекта
+
+Всего задач: 3.
+Незавершённых: 2.
+Заблокированных: 1.
+
+## Незавершённые задачи
+- `task-002` — Подготовить макет афиши (in_progress)
+- `task-003` — Проверить список оборудования (blocked)
+
+## Блокеры
+- `task-003`: Нет подтверждённого списка оборудования
+
+Черновик. Отправка и изменение карточек не выполнялись.
+contract: не настроено (глава 5)
+save: не настроено (глава 3)
+state: предыдущий запуск — success, шагов 5 (запусков теперь: 2)
+trace: не настроено (глава 12)
+Качество модели не подтверждено этим техническим прогоном.
+</code></pre></div></p>
+<h2 id="return">Возвращаемся к сцене<a class="headerlink" href="#return" title="Permanent link">&para;</a></h2>
+<p>Поможет ли предложение Марка продолжить пятничную работу? Вся переписка в <code>SKILL.md</code> смешала бы порядок действий с данными одной задачи. Понедельничный ответ, полученный Аней, не нужно записывать в процедуру: порядок работы не изменился. Полный чат тоже не требуется как обязательное состояние, поскольку большинство реплик не определяет следующий шаг.</p>
+<p>Для продолжения нужно было сохранить checkpoint со сведениями о работе:</p>
+<ol>
+<li>Какую задачу выполняем.</li>
+<li>Почему остановились.</li>
+<li>Какая карточка заблокирована.</li>
+<li>Какой вопрос задан.</li>
+<li>Что сделать после ответа.</li>
+</ol>
+<p>Если работу продолжает другая группа, передай сохранённое состояние вместе с результатом и ограничениями через Handoff. Event log при этом остаётся журналом произошедшего. RAG служит для получения внешних фактов, а Secret хранится отдельно.</p>
+<p>Ответом на вопрос-прогноз стало не одно слово «память», а различение механизмов. <strong>Процедура, state, внешние факты, журнал событий и защищённые значения нужны для разных задач. Между запусками сохраняют только проверяемое состояние, необходимое для продолжения, и передают состояние через Handoff без Secret и лишней истории.</strong></p>
+<h2 id="check">Проверь себя<a class="headerlink" href="#check" title="Permanent link">&para;</a></h2>
+<ol>
+<li>Чем procedural knowledge отличается от state?</li>
+<li>Почему Agent Skill не является всей «памятью агента»?</li>
+<li>Что отвечает на вопрос «что происходит с этой задачей сейчас?»</li>
+<li>Какой главный вопрос RAG?</li>
+<li>Чем event log отличается от checkpoint?</li>
+<li>Что такое checkpoint?</li>
+<li>Какие данные нельзя хранить в <code>SKILL.md</code>, обычном репозитории, event log и Handoff?</li>
+<li>Что такое Handoff и почему он не равен полной стенограмме?</li>
+<li>Разбери ситуацию: «Есть процедура подготовки отчёта, текущий блокер <code>task-003</code>, найденное расписание кабинетов, журнал двух tool calls и токен внешнего сервиса». Разложи пять элементов по механизмам.</li>
+</ol>
+<h3 id="ответы_2">Ответы<a class="headerlink" href="#ответы_2" title="Permanent link">&para;</a></h3>
+<ol>
+<li>Procedural knowledge хранит знание о том, как повторять работу; state — актуальные данные конкретной работы, нужные следующему шагу или запуску.</li>
+<li>Потому что «память агента» — общее слово; Agent Skill покрывает только процедуру, а рядом существуют state, RAG, журнал и другие хранилища.</li>
+<li>State.</li>
+<li>«Что известно по теме из доступных источников?» — через получение релевантных фактических материалов из внешнего поискового слоя.</li>
+<li>Event log хранит последовательность наблюдаемых событий; checkpoint — сохранённое актуальное состояние, по которому продолжают работу.</li>
+<li>Сохранённое состояние, по которому работу можно продолжить после прерывания.</li>
+<li>Secret — значения, дающие доступ к защищённым ресурсам, например API-токены.</li>
+<li>Handoff — структурированная передача следующему исполнителю или запуску состояния, результатов и необходимых ограничений. Полная стенограмма содержит много данных, не нужных следующему шагу.</li>
+<li>Процедура → procedural knowledge/Agent Skill; <code>task-003</code> → state; расписание → RAG; два tool calls → event log; токен → Secret.</li>
+</ol>
+<h2 id="glossary">Словарь главы<a class="headerlink" href="#glossary" title="Permanent link">&para;</a></h2>
+<table>
+<thead>
+<tr>
+<th>Термин</th>
+<th>Рабочая формулировка</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Состояние / state</strong></td>
+<td>актуальные данные конкретной работы, необходимые для следующего шага или следующего запуска</td>
+</tr>
+<tr>
+<td><strong>Память агента</strong></td>
+<td>не самостоятельный единый механизм, а общее слово, требующее уточнения; в зависимости от задачи могут использоваться состояние, Agent Skill, RAG, журнал, защищённая база и другие хранилища</td>
+</tr>
+<tr>
+<td><strong>Procedural knowledge / процедурное знание</strong></td>
+<td>знание о том, как выполнять повторяемую работу; в курсе Agent Skill рассматривается как способ оформить такую процедуру</td>
+</tr>
+<tr>
+<td><strong>RAG / Retrieval-Augmented Generation</strong></td>
+<td>получение релевантных фактических материалов из внешнего поискового слоя и предоставление их модели</td>
+</tr>
+<tr>
+<td><strong>Data minimization / минимизация данных</strong></td>
+<td>хранить и передавать только те данные, которые нужны следующему шагу или передаче работы</td>
+</tr>
+<tr>
+<td><strong>Checkpoint / контрольная точка состояния</strong></td>
+<td>сохранённое состояние, по которому работу можно продолжить после прерывания</td>
+</tr>
+<tr>
+<td><strong>Secret / секрет</strong></td>
+<td>значение, дающее доступ к защищённому ресурсу, например API-токен; не хранится в обычном коде, <code>SKILL.md</code>, учебном репозитории или trace</td>
+</tr>
+<tr>
+<td><strong>Handoff / передача работы</strong></td>
+<td>структурированная передача следующему исполнителю или запуску состояния, результатов и необходимых ограничений</td>
+</tr>
+</tbody>
+</table>
+<p>Определение Event log ты найдёшь в главе 7. Формальное понятие Trace мы разберём в главе 12.</p>
+<h2 id="bridge">Мост к главе 11<a class="headerlink" href="#bridge" title="Permanent link">&para;</a></h2>
+<p>У «Дежурного» теперь разделены процедура и текущее состояние. Для продолжения работы предусмотрены checkpoint и минимальный Handoff. Но подтверждает ли сохранённое состояние, что система правильно выполняет задачу? Нет: возможность продолжить работу и качество результата нужно проверять отдельно.</p>
+<p>Представь, что после перезапуска система успешно подготовила статус-сводку. По одному удачному результату легко решить, что система уже работает надёжно. Однако успешный случай не показывает поведения на других входах. Нужно проверить работу с пустыми данными и неоднозначностью, с ошибкой tool и запросом запрещённого действия.</p>
+<blockquote>
+<p><strong>Следующий вопрос.</strong> Как доказать качество не одним удачным запуском?</p>
+</blockquote>
+<p>Ответ ты найдёшь в главе 11, «Тесты и evals».</p>
+
+
+
+
+
+
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+    
+      
+      <nav class="md-footer__inner md-grid" aria-label="Нижний колонтитул" >
+        
+          
+          <a href="../ch09/" class="md-footer__link md-footer__link--prev" aria-label="Назад: Глава 9. Первый Agent Skill">
+            <div class="md-footer__button md-icon">
+              
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+            </div>
+            <div class="md-footer__title">
+              <span class="md-footer__direction">
+                Назад
+              </span>
+              <div class="md-ellipsis">
+                Глава 9. Первый Agent Skill
+              </div>
+            </div>
+          </a>
+        
+        
+          
+          <a href="../ch11/" class="md-footer__link md-footer__link--next" aria-label="Вперед: Глава 11. Тесты и evals: как доказать качество не одним удачным запуском?">
+            <div class="md-footer__title">
+              <span class="md-footer__direction">
+                Вперед
+              </span>
+              <div class="md-ellipsis">
+                Глава 11. Тесты и evals: как доказать качество не одним удачным запуском?
+              </div>
+            </div>
+            <div class="md-footer__button md-icon">
+              
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M4 11v2h12l-5.5 5.5 1.42 1.42L19.84 12l-7.92-7.92L10.5 5.5 16 11z"/></svg>
+            </div>
+          </a>
+        
+      </nav>
+    
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+    <div class="md-copyright__highlight">
+      ARISTOTEL · Редакция r0004 · 2026-10-15 · техническая редакция, пилот не проводился
+    </div>
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    
+      
+      
+      <script id="__config" type="application/json">{"annotate": null, "base": "../..", "features": ["navigation.tabs", "navigation.tabs.sticky", "navigation.sections", "navigation.indexes", "search.suggest", "search.highlight", "content.code.copy", "navigation.footer"], "search": "../../assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "\u0421\u043a\u043e\u043f\u0438\u0440\u043e\u0432\u0430\u043d\u043e \u0432 \u0431\u0443\u0444\u0435\u0440", "clipboard.copy": "\u041a\u043e\u043f\u0438\u0440\u043e\u0432\u0430\u0442\u044c \u0432 \u0431\u0443\u0444\u0435\u0440", "search.result.more.one": "\u0415\u0449\u0451 1 \u043d\u0430 \u044d\u0442\u043e\u0439 \u0441\u0442\u0440\u0430\u043d\u0438\u0446\u0435", "search.result.more.other": "\u0415\u0449\u0451 # \u043d\u0430 \u044d\u0442\u043e\u0439 \u0441\u0442\u0440\u0430\u043d\u0438\u0446\u0435", "search.result.none": "\u0421\u043e\u0432\u043f\u0430\u0434\u0435\u043d\u0438\u0439 \u043d\u0435 \u043d\u0430\u0439\u0434\u0435\u043d\u043e", "search.result.one": "\u041d\u0430\u0439\u0434\u0435\u043d\u043e 1 \u0441\u043e\u0432\u043f\u0430\u0434\u0435\u043d\u0438\u0435", "search.result.other": "\u041d\u0430\u0439\u0434\u0435\u043d\u043e \u0441\u043e\u0432\u043f\u0430\u0434\u0435\u043d\u0438\u0439: #", "search.result.placeholder": "\u041d\u0430\u0447\u043d\u0438\u0442\u0435 \u043f\u0435\u0447\u0430\u0442\u0430\u0442\u044c \u0434\u043b\u044f \u043f\u043e\u0438\u0441\u043a\u0430", "search.result.term.missing": "\u041e\u0442\u0441\u0443\u0442\u0441\u0442\u0432\u0443\u0435\u0442", "select.version": "\u0412\u044b\u0431\u0435\u0440\u0438\u0442\u0435 \u0432\u0435\u0440\u0441\u0438\u044e"}, "version": {"default": "current", "provider": "mike"}}</script>
+    
+    
+      <script src="../../assets/javascripts/bundle.79ae519e.min.js"></script>
+      
+    
+  </body>
+</html>

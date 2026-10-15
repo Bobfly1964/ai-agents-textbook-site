@@ -1,0 +1,43 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 600" width="800" height="600" role="img" aria-labelledby="t d">
+  <title id="t">Фигура 2. Путь вопроса через четыре роли</title>
+  <desc id="d">Глава 1, урок 1, раздел 1 «Четыре роли». Запрос человека идёт через интерфейс в ИИ-приложение; приложение обращается к языковой модели с контекстом; результат модели возвращается через приложение и интерфейс к человеку. Модель получает только контекст: других связей у неё на схеме нет.</desc>
+  <defs>
+    <marker id="arrow" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="8" markerHeight="8" orient="auto-start-reverse">
+      <path d="M0,0 L10,5 L0,10 z" fill="#52606D"/>
+    </marker>
+  </defs>
+  <rect x="0" y="0" width="800" height="600" fill="#FFFFFF"/>
+  <g font-family="PT Sans, DejaVu Sans, Arial, sans-serif" font-size="20" fill="#1F2933" text-anchor="middle">
+    <!-- четыре роли сверху вниз, как в тексте главы -->
+    <rect class="role" data-role="human" x="140" y="24" width="520" height="72" rx="6" fill="#F5F7FA" stroke="#B45309" stroke-width="1.5"/>
+    <text x="400" y="54">человек</text>
+    <text x="400" y="82" font-size="18">ставит задачу и решает, годится ли результат</text>
+    <rect class="role" data-role="interface" x="140" y="156" width="520" height="72" rx="6" fill="#F5F7FA" stroke="#52606D" stroke-width="1.5"/>
+    <text x="400" y="186">интерфейс</text>
+    <text x="400" y="214" font-size="18">принять вопрос и показать ответ</text>
+    <rect class="role" data-role="application" x="140" y="288" width="520" height="72" rx="6" fill="#F5F7FA" stroke="#1D4ED8" stroke-width="1.5"/>
+    <text x="400" y="318">ИИ-приложение</text>
+    <text x="400" y="346" font-size="18">решает, какую информацию передать модели</text>
+    <rect class="role" data-role="model" x="140" y="420" width="520" height="72" rx="6" fill="#F5F7FA" stroke="#52606D" stroke-width="1.5"/>
+    <text x="400" y="450">языковая модель (LLM)</text>
+    <text x="400" y="478" font-size="18">получает контекст и формирует результат</text>
+    <!-- путь запроса: вниз -->
+    <g stroke="#52606D" stroke-width="1.5" fill="none" marker-end="url(#arrow)">
+      <line x1="330" y1="96" x2="330" y2="154"/>
+      <line x1="330" y1="228" x2="330" y2="286"/>
+      <line x1="330" y1="360" x2="330" y2="418"/>
+    </g>
+    <text x="320" y="132" font-size="18" text-anchor="end">запрос</text>
+    <text x="320" y="396" font-size="18" text-anchor="end">обращение с контекстом</text>
+    <!-- обратный путь результата: вверх -->
+    <g stroke="#52606D" stroke-width="1.5" fill="none" marker-end="url(#arrow)">
+      <line x1="470" y1="420" x2="470" y2="362"/>
+      <line x1="470" y1="288" x2="470" y2="230"/>
+      <line x1="470" y1="156" x2="470" y2="98"/>
+    </g>
+    <text x="480" y="396" font-size="18" text-anchor="start">результат модели</text>
+    <!-- подпись спецификации -->
+    <rect x="200" y="524" width="400" height="48" rx="6" fill="#F5F7FA" stroke="#52606D" stroke-width="1.5"/>
+    <text x="400" y="555" font-size="18">модель получает только контекст</text>
+  </g>
+</svg>

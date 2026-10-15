@@ -1,0 +1,41 @@
+/* Учебник, не academy (TASK_STYLE_01, A3). Стиль ARISTOTEL задаёт mkdocs.yml (палитра, логотип);
+ * здесь — только то, что держит учебные элементы читаемыми при длинном чтении.
+ * Источник стиля academy — tools/site/STYLE_aristotel-academy.md. */
+
+/* Фигуры глав не шире текстовой колонки. */
+.md-typeset img {
+  max-width: 100%;
+  height: auto;
+}
+
+/* Блок кода: первая строка («# запуск из корня starter») не уходит под кнопку копирования. */
+.md-typeset pre > code {
+  padding-right: 2.6em;
+}
+
+/* Таблицы («Обязательные проверки» и др.) на узком экране прокручиваются внутри своей рамки,
+ * страница не уезжает вбок. */
+.md-typeset__table {
+  max-width: 100%;
+}
+.md-typeset table:not([class]) {
+  display: table;
+  max-width: 100%;
+}
+.md-typeset__scrollwrap {
+  overflow-x: auto;
+}
+
+/* Селектор редакций читателю не показывается (TASK_SITE_02): старые редакции — по постоянным адресам
+ * и в «Выходных данных». Механизм mike остаётся: на нём держится предупреждение о новой редакции. */
+.md-header__topic .md-version,
+.md-version {
+  display: none;
+}
+
+/* Плашка статуса редакции (announce) — тёмная. */
+.md-banner:not(.md-banner--warning) { background-color: #2e2541; color: #fff; }
+.md-banner:not(.md-banner--warning) strong { color: #fff; }
+/* Предупреждение «есть новая редакция» — светло-жёлтое, текст тёмный, ссылка жирная (Вердикт_SITE_02 F1). */
+.md-banner--warning { background-color: #fff3c4; color: #1a1a1a; }
+.md-banner--warning a { color: #4a2d8a; font-weight: 700; }

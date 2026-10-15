@@ -1,0 +1,40 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 380" width="800" height="380" role="img" aria-labelledby="t d">
+  <title id="t">Фигура 4. Четыре стадии и точка решения</title>
+  <desc id="d">Глава 2, урок 3, раздел 1. Состояние, выбор действия, выполнение и observation; после них в том же шаге — решение: продолжить (стрелка назад к состоянию) или остановиться. Модель отдельным блоком не показана: в демо её место занимает заглушка.</desc>
+  <defs>
+    <marker id="arrow" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="8" markerHeight="8" orient="auto-start-reverse">
+      <path d="M0,0 L10,5 L0,10 z" fill="#52606D"/>
+    </marker>
+  </defs>
+  <rect x="0" y="0" width="800" height="380" fill="#FFFFFF"/>
+  <g font-family="PT Sans, DejaVu Sans, Arial, sans-serif" font-size="20" fill="#1F2933" text-anchor="middle">
+    <!-- четыре стадии -->
+    <rect class="stage" data-role="stage" x="24" y="40" width="150" height="70" rx="6" fill="#F5F7FA" stroke="#1D4ED8" stroke-width="1.5"/>
+    <text x="99" y="82">состояние</text>
+    <rect class="stage" data-role="stage" x="201" y="40" width="200" height="70" rx="6" fill="#F5F7FA" stroke="#1D4ED8" stroke-width="1.5"/>
+    <text x="301" y="82">выбор действия</text>
+    <rect class="stage" data-role="stage" x="428" y="40" width="160" height="70" rx="6" fill="#F5F7FA" stroke="#1D4ED8" stroke-width="1.5"/>
+    <text x="508" y="82">выполнение</text>
+    <rect class="stage" data-role="stage" x="615" y="40" width="161" height="70" rx="6" fill="#F5F7FA" stroke="#1D4ED8" stroke-width="1.5"/>
+    <text x="695" y="82">observation</text>
+    <!-- стрелки между стадиями -->
+    <g stroke="#52606D" stroke-width="1.5" fill="none" marker-end="url(#arrow)">
+      <line x1="174" y1="75" x2="199" y2="75"/>
+      <line x1="401" y1="75" x2="426" y2="75"/>
+      <line x1="588" y1="75" x2="613" y2="75"/>
+      <line x1="695" y1="110" x2="695" y2="178"/>
+    </g>
+    <!-- точка решения -->
+    <rect class="decision" data-role="decision" x="416" y="180" width="360" height="70" rx="6" fill="#F5F7FA" stroke="#1F2933" stroke-width="1.5"/>
+    <text x="596" y="211" font-size="20">решение:</text>
+    <text x="596" y="236" font-size="18">продолжить или остановиться</text>
+    <!-- продолжить: назад к состоянию -->
+    <polyline points="416,215 99,215 99,112" fill="none" stroke="#1D4ED8" stroke-width="1.5" marker-end="url(#arrow)"/>
+    <text x="260" y="205" font-size="18" fill="#1D4ED8">продолжить</text>
+    <!-- остановиться -->
+    <line x1="596" y1="250" x2="596" y2="298" stroke="#52606D" stroke-width="1.5" marker-end="url(#arrow)"/>
+    <text x="640" y="280" font-size="18" text-anchor="start">остановиться</text>
+    <rect class="end" data-role="end" x="476" y="300" width="240" height="56" rx="6" fill="#FFFFFF" stroke="#52606D" stroke-width="1.5" stroke-dasharray="6 4"/>
+    <text x="596" y="335" font-size="18">запуск завершён</text>
+  </g>
+</svg>

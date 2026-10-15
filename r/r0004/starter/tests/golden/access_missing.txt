@@ -1,0 +1,5 @@
+операция: read
+путь: tasks/missing.json
+результат: error
+граница: внутри workspace
+причина: файл не найден

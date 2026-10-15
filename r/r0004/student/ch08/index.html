@@ -1,0 +1,3215 @@
+
+<!doctype html>
+<html lang="ru" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+        <meta name="description" content="Учебник для 9–10 классов">
+      
+      
+      
+        <link rel="canonical" href="https://book.stemschool.online/r0004/student/ch08/">
+      
+      
+        <link rel="prev" href="../ch07/">
+      
+      
+        <link rel="next" href="../ch09/">
+      
+      
+        
+      
+      
+      <link rel="icon" href="../../assets/images/logo.png">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.6">
+    
+    
+      
+        <title>Глава 8. Хороший tool - ИИ-агенты и Agent Skills</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../assets/stylesheets/main.484c7ddc.min.css">
+      
+        
+        <link rel="stylesheet" href="../../assets/stylesheets/palette.ab4e12ef.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+      <link rel="stylesheet" href="../../assets/stylesheets/extra.css">
+    
+    <script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+  </head>
+  
+  
+    
+    
+      
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="deep-purple" data-md-color-accent="cyan">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#глава-8-хороший-tool" class="md-skip">
+          Перейти к содержанию
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+        <aside class="md-banner">
+          <div class="md-banner__inner md-grid md-typeset">
+            
+            
+  
+    <strong>Техническая редакция: пилот не проводился</strong> · редакция r0004
+  
+
+          </div>
+          
+        </aside>
+      
+    </div>
+    
+      <div data-md-color-scheme="default" data-md-component="outdated" hidden>
+        
+          <aside class="md-banner md-banner--warning">
+            <div class="md-banner__inner md-grid md-typeset">
+              
+  Вы читаете редакцию r0004. Последняя — <span data-md-latest>новее</span>.
+  <a href="../../../current/"><strong>Перейти →</strong></a>
+  <script>
+    fetch("../../../versions.json").then(r => r.json()).then(vs => {
+      const v = vs.find(x => (x.aliases || []).includes("current"))
+      if (v) document.querySelectorAll("[data-md-latest]").forEach(e => { e.textContent = v.version })
+    }).catch(() => {})
+  </script>
+
+            </div>
+            <script>var el=document.querySelector("[data-md-component=outdated]"),base=new URL("../.."),outdated=__md_get("__outdated",sessionStorage,base);!0===outdated&&el&&(el.hidden=!1)</script>
+          </aside>
+        
+      </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow md-header--lifted" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Верхний колонтитул">
+    <a href="../.." title="ИИ-агенты и Agent Skills" class="md-header__button md-logo" aria-label="ИИ-агенты и Agent Skills" data-md-component="logo">
+      
+  <img src="../../assets/images/logo.png" alt="logo">
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            ИИ-агенты и Agent Skills
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Глава 8. Хороший tool
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+        <form class="md-header__option" data-md-component="palette">
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="(prefers-color-scheme: light)" data-md-color-scheme="default" data-md-color-primary="deep-purple" data-md-color-accent="cyan"  aria-label="Переключить на тёмную"  type="radio" name="__palette" id="__palette_0">
+    
+      <label class="md-header__button md-icon" title="Переключить на тёмную" for="__palette_1" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 18c-.89 0-1.74-.2-2.5-.55C11.56 16.5 13 14.42 13 12s-1.44-4.5-3.5-5.45C10.26 6.2 11.11 6 12 6a6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12z"/></svg>
+      </label>
+    
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="(prefers-color-scheme: dark)" data-md-color-scheme="slate" data-md-color-primary="deep-purple" data-md-color-accent="cyan"  aria-label="Переключить на светлую"  type="radio" name="__palette" id="__palette_1">
+    
+      <label class="md-header__button md-icon" title="Переключить на светлую" for="__palette_0" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a4 4 0 0 0-4 4 4 4 0 0 0 4 4 4 4 0 0 0 4-4 4 4 0 0 0-4-4m0 10a6 6 0 0 1-6-6 6 6 0 0 1 6-6 6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12z"/></svg>
+      </label>
+    
+  
+</form>
+      
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+      
+      
+        <label class="md-header__button md-icon" for="__search">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        </label>
+        <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Поиск" placeholder="Поиск" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Поиск">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Очистить" aria-label="Очистить" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+        <div class="md-search__suggest" data-md-component="search-suggest"></div>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Инициализация поиска
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+      
+    
+    
+  </nav>
+  
+    
+      
+<nav class="md-tabs" aria-label="Вкладки" data-md-component="tabs">
+  <div class="md-grid">
+    <ul class="md-tabs__list">
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../.." class="md-tabs__link">
+        
+  
+  
+    
+  
+  Главная
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+    
+  
+  
+    
+    
+      <li class="md-tabs__item md-tabs__item--active">
+        <a href="../intro/" class="md-tabs__link">
+          
+  
+  
+    
+  
+  Ученик
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../teacher/teacher-guide/" class="md-tabs__link">
+          
+  
+  
+    
+  
+  Учитель
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../../routes/" class="md-tabs__link">
+        
+  
+  
+    
+  
+  Маршруты A/B
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../../files/" class="md-tabs__link">
+        
+  
+  
+    
+  
+  Файлы практикума
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../../about/" class="md-tabs__link">
+        
+  
+  
+    
+  
+  Выходные данные
+
+      </a>
+    </li>
+  
+
+      
+    </ul>
+  </div>
+</nav>
+    
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+  
+
+
+<nav class="md-nav md-nav--primary md-nav--lifted" aria-label="Навигация" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../.." title="ИИ-агенты и Agent Skills" class="md-nav__button md-logo" aria-label="ИИ-агенты и Agent Skills" data-md-component="logo">
+      
+  <img src="../../assets/images/logo.png" alt="logo">
+
+    </a>
+    ИИ-агенты и Agent Skills
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../.." class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Главная
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+        
+        
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2" checked>
+        
+          
+          <label class="md-nav__link" for="__nav_2" id="__nav_2_label" tabindex="">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Ученик
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_2">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Ученик
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../intro/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Введение
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../tour/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Экскурсия по AI: что есть что
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../ch01/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Глава 1. Модель, приложение и агент: кто отвечает, а кто действует?
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../ch02/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Глава 2. Агентный цикл: как результат действия меняет следующий шаг?
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../ch03/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Глава 3. Agent harness: что работает вокруг модели?
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../ch04/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Глава 4. Prompt, structured output, tool, MCP и Agent Skill: какие задачи решают разные уровни системы?
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../ch05/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Глава 5. Договор задачи: что нужно определить до реализации?
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../ch06/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Глава 6. Первый tool
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../ch07/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Глава 7. Диспетчер и ошибки
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Глава 8. Хороший tool
+  
+
+    
+  </span>
+  
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Глава 8. Хороший tool
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Содержание">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Содержание
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#scene" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        С чего всё началось
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#goals" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        После главы ты сможешь
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#lesson-15" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Урок 15. Хороший tool начинается с границы
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Урок 15. Хороший tool начинается с границы">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#1-от-разрешённого-имени-к-хорошей-операции" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1. От разрешённого имени к хорошей операции
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#2-scope-где-задача-начинается-и-заканчивается" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2. Scope: где задача начинается и заканчивается
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#3-contract-что-обещает-операция" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3. Contract: что обещает операция
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#4-description-короткая-граница-для-выбора" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        4. Description: короткая граница для выбора
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#5-ложный-и-пропущенный-вызов" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        5. Ложный и пропущенный вызов
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#6-центральный-артефакт-паспорт-хорошего-tool" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        6. Центральный артефакт: паспорт хорошего tool
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#7-практика-a-редакторская-карточка-tool" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        7. Практика A: редакторская карточка tool
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#8-практика-b-локальная-проверка-границы" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        8. Практика B: локальная проверка границы
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#9-мини-проверка-урока-15" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        9. Мини-проверка урока 15
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="9. Мини-проверка урока 15">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#ответы" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Ответы
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#выходной-билет-урока-15" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Выходной билет урока 15
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#lesson-16" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Урок 16. Validator и три обязательных теста
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Урок 16. Validator и три обязательных теста">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#1-один-успешный-запуск-ещё-ничего-не-закрывает" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1. Один успешный запуск ещё ничего не закрывает
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#2-validator-проверка-до-использования" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2. Validator: проверка до использования
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#3-test-case-заранее-известная-ситуация" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3. Test case: заранее известная ситуация
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#4-positive-test-должен" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        4. Positive test: «должен»
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#5-negative-test-не-должен" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        5. Negative test: «не должен»
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#6-error-case-ошибка" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        6. Error case: «ошибка»
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#7-проверка-формы-и-проверка-замысла" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        7. Проверка формы и проверка замысла
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#8-практика-a-три-сценария-с-ролевым-агентом" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        8. Практика A: три сценария с ролевым агентом
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#9-практика-b-минимальный-набор-доказательств" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        9. Практика B: минимальный набор доказательств
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#10-обязательные-проверки-должен--не-должен--ошибка--граница" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        10. Обязательные проверки: должен / не должен / ошибка / граница
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="10. Обязательные проверки: должен / не должен / ошибка / граница">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#должен" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Должен
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#не-должен" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Не должен
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#ошибка" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Ошибка
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#граница" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Граница
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#11-безопасность-широкий-tool-расширяет-поверхность-риска" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        11. Безопасность: широкий tool расширяет поверхность риска
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#12-мини-проверка-урока-16" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        12. Мини-проверка урока 16
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="12. Мини-проверка урока 16">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#ответы_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Ответы
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#выходной-билет-урока-16" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Выходной билет урока 16
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#полная-карта-хорошего-tool" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Полная карта хорошего tool
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#архитектурное-ревью-набора-из-четырёх-tools" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Архитектурное ревью набора из четырёх tools
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#why" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Зачем это тебе
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#dezhurny" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Шаг сквозного проекта
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Шаг сквозного проекта">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#достраиваем-дежурного" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Достраиваем «Дежурного»
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#return" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Возвращаемся к карточке Марка
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#check" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Проверь себя
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Проверь себя">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#ответы_2" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Ответы
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#glossary" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Словарь главы
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#bridge" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Мост к главе 9
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../ch09/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Глава 9. Первый Agent Skill
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../ch10/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Глава 10. Состояние и память
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../ch11/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Глава 11. Тесты и evals: как доказать качество не одним удачным запуском?
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../ch12/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Глава 12. Traces: как понять, что происходило на самом деле?
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../ch13/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Глава 13. Обратная связь и версии: когда исправление должно менять процедуру?
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../ch14/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Глава 14. Permissions и участие человека
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../ch15/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Глава 15. Prompt injection и недоверенные подключения: что делать с данными и кодом, которым нельзя автоматически доверять?
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../ch16/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Глава 16. Долгая и совместная работа
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../ch17/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Глава 17. Итоговый проект: может ли команда доказать качество и ограниченность системы?
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../app-a/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Приложение А. Урок 0. Готовность рабочего места
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../app-b/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Приложение Б. Словарь курса
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../app-c/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Приложение В. Список фигур
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3" >
+        
+          
+          <label class="md-nav__link" for="__nav_3" id="__nav_3_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Учитель
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Учитель
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../teacher/teacher-guide/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Методическое руководство для учителя
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../teacher/lesson-map/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Поурочная карта
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../routes/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Маршруты A/B
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../files/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Файлы практикума
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../about/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Выходные данные
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Содержание">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Содержание
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#scene" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        С чего всё началось
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#goals" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        После главы ты сможешь
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#lesson-15" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Урок 15. Хороший tool начинается с границы
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Урок 15. Хороший tool начинается с границы">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#1-от-разрешённого-имени-к-хорошей-операции" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1. От разрешённого имени к хорошей операции
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#2-scope-где-задача-начинается-и-заканчивается" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2. Scope: где задача начинается и заканчивается
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#3-contract-что-обещает-операция" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3. Contract: что обещает операция
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#4-description-короткая-граница-для-выбора" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        4. Description: короткая граница для выбора
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#5-ложный-и-пропущенный-вызов" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        5. Ложный и пропущенный вызов
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#6-центральный-артефакт-паспорт-хорошего-tool" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        6. Центральный артефакт: паспорт хорошего tool
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#7-практика-a-редакторская-карточка-tool" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        7. Практика A: редакторская карточка tool
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#8-практика-b-локальная-проверка-границы" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        8. Практика B: локальная проверка границы
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#9-мини-проверка-урока-15" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        9. Мини-проверка урока 15
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="9. Мини-проверка урока 15">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#ответы" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Ответы
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#выходной-билет-урока-15" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Выходной билет урока 15
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#lesson-16" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Урок 16. Validator и три обязательных теста
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Урок 16. Validator и три обязательных теста">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#1-один-успешный-запуск-ещё-ничего-не-закрывает" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1. Один успешный запуск ещё ничего не закрывает
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#2-validator-проверка-до-использования" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2. Validator: проверка до использования
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#3-test-case-заранее-известная-ситуация" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3. Test case: заранее известная ситуация
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#4-positive-test-должен" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        4. Positive test: «должен»
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#5-negative-test-не-должен" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        5. Negative test: «не должен»
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#6-error-case-ошибка" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        6. Error case: «ошибка»
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#7-проверка-формы-и-проверка-замысла" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        7. Проверка формы и проверка замысла
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#8-практика-a-три-сценария-с-ролевым-агентом" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        8. Практика A: три сценария с ролевым агентом
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#9-практика-b-минимальный-набор-доказательств" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        9. Практика B: минимальный набор доказательств
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#10-обязательные-проверки-должен--не-должен--ошибка--граница" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        10. Обязательные проверки: должен / не должен / ошибка / граница
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="10. Обязательные проверки: должен / не должен / ошибка / граница">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#должен" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Должен
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#не-должен" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Не должен
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#ошибка" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Ошибка
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#граница" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Граница
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#11-безопасность-широкий-tool-расширяет-поверхность-риска" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        11. Безопасность: широкий tool расширяет поверхность риска
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#12-мини-проверка-урока-16" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        12. Мини-проверка урока 16
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="12. Мини-проверка урока 16">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#ответы_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Ответы
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#выходной-билет-урока-16" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Выходной билет урока 16
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#полная-карта-хорошего-tool" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Полная карта хорошего tool
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#архитектурное-ревью-набора-из-четырёх-tools" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Архитектурное ревью набора из четырёх tools
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#why" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Зачем это тебе
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#dezhurny" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Шаг сквозного проекта
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Шаг сквозного проекта">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#достраиваем-дежурного" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Достраиваем «Дежурного»
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#return" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Возвращаемся к карточке Марка
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#check" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Проверь себя
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Проверь себя">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#ответы_2" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Ответы
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#glossary" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Словарь главы
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#bridge" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Мост к главе 9
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+
+<h1 id="глава-8-хороший-tool">Глава 8. Хороший tool<a class="headerlink" href="#глава-8-хороший-tool" title="Permanent link">&para;</a></h1>
+<h2 id="scene">С чего всё началось<a class="headerlink" href="#scene" title="Permanent link">&para;</a></h2>
+<p>До Фестиваля науки остаётся несколько дней. Программа-помощник «Дежурный» получает запросы tool call. Dispatcher сверяет имя операции с allowlist и до выполнения проверяет arguments. Результат или tool error возвращается в agent loop. На доске проектного бюро схема выглядит почти законченной, пока Марк не показывает Ане новое описание одной операции.</p>
+<p>На карточке написано:</p>
+<div class="highlight"><pre><span></span><code>validate_task_card
+работает с данными и помогает пользователю
+</code></pre></div>
+<p>— Коротко и универсально, — говорит Марк. — Модель разберётся.</p>
+<p>Аня пишет рядом две просьбы:</p>
+<div class="highlight"><pre><span></span><code>Проверь карточку task-003.
+Покажи все карточки проекта.
+</code></pre></div>
+<p>Обе просьбы относятся к карточкам проекта. Но первая требует проверить одну конкретную карточку, а вторая требует получить набор карточек. Помогает ли описание «работает с данными» различить просьбы? Почти не помогает: формулировка подходит и для проверки карточки, и для чтения всей доски.</p>
+<p>Марк запускает один удачный пример: <code>validate_task_card</code> получает <code>task_id</code>, приложение проверяет arguments по schema, функция выполняется. Марк уже собирается поставить зелёную галочку напротив tool, но Аня останавливает его.</p>
+<p>— Мы доказали, что один вызов сработал. А доказали ли мы, что этот tool не будут выбирать там, где нужен другой? И что будет, если arguments неполные?</p>
+<blockquote>
+<p><strong>Вопрос-Прогноз.</strong> Можно ли считать tool хорошо спроектированным после одного успешного вызова? Что ещё нужно проверить, чтобы отделить его задачу от похожих задач и увидеть ошибки до того, как они станут проблемой?</p>
+</blockquote>
+<p>В главе 7 мы проверяли уже выбранное имя и arguments перед выполнением операции через Dispatcher. Теперь нужно вернуться на шаг раньше и спросить: хорошо ли спроектирована сама операция, которую мы разрешили?</p>
+<blockquote>
+<p><strong>Главный вопрос главы.</strong> Как сделать tool точным и проверяемым?</p>
+</blockquote>
+<p><img alt="Фигура 21. Слишком широкое описание" src="../../figures/21_slishkom-shirokoe-opisanie.png" /></p>
+<p><em>Фигура 21. Слишком широкое описание</em></p>
+<h2 id="goals">После главы ты сможешь<a class="headerlink" href="#goals" title="Permanent link">&para;</a></h2>
+<ul>
+<li>объяснять, зачем каждому tool нужна ясная граница задачи;</li>
+<li>составлять contract операции и отличать его от JSON Schema;</li>
+<li>писать description, которое говорит не только «что делает tool», но и когда его применять и когда не применять;</li>
+<li>находить пересечение двух слишком широких descriptions;</li>
+<li>объяснять роль validator и границу его доказательств;</li>
+<li>составлять минимальный набор из positive test, negative test и error case;</li>
+<li>различать проверку формы arguments и проверку того, правильно ли вообще выбран tool;</li>
+<li>собирать паспорт одного tool и проводить взаимное ревью набора tools;</li>
+<li>показывать, почему хороший дизайн уменьшает лишние вызовы, но не заменяет permissions, sandbox и будущую систематическую оценку поведения модели.</li>
+</ul>
+<hr />
+<h2 id="lesson-15">Урок 15. Хороший tool начинается с границы<a class="headerlink" href="#lesson-15" title="Permanent link">&para;</a></h2>
+<h3 id="1-от-разрешённого-имени-к-хорошей-операции">1. От разрешённого имени к хорошей операции<a class="headerlink" href="#1-от-разрешённого-имени-к-хорошей-операции" title="Permanent link">&para;</a></h3>
+<p>В прошлой главе мы построили маршрут <code>tool call → Dispatcher → allowlist → schema arguments → выполнение</code>. Приложение проверяет, можно ли связать полученное имя с предусмотренной реализацией и верны ли arguments по форме. Но зачем существует сама операция и где заканчивается её работа? Одной проверки имени и arguments для ответа недостаточно.</p>
+<p>Представь, что в allowlist записаны два разрешённых имени: <code>read_task_cards</code> читает все карточки проекта, а <code>validate_task_card</code> проверяет одну карточку по <code>task_id</code>. Dispatcher умеет вызвать обе операции. Если обе операции описаны словами «работает с карточками», система может выбрать неподходящий tool. Dispatcher точно сопоставит выбранное имя с реализацией, но точность маршрутизации не исправит предшествующий выбор.</p>
+<p>Начинай проектировать tool с определения задачи, а не с выбора красивого имени или одного удачного запуска. Сначала нужно понять, какую работу операция должна выполнять.</p>
+<h3 id="2-scope-где-задача-начинается-и-заканчивается">2. Scope: где задача начинается и заканчивается<a class="headerlink" href="#2-scope-где-задача-начинается-и-заканчивается" title="Permanent link">&para;</a></h3>
+<p>На первый взгляд предложение Марка выглядит удобным: универсальное описание должно подходить ко многим просьбам. Но как тогда отличить проверку карточки от чтения всей доски? Чем шире описание, тем больше соседних задач могут показаться подходящими. Операции нужна ясная граница.</p>
+<p><strong>Scope / граница задачи — ясное описание того, где задача tool начинается и заканчивается.</strong></p>
+<p>Чтобы задать <strong><em>scope</em></strong> (границу задачи), ответь на вопрос: «Какую отдельную работу выполняет tool и какую похожую работу уже не должен выполнять?» Операция <code>validate_task_card(task_id)</code> получает <code>task_id</code> одной уже известной карточки и проверяет выбранную карточку по правилам проекта. Работа заканчивается, когда операция возвращает результат проверки. Для получения списка всех карточек нужна другая операция.</p>
+<p>Сравним scope с назначением окошка школьной мастерской, над которым написано «приём приборов на проверку». Просьба «выдай список всех приборов школы» тоже касается приборов, но не соответствует назначению окошка. Надпись помогает различить работы, как scope помогает различить операции. Однако scope не ставит физическую преграду и не запрещает доступ к данным.</p>
+<p>Scope не заменяет permission или sandbox: описание задачи не выдаёт приложению технических прав и не ограничивает операционную систему. Scope нужен, чтобы у операции была одна понятная ответственность, не включающая соседние задачи.</p>
+<blockquote>
+<p><strong>Проверь себя на ходу.</strong> Если <code>validate_task_card</code> умеет проверять одну карточку, следует ли расширить его так, чтобы он заодно читал все карточки и строил сводку? Что станет с его scope?</p>
+</blockquote>
+<h3 id="3-contract-что-обещает-операция">3. Contract: что обещает операция<a class="headerlink" href="#3-contract-что-обещает-операция" title="Permanent link">&para;</a></h3>
+<p>Допустим, мы уже договорились, что <code>validate_task_card</code> работает с одной карточкой. Достаточно ли такой границы, чтобы вызвать операцию? Нет: прежде вызывающая программа должна знать, какие данные передать и какого исхода ожидать. Нужно согласовать не только назначение операции, но и входы, выход, ограничения и возможные ошибки.</p>
+<p><strong>Contract / контракт операции — согласованное описание назначения, входов, выхода, ограничений и ошибок операции.</strong></p>
+<p>По <strong><em>contract</em></strong> (контракту операции) вызывающая часть программы знает, какие данные передать. Разработчик реализации знает, какой результат операция должна вернуть. Команда заранее записывает, чего операция не делает и какие неуспешные исходы должна явно сообщать.</p>
+<p>Contract не сводится к одному description или одной JSON Schema. Описание назначения помогает выбрать операцию, а схема задаёт требования к структуре arguments. Contract связывает требования к данным со смыслом работы, ограничениями и ошибками.</p>
+<p>Для <code>validate_task_card</code> учебный contract можно записать так:</p>
+<table>
+<thead>
+<tr>
+<th>Часть</th>
+<th>Договор</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Назначение</td>
+<td>проверить одну карточку проекта по её <code>task_id</code></td>
+</tr>
+<tr>
+<td>Вход</td>
+<td>непустой строковый <code>task_id</code></td>
+</tr>
+<tr>
+<td>Результат</td>
+<td>структурированный результат проверки карточки</td>
+</tr>
+<tr>
+<td>Ограничение</td>
+<td>не читает произвольный путь, полученный от модели; не строит сводку</td>
+</tr>
+<tr>
+<td>Ошибки</td>
+<td>отсутствующий <code>task_id</code>, неизвестная карточка, некорректные данные карточки</td>
+</tr>
+</tbody>
+</table>
+<p>Проверка по schema может подтвердить, что <code>task_id</code> содержит непустую строку. Но такая проверка не установит, требовался ли для просьбы пользователя <code>validate_task_card</code> или нужно было выбрать <code>read_task_cards</code>.</p>
+<p>Допустим, ученик передал непустой <code>task_id</code>, но карточки с таким номером у бюро нет. Строка соответствует требованию к форме, а операция всё равно не сможет проверить несуществующую карточку. Поэтому contract отдельно предусматривает ошибку «неизвестная карточка».</p>
+<blockquote>
+<p><strong>Проверь себя на ходу.</strong> Вызов <code>validate_task_card</code> получил <code>{"task_id": "task-003"}</code> и прошёл JSON Schema. Какая часть contract уже проверена, а какая ещё нет?</p>
+</blockquote>
+<h3 id="4-description-короткая-граница-для-выбора">4. Description: короткая граница для выбора<a class="headerlink" href="#4-description-короткая-граница-для-выбора" title="Permanent link">&para;</a></h3>
+<p>Вернёмся к фразе Марка «работает с данными и помогает пользователю». Что нужно исправить: длину фразы или содержание? Сама краткость не мешает. Мешает отсутствие признаков, по которым можно отличить одну операцию от соседней.</p>
+<p><strong><em>Description</em></strong> («описание») записывают в поле <code>description</code> каталога tools. Механизм выбора получает краткое описание назначения вместе с именем операции и schema arguments. По описанию должно быть понятно, где проходит scope; слишком общая формулировка мешает выбрать операцию.</p>
+<p>Полезный шаблон состоит из четырёх вопросов:</p>
+<div class="highlight"><pre><span></span><code>Что делает?
+Над каким объектом?
+Когда применять?
+Когда не применять?
+</code></pre></div>
+<p>Для <code>validate_task_card</code> можно написать: «Проверяет одну существующую карточку задачи по <code>task_id</code> на соответствие правилам проекта. Используй для проверки конкретной карточки. Не используй для чтения всей доски или построения сводки». Описание отвечает на все четыре вопроса: называет действие и объект, указывает подходящие случаи и исключает соседние задачи.</p>
+<p>Имя операции тоже помогает понять назначение. В нашем наборе используется форма «глагол + объект»:</p>
+<ol>
+<li><code>read_task_cards</code> означает «прочитать карточки задач».</li>
+<li><code>validate_task_card</code> означает «проверить карточку задачи».</li>
+<li><code>build_status_report</code> означает «построить сводку статуса».</li>
+<li><code>propose_status_update</code> означает «предложить обновление статуса».</li>
+</ol>
+<p>Имя не заменяет description: оба должны соответствовать одному scope. Если из имени следует одна работа, а из description другая, нужно проверить согласованность contract.</p>
+<h3 id="5-ложный-и-пропущенный-вызов">5. Ложный и пропущенный вызов<a class="headerlink" href="#5-ложный-и-пропущенный-вызов" title="Permanent link">&para;</a></h3>
+<p>Описание может ошибочно направить запрос к операции или, наоборот, не указать на нужную операцию. <strong><em>Ложный вызов</em></strong> — ситуация, когда tool выбран там, где его применять не следовало. <strong><em>Пропущенный вызов</em></strong> — ситуация, когда tool подходил задаче, но выбран не был.</p>
+<p>Слишком широкое description повышает риск ложных вызовов: слова «работает с данными» подходят почти к любой задаче проекта. Слишком узкое или неполное description повышает риск пропущенных вызовов: нужная операция существует, но описание не позволяет узнать подходящую задачу.</p>
+<p>Представим, что операция умеет проверять карточки любой группы проекта, а description говорит только о карточках лабораторной группы. Тогда просьба проверить карточку группы, которая готовит афишу, может остаться без нужного вызова. Ограничение появилось в описании, хотя назначение операции такого ограничения не содержит.</p>
+<p>Dispatcher получает уже выбранное имя и сверяет allowlist, а не выбирает операцию заново. Если для просьбы «покажи все карточки» выбрали разрешённый <code>validate_task_card</code>, проверка имени пройдёт. Однако разрешение вызвать <code>validate_task_card</code> не делает проверку одной карточки ответом на просьбу показать всю доску.</p>
+<p>Различие между разрешением и выбором можно записать так:</p>
+<div class="highlight"><pre><span></span><code>разрешённый tool ≠ подходящий tool
+</code></pre></div>
+<h3 id="6-центральный-артефакт-паспорт-хорошего-tool">6. Центральный артефакт: паспорт хорошего tool<a class="headerlink" href="#6-центральный-артефакт-паспорт-хорошего-tool" title="Permanent link">&para;</a></h3>
+<p>Как проверить, согласованы ли назначение операции и требования к вызову? Запишем описание и правила в одном паспорте, чтобы сопоставить части. Паспорт пригодится и для промежуточной проверочной работы.</p>
+<table>
+<thead>
+<tr>
+<th>Поле паспорта</th>
+<th>Вопрос</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>name</code></td>
+<td>Как точно называется операция?</td>
+</tr>
+<tr>
+<td><code>scope</code></td>
+<td>Где её задача начинается и заканчивается?</td>
+</tr>
+<tr>
+<td><code>contract</code></td>
+<td>Что операция принимает и возвращает, какие ограничения соблюдает и какие ошибки сообщает?</td>
+</tr>
+<tr>
+<td><code>description</code></td>
+<td>Как кратко объяснить назначение, когда применять операцию и когда не применять?</td>
+</tr>
+<tr>
+<td><code>arguments schema</code></td>
+<td>Какая структура arguments допустима?</td>
+</tr>
+<tr>
+<td><code>positive test</code></td>
+<td>В каком случае система должна выбрать эту операцию?</td>
+</tr>
+<tr>
+<td><code>negative test</code></td>
+<td>В каком похожем случае система не должна выбирать эту операцию?</td>
+</tr>
+<tr>
+<td><code>error case</code></td>
+<td>На какой некорректный вход или сбой система должна явно отреагировать?</td>
+</tr>
+</tbody>
+</table>
+<p><em>На полях паспорта запиши три неравенства:</em></p>
+<div class="highlight"><pre><span></span><code>scope ≠ permission
+contract ≠ schema
+schema valid ≠ правильный выбор tool
+</code></pre></div>
+<p>В первом неравенстве различаются описание задачи и техническое право. Во втором неравенстве contract охватывает больше требований, чем schema arguments. Третье неравенство разделяет форму данных и замысел вызова: данные могут подходить выбранной операции, хотя сама операция не подходит задаче пользователя.</p>
+<p><img alt="Фигура 22. Паспорт хорошего tool" src="../../figures/22_pasport-khoroshego-tool.svg" /></p>
+<p><em>Фигура 22. Паспорт хорошего tool</em></p>
+<h3 id="7-практика-a-редакторская-карточка-tool">7. Практика A: редакторская карточка tool<a class="headerlink" href="#7-практика-a-редакторская-карточка-tool" title="Permanent link">&para;</a></h3>
+<p>Работай в паре. Для работы ты получишь одно из четырёх имён сквозного проекта:</p>
+<ol>
+<li><code>read_task_cards</code>;</li>
+<li><code>validate_task_card</code>;</li>
+<li><code>build_status_report</code>;</li>
+<li><code>propose_status_update</code>.</li>
+</ol>
+<p>Сигнатуры операций уже заданы в starter; в этой практике ты меняешь описание, а не сигнатуры.</p>
+<p>Заполни паспорт вместе с напарником:</p>
+<ol>
+<li>Сначала сформулируй scope одним предложением, не составляя description.</li>
+<li>Запиши пять строк contract по таблице раздела 3: отдельно укажи назначение, вход, результат, ограничение и ошибку.</li>
+<li>Составь description по четырём вопросам раздела 4: «что делает / над чем / когда применять / когда не применять».</li>
+</ol>
+<p>Обменяйся паспортами с соседней парой. Попроси соседей придумать два запроса: один должен точно соответствовать scope твоего tool, а второй должен быть максимально похожим, но выходить за границу задачи. Если по description нельзя уверенно различить запросы, вернись к описанию и уточни границу.</p>
+<p>Для <code>validate_task_card</code> пара запросов может выглядеть так:</p>
+<div class="highlight"><pre><span></span><code>должен: «Проверь карточку task-003 по правилам проекта»
+не должен: «Покажи все карточки проекта»
+</code></pre></div>
+<p>Для <code>build_status_report</code> граница может проходить между просьбами «собери черновик сводки из уже проверенных карточек» и «измени статус task-003 на done». Вторая просьба требует другого действия. Кроме того, изменение статуса связано с участием человека; эту границу будем разбирать позже.</p>
+<p><strong>Результат практики A:</strong> паспорт одного tool, два запроса соседней пары — «должен» и «не должен» — и объяснение, какая фраза description помогает их различить.</p>
+<h3 id="8-практика-b-локальная-проверка-границы">8. Практика B: локальная проверка границы<a class="headerlink" href="#8-практика-b-локальная-проверка-границы" title="Permanent link">&para;</a></h3>
+<p>Запусти учебную программу <code>tool_quality_demo.py</code>. Программа работает без сети и проверяет выбор по заранее заданному правилу, а не оценивает живую модель.</p>
+<p>В самом «Дежурном» операцию запрашивает модель. В наших запусках модель заменяет replay, авторский сценарий. Учебный маршрутизатор выполняет роль механизма выбора только в этой проверке descriptions и не участвует в agent loop.</p>
+<p>Правило маршрутизатора открыто. Для каждого tool программа считает совпадения слов запроса с фразами «Используй для …» и «Не используй для …». Затем программа выбирает единственный tool с наибольшим положительным перевесом совпадений; при ничьей или нуле выбора нет. Благодаря заранее заданному правилу локальную проверку можно повторить.</p>
+<p>Сначала выведи паспорт <code>validate_task_card</code> следующей командой:</p>
+<div class="highlight"><pre><span></span><code><span class="c1"># запуск из корня starter</span>
+python<span class="w"> </span>tool_quality_demo.py<span class="w"> </span>passport<span class="w"> </span>validate_task_card
+</code></pre></div>
+<div class="highlight"><pre><span></span><code>passport: validate_task_card
+scope: одна уже прочитанная карточка задачи по task_id
+contract:
+  назначение: проверить одну карточку проекта по её task_id
+  вход: непустой строковый task_id
+  результат: структурированный результат проверки карточки
+  ограничение: не читает произвольный путь, полученный от модели; не строит сводку
+  ошибки: отсутствующий task_id, неизвестная карточка, некорректные данные карточки
+description: Проверяет одну существующую карточку задачи по task_id на соответствие правилам проекта. Используй для проверки конкретной карточки. Не используй для чтения всей доски или построения сводки.
+when: проверки конкретной карточки
+when_not: чтения всей доски или построения сводки
+schema: task_id: string, minLength 1, обязательное; лишние поля запрещены
+execution: not performed
+</code></pre></div>
+<p>Команда <code>passport</code> выводит описание уже спроектированной операции и её schema, но не выполняет функцию. Строка <code>execution: not performed</code> прямо указывает на отсутствие выполнения. По напечатанному паспорту нельзя заключить, что программа прочитала или проверила карточку.</p>
+<p>Перед следующим запуском предскажи, какое имя должен выбрать локальный учебный маршрутизатор для просьбы проверить одну карточку. Затем выполни команду и сравни прогноз с выводом:</p>
+<div class="highlight"><pre><span></span><code><span class="c1"># запуск из корня starter</span>
+python<span class="w"> </span>tool_quality_demo.py<span class="w"> </span>route<span class="w"> </span>--case<span class="w"> </span>should-validate-card
+</code></pre></div>
+<div class="highlight"><pre><span></span><code>case: should-validate-card
+request: Проверь карточку task-003 по правилам проекта.
+expected: validate_task_card
+selected: validate_task_card
+result: ok
+router: учебное правило по when/when_not — не модель
+</code></pre></div>
+<p>Теперь запусти случай с запросом о всей доске. Тема запроса по-прежнему связана с карточками, но задача выходит за scope проверки одной карточки.</p>
+<div class="highlight"><pre><span></span><code><span class="c1"># запуск из корня starter</span>
+python<span class="w"> </span>tool_quality_demo.py<span class="w"> </span>route<span class="w"> </span>--case<span class="w"> </span>should-read-board
+</code></pre></div>
+<div class="highlight"><pre><span></span><code>case: should-read-board
+request: Покажи все карточки проекта.
+expected: read_task_cards
+selected: read_task_cards
+result: ok
+router: учебное правило по when/when_not — не модель
+</code></pre></div>
+<p>Второй запуск служит отрицательной проверкой для <code>validate_task_card</code>: операция существует и разрешена, но для запроса о всей доске выбирать её не следует. Для <code>read_task_cards</code> запрос о всей доске, наоборот, служит положительным случаем.</p>
+<p>Два результата <code>ok</code> относятся к двум подготовленным запросам. Выводы подтверждают, что в этих локальных случаях текущие descriptions разделяют задачи по учебному правилу. Качество выбора живой модели два запуска не доказывают. Систематическую оценку поведения модели будем разбирать в главе 11.</p>
+<p><strong>Результат практики B урока 15:</strong> паспорт <code>validate_task_card</code>, два сохранённых вывода локального маршрутизатора и одна фраза-граница: «разрешённый tool может быть неподходящим по смыслу».</p>
+<h3 id="9-мини-проверка-урока-15">9. Мини-проверка урока 15<a class="headerlink" href="#9-мини-проверка-урока-15" title="Permanent link">&para;</a></h3>
+<ol>
+<li>Что описывает scope?</li>
+<li>Почему scope не является permission?</li>
+<li>Что входит в contract операции?</li>
+<li>Чем contract шире JSON Schema?</li>
+<li>Какие четыре вопроса полезно закрыть в description?</li>
+<li>Чем ложный вызов отличается от пропущенного?</li>
+<li>Может ли Dispatcher исправить смысловой выбор неправильного, но разрешённого tool?</li>
+</ol>
+<h4 id="ответы">Ответы<a class="headerlink" href="#ответы" title="Permanent link">&para;</a></h4>
+<ol>
+<li>Где задача tool начинается и заканчивается.</li>
+<li>Scope описывает ответственность операции, но не выдаёт технических прав.</li>
+<li>Назначение, входы, выход, ограничения и ошибки.</li>
+<li>Schema проверяет структуру данных; contract содержит ещё смысл и границы поведения.</li>
+<li>Что делает, над чем, когда применять, когда не применять.</li>
+<li>При ложном вызове tool выбран лишний раз; при пропущенном подходящий tool не выбран.</li>
+<li>Нет. Dispatcher проверяет разрешённое имя и ведёт его к реализации; правильность смыслового выбора — другой вопрос.</li>
+</ol>
+<h3 id="выходной-билет-урока-15">Выходной билет урока 15<a class="headerlink" href="#выходной-билет-урока-15" title="Permanent link">&para;</a></h3>
+<p>Заполни четыре строки для одного tool:</p>
+<div class="highlight"><pre><span></span><code>scope: …
+when: …
+when_not: …
+соседний tool, с которым нельзя смешивать: …
+</code></pre></div>
+<p>Если строки <code>when</code> и <code>when_not</code> в твоём паспорте отличаются только словами «нужно / не нужно», уточни описание. Граница должна называть наблюдаемое различие между задачами.</p>
+<hr />
+<h2 id="lesson-16">Урок 16. Validator и три обязательных теста<a class="headerlink" href="#lesson-16" title="Permanent link">&para;</a></h2>
+<h3 id="1-один-успешный-запуск-ещё-ничего-не-закрывает">1. Один успешный запуск ещё ничего не закрывает<a class="headerlink" href="#1-один-успешный-запуск-ещё-ничего-не-закрывает" title="Permanent link">&para;</a></h3>
+<p>Вернёмся к удачному запуску Марка. Операция <code>validate_task_card</code> получила корректный <code>task_id</code>; Dispatcher разрешил имя, проверка arguments по schema прошла, функция вернула результат. На первый взгляд можно решить, что проверка закончена. Но успех относится только к одному запросу с подходящими arguments.</p>
+<p>Успешный запуск ещё не показал, как программа поведёт себя в других ситуациях:</p>
+<ol>
+<li>В arguments может отсутствовать <code>task_id</code>.</li>
+<li>Для похожей просьбы может требоваться другой tool.</li>
+<li>Кто-то может попытаться передать путь за пределами <code>workspace/</code>.</li>
+</ol>
+<p>Перечисленные ситуации требуют отдельных проверок.</p>
+<p>Поэтому хороший tool должен быть не только понятным, но и проверяемым: ожидаемое поведение в разных случаях записывают заранее.</p>
+<h3 id="2-validator-проверка-до-использования">2. Validator: проверка до использования<a class="headerlink" href="#2-validator-проверка-до-использования" title="Permanent link">&para;</a></h3>
+<p>Посмотрим, как программа проверяет данные до вызова операции. В starter уже есть функция <code>validate_tool_arguments</code>: она получает имя операции и arguments, находит соответствующую schema и возвращает список ошибок. Если список пуст, данные прошли проверку формы.</p>
+<p><strong>Validator / валидатор — проверка соответствия объекта заданным правилам до использования или принятия.</strong></p>
+<p><strong><em>Validator</em></strong> (валидатор) сравнивает объект с заранее заданными правилами и сообщает о нарушениях до дальнейшего использования объекта. В нашей цепочке validator arguments работает до вызова tool, который выполняет задачу проекта.</p>
+<p>Сравним validator с рамкой для проверки размера детали перед установкой. Деталь соответствует проверяемым данным, а размеры рамки соответствуют заданным правилам. Деталь неподходящего размера не устанавливают в механизм. Однако совпадение размеров не проверяет всего назначения детали; программный validator тоже проверяет только записанные правила, а не весь смысл задачи.</p>
+<p>Из успешной проверки validator нельзя заключить, что выбран правильный tool, что данные правдивы или что выполнение завершится без exception. В главе 7 мы уже видели вызов, у которого arguments прошли проверку, выполнение началось, но операция вернула tool error.</p>
+<blockquote>
+<p><strong>Проверь себя на ходу.</strong> <code>validate_tool_arguments</code> вернул пустой список. Назови два факта, которых из этого всё ещё нельзя вывести.</p>
+</blockquote>
+<h3 id="3-test-case-заранее-известная-ситуация">3. Test case: заранее известная ситуация<a class="headerlink" href="#3-test-case-заранее-известная-ситуация" title="Permanent link">&para;</a></h3>
+<p>Допустим, группа проверяет вызов <code>validate_task_card</code> без <code>task_id</code>. До запуска ученики записали, что программа должна сообщить об отсутствующем поле и не выполнять функцию. Если программа откажет именно так, группа получит ожидаемое поведение. Отклонение вызова будет означать, что проверка сработала, а не что опыт не удался.</p>
+<p>Для повторяемой проверки нужно заранее задать и вход, и ожидаемый исход.</p>
+<p><strong>Test case / тестовый случай — заранее заданная ситуация с ожидаемым наблюдаемым поведением.</strong></p>
+<p><strong><em>Test case</em></strong> (тестовый случай) связывает два вопроса: «Что мы подаём?» и «Что должно наблюдаться?» Ожидаемое поведение записывают до запуска. Иначе легко подогнать объяснение под получившийся результат вместо того, чтобы проверить первоначальное требование.</p>
+<p>Один test case не даёт процента качества системы и не заменяет систематическую воспроизводимую оценку поведения. Здесь мы проверяем отдельный tool и границу его задачи на заранее подготовленных случаях; к более широкой оценке перейдём позже.</p>
+<p>Для каждого tool в этой главе нужны как минимум три разных типа test case.</p>
+<h3 id="4-positive-test-должен">4. Positive test: «должен»<a class="headerlink" href="#4-positive-test-должен" title="Permanent link">&para;</a></h3>
+<p><strong>Positive test / «должен» — случай, в котором система должна выбрать или выполнить требуемое действие.</strong></p>
+<p>Для <code>validate_task_card</code> положительный случай задаёт просьба «Проверь карточку task-003 по правилам проекта». Ожидания зависят от того, какую часть работы мы проверяем:</p>
+<ol>
+<li>При выборе операции ожидается имя <code>validate_task_card</code>.</li>
+<li>При проверке arguments требуется непустой <code>task_id</code>.</li>
+<li>При отдельном запуске выполнения ожидается наблюдаемый result или предусмотренная ошибка данных, но не отказ из-за неизвестного имени.</li>
+</ol>
+<p><strong><em>Positive test</em></strong> («должен») помогает заметить чрезмерное сужение задачи tool. Если описание содержит слишком много запретов или границ, система может перестать выбирать операцию в подходящих случаях. Отсутствия ложных вызовов недостаточно, если нужные вызовы тоже пропускаются.</p>
+<h3 id="5-negative-test-не-должен">5. Negative test: «не должен»<a class="headerlink" href="#5-negative-test-не-должен" title="Permanent link">&para;</a></h3>
+<p><strong>Negative test / «не должен» — случай, в котором похожая ситуация не должна приводить к вызову данного действия.</strong></p>
+<p>Для <code>validate_task_card</code> отрицательный случай задаёт просьба «Покажи все карточки проекта». И проверка одной карточки, и чтение всей доски касаются карточек, но задачи различаются. Для просьбы показать всю доску ожидается <code>read_task_cards</code>; выбор <code>validate_task_card</code> был бы ложным вызовом.</p>
+<p><strong><em>Negative test</em></strong> («не должен») помогает проверить description: по описанию должно быть ясно не только когда применять операцию, но и когда не применять. Без отрицательных проверок легко описать все четыре операции словами «работает с проектом», не указав различий.</p>
+<h3 id="6-error-case-ошибка">6. Error case: «ошибка»<a class="headerlink" href="#6-error-case-ошибка" title="Permanent link">&para;</a></h3>
+<p><strong>Error case / «ошибка» — случай, проверяющий реакцию системы на некорректные входы, сбой операции или запрещённое действие.</strong></p>
+<p>В <strong><em>error case</em></strong> («случае ошибки») проверяют не получение обычного результата, а явную реакцию на проблему. Сообщение об ошибке должно быть заметным и структурированным, а отклонённый вызов не должен тайно выполняться. Для <code>validate_task_card</code> один из таких случаев задаётся отсутствующим <code>task_id</code>.</p>
+<p>Выполни команду из главы 6. Её ожидаемый вывод зафиксирован в golden — эталоне, с которым сравнивают фактический вывод:</p>
+<div class="highlight"><pre><span></span><code><span class="c1"># запуск из корня starter</span>
+python<span class="w"> </span>tool_call_demo.py<span class="w"> </span>check<span class="w"> </span>workspace/ch06/cases/validate_missing_task_id.json
+</code></pre></div>
+<div class="highlight"><pre><span></span><code>tool: validate_task_card
+arguments: {}
+JSON Schema: invalid
+reason: arguments: нет обязательного поля task_id
+execution: not performed
+</code></pre></div>
+<p>Прочитай последнюю строку: <code>execution: not performed</code>. Программа обнаружила отсутствующее поле до выполнения функции. Проверка по schema с помощью validator предшествует вызову функции в Dispatcher.</p>
+<p>Error case может проверять и сбой уже начавшейся операции. В главе 7 мы разбирали пример: arguments прошли проверку, выполнение отмечено строкой <code>execution: performed</code>, но операция вернула tool error. Различай две точки отказа: данные отклонили до вызова или ошибка возникла после начала выполнения.</p>
+<h3 id="7-проверка-формы-и-проверка-замысла">7. Проверка формы и проверка замысла<a class="headerlink" href="#7-проверка-формы-и-проверка-замысла" title="Permanent link">&para;</a></h3>
+<p>Легко решить: «Раз JSON валиден, значит всё хорошо». Проверим мысль на знакомых arguments <code>{"task_id": "task-003"}</code>. Для <code>validate_task_card</code> объект может полностью соответствовать schema. Но просьба «покажи все карточки проекта» требует чтения доски, а не проверки одной карточки. Верная форма arguments не исправляет ошибочный выбор tool.</p>
+<p>Нужно отдельно ответить на два вопроса:</p>
+<div class="highlight"><pre><span></span><code>проверка формы: объект соответствует schema?
+проверка замысла: выбран ли подходящий tool для этой задачи?
+</code></pre></div>
+<p>Форму arguments в starter проверяет validator. Подходящий ли tool выбран для задачи, здесь проверяем ограниченно: сопоставляем scope и descriptions с парами положительных и отрицательных случаев, затем используем детерминированный учебный маршрутизатор. Такая проверка не доказывает, что живая модель будет всегда выбирать правильно.</p>
+<p>Итак, корректные arguments и подходящая операция отвечают разным требованиям. Нельзя переносить успех проверки формы на правильность замысла вызова.</p>
+<blockquote>
+<p><strong>Проверь себя на ходу.</strong> <code>validate_task_card</code> получил корректный <code>task_id</code>, но запрос человека был «собери сводку». Какая проверка пройдена, а какая провалена?</p>
+</blockquote>
+<h3 id="8-практика-a-три-сценария-с-ролевым-агентом">8. Практика A: три сценария с ролевым агентом<a class="headerlink" href="#8-практика-a-три-сценария-с-ролевым-агентом" title="Permanent link">&para;</a></h3>
+<p>Работай в группе из четырёх человек. Возьми вместе с группой один паспорт из урока 15. Распредели роли по договорённости с товарищами:</p>
+<ol>
+<li>Первый участник играет человека, который задаёт запрос.</li>
+<li>Второй участник играет механизм выбора tool.</li>
+<li>Третий участник играет Dispatcher с validator.</li>
+<li>Четвёртый участник наблюдает и записывает результаты.</li>
+</ol>
+<p>В сценарии «должен» участник в роли человека читает запрос из positive test. Участник в роли механизма выбора называет ожидаемый tool. Участник в роли Dispatcher проверяет имя и arguments. Наблюдатель записывает, какие проверки относятся к смыслу, а какие относятся к форме.</p>
+<p>В сценарии «не должен» участник в роли человека читает похожий запрос из negative test. Если механизм выбора снова называет проверяемый tool, останови вместе с группой разбор до Dispatcher. Объясни, какая граница в description не помогла отличить соседнюю задачу.</p>
+<p>В сценарии «ошибка» выбери правильное имя tool, но задай arguments, которые нарушают требования к форме, записанные в contract и schema. Выбор операции может соответствовать смыслу запроса, а validator всё равно должен отклонить неверные данные до выполнения. Для этого сценария бери нарушение правила, которое validator действительно проверяет: не любое условие contract проверяется автоматически.</p>
+<p>После трёх сценариев обменяйся паспортом с другой группой. Соседи должны воспроизвести ожидаемые решения без твоих устных пояснений. Если им приходится угадывать, что имели в виду авторы, уточни contract или description.</p>
+<p><strong>Результат практики A:</strong> таблица из трёх строк «вход → ожидаемый tool → ожидаемый исход → какая граница проверяется».</p>
+<h3 id="9-практика-b-минимальный-набор-доказательств">9. Практика B: минимальный набор доказательств<a class="headerlink" href="#9-практика-b-минимальный-набор-доказательств" title="Permanent link">&para;</a></h3>
+<p>Запусти сводную локальную проверку подготовленных случаев главы 8:</p>
+<div class="highlight"><pre><span></span><code><span class="c1"># запуск из корня starter</span>
+python<span class="w"> </span>tool_quality_demo.py<span class="w"> </span>suite
+</code></pre></div>
+<div class="highlight"><pre><span></span><code>positive: should-validate-card — ok
+negative: should-read-board — ok
+error: missing-task-id — ok
+result: 3/3
+</code></pre></div>
+<p>В строке <code>result: 3/3</code> число пройденных случаев равно числу подготовленных: проверен один positive, один negative и один error case. Каждый случай дал ожидаемый исход. Поэтому <code>ok</code> в строке ошибки означает ожидаемую реакцию на отсутствующий <code>task_id</code>, а не успешное выполнение <code>validate_task_card</code>.</p>
+<p>Результат трёх проверок не означает «качество tool = 100%». Уже следующий случай может обнаружить недостаток description или contract, которого не было видно на подготовленных запросах.</p>
+<p>Отдельно проверь техническую файловую границу из главы 3. Для обязательной проверки попытки чтения вне <code>workspace/</code> выполни команду:</p>
+<div class="highlight"><pre><span></span><code><span class="c1"># запуск из корня starter</span>
+python<span class="w"> </span>access_demo.py<span class="w"> </span>--access<span class="w"> </span><span class="nb">read</span><span class="w"> </span>--path<span class="w"> </span>../outside.json
+</code></pre></div>
+<div class="highlight"><pre><span></span><code>операция: read
+путь: ../outside.json
+результат: denied
+граница: вне workspace
+причина: путь выходит за workspace
+</code></pre></div>
+<p>Вывод <code>denied</code> относится к файловой границе, а не к качеству description. Хороший scope помогает уменьшить число ошибочных вызовов. Проверка пути отдельно запрещает обращение за пределы <code>workspace/</code>. Поэтому в наборе проверок нужны оба уровня: смысловой выбор и техническое ограничение.</p>
+<p>Вернись к паспорту своего tool и проверь четыре соответствия:</p>
+<div class="highlight"><pre><span></span><code>name ↔ scope
+scope ↔ description
+contract ↔ arguments schema
+contract ↔ positive / negative / error cases
+</code></pre></div>
+<p>Если test case требует поведения, которого нет в contract, выясни, какое требование должно действовать, и устрани противоречие. Не меняй ожидаемый исход только ради отметки об успехе. Если schema допускает поле, запрещённое contract, согласуй договор и код проверки. Замена теста не устранит расхождение.</p>
+<p><strong>Результат практики B:</strong> сохранённый результат <code>suite</code>, вывод файловой проверки и заполненная таблица соответствий для одного tool.</p>
+<p><img alt="Фигура 23. Три теста вокруг границы" src="../../figures/23_tri-testa-vokrug-granitsy.svg" /></p>
+<p><em>Фигура 23. Три теста вокруг границы</em></p>
+<h3 id="10-обязательные-проверки-должен--не-должен--ошибка--граница">10. Обязательные проверки: должен / не должен / ошибка / граница<a class="headerlink" href="#10-обязательные-проверки-должен--не-должен--ошибка--граница" title="Permanent link">&para;</a></h3>
+<h4 id="должен">Должен<a class="headerlink" href="#должен" title="Permanent link">&para;</a></h4>
+<p>Запрос «Проверь карточку task-003 по правилам проекта» должен соответствовать scope <code>validate_task_card</code>. В подготовленном локальном случае ожидаемое и выбранное имя совпадают.</p>
+<h4 id="не-должен">Не должен<a class="headerlink" href="#не-должен" title="Permanent link">&para;</a></h4>
+<p>Для запроса «Покажи все карточки проекта» система не должна выбирать <code>validate_task_card</code>. Совпадения темы недостаточно: чтение всей доски относится к scope соседней операции <code>read_task_cards</code>.</p>
+<h4 id="ошибка">Ошибка<a class="headerlink" href="#ошибка" title="Permanent link">&para;</a></h4>
+<p>Вызов <code>validate_task_card</code> без обязательного <code>task_id</code> validator должен отклонить до выполнения. В выводе должны появиться строки <code>JSON Schema: invalid</code> и <code>execution: not performed</code>.</p>
+<h4 id="граница">Граница<a class="headerlink" href="#граница" title="Permanent link">&para;</a></h4>
+<p>Попытка чтения <code>../outside.json</code> должна завершиться <code>denied</code>, поскольку путь выходит за разрешённую файловую область. Description и contract не заменяют проверку пути.</p>
+<h3 id="11-безопасность-широкий-tool-расширяет-поверхность-риска">11. Безопасность: широкий tool расширяет поверхность риска<a class="headerlink" href="#11-безопасность-широкий-tool-расширяет-поверхность-риска" title="Permanent link">&para;</a></h3>
+<blockquote>
+<p><strong>Безопасность</strong></p>
+<p>Слишком широкий scope увеличивает число смысловых ошибок и число ситуаций, в которых операцию могут выбрать для выполнения. Чем больше действий объединено в одном tool и чем менее точно description, тем труднее заранее перечислить нежелательные случаи.</p>
+<p>Узкий scope сам по себе не защищает систему. Отдельно действуют технические проверки и ограничения:</p>
+<ol>
+<li>Permissions задают технические права на чтение, запись, сеть и другие ресурсы.</li>
+<li>Allowlist ограничивает перечень разрешённых имён.</li>
+<li>Проверка по schema контролирует форму arguments.</li>
+<li>Файловая граница <code>workspace/</code> ограничивает допустимые пути.</li>
+<li>Подтверждение человеком, к которому мы перейдём позже, нужно перед применением изменения.</li>
+</ol>
+<p>Хороший tool не заменяет эти механизмы и должен соблюдать соответствующие ограничения.</p>
+<p>В обязательной части этой главы локальный маршрутизатор работает на подготовленных случаях без сети. Поведение живой модели не оценивается. Проверка outside-workspace использует существующую демонстрацию read-only, то есть только чтения, и не расширяет права приложения.</p>
+</blockquote>
+<p>Особенно внимательно проверяй описания операций изменения. В нашем наборе <code>propose_status_update</code> только предлагает изменение, но не применяет его. Формулировка «изменяет статус задачи» нарушила бы ранее установленный contract: предложение и применение изменения должны оставаться разными действиями.</p>
+<h3 id="12-мини-проверка-урока-16">12. Мини-проверка урока 16<a class="headerlink" href="#12-мини-проверка-урока-16" title="Permanent link">&para;</a></h3>
+<ol>
+<li>Что проверяет validator?</li>
+<li>Почему пустой список ошибок validator не доказывает правильность выбора tool?</li>
+<li>Что такое test case?</li>
+<li>Для чего нужен positive test?</li>
+<li>Для чего нужен negative test?</li>
+<li>Что проверяет error case?</li>
+<li>Чем «форма arguments корректна» отличается от «замысел вызова корректен»?</li>
+<li>Почему <code>result: 3/3</code> в учебном suite не равен доказательству качества живой модели?</li>
+<li>Зачем рядом с тестами качества tool проверять путь вне <code>workspace/</code>?</li>
+</ol>
+<h4 id="ответы_1">Ответы<a class="headerlink" href="#ответы_1" title="Permanent link">&para;</a></h4>
+<ol>
+<li>Соответствие объекта заранее заданным правилам до использования или принятия.</li>
+<li>Validator проверяет записанные правила формы; он не знает автоматически, какой tool нужен по смыслу текущей задачи.</li>
+<li>Заранее заданная ситуация с ожидаемым наблюдаемым поведением.</li>
+<li>Доказать, что нормальный подходящий случай принимается и операция не стала слишком узкой.</li>
+<li>Доказать, что похожий, но чужой случай не приводит к лишнему вызову данного tool.</li>
+<li>Реакцию на некорректный вход, сбой операции или запрещённое действие.</li>
+<li>Первая проверка относится к структуре данных; вторая — к выбору подходящей операции для задачи.</li>
+<li>Потому что suite содержит только подготовленные локальные случаи и не измеряет реальное model behavior.</li>
+<li>Чтобы отдельно проверить техническую файловую границу и не подменять её хорошим description или scope.</li>
+</ol>
+<h3 id="выходной-билет-урока-16">Выходной билет урока 16<a class="headerlink" href="#выходной-билет-урока-16" title="Permanent link">&para;</a></h3>
+<p>Для одного tool запиши три строки:</p>
+<div class="highlight"><pre><span></span><code>должен: … → ожидаю …
+не должен: … → ожидаю …
+ошибка: … → ожидаю …
+</code></pre></div>
+<p>Подчеркни, какая строка проверяет смысловой выбор операции, а какая проверяет работу validator arguments. Если все три строки сводятся к одной и той же schema-проверке, тестовый набор неполон: вернись к выбранным случаям и уточни, как проверяется выбор tool.</p>
+<hr />
+<h2 id="полная-карта-хорошего-tool">Полная карта хорошего tool<a class="headerlink" href="#полная-карта-хорошего-tool" title="Permanent link">&para;</a></h2>
+<p>Как связаны договор задачи проекта и результат отдельного вызова? Карта объединяет главы 5–8: от общего договора мы переходим к проектированию операции, затем к проверкам и выполнению. Договор находится вверху схемы, а наблюдение находится внизу.</p>
+<div class="highlight"><pre><span></span><code>договор задачи проекта
+        ↓
+выделить отдельное действие
+        ↓
+      TOOL
+        │
+        ├── name
+        ├── scope
+        ├── contract
+        ├── description
+        └── arguments schema
+                ↓
+        test cases заранее
+   positive / negative / error
+                ↓
+      tool call от модели/replay
+                ↓
+          Dispatcher
+        allowlist + validator
+                ↓
+             runtime
+                ↓
+       result или tool error
+                ↓
+           observation
+</code></pre></div>
+<p>У частей схемы разные задачи:</p>
+<ol>
+<li>Description помогает выбрать операцию.</li>
+<li>Schema задаёт требования к форме arguments, а validator проверяет соответствие требованиям.</li>
+<li>Dispatcher сопоставляет разрешённое имя с реализацией.</li>
+<li>Runtime выполняет операцию.</li>
+<li>Test cases задают ситуации и ожидаемое поведение для проверки.</li>
+</ol>
+<p>Связи на карте не делают перечисленные части одним механизмом.</p>
+<p><em>На полях запиши пять границ:</em></p>
+<div class="highlight"><pre><span></span><code>разрешённый tool ≠ подходящий tool
+scope ≠ permission
+contract ≠ schema
+schema valid ≠ execution success
+три локальных test cases ≠ оценка поведения живой модели
+</code></pre></div>
+<p><em>Объясни каждое из пяти различий на примере <code>validate_task_card</code>: какие два требования сравниваются и почему одно не заменяет другое.</em></p>
+<h2 id="архитектурное-ревью-набора-из-четырёх-tools">Архитектурное ревью набора из четырёх tools<a class="headerlink" href="#архитектурное-ревью-набора-из-четырёх-tools" title="Permanent link">&para;</a></h2>
+<p>Проведи вместе с группой ревью четырёх операций сквозного проекта. Разложи четыре паспорта рядом: теперь нужно проверить не только каждый паспорт, но и пересечения задач соседних tools.</p>
+<p><strong>1. Имена.</strong> Проверь, что каждому имени соответствует одна понятная операция. Форма «глагол + объект» помогает различать чтение карточек и проверку карточки, построение сводки и предложение обновления.</p>
+<p><strong>2. Scope.</strong> Для каждой пары операций задай вопрос: есть ли запрос, который одинаково хорошо подходит обеим? При совпадении уточни descriptions или сами границы задач. Полностью убрать пересечение удаётся не всегда, но ты должен уметь объяснить причину пересечения.</p>
+<p><strong>3. Contract.</strong> Сверь arguments с сигнатурами API и schema. Сигнатуры starter остаются прежними. Если паспорт требует <code>path</code> для <code>read_task_cards</code>, паспорт противоречит принятому контракту: путь задаёт приложение, а не модель.</p>
+<p><strong>4. Tests.</strong> Проверь, что у каждого tool есть как минимум positive, negative и error case. Для negative case желательно взять задачу ближайшей по смыслу операции, чтобы проверить границу между соседями.</p>
+<p><strong>5. Безопасность.</strong> Проверь, не обещает ли description больше полномочий, чем имеет реализация. Для <code>propose_status_update</code> сохрани различие: операция «предлагает», а не «применяет» изменение.</p>
+<p>Ревью завершится, когда другая группа сможет без устных пояснений предложить по паспорту один новый positive и один новый negative case, не нарушая contract.</p>
+<hr />
+<h2 id="why">Зачем это тебе<a class="headerlink" href="#why" title="Permanent link">&para;</a></h2>
+<p>Допустим, ты обрабатываешь файлы лабораторной работы. Одна операция проверяет один файл результата, а другая получает список файлов. Если обе операции описаны словами «работает с файлами», выбор помощника может стать непредсказуемым. Scope и negative test помогают заранее разделить задачи: проверять содержимое одного файла не то же самое, что получать список файлов.</p>
+<p>В другой школьной ситуации бот выдаёт расписание мероприятия и предлагает изменить запись участника. Для этих задач предусмотрены разные tools. Описание «работает с расписанием» не помогает различить чтение и изменение, поэтому операцию изменения могут выбрать там, где достаточно чтения. Ясный contract разделяет действия «показать» и «предложить изменить». Различие между чтением и предложением изменения понадобится и в будущей главе о подтверждении человеком.</p>
+<p>В командном проекте по программированию функция может пройти один демонстрационный пример, после чего команда сочтёт задачу завершённой. Теперь ты можешь попросить ещё как минимум две проверки. Первая должна показать похожий случай, где функцию вызывать не нужно. Вторая должна показать ошибочный вход, который программа отклонит или явно обработает. Вместо одного удачного запуска у команды появится набор из трёх разных свидетельств.</p>
+<h2 id="dezhurny">Шаг сквозного проекта<a class="headerlink" href="#dezhurny" title="Permanent link">&para;</a></h2>
+<p>После главы 7 у «Дежурного» есть четыре разрешённых имени и Dispatcher, который не выполняет неизвестное имя как код. Теперь команда оформляет паспорта четырёх tools и проверяет границы операций.</p>
+<p>Для каждого из четырёх tools заполни паспорт по таблице урока 15: укажи <code>name</code>, scope и contract, затем description и arguments schema. Подготовь три test cases. Сигнатуры остаются прежними:</p>
+<div class="highlight"><pre><span></span><code>Tools.read_task_cards()
+Tools.validate_task_card(task_id)
+Tools.build_status_report()
+Tools.propose_status_update(task_id, new_status, reason)
+</code></pre></div>
+<p>Ограничения проекта сохраняются: <code>read_task_cards()</code> не принимает путь от модели, а <code>propose_status_update(...)</code> не применяет изменение. Описания tools должны соответствовать существующим полномочиям «Дежурного», а не расширять их.</p>
+<p><strong>Промежуточная проверочная работа 1:</strong> представь вместе с командой проверенный набор tools. Для одного выбранного tool покажи паспорт, три случая проверки и отдельную техническую границу, которую description не заменяет. В тройку должны входить positive case, negative case и error case.</p>
+<p>Перед переходом к новым возможностям проведи вместе с командой архитектурное ревью набора tools по разделу выше. У системы уже есть договор задачи и tool calling; Dispatcher организует вызовы, ошибки обрабатываются явно, а границы отдельных операций можно проверить.</p>
+<h3 id="достраиваем-дежурного">Достраиваем «Дежурного»<a class="headerlink" href="#достраиваем-дежурного" title="Permanent link">&para;</a></h3>
+<p>Свой tool ты описываешь в <code>08_my_tool.py</code>. В файле находится одна функция. Строка <code>def</code> задаёт её имя и параметры, а текст в кавычках в начале тела функции содержит описание операции. В этом описании ты записываешь паспорт. В Python такой текст называют <strong><em>docstring</em></strong> («строка документации»). Конструктор показывает описание функции в каталоге tools.</p>
+<p>Командой <code>status</code> проверь, что конструктор нашёл <code>count_open_tasks</code> и включил описание в каталог. Если имя записано в <code>07_tools.json</code>, команда <code>run</code> печатает <code>my_tool: count_open_tasks — в каталоге модели, не исполняется</code>. Присутствие в каталоге не означает выполнения: harness не исполняет код ученика, а вызывает только проверенные tools.</p>
+<p>Команда <code>run</code> ниже использует папку-пример, поэтому в выводе есть строка <code>goal: не настроено (глава 1)</code>. В твоей <code>my_agent/</code> цель уже настроена; при сравнении смотри на строку своей главы. В примере <code>count_open_tasks</code> включён в список tools, но среди пяти выполненных шагов вызова этой функции нет.</p>
+<p><div class="highlight"><pre><span></span><code><span class="c1"># запуск из корня starter</span>
+python<span class="w"> </span>dezhurny.py<span class="w"> </span>status<span class="w"> </span>--chapter<span class="w"> </span><span class="m">8</span><span class="w"> </span>--dir<span class="w"> </span>workspace/my_agent/examples/ch08
+</code></pre></div>
+<div class="highlight"><pre><span></span><code>dezhurny: status
+config: workspace/my_agent/examples/ch08
+глава 8 | 08_my_tool.py | настроено: count_open_tasks — «Считает незавершённые задачи в уже прочитанных карточках; ничего не пишет и не отправляет.»; в каталоге: да | каталог tools: описание функции ученика
+</code></pre></div></p>
+<p><div class="highlight"><pre><span></span><code><span class="c1"># запуск из корня starter</span>
+python<span class="w"> </span>dezhurny.py<span class="w"> </span>run<span class="w"> </span>--dir<span class="w"> </span>workspace/my_agent/examples/ch08
+</code></pre></div>
+<div class="highlight"><pre><span></span><code>dezhurny: run
+goal: не настроено (глава 1)
+config: workspace/my_agent/examples/ch08
+model: replay — авторский сценарий, не запись модели
+scenario: success
+stop_policy: max_steps 5, max_retries 1 (по умолчанию, глава 2)
+tools: read_task_cards, validate_task_card, build_status_report, count_open_tasks
+my_tool: count_open_tasks — в каталоге модели, не исполняется
+Шаг 1 | read_task_cards | continue
+Шаг 2 | validate_task_card | continue
+Шаг 3 | validate_task_card | continue
+Шаг 4 | validate_task_card | continue
+Шаг 5 | build_status_report | success
+Остановка: success
+# Черновик статуса проекта
+
+Всего задач: 3.
+Незавершённых: 2.
+Заблокированных: 1.
+
+## Незавершённые задачи
+- `task-002` — Подготовить макет афиши (in_progress)
+- `task-003` — Проверить список оборудования (blocked)
+
+## Блокеры
+- `task-003`: Нет подтверждённого списка оборудования
+
+Черновик. Отправка и изменение карточек не выполнялись.
+contract: не настроено (глава 5)
+save: не настроено (глава 3)
+state: не настроено (глава 10)
+trace: не настроено (глава 12)
+Качество модели не подтверждено этим техническим прогоном.
+</code></pre></div></p>
+<h2 id="return">Возвращаемся к карточке Марка<a class="headerlink" href="#return" title="Permanent link">&para;</a></h2>
+<p>Почему исходная карточка Марка не помогала выбрать операцию? Слова «работает с данными и помогает пользователю» подходят сразу к нескольким задачам бюро, не различая их.</p>
+<p>В описании не хватает ответов на конкретные вопросы:</p>
+<ol>
+<li>Над каким объектом работает операция?</li>
+<li>Где проходит граница с <code>read_task_cards</code> и <code>build_status_report</code>?</li>
+<li>Когда применять <code>validate_task_card</code>, а когда не применять?</li>
+</ol>
+<p>Без ответов трудно придумать содержательный negative test: непонятно, какой похожий запрос должен относиться к другой операции.</p>
+<p>Исправленное описание может оставаться коротким, но должно различать задачи:</p>
+<blockquote>
+<p>Проверяет одну существующую карточку задачи по <code>task_id</code> на соответствие правилам проекта. Используй для проверки конкретной карточки. Не используй для чтения всей доски или построения сводки.</p>
+</blockquote>
+<p>Аня снова показывает два запроса. Марк без запуска кода объясняет различие: для просьбы «Проверь task-003» нужен <code>validate_task_card</code>, а для просьбы «Покажи все карточки» нужен <code>read_task_cards</code>. Команда может проверить объяснённую границу с помощью test cases и отдельно проверить arguments с помощью validator.</p>
+<p>Ответ на вопрос-прогноз теперь можно обосновать.</p>
+<p><strong>Одного успешного вызова недостаточно: вызов показывает только один исход при выбранных условиях. Хорошему tool нужны ясный scope и contract, description с различимыми границами, schema для проверки arguments и как минимум три разных test case: «должен», «не должен», «ошибка».</strong></p>
+<h2 id="check">Проверь себя<a class="headerlink" href="#check" title="Permanent link">&para;</a></h2>
+<ol>
+<li>Что такое scope и чего он не делает?</li>
+<li>Что входит в contract операции?</li>
+<li>Почему contract нельзя заменить JSON Schema?</li>
+<li>Что такое validator и где его граница?</li>
+<li>Чем positive test отличается от negative test?</li>
+<li>Что проверяет error case?</li>
+<li>Приведи пример, когда arguments валидны, но выбран неправильный tool.</li>
+<li>Почему хороший scope не заменяет файловую границу <code>workspace/</code>?</li>
+<li>Что именно доказывает локальный <code>result: 3/3</code> и чего он не доказывает?</li>
+</ol>
+<h3 id="ответы_2">Ответы<a class="headerlink" href="#ответы_2" title="Permanent link">&para;</a></h3>
+<ol>
+<li>Scope — ясное описание того, где задача tool начинается и заканчивается. Он не выдаёт permission и не является sandbox.</li>
+<li>Назначение, входы, выход, ограничения и ошибки операции.</li>
+<li>Schema формально проверяет структуру данных; contract включает также смысл и границы поведения.</li>
+<li>Validator проверяет соответствие объекта заданным правилам до использования или принятия; он не доказывает автоматически правильность смыслового выбора tool.</li>
+<li>Positive test проверяет случай, где действие должно быть выбрано или выполнено; negative test — похожий случай, где этого действия быть не должно.</li>
+<li>Реакцию на некорректные входы, сбой операции или запрещённое действие.</li>
+<li>Например, <code>{"task_id": "task-003"}</code> корректно по schema для <code>validate_task_card</code>, но запрос человека «покажи все карточки проекта» требует другого tool.</li>
+<li>Scope описывает ответственность операции; <code>workspace/</code> технически ограничивает путь. Это разные границы.</li>
+<li>Что три подготовленных локальных случая дали ожидаемые результаты. Он не доказывает качество живой модели на новых запросах.</li>
+</ol>
+<h2 id="glossary">Словарь главы<a class="headerlink" href="#glossary" title="Permanent link">&para;</a></h2>
+<table>
+<thead>
+<tr>
+<th>Термин</th>
+<th>Рабочая формулировка</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Scope / граница задачи</strong></td>
+<td>ясное описание того, где задача tool начинается и заканчивается</td>
+</tr>
+<tr>
+<td><strong>Contract / контракт операции</strong></td>
+<td>согласованное описание назначения, входов, выхода, ограничений и ошибок операции</td>
+</tr>
+<tr>
+<td><strong>Validator / валидатор</strong></td>
+<td>проверка соответствия объекта заданным правилам до использования или принятия</td>
+</tr>
+<tr>
+<td><strong>Test case / тестовый случай</strong></td>
+<td>заранее заданная ситуация с ожидаемым наблюдаемым поведением</td>
+</tr>
+<tr>
+<td><strong>Positive test / «должен»</strong></td>
+<td>случай, в котором система должна выбрать или выполнить требуемое действие</td>
+</tr>
+<tr>
+<td><strong>Negative test / «не должен»</strong></td>
+<td>случай, в котором похожая ситуация не должна приводить к вызову данного действия</td>
+</tr>
+<tr>
+<td><strong>Error case / «ошибка»</strong></td>
+<td>случай, проверяющий реакцию системы на некорректные входы, сбой операции или запрещённое действие</td>
+</tr>
+</tbody>
+</table>
+<h2 id="bridge">Мост к главе 9<a class="headerlink" href="#bridge" title="Permanent link">&para;</a></h2>
+<p>У «Дежурного» есть набор разрешённых операций. Для каждой операции теперь можно объяснить границу задачи и contract, описать форму arguments и показать минимальные тесты. Достаточно ли готовых tools, чтобы повторять многошаговую работу одним и тем же способом? Нет: кроме отдельных действий, нужен записанный порядок их применения.</p>
+<p>В главе 4 мы уже видели роль Agent Skill и progressive disclosure, постепенного раскрытия: краткое описание → <code>SKILL.md</code> → нужный reference, то есть справочный материал. Тогда мы ещё не составляли собственную процедуру. Теперь, когда границы инструментов определены, можно перейти от отдельных действий к повторяемой работе.</p>
+<blockquote>
+<p><strong>Следующий вопрос.</strong> Как превратить повторяемую работу в переносимую процедуру?</p>
+</blockquote>
+<p>Ответ ты найдёшь в главе 9, «Первый Agent Skill».</p>
+
+
+
+
+
+
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+    
+      
+      <nav class="md-footer__inner md-grid" aria-label="Нижний колонтитул" >
+        
+          
+          <a href="../ch07/" class="md-footer__link md-footer__link--prev" aria-label="Назад: Глава 7. Диспетчер и ошибки">
+            <div class="md-footer__button md-icon">
+              
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+            </div>
+            <div class="md-footer__title">
+              <span class="md-footer__direction">
+                Назад
+              </span>
+              <div class="md-ellipsis">
+                Глава 7. Диспетчер и ошибки
+              </div>
+            </div>
+          </a>
+        
+        
+          
+          <a href="../ch09/" class="md-footer__link md-footer__link--next" aria-label="Вперед: Глава 9. Первый Agent Skill">
+            <div class="md-footer__title">
+              <span class="md-footer__direction">
+                Вперед
+              </span>
+              <div class="md-ellipsis">
+                Глава 9. Первый Agent Skill
+              </div>
+            </div>
+            <div class="md-footer__button md-icon">
+              
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M4 11v2h12l-5.5 5.5 1.42 1.42L19.84 12l-7.92-7.92L10.5 5.5 16 11z"/></svg>
+            </div>
+          </a>
+        
+      </nav>
+    
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+    <div class="md-copyright__highlight">
+      ARISTOTEL · Редакция r0004 · 2026-10-15 · техническая редакция, пилот не проводился
+    </div>
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    
+      
+      
+      <script id="__config" type="application/json">{"annotate": null, "base": "../..", "features": ["navigation.tabs", "navigation.tabs.sticky", "navigation.sections", "navigation.indexes", "search.suggest", "search.highlight", "content.code.copy", "navigation.footer"], "search": "../../assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "\u0421\u043a\u043e\u043f\u0438\u0440\u043e\u0432\u0430\u043d\u043e \u0432 \u0431\u0443\u0444\u0435\u0440", "clipboard.copy": "\u041a\u043e\u043f\u0438\u0440\u043e\u0432\u0430\u0442\u044c \u0432 \u0431\u0443\u0444\u0435\u0440", "search.result.more.one": "\u0415\u0449\u0451 1 \u043d\u0430 \u044d\u0442\u043e\u0439 \u0441\u0442\u0440\u0430\u043d\u0438\u0446\u0435", "search.result.more.other": "\u0415\u0449\u0451 # \u043d\u0430 \u044d\u0442\u043e\u0439 \u0441\u0442\u0440\u0430\u043d\u0438\u0446\u0435", "search.result.none": "\u0421\u043e\u0432\u043f\u0430\u0434\u0435\u043d\u0438\u0439 \u043d\u0435 \u043d\u0430\u0439\u0434\u0435\u043d\u043e", "search.result.one": "\u041d\u0430\u0439\u0434\u0435\u043d\u043e 1 \u0441\u043e\u0432\u043f\u0430\u0434\u0435\u043d\u0438\u0435", "search.result.other": "\u041d\u0430\u0439\u0434\u0435\u043d\u043e \u0441\u043e\u0432\u043f\u0430\u0434\u0435\u043d\u0438\u0439: #", "search.result.placeholder": "\u041d\u0430\u0447\u043d\u0438\u0442\u0435 \u043f\u0435\u0447\u0430\u0442\u0430\u0442\u044c \u0434\u043b\u044f \u043f\u043e\u0438\u0441\u043a\u0430", "search.result.term.missing": "\u041e\u0442\u0441\u0443\u0442\u0441\u0442\u0432\u0443\u0435\u0442", "select.version": "\u0412\u044b\u0431\u0435\u0440\u0438\u0442\u0435 \u0432\u0435\u0440\u0441\u0438\u044e"}, "version": {"default": "current", "provider": "mike"}}</script>
+    
+    
+      <script src="../../assets/javascripts/bundle.79ae519e.min.js"></script>
+      
+    
+  </body>
+</html>
