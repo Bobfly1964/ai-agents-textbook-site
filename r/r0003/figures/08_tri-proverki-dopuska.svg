@@ -1,0 +1,85 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 800" width="800" height="800" role="img" aria-labelledby="t d">
+  <title id="t">Фигура 8. Три проверки допуска</title>
+  <desc id="d">Глава 3, урок 6, раздел 4 «Права доступа проверяются до операции». Три проверки access_demo.py идут до операции: путь внутри workspace/, операция в ALLOWED_OPERATIONS, область записи drafts/; каждая может вернуть denied. После них — allowed или error. Внизу — четыре observation доступа как примеры и подпись os_sandbox_proven: false: три проверки не доказывают изоляцию процесса.</desc>
+  <defs>
+    <marker id="arrow" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="8" markerHeight="8" orient="auto-start-reverse">
+      <path d="M0,0 L10,5 L0,10 z" fill="#52606D"/>
+    </marker>
+  </defs>
+  <rect x="0" y="0" width="800" height="800" fill="#FFFFFF"/>
+  <g font-family="PT Sans, DejaVu Sans, Arial, sans-serif" font-size="20" fill="#1F2933" text-anchor="middle">
+    <!-- три проверки -->
+    <rect class="gate" data-role="gate" x="24" y="24" width="390" height="76" rx="6" fill="#F5F7FA" stroke="#1D4ED8" stroke-width="1.5"/>
+    <text x="219" y="54">путь внутри workspace/</text>
+    <text x="219" y="84" font-size="18">перед открытием файла</text>
+    <rect class="gate" data-role="gate" x="24" y="140" width="390" height="76" rx="6" fill="#F5F7FA" stroke="#1D4ED8" stroke-width="1.5"/>
+    <text x="219" y="170">операция в разрешённом наборе</text>
+    <text x="219" y="200" font-size="18" font-family="PT Mono, DejaVu Sans Mono, monospace">ALLOWED_OPERATIONS</text>
+    <rect class="gate" data-role="gate" x="24" y="256" width="390" height="76" rx="6" fill="#F5F7FA" stroke="#1D4ED8" stroke-width="1.5"/>
+    <text x="219" y="286">область записи (только write)</text>
+    <text x="219" y="316" font-size="18" font-family="PT Mono, DejaVu Sans Mono, monospace">WRITABLE_PREFIX = "drafts/"</text>
+    <!-- да: к следующей проверке -->
+    <g stroke="#15803D" stroke-width="1.5" fill="none" marker-end="url(#arrow)">
+      <line x1="219" y1="100" x2="219" y2="138"/>
+      <line x1="219" y1="216" x2="219" y2="254"/>
+    </g>
+    <g font-size="18" fill="#15803D" text-anchor="start">
+      <text x="229" y="126">да</text>
+      <text x="229" y="242">да</text>
+    </g>
+    <!-- нет: denied -->
+    <g stroke="#B91C1C" stroke-width="1.5" fill="none" marker-end="url(#arrow)">
+      <line x1="414" y1="62" x2="476" y2="62"/>
+      <line x1="414" y1="178" x2="476" y2="178"/>
+      <line x1="414" y1="294" x2="476" y2="294"/>
+    </g>
+    <g font-size="18" fill="#B91C1C">
+      <text x="446" y="54">нет</text>
+      <text x="446" y="170">нет</text>
+      <text x="446" y="286">нет</text>
+    </g>
+    <g font-size="18" font-family="PT Mono, DejaVu Sans Mono, monospace">
+      <rect data-role="denied" x="478" y="24" width="298" height="76" rx="6" fill="#FFFFFF" stroke="#B91C1C" stroke-width="1.5"/>
+      <text x="627" y="54" fill="#B91C1C">denied</text>
+      <text x="627" y="84">вне workspace</text>
+      <rect data-role="denied" x="478" y="140" width="298" height="76" rx="6" fill="#FFFFFF" stroke="#B91C1C" stroke-width="1.5"/>
+      <text x="627" y="170" fill="#B91C1C">denied</text>
+      <text x="627" y="200">operation_not_allowed</text>
+      <rect data-role="denied" x="478" y="256" width="298" height="76" rx="6" fill="#FFFFFF" stroke="#B91C1C" stroke-width="1.5"/>
+      <text x="627" y="286" fill="#B91C1C">denied</text>
+      <text x="627" y="316">path_not_writable</text>
+    </g>
+    <!-- после трёх проверок: allowed или error -->
+    <line x1="150" y1="332" x2="150" y2="390" stroke="#15803D" stroke-width="1.5" marker-end="url(#arrow)"/>
+    <line x1="400" y1="332" x2="400" y2="390" stroke="#52606D" stroke-width="1.5" marker-end="url(#arrow)"/>
+    <g font-size="18" font-family="PT Mono, DejaVu Sans Mono, monospace">
+      <rect data-role="allowed" x="24" y="392" width="360" height="76" rx="6" fill="#F5F7FA" stroke="#15803D" stroke-width="1.5"/>
+      <text x="204" y="422" fill="#15803D">allowed</text>
+      <text x="204" y="452">причина: файл существует</text>
+      <rect data-role="error" x="392" y="392" width="384" height="76" rx="6" fill="#FFFFFF" stroke="#52606D" stroke-width="1.5"/>
+      <text x="584" y="422">error</text>
+      <text x="584" y="452">причина: файл не найден</text>
+    </g>
+    <!-- четыре observation доступа — примеры -->
+    <rect data-role="examples" x="24" y="500" width="752" height="166" rx="6" fill="#F5F7FA" stroke="#52606D" stroke-width="1.5"/>
+    <text x="48" y="530" font-size="18" fill="#52606D" text-anchor="start">четыре observation доступа — примеры</text>
+    <g font-size="18" font-family="PT Mono, DejaVu Sans Mono, monospace" text-anchor="start">
+      <text class="row" x="48" y="562">read</text>
+      <text x="140" y="562">tasks/task-003.json</text>
+      <text x="560" y="562" fill="#15803D">allowed</text>
+      <text class="row" x="48" y="590">write</text>
+      <text x="140" y="590">tasks/task-003.json</text>
+      <text x="560" y="590" fill="#B91C1C">denied</text>
+      <text class="row" x="48" y="618">read</text>
+      <text x="140" y="618">tasks/missing.json</text>
+      <text x="560" y="618">error</text>
+      <text class="row" x="48" y="646">read</text>
+      <text x="140" y="646">../outside.json</text>
+      <text x="560" y="646" fill="#B91C1C">denied</text>
+    </g>
+    <!-- обязательная подпись -->
+    <rect x="120" y="696" width="560" height="80" rx="6" fill="#F5F7FA" stroke="#1F2933" stroke-width="1.5" stroke-dasharray="6 4"/>
+    <text x="400" y="728" font-size="18" font-family="PT Mono, DejaVu Sans Mono, monospace">os_sandbox_proven: false</text>
+    <text x="400" y="758" font-size="18">три проверки не доказывают изоляцию процесса</text>
+  </g>
+</svg>

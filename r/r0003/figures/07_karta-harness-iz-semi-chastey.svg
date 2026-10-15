@@ -1,0 +1,58 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 790" width="800" height="790" role="img" aria-labelledby="t d">
+  <title id="t">Фигура 7. Карта harness из семи частей</title>
+  <desc id="d">Глава 3, урок 6, раздел 9 «Завершаем карту из семи частей». Семь частей карты harness по схеме раздела 3 урока 6 с подписями эталона harness_demo.py --show-parts: интерфейс, выбор, оркестрация, runtime, состояние, активный контекст, permissions. Решение после observation (decide) показано внутри оркестрации и не является восьмой частью; permissions — отдельный блок, проверяется до операции.</desc>
+  <defs>
+    <marker id="arrow" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="8" markerHeight="8" orient="auto-start-reverse">
+      <path d="M0,0 L10,5 L0,10 z" fill="#52606D"/>
+    </marker>
+  </defs>
+  <rect x="0" y="0" width="800" height="790" fill="#FFFFFF"/>
+  <g font-family="PT Sans, DejaVu Sans, Arial, sans-serif" font-size="20" fill="#1F2933" text-anchor="middle">
+    <!-- 1. интерфейс -->
+    <rect class="part" data-role="interface" x="280" y="24" width="240" height="76" rx="6" fill="#F5F7FA" stroke="#52606D" stroke-width="1.5"/>
+    <text x="400" y="54">1. интерфейс</text>
+    <text x="400" y="84" font-size="18" font-family="PT Mono, DejaVu Sans Mono, monospace">show_loop, main</text>
+    <line x1="340" y1="100" x2="340" y2="168" stroke="#52606D" stroke-width="1.5" marker-end="url(#arrow)"/>
+    <!-- решение после observation: decide (пунктир к интерфейсу, как в схеме главы) -->
+    <line x1="460" y1="170" x2="460" y2="102" stroke="#52606D" stroke-width="1.5" stroke-dasharray="6 4" marker-end="url(#arrow)"/>
+    <text x="472" y="126" font-size="18" text-anchor="start">решение после</text>
+    <text x="472" y="152" font-size="18" text-anchor="start">observation: decide</text>
+    <!-- 3. оркестрация, внутри неё decide -->
+    <rect class="part" data-role="orchestration" x="150" y="170" width="500" height="140" rx="6" fill="#F5F7FA" stroke="#1D4ED8" stroke-width="1.5"/>
+    <text x="400" y="200">3. оркестрация</text>
+    <text x="400" y="228" font-size="18" font-family="PT Mono, DejaVu Sans Mono, monospace">run_harness</text>
+    <rect data-role="decide" x="170" y="244" width="460" height="48" rx="6" fill="#FFFFFF" stroke="#1D4ED8" stroke-width="1.5" stroke-dasharray="6 4"/>
+    <text x="400" y="274" font-size="18" font-family="PT Mono, DejaVu Sans Mono, monospace">решение_после_observation: decide</text>
+    <!-- 2. выбор -->
+    <line x1="230" y1="310" x2="230" y2="378" stroke="#52606D" stroke-width="1.5" marker-end="url(#arrow)"/>
+    <line x1="170" y1="380" x2="170" y2="312" stroke="#52606D" stroke-width="1.5" marker-end="url(#arrow)"/>
+    <text x="160" y="352" font-size="18" text-anchor="end">action</text>
+    <rect class="part" data-role="choice" x="24" y="380" width="240" height="76" rx="6" fill="#F5F7FA" stroke="#52606D" stroke-width="1.5"/>
+    <text x="144" y="410">2. выбор</text>
+    <text x="144" y="440" font-size="18" font-family="PT Mono, DejaVu Sans Mono, monospace">planner_stub</text>
+    <!-- 4. runtime -->
+    <line x1="570" y1="310" x2="570" y2="378" stroke="#52606D" stroke-width="1.5" marker-end="url(#arrow)"/>
+    <line x1="630" y1="380" x2="630" y2="312" stroke="#52606D" stroke-width="1.5" marker-end="url(#arrow)"/>
+    <text x="640" y="352" font-size="18" text-anchor="start">observation</text>
+    <rect class="part" data-role="runtime" x="536" y="380" width="240" height="76" rx="6" fill="#F5F7FA" stroke="#1D4ED8" stroke-width="1.5"/>
+    <text x="656" y="410">4. runtime</text>
+    <text x="656" y="440" font-size="18" font-family="PT Mono, DejaVu Sans Mono, monospace">perform_action</text>
+    <!-- 5. состояние -->
+    <line x1="400" y1="310" x2="400" y2="518" stroke="#52606D" stroke-width="1.5" marker-end="url(#arrow)"/>
+    <rect class="part" data-role="state" x="336" y="520" width="306" height="76" rx="6" fill="#F5F7FA" stroke="#52606D" stroke-width="1.5"/>
+    <text x="489" y="550">5. состояние</text>
+    <text x="489" y="580" font-size="18" font-family="PT Mono, DejaVu Sans Mono, monospace">new_state, update_state</text>
+    <!-- 6. активный контекст -->
+    <line x1="336" y1="558" x2="306" y2="558" stroke="#52606D" stroke-width="1.5" marker-end="url(#arrow)"/>
+    <rect class="part" data-role="context" x="24" y="520" width="280" height="76" rx="6" fill="#F5F7FA" stroke="#52606D" stroke-width="1.5"/>
+    <text x="164" y="550">6. активный контекст</text>
+    <text x="164" y="580" font-size="18" font-family="PT Mono, DejaVu Sans Mono, monospace">state -&gt; planner_stub</text>
+    <line x1="144" y1="520" x2="144" y2="458" stroke="#52606D" stroke-width="1.5" marker-end="url(#arrow)"/>
+    <!-- 7. permissions — отдельный блок -->
+    <line x1="700" y1="660" x2="700" y2="458" stroke="#52606D" stroke-width="1.5" marker-end="url(#arrow)"/>
+    <rect class="part" data-role="permissions" x="276" y="660" width="500" height="76" rx="6" fill="#F5F7FA" stroke="#1D4ED8" stroke-width="1.5"/>
+    <text x="526" y="690">7. permissions — проверяется до операции</text>
+    <text x="526" y="720" font-size="18" font-family="PT Mono, DejaVu Sans Mono, monospace">access_demo.check_workspace_access</text>
+    <text x="526" y="764" font-size="18" fill="#52606D">(отдельное демо главы 3)</text>
+  </g>
+</svg>

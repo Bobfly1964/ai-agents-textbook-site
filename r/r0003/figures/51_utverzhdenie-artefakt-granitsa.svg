@@ -1,0 +1,57 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 410" width="800" height="410" role="img" aria-labelledby="t d">
+  <title id="t">Фигура 51. Утверждение → артефакт → граница</title>
+  <desc id="d">Глава 17, урок 34, раздел 1 «Защищаем не демонстрацию, а систему». Формула защиты в три колонки: узкое утверждение, наблюдаемый артефакт и то, чего этот артефакт не доказывает. Главный пример — неизвестный tool и execution: not performed; рядом — отказ человека (deny) и live bridge evidence.</desc>
+  <defs>
+    <marker id="arrow" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="8" markerHeight="8" orient="auto-start-reverse">
+      <path d="M0,0 L10,5 L0,10 z" fill="#52606D"/>
+    </marker>
+  </defs>
+  <rect x="0" y="0" width="800" height="410" fill="#FFFFFF"/>
+  <g font-family="PT Sans, DejaVu Sans, Arial, sans-serif" font-size="18" fill="#1F2933" text-anchor="start">
+    <!-- заголовки столбцов -->
+    <text x="36" y="46" fill="#52606D">Утверждение</text>
+    <text x="222" y="46" fill="#52606D">Артефакт</text>
+    <text x="526" y="46" fill="#52606D">Граница</text>
+
+    <!-- пример: неизвестный tool -->
+    <rect class="row" data-role="unknown-tool" x="24" y="64" width="752" height="100" rx="6" fill="#F5F7FA" stroke="#1D4ED8" stroke-width="1.5"/>
+    <text x="36" y="96">неизвестный</text>
+    <text x="36" y="120">tool</text>
+    <text x="36" y="144">не выполняется</text>
+    <line x1="194" y1="114" x2="216" y2="114" stroke="#52606D" stroke-width="1.5" marker-end="url(#arrow)"/>
+    <text x="222" y="108">сохранённый stdout</text>
+    <text x="222" y="132" font-family="PT Mono, DejaVu Sans Mono, monospace">execution: not performed</text>
+    <line x1="498" y1="114" x2="520" y2="114" stroke="#52606D" stroke-width="1.5" marker-end="url(#arrow)"/>
+    <text x="526" y="96">не доказывает</text>
+    <text x="526" y="120">безопасность</text>
+    <text x="526" y="144">всех интеграций</text>
+
+    <!-- рядом: отказ человека -->
+    <rect class="row" data-role="human-deny" x="24" y="176" width="752" height="100" rx="6" fill="#FFFFFF" stroke="#B45309" stroke-width="2"/>
+    <text x="36" y="208">после</text>
+    <text x="98" y="208" font-family="PT Mono, DejaVu Sans Mono, monospace">deny</text>
+    <text x="36" y="232">изменение не</text>
+    <text x="36" y="256">применилось</text>
+    <line x1="194" y1="226" x2="216" y2="226" stroke="#52606D" stroke-width="1.5" marker-end="url(#arrow)"/>
+    <text x="222" y="208">approval evidence:</text>
+    <text x="222" y="232" font-family="PT Mono, DejaVu Sans Mono, monospace">not applied</text>
+    <text x="222" y="256">status прежний</text>
+    <line x1="498" y1="226" x2="520" y2="226" stroke="#52606D" stroke-width="1.5" marker-end="url(#arrow)"/>
+    <text x="526" y="208">не доказывает</text>
+    <text x="526" y="232">правильность всех</text>
+    <text x="526" y="256">человеческих решений</text>
+
+    <!-- рядом: live bridge -->
+    <rect class="row" data-role="live-bridge" x="24" y="288" width="752" height="100" rx="6" fill="#F5F7FA" stroke="#52606D" stroke-width="1.5"/>
+    <text x="36" y="320">есть live</text>
+    <text x="36" y="344">evidence</text>
+    <line x1="194" y1="338" x2="216" y2="338" stroke="#52606D" stroke-width="1.5" marker-end="url(#arrow)"/>
+    <text x="222" y="320">паспорт + обезличенный</text>
+    <text x="222" y="344">Trace или видео:</text>
+    <text x="222" y="368">фактический bridge-сеанс</text>
+    <line x1="498" y1="338" x2="520" y2="338" stroke="#52606D" stroke-width="1.5" marker-end="url(#arrow)"/>
+    <text x="526" y="320">не доказывает</text>
+    <text x="526" y="344">общий pass rate</text>
+    <text x="526" y="368">модели</text>
+  </g>
+</svg>

@@ -1,0 +1,36 @@
+/* Учебник, не academy (TASK_STYLE_01, A3). Стиль ARISTOTEL задаёт mkdocs.yml (палитра, логотип);
+ * здесь — только то, что держит учебные элементы читаемыми при длинном чтении.
+ * Источник стиля academy — tools/site/STYLE_aristotel-academy.md. */
+
+/* Фигуры глав не шире текстовой колонки. */
+.md-typeset img {
+  max-width: 100%;
+  height: auto;
+}
+
+/* Блок кода: первая строка («# запуск из корня starter») не уходит под кнопку копирования. */
+.md-typeset pre > code {
+  padding-right: 2.6em;
+}
+
+/* Таблицы («Обязательные проверки» и др.) на узком экране прокручиваются внутри своей рамки,
+ * страница не уезжает вбок. */
+.md-typeset__table {
+  max-width: 100%;
+}
+.md-typeset table:not([class]) {
+  display: table;
+  max-width: 100%;
+}
+.md-typeset__scrollwrap {
+  overflow-x: auto;
+}
+
+/* Плашка статуса редакции (announce): свой контрастный фон, не зависящий от primary и схемы. */
+.md-banner {
+  background-color: #2e2541;
+  color: #fff;
+}
+.md-banner strong {
+  color: #fff;
+}

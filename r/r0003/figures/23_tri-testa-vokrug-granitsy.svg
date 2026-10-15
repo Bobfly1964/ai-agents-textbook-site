@@ -1,0 +1,64 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 700" width="800" height="700" role="img" aria-labelledby="t d">
+  <title id="t">Фигура 23. Три теста вокруг границы</title>
+  <desc id="d">Глава 8, урок 16, «Выходной билет урока 16». Tool validate_task_card в центре; слева positive test («должен»), справа negative test («не должен»), снизу error case («ошибка») с выводом проверки; стрелка negative test красным пунктиром с крестом не входит в tool — «не сюда»; всё — внутри отдельной внешней рамки workspace/.</desc>
+  <defs>
+    <marker id="arrow" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="8" markerHeight="8" orient="auto-start-reverse">
+      <path d="M0,0 L10,5 L0,10 z" fill="#52606D"/>
+    </marker>
+  </defs>
+  <rect x="0" y="0" width="800" height="700" fill="#FFFFFF"/>
+  <g font-family="PT Sans, DejaVu Sans, Arial, sans-serif" font-size="20" fill="#1F2933" text-anchor="middle">
+    <!-- внешняя рамка workspace -->
+    <rect data-role="workspace" x="24" y="24" width="752" height="584" rx="6" fill="#FFFFFF" stroke="#52606D" stroke-width="1.5"/>
+    <text x="40" y="54" font-family="PT Mono, DejaVu Sans Mono, monospace" font-size="18" fill="#52606D" text-anchor="start">workspace/</text>
+    <!-- positive слева -->
+    <rect class="test" data-role="positive" x="40" y="70" width="352" height="170" rx="6" fill="#F5F7FA" stroke="#52606D" stroke-width="1.5"/>
+    <text x="216" y="100">positive test</text>
+    <text x="216" y="126" font-size="18">«должен»</text>
+    <text x="216" y="160" font-size="18">«Проверь карточку task-003</text>
+    <text x="216" y="184" font-size="18">по правилам проекта»</text>
+    <text x="60" y="220" font-size="18" text-anchor="start">ожидаю</text>
+    <text x="152" y="220" font-size="18" font-family="PT Mono, DejaVu Sans Mono, monospace" text-anchor="start">validate_task_card</text>
+    <!-- negative справа -->
+    <rect class="test" data-role="negative" x="408" y="70" width="352" height="170" rx="6" fill="#F5F7FA" stroke="#52606D" stroke-width="1.5"/>
+    <text x="584" y="100">negative test</text>
+    <text x="584" y="126" font-size="18">«не должен»</text>
+    <text x="584" y="172" font-size="18">«Покажи все карточки проекта»</text>
+    <text x="428" y="220" font-size="18" text-anchor="start">ожидаю</text>
+    <text x="520" y="220" font-size="18" font-family="PT Mono, DejaVu Sans Mono, monospace" text-anchor="start">read_task_cards</text>
+    <!-- стрелки тестов к tool -->
+    <g stroke="#52606D" stroke-width="1.5" fill="none" marker-end="url(#arrow)">
+      <polyline points="216,240 216,330 248,330"/>
+      <line x1="400" y1="420" x2="400" y2="372"/>
+    </g>
+    <!-- negative: стрелка «не сюда» — красный пунктир, крест у наконечника, в блок tool не входит -->
+    <g stroke="#B91C1C" stroke-width="1.5" fill="none">
+      <polyline points="700,240 700,330 576,330" stroke-dasharray="6 4"/>
+      <line x1="553" y1="323" x2="567" y2="337" stroke-width="2"/>
+      <line x1="553" y1="337" x2="567" y2="323" stroke-width="2"/>
+    </g>
+    <path d="M568,330 L578,325 L578,335 z" fill="#B91C1C"/>
+    <g font-family="PT Mono, DejaVu Sans Mono, monospace" font-size="18" fill="#B91C1C" text-anchor="start">
+      <text x="572" y="362">не сюда: ожидаю</text>
+      <text x="572" y="386">read_task_cards</text>
+    </g>
+    <!-- tool в центре -->
+    <rect data-role="tool" x="250" y="290" width="300" height="80" rx="6" fill="#F5F7FA" stroke="#1D4ED8" stroke-width="1.5"/>
+    <text x="400" y="322" font-size="22">tool</text>
+    <text x="400" y="352" font-size="18" font-family="PT Mono, DejaVu Sans Mono, monospace">validate_task_card</text>
+    <!-- error снизу -->
+    <rect class="test" data-role="error" x="200" y="422" width="400" height="170" rx="6" fill="#F5F7FA" stroke="#52606D" stroke-width="1.5"/>
+    <text x="400" y="452">error case</text>
+    <text x="400" y="478" font-size="18">«ошибка»</text>
+    <g font-family="PT Mono, DejaVu Sans Mono, monospace" font-size="18">
+      <text x="400" y="512">arguments: {}</text>
+      <text x="400" y="540" fill="#B91C1C">JSON Schema: invalid</text>
+      <text x="400" y="568">execution: not performed</text>
+    </g>
+    <!-- подпись-неравенство -->
+    <g font-family="PT Mono, DejaVu Sans Mono, monospace" font-size="18">
+      <rect x="130" y="632" width="540" height="40" rx="6" fill="#F5F7FA" stroke="#1F2933" stroke-width="1.5" stroke-dasharray="6 4"/>
+      <text class="inequality" x="400" y="658">test cases ≠ оценка поведения живой модели</text>
+    </g>
+  </g>
+</svg>

@@ -1,0 +1,25 @@
+step: 1
+state: observed
+action: read_task_cards
+observation: {"ok": true, "matches": ["candidate-001"], "search_complete": false, "next_page": 2}
+decision: continue
+step: 2
+state: observed
+action: read_task_cards
+observation: {"ok": true, "matches": ["candidate-002"], "search_complete": false, "next_page": 3}
+decision: continue
+step: 3
+state: observed
+action: read_task_cards
+observation: {"ok": true, "matches": ["candidate-003"], "search_complete": false, "next_page": 4}
+decision: continue
+step: 4
+state: observed
+action: read_task_cards
+observation: {"ok": true, "matches": ["candidate-004"], "search_complete": false, "next_page": 5}
+decision: continue
+step: 5
+state: observed
+action: read_task_cards
+observation: {"ok": true, "matches": ["candidate-005"], "search_complete": false, "next_page": 6}
+decision: limit

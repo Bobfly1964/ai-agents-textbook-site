@@ -1,0 +1,40 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 540" width="800" height="540" role="img" aria-labelledby="t d">
+  <title id="t">Фигура 25. Анатомия Agent Skill</title>
+  <desc id="d">Глава 9, урок 17, раздел 2 «Обязательный центр процедуры». Каталог project-status/: обязательный SKILL.md, внутри — frontmatter (name, description) и инструкции процедуры; рядом необязательные папки references/, assets/, scripts/ (пунктирная рамка и слово «необязательно»).</desc>
+  <rect x="0" y="0" width="800" height="540" fill="#FFFFFF"/>
+  <g font-family="PT Sans, DejaVu Sans, Arial, sans-serif" font-size="20" fill="#1F2933" text-anchor="middle">
+    <!-- каталог -->
+    <rect data-role="directory" x="24" y="24" width="752" height="376" rx="6" fill="#FFFFFF" stroke="#52606D" stroke-width="1.5"/>
+    <text x="48" y="58" font-family="PT Mono, DejaVu Sans Mono, monospace" text-anchor="start">project-status/</text>
+    <!-- обязательный SKILL.md -->
+    <rect data-role="required" x="48" y="76" width="360" height="300" rx="6" fill="#F5F7FA" stroke="#52606D" stroke-width="1.5"/>
+    <text x="228" y="108" font-family="PT Mono, DejaVu Sans Mono, monospace" font-size="22">SKILL.md</text>
+    <text x="228" y="134" font-size="18">обязательно</text>
+    <rect data-role="frontmatter" x="72" y="152" width="312" height="120" rx="6" fill="#FFFFFF" stroke="#52606D" stroke-width="1.5"/>
+    <text x="228" y="182">frontmatter</text>
+    <g font-family="PT Mono, DejaVu Sans Mono, monospace" font-size="18">
+      <text x="228" y="216">name</text>
+      <text x="228" y="246">description</text>
+    </g>
+    <rect data-role="instructions" x="72" y="288" width="312" height="64" rx="6" fill="#FFFFFF" stroke="#52606D" stroke-width="1.5"/>
+    <text x="228" y="327">инструкции процедуры</text>
+    <!-- три необязательные папки -->
+    <rect data-role="optional" x="432" y="76" width="320" height="112" rx="6" fill="#FFFFFF" stroke="#52606D" stroke-width="1.5" stroke-dasharray="6 4"/>
+    <text x="592" y="108" font-family="PT Mono, DejaVu Sans Mono, monospace">references/</text>
+    <text x="592" y="134" font-size="18">необязательно</text>
+    <text x="592" y="166" font-family="PT Mono, DejaVu Sans Mono, monospace" font-size="18">report-template.md</text>
+    <rect data-role="optional" x="432" y="200" width="320" height="80" rx="6" fill="#FFFFFF" stroke="#52606D" stroke-width="1.5" stroke-dasharray="6 4"/>
+    <text x="592" y="232" font-family="PT Mono, DejaVu Sans Mono, monospace">assets/</text>
+    <text x="592" y="260" font-size="18">необязательно</text>
+    <rect data-role="optional" x="432" y="292" width="320" height="84" rx="6" fill="#FFFFFF" stroke="#52606D" stroke-width="1.5" stroke-dasharray="6 4"/>
+    <text x="592" y="326" font-family="PT Mono, DejaVu Sans Mono, monospace">scripts/</text>
+    <text x="592" y="354" font-size="18">необязательно</text>
+    <!-- подписи -->
+    <g font-family="PT Mono, DejaVu Sans Mono, monospace" font-size="18">
+      <rect x="220" y="424" width="360" height="40" rx="6" fill="#F5F7FA" stroke="#1F2933" stroke-width="1.5" stroke-dasharray="6 4"/>
+      <text x="400" y="450">scripts/ optional</text>
+      <rect x="220" y="472" width="360" height="40" rx="6" fill="#F5F7FA" stroke="#1F2933" stroke-width="1.5" stroke-dasharray="6 4"/>
+      <text class="inequality" x="400" y="498">script present ≠ executed</text>
+    </g>
+  </g>
+</svg>

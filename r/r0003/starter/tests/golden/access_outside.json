@@ -1,0 +1,1 @@
+{"operation": "read", "path": "../outside.json", "status": "denied", "boundary": "outside_workspace", "reason": "path_outside_workspace", "os_sandbox_proven": false}

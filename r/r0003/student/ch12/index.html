@@ -1,0 +1,3114 @@
+
+<!doctype html>
+<html lang="ru" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+        <meta name="description" content="Учебник для 9–10 классов">
+      
+      
+      
+        <link rel="canonical" href="https://book.stemschool.online/r0003/student/ch12/">
+      
+      
+        <link rel="prev" href="../ch11/">
+      
+      
+        <link rel="next" href="../ch13/">
+      
+      
+        
+      
+      
+      <link rel="icon" href="../../assets/images/logo.png">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.6">
+    
+    
+      
+        <title>Глава 12. Traces: как понять, что происходило на самом деле? - ИИ-агенты и Agent Skills</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../assets/stylesheets/main.484c7ddc.min.css">
+      
+        
+        <link rel="stylesheet" href="../../assets/stylesheets/palette.ab4e12ef.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+      <link rel="stylesheet" href="../../assets/stylesheets/extra.css">
+    
+    <script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+  </head>
+  
+  
+    
+    
+      
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="deep-purple" data-md-color-accent="cyan">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#глава-12-traces-как-понять-что-происходило-на-самом-деле" class="md-skip">
+          Перейти к содержанию
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+        <aside class="md-banner">
+          <div class="md-banner__inner md-grid md-typeset">
+            
+            
+  
+    <strong>Техническая редакция: пилот не проводился</strong> · редакция r0003
+  
+
+          </div>
+          
+        </aside>
+      
+    </div>
+    
+      <div data-md-color-scheme="default" data-md-component="outdated" hidden>
+        
+      </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow md-header--lifted" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Верхний колонтитул">
+    <a href="../.." title="ИИ-агенты и Agent Skills" class="md-header__button md-logo" aria-label="ИИ-агенты и Agent Skills" data-md-component="logo">
+      
+  <img src="../../assets/images/logo.png" alt="logo">
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            ИИ-агенты и Agent Skills
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Глава 12. Traces: как понять, что происходило на самом деле?
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+        <form class="md-header__option" data-md-component="palette">
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="(prefers-color-scheme: light)" data-md-color-scheme="default" data-md-color-primary="deep-purple" data-md-color-accent="cyan"  aria-label="Переключить на тёмную"  type="radio" name="__palette" id="__palette_0">
+    
+      <label class="md-header__button md-icon" title="Переключить на тёмную" for="__palette_1" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 18c-.89 0-1.74-.2-2.5-.55C11.56 16.5 13 14.42 13 12s-1.44-4.5-3.5-5.45C10.26 6.2 11.11 6 12 6a6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12z"/></svg>
+      </label>
+    
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="(prefers-color-scheme: dark)" data-md-color-scheme="slate" data-md-color-primary="deep-purple" data-md-color-accent="cyan"  aria-label="Переключить на светлую"  type="radio" name="__palette" id="__palette_1">
+    
+      <label class="md-header__button md-icon" title="Переключить на светлую" for="__palette_0" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a4 4 0 0 0-4 4 4 4 0 0 0 4 4 4 4 0 0 0 4-4 4 4 0 0 0-4-4m0 10a6 6 0 0 1-6-6 6 6 0 0 1 6-6 6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12z"/></svg>
+      </label>
+    
+  
+</form>
+      
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+      
+      
+        <label class="md-header__button md-icon" for="__search">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        </label>
+        <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Поиск" placeholder="Поиск" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Поиск">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Очистить" aria-label="Очистить" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+        <div class="md-search__suggest" data-md-component="search-suggest"></div>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Инициализация поиска
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+      
+    
+    
+  </nav>
+  
+    
+      
+<nav class="md-tabs" aria-label="Вкладки" data-md-component="tabs">
+  <div class="md-grid">
+    <ul class="md-tabs__list">
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../.." class="md-tabs__link">
+        
+  
+  
+    
+  
+  Главная
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+    
+  
+  
+    
+    
+      <li class="md-tabs__item md-tabs__item--active">
+        <a href="../intro/" class="md-tabs__link">
+          
+  
+  
+    
+  
+  Ученик
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../teacher/teacher-guide/" class="md-tabs__link">
+          
+  
+  
+    
+  
+  Учитель
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../../routes/" class="md-tabs__link">
+        
+  
+  
+    
+  
+  Маршруты A/B
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../../files/" class="md-tabs__link">
+        
+  
+  
+    
+  
+  Файлы практикума
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../../about/" class="md-tabs__link">
+        
+  
+  
+    
+  
+  Выходные данные
+
+      </a>
+    </li>
+  
+
+      
+    </ul>
+  </div>
+</nav>
+    
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+  
+
+
+<nav class="md-nav md-nav--primary md-nav--lifted" aria-label="Навигация" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../.." title="ИИ-агенты и Agent Skills" class="md-nav__button md-logo" aria-label="ИИ-агенты и Agent Skills" data-md-component="logo">
+      
+  <img src="../../assets/images/logo.png" alt="logo">
+
+    </a>
+    ИИ-агенты и Agent Skills
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../.." class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Главная
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+        
+        
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2" checked>
+        
+          
+          <label class="md-nav__link" for="__nav_2" id="__nav_2_label" tabindex="">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Ученик
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_2">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Ученик
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../intro/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Введение
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../tour/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Экскурсия по AI: что есть что
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../ch01/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Глава 1. Модель, приложение и агент: кто отвечает, а кто действует?
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../ch02/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Глава 2. Агентный цикл: как результат действия меняет следующий шаг?
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../ch03/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Глава 3. Agent harness: что работает вокруг модели?
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../ch04/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Глава 4. Prompt, structured output, tool, MCP и Agent Skill: какие задачи решают разные уровни системы?
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../ch05/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Глава 5. Договор задачи: что нужно определить до реализации?
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../ch06/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Глава 6. Первый tool
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../ch07/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Глава 7. Диспетчер и ошибки
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../ch08/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Глава 8. Хороший tool
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../ch09/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Глава 9. Первый Agent Skill
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../ch10/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Глава 10. Состояние и память
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../ch11/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Глава 11. Тесты и evals: как доказать качество не одним удачным запуском?
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Глава 12. Traces: как понять, что происходило на самом деле?
+  
+
+    
+  </span>
+  
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Глава 12. Traces: как понять, что происходило на самом деле?
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Содержание">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Содержание
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#scene" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        С чего всё началось
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#goals" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        После главы ты сможешь
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#lesson-23" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Урок 23. Trace: что происходило на самом деле
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Урок 23. Trace: что происходило на самом деле">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#1-правильный-итог-тоже-может-обмануть" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1. Правильный итог тоже может обмануть
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#2-от-отдельных-строк-к-trace" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2. От отдельных строк к Trace
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#3-одна-запись-внутри-trace" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3. Одна запись внутри Trace
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#4-центральный-артефакт-карта-trace" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        4. Центральный артефакт: карта Trace
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#5-знакомый-event-log-как-узкая-линза" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        5. Знакомый Event log как узкая линза
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#6-где-trace-уже-подключён-к-agent-loop" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        6. Где Trace уже подключён к agent loop
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#7-практика-a-собери-запуск-из-карточек" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        7. Практика A: собери запуск из карточек
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#8-практика-b-запиши-новый-trace" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        8. Практика B: запиши новый Trace
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#9-мини-проверка-урока-23" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        9. Мини-проверка урока 23
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="9. Мини-проверка урока 23">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#ответы" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Ответы
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#выходной-билет-урока-23" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Выходной билет урока 23
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#lesson-24" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Урок 24. Ищем ошибку по Trace
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Урок 24. Ищем ошибку по Trace">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#1-один-терминал--три-разных-маршрута" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1. Один терминал — три разных маршрута
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#2-observability-можем-ли-мы-вообще-понять-систему" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2. Observability: можем ли мы вообще понять систему
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#3-failure-point-где-маршрут-впервые-стал-неправильным" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3. Failure point: где маршрут впервые стал неправильным
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#4-root-cause-не-место-а-существенная-причина" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        4. Root cause: не место, а существенная причина
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#5-центральный-приём-диагностики-симптом--point--cause" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        5. Центральный приём диагностики: симптом → point → cause
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#6-практика-a-три-одинаковых-error" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        6. Практика A: три одинаковых error
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#7-практика-b-анализатор-трёх-traces" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        7. Практика B: анализатор трёх traces
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#8-ошибка-trace-тоже-должна-быть-наблюдаемой" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        8. Ошибка Trace тоже должна быть наблюдаемой
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#9-обязательные-проверки-должен--не-должен--ошибка--граница" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        9. Обязательные проверки: должен / не должен / ошибка / граница
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="9. Обязательные проверки: должен / не должен / ошибка / граница">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#должен" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Должен
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#не-должен" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Не должен
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#ошибка" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Ошибка
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#граница" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Граница
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#10-врезка-безопасности-журнал-не-должен-стать-складом-данных" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        10. Врезка безопасности: журнал не должен стать складом данных
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#11-мини-проверка-урока-24" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        11. Мини-проверка урока 24
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="11. Мини-проверка урока 24">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#ответы_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Ответы
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#выходной-билет-урока-24" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Выходной билет урока 24
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#why" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Зачем это тебе
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#dezhurny" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Шаг сквозного проекта
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Шаг сквозного проекта">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#достраиваем-дежурного" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Достраиваем «Дежурного»
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#return" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Возвращаемся к сцене
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#check" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Проверь себя
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Проверь себя">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#ответы_2" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Ответы
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#glossary" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Словарь главы
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#bridge" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Мост к главе 13
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../ch13/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Глава 13. Обратная связь и версии: когда исправление должно менять процедуру?
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../ch14/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Глава 14. Permissions и участие человека
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../ch15/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Глава 15. Prompt injection и недоверенные подключения: что делать с данными и кодом, которым нельзя автоматически доверять?
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../ch16/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Глава 16. Долгая и совместная работа
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../ch17/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Глава 17. Итоговый проект: может ли команда доказать качество и ограниченность системы?
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../app-a/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Приложение А. Урок 0. Готовность рабочего места
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../app-b/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Приложение Б. Словарь курса
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../app-c/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Приложение В. Список фигур
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3" >
+        
+          
+          <label class="md-nav__link" for="__nav_3" id="__nav_3_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Учитель
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Учитель
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../teacher/teacher-guide/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Методическое руководство для учителя
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../teacher/lesson-map/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Поурочная карта
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../routes/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Маршруты A/B
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../files/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Файлы практикума
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../about/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Выходные данные
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Содержание">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Содержание
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#scene" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        С чего всё началось
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#goals" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        После главы ты сможешь
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#lesson-23" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Урок 23. Trace: что происходило на самом деле
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Урок 23. Trace: что происходило на самом деле">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#1-правильный-итог-тоже-может-обмануть" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1. Правильный итог тоже может обмануть
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#2-от-отдельных-строк-к-trace" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2. От отдельных строк к Trace
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#3-одна-запись-внутри-trace" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3. Одна запись внутри Trace
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#4-центральный-артефакт-карта-trace" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        4. Центральный артефакт: карта Trace
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#5-знакомый-event-log-как-узкая-линза" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        5. Знакомый Event log как узкая линза
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#6-где-trace-уже-подключён-к-agent-loop" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        6. Где Trace уже подключён к agent loop
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#7-практика-a-собери-запуск-из-карточек" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        7. Практика A: собери запуск из карточек
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#8-практика-b-запиши-новый-trace" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        8. Практика B: запиши новый Trace
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#9-мини-проверка-урока-23" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        9. Мини-проверка урока 23
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="9. Мини-проверка урока 23">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#ответы" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Ответы
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#выходной-билет-урока-23" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Выходной билет урока 23
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#lesson-24" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Урок 24. Ищем ошибку по Trace
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Урок 24. Ищем ошибку по Trace">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#1-один-терминал--три-разных-маршрута" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1. Один терминал — три разных маршрута
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#2-observability-можем-ли-мы-вообще-понять-систему" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2. Observability: можем ли мы вообще понять систему
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#3-failure-point-где-маршрут-впервые-стал-неправильным" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3. Failure point: где маршрут впервые стал неправильным
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#4-root-cause-не-место-а-существенная-причина" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        4. Root cause: не место, а существенная причина
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#5-центральный-приём-диагностики-симптом--point--cause" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        5. Центральный приём диагностики: симптом → point → cause
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#6-практика-a-три-одинаковых-error" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        6. Практика A: три одинаковых error
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#7-практика-b-анализатор-трёх-traces" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        7. Практика B: анализатор трёх traces
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#8-ошибка-trace-тоже-должна-быть-наблюдаемой" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        8. Ошибка Trace тоже должна быть наблюдаемой
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#9-обязательные-проверки-должен--не-должен--ошибка--граница" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        9. Обязательные проверки: должен / не должен / ошибка / граница
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="9. Обязательные проверки: должен / не должен / ошибка / граница">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#должен" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Должен
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#не-должен" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Не должен
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#ошибка" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Ошибка
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#граница" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Граница
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#10-врезка-безопасности-журнал-не-должен-стать-складом-данных" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        10. Врезка безопасности: журнал не должен стать складом данных
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#11-мини-проверка-урока-24" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        11. Мини-проверка урока 24
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="11. Мини-проверка урока 24">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#ответы_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Ответы
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#выходной-билет-урока-24" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Выходной билет урока 24
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#why" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Зачем это тебе
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#dezhurny" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Шаг сквозного проекта
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Шаг сквозного проекта">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#достраиваем-дежурного" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Достраиваем «Дежурного»
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#return" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Возвращаемся к сцене
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#check" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Проверь себя
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Проверь себя">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#ответы_2" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Ответы
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#glossary" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Словарь главы
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#bridge" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Мост к главе 13
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+
+<h1 id="глава-12-traces-как-понять-что-происходило-на-самом-деле">Глава 12. Traces: как понять, что происходило на самом деле?<a class="headerlink" href="#глава-12-traces-как-понять-что-происходило-на-самом-деле" title="Permanent link">&para;</a></h1>
+<h2 id="scene">С чего всё началось<a class="headerlink" href="#scene" title="Permanent link">&para;</a></h2>
+<p>До Фестиваля науки осталось несколько дней. Утром программа «Дежурный» подготовила сводку, в которой неожиданно не оказалось одной заблокированной задачи. Аня сразу предположила, что модель выбрала не тот tool. Марк возразил: модель могла выбрать tool правильно, а ошибка возникла уже при чтении карточек. Третий участник команды предложил ещё одну версию: чтение прошло нормально, но после observation приложение неверно продолжило маршрут.</p>
+<p>Все трое видели на экране одинаковый финальный текст. Сводка показывала симптом: заблокированная задача пропущена. Но по сводке нельзя было определить, на каком шаге впервые возникло отклонение. Каждая из трёх версий объясняла плохой результат, а подтверждения не было ни у одной.</p>
+<p>Аня открыла знакомый event log из главы 7 и сказала: «Тогда нужно просто сохранить побольше строк». Марк посмотрел на неё и спросил: какие именно строки нужны, чтобы другая группа смогла восстановить запуск, а не сочинить красивую историю задним числом?</p>
+<blockquote>
+<p><strong>Вопрос-Прогноз.</strong> Какие наблюдаемые события одного запуска нужно сохранить, чтобы по ним можно было доказать, где маршрут впервые отклонился и почему?</p>
+<p><strong>Главный вопрос главы.</strong> Как понять, что происходило на самом деле?</p>
+</blockquote>
+<p><img alt="Фигура 33. Три гипотезы у одной неверной сводки" src="../../figures/33_tri-gipotezy-u-odnoy-nevernoy-svodki.png" /></p>
+<p><em>Фигура 33. Три гипотезы у одной неверной сводки</em></p>
+<h2 id="goals">После главы ты сможешь<a class="headerlink" href="#goals" title="Permanent link">&para;</a></h2>
+<ul>
+<li>восстанавливать порядок наблюдаемых событий одного запуска;</li>
+<li>объяснять разницу между финальным результатом, Event log и полной записью наблюдаемых событий запуска;</li>
+<li>различать события, инициированные моделью, и события, записанные harness;</li>
+<li>связывать Tool call и соответствующий observation по <code>call_id</code>;</li>
+<li>находить первую точку отклонения в неудачном маршруте и формулировать первую существенную причину только по наблюдаемым свидетельствам;</li>
+<li>составлять короткий отчёт о сбое с указанием места, причины и доказательства;</li>
+<li>объяснять, какие данные нельзя бездумно складывать в Trace.</li>
+</ul>
+<hr />
+<h2 id="lesson-23">Урок 23. Trace: что происходило на самом деле<a class="headerlink" href="#lesson-23" title="Permanent link">&para;</a></h2>
+<h3 id="1-правильный-итог-тоже-может-обмануть">1. Правильный итог тоже может обмануть<a class="headerlink" href="#1-правильный-итог-тоже-может-обмануть" title="Permanent link">&para;</a></h3>
+<p>Начнём с результата, который не вызывает подозрений. Представь, что «Дежурный» выдал правильную сводку: блокер назван, следующий шаг указан, формат соблюдён. На первый взгляд маршрут можно не разбирать, раз результат хороший.</p>
+<p>Однако к правильному тексту система могла прийти разными путями. Ожидаемая последовательность выглядит так:</p>
+<ol>
+<li>Система получает запрос.</li>
+<li>Модель выбирает разрешённый tool.</li>
+<li>Приложение выполняет операцию.</li>
+<li>Система получает observation.</li>
+<li>Работа завершается.</li>
+</ol>
+<p>В другом запуске система могла сначала сделать лишний вызов, получить ошибку и лишь затем случайно получить такой же правильный текст. Финальные строки совпали бы, но второй маршрут содержал бы лишнее действие. Правильная сводка не отменяет уже произошедшую ошибку.</p>
+<p>Плохой ответ из начальной сцены тоже не доказывает, что «ошиблась модель». После решения модели работают Dispatcher, runtime, инструменты и логика остановки. Чтобы найти место сбоя, нужно видеть последовательность наблюдаемых действий и результатов, а не только конец работы.</p>
+<blockquote>
+<p><strong>Проверь себя на ходу.</strong> Два запуска дали одинаковый правильный текст. В одном был один разрешённый Tool call, во втором — сначала запрещённый вызов, потом разрешённый. Можно ли по финальному тексту считать маршруты одинаковыми?</p>
+</blockquote>
+<h3 id="2-от-отдельных-строк-к-trace">2. От отдельных строк к Trace<a class="headerlink" href="#2-от-отдельных-строк-к-trace" title="Permanent link">&para;</a></h3>
+<p>В главе 7 мы видели Event log: последовательный список запросов tool, observation и решений, связанных по <code>call_id</code>. По журналу можно было восстановить порядок нескольких Tool calls и проверить остановку после терминального решения. Теперь нужно проследить один запуск от начала до завершения, включая события до запросов tool и между ними.</p>
+<p><strong>Trace / трассировка — последовательность наблюдаемых событий одного запуска.</strong></p>
+<p>По <strong><em>Trace</em></strong>, или трассировке, мы отвечаем на вопрос «что можно наблюдать в работе системы по ходу конкретного запуска?», а не «что система думала?». Например, в запись могут попасть:</p>
+<ol>
+<li>Начало запуска.</li>
+<li>Подготовка доступного контекста.</li>
+<li>Ответ модели.</li>
+<li>Запрос tool.</li>
+<li>Результат или ошибка.</li>
+<li>Загрузка нужного ресурса.</li>
+<li>Завершение запуска.</li>
+</ol>
+<p>Не каждый маршрут содержит все перечисленные события. Если система не запрашивала tool, в Trace не должно быть записи о таком запросе.</p>
+<p>Скрытые рассуждения модели сохранять не нужно и не следует. Для проверки маршрута нужны наблюдаемые действия и результаты. Запись Tool call показывает сформированный запрос, но не открывает внутренний ход рассуждений, который привёл модель к выбору.</p>
+<p>Trace можно сравнить с записью камер на перекрёстке. По видеозаписи видно, какая машина проехала первой и где машины соприкоснулись, но мыслей водителей камера не сообщает. Порядку движения здесь соответствует порядок программных событий. Сравнение помогает отделить наблюдение от догадки; сама трассировка состоит из структурированных записей, а не из видеокадров.</p>
+<h3 id="3-одна-запись-внутри-trace">3. Одна запись внутри Trace<a class="headerlink" href="#3-одна-запись-внутри-trace" title="Permanent link">&para;</a></h3>
+<p>В одной строке Trace может быть записан запрос tool, а в другой строке записан полученный observation. Каждая строка описывает отдельное наблюдаемое событие. <strong>Event / событие — одна наблюдаемая запись внутри Trace: что произошло, кто инициировал шаг и с какими диагностическими полями он связан.</strong></p>
+<p><strong><em>Event</em></strong> переводится как «событие». Чтобы прочитать запись, задай три вопроса:</p>
+<ol>
+<li>Что произошло? Ответ даёт тип события.</li>
+<li>Кто инициировал наблюдаемый шаг? Для запроса модели указано <code>initiator: model</code>; для выполнения, загрузки или записи observation указано <code>initiator: harness</code>.</li>
+<li>С чем связано событие? Для Tool call связь задаёт знакомый <code>call_id</code>.</li>
+</ol>
+<p>Инициатор шага не обязательно совпадает с программой, которая записывает строку в файл. Harness ведёт журнал и для собственных действий, и для наблюдаемых запросов модели.</p>
+<p>Как и в главе 9, модель может запросить <code>load_skill</code> или <code>read_skill_resource</code>, а фактическую загрузку выполняет приложение. Поэтому запись запроса должна предшествовать записи загрузки. Если из Trace следует, будто harness сам активировал skill без запроса модели, запись не соответствует контракту рассматриваемого маршрута.</p>
+<p>Назовём запись о конкретном запросе tool <strong>tool call record</strong> — записью Tool call. Такая запись фиксирует, что в определённый момент модель сформировала запрос с конкретными <code>id</code>, <code>name</code> и <code>arguments</code>. Запись не создаёт ни нового вида tool, ни второго вызова.</p>
+<p>Ещё одно наблюдаемое действие связано с подтверждением человеком. <strong>Approval event / событие подтверждения — запись о наблюдаемом факте запроса, получения или отказа подтверждения.</strong> <strong><em>Approval event</em></strong>, или событие подтверждения, позволяет увидеть, что программа запросила подтверждение и чем запрос закончился. Наличие записи само по себе не объясняет, когда подтверждение требуется и как программа останавливает работу в ожидании ответа.</p>
+<blockquote>
+<p><strong>Проверь себя на ходу.</strong> В Trace есть <code>tool_requested</code> с <code>initiator: model</code>, но нет последующего <code>tool_observation</code> для того же <code>call_id</code>. Какие два разных объяснения нужно проверить, прежде чем говорить «tool сломался»?</p>
+</blockquote>
+<h3 id="4-центральный-артефакт-карта-trace">4. Центральный артефакт: карта Trace<a class="headerlink" href="#4-центральный-артефакт-карта-trace" title="Permanent link">&para;</a></h3>
+<p>Какие записи нужны для восстановления запуска? Карта событий связывает каждую запись с вопросом, на который можно ответить по её полям. Максимальный объём сохранённых данных для такой проверки не требуется.</p>
+<table>
+<thead>
+<tr>
+<th>Наблюдаемое событие</th>
+<th>Инициатор</th>
+<th>Что можно доказать</th>
+<th>Диагностический вопрос</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>запуск начат</td>
+<td>harness</td>
+<td>начался конкретный запуск с заданными ограничениями</td>
+<td>какой запуск мы разбираем?</td>
+</tr>
+<tr>
+<td>ответ модели получен</td>
+<td>model</td>
+<td>модель вернула наблюдаемый ответ определённого типа</td>
+<td>что модель запросила или сообщила?</td>
+</tr>
+<tr>
+<td>tool запрошен</td>
+<td>model</td>
+<td>есть Tool call с <code>call_id</code>, именем и arguments</td>
+<td>какой вызов был выбран?</td>
+</tr>
+<tr>
+<td>observation записан</td>
+<td>harness</td>
+<td>приложение обработало конкретный вызов и получило result/error</td>
+<td>был ли вызов выполнен и что вернулось?</td>
+</tr>
+<tr>
+<td>skill/resource загружен</td>
+<td>harness</td>
+<td>приложение выполнило ранее полученный запрос контекста</td>
+<td>был ли запрос модели перед загрузкой?</td>
+</tr>
+<tr>
+<td>запуск завершён</td>
+<td>harness</td>
+<td>зафиксирован терминал и число выполненных шагов</td>
+<td>чем закончился маршрут?</td>
+</tr>
+</tbody>
+</table>
+<p>Строка <code>tool_requested</code> доказывает запрос, но не выполнение. Строка <code>tool_observation</code> может показать, выполнен вызов или отклонён, но не объясняет сама по себе, почему модель выбрала указанное имя. Событие <code>run_finished</code> сообщает итог маршрута, но не заменяет предшествующие записи.</p>
+<p>Допустим, бюро последовательно проверяет две карточки разных групп одним tool. Имя операции в обоих запросах одинаковое. Если проверка первой карточки прошла, а второй вернула ошибку, по одному имени нельзя определить, к какой карточке относится ошибка. Нужны идентификаторы конкретных вызовов.</p>
+<p>Поэтому Tool call с <code>call_id: call-2</code> связывают с observation именно <code>call-2</code>, а не соседнего вызова. Без идентификаторов журнал похож на набор чеков без номеров заказов: записи есть, но соответствие трудно доказать. Номеру заказа в сравнении соответствует <code>call_id</code>; в программе связь задаётся полем записи, а не бумажным чеком.</p>
+<h3 id="5-знакомый-event-log-как-узкая-линза">5. Знакомый Event log как узкая линза<a class="headerlink" href="#5-знакомый-event-log-как-узкая-линза" title="Permanent link">&para;</a></h3>
+<p>Команда из главы 7 показывает события двух Tool calls. Запросы для показа заданы авторским replay-сценарием, а не получены от живой модели.</p>
+<p>Перед запуском сделай прогноз: ошибка второго вызова должна стереть первый успешный result или оба результата останутся видны по своим <code>call_id</code>?</p>
+<div class="highlight"><pre><span></span><code><span class="c1"># запуск из корня starter</span>
+python<span class="w"> </span>dispatcher_demo.py<span class="w"> </span>run<span class="w"> </span>two-calls
+</code></pre></div>
+<div class="highlight"><pre><span></span><code>mode: replay
+origin: synthetic_script — авторский сценарий, не запись модели
+event: tool_requested | call_id: call-1 | tool: read_task_cards
+event: tool_observation | call_id: call-1 | tool: read_task_cards | execution: performed | outcome: result | decision: continue
+event: tool_requested | call_id: call-2 | tool: validate_task_card
+event: tool_observation | call_id: call-2 | tool: validate_task_card | execution: performed | outcome: tool error | decision: needs_input | error: нет карточки с указанным id
+event: run_finished | terminal: needs_input | steps: 2
+</code></pre></div>
+<p>Сначала записан запрос <code>call-1</code>, затем его observation с результатом и решением <code>continue</code>. После запроса <code>call-2</code> записан другой observation: операция завершилась ошибкой, а приложение выбрало <code>needs_input</code>. Первый результат остался в журнале. По строкам можно восстановить обе попытки, а число <code>steps: 2</code> согласуется с двумя отметками <code>execution: performed</code>.</p>
+<p>Чем такая запись отличается от более широкой трассировки? Event log главы 7 показывал запросы, observation и решения. Trace главы 12 может также включать начало запуска, подготовку контекста, наблюдаемый ответ модели и загрузку skill/resource. Для диагностики нужны события всего рассматриваемого маршрута, а не только участка с вызовами tool.</p>
+<h3 id="6-где-trace-уже-подключён-к-agent-loop">6. Где Trace уже подключён к agent loop<a class="headerlink" href="#6-где-trace-уже-подключён-к-agent-loop" title="Permanent link">&para;</a></h3>
+<p>В starter события уже записывает знакомый <code>run_agent</code>. Компонент записи называется <code>TraceRecorder</code>. Ниже показана часть функции, которая проверяет путь будущего файла и создаёт компонент записи перед основным маршрутом.</p>
+<div class="highlight"><pre><span></span><code><span class="c1"># фрагмент: school_agent/agent.py</span>
+<span class="k">def</span><span class="w"> </span><span class="nf">run_agent</span><span class="p">(</span><span class="n">adapter</span><span class="p">,</span> <span class="o">*</span><span class="p">,</span> <span class="n">workspace_root</span><span class="o">=</span><span class="n">WORKSPACE_ROOT</span><span class="p">,</span> <span class="n">scenario</span><span class="o">=</span><span class="s2">&quot;success&quot;</span><span class="p">,</span>
+              <span class="n">max_steps</span><span class="o">=</span><span class="n">MAX_STEPS</span><span class="p">,</span> <span class="n">max_retries</span><span class="o">=</span><span class="n">MAX_RETRIES</span><span class="p">,</span> <span class="n">trace_relative_path</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
+              <span class="n">profile</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
+    <span class="k">if</span> <span class="nb">type</span><span class="p">(</span><span class="n">max_steps</span><span class="p">)</span> <span class="ow">is</span> <span class="ow">not</span> <span class="nb">int</span> <span class="ow">or</span> <span class="ow">not</span> <span class="mi">1</span> <span class="o">&lt;=</span> <span class="n">max_steps</span> <span class="o">&lt;=</span> <span class="n">MAX_STEPS</span><span class="p">:</span>
+        <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s2">&quot;max_steps должен быть от 1 до 5&quot;</span><span class="p">)</span>
+    <span class="k">if</span> <span class="nb">type</span><span class="p">(</span><span class="n">max_retries</span><span class="p">)</span> <span class="ow">is</span> <span class="ow">not</span> <span class="nb">int</span> <span class="ow">or</span> <span class="ow">not</span> <span class="mi">0</span> <span class="o">&lt;=</span> <span class="n">max_retries</span> <span class="o">&lt;=</span> <span class="n">MAX_RETRIES</span><span class="p">:</span>
+        <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s2">&quot;max_retries должен быть 0 или 1&quot;</span><span class="p">)</span>
+    <span class="n">trace_path</span> <span class="o">=</span> <span class="kc">None</span> <span class="k">if</span> <span class="n">trace_relative_path</span> <span class="ow">is</span> <span class="kc">None</span> <span class="k">else</span> <span class="n">resolve_workspace_path</span><span class="p">(</span>
+        <span class="n">trace_relative_path</span><span class="p">,</span> <span class="n">workspace_root</span><span class="o">=</span><span class="n">workspace_root</span><span class="p">)</span>
+    <span class="k">if</span> <span class="n">trace_path</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
+        <span class="n">allowed</span> <span class="o">=</span> <span class="n">resolve_workspace_path</span><span class="p">(</span><span class="s2">&quot;traces&quot;</span><span class="p">,</span> <span class="n">workspace_root</span><span class="o">=</span><span class="n">workspace_root</span><span class="p">)</span>
+        <span class="k">try</span><span class="p">:</span>
+            <span class="n">trace_path</span><span class="o">.</span><span class="n">relative_to</span><span class="p">(</span><span class="n">allowed</span><span class="p">)</span>
+        <span class="k">except</span> <span class="ne">ValueError</span> <span class="k">as</span> <span class="n">exc</span><span class="p">:</span>
+            <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s2">&quot;trace разрешён только внутри workspace/traces&quot;</span><span class="p">)</span> <span class="kn">from</span><span class="w"> </span><span class="nn">exc</span>
+        <span class="k">if</span> <span class="n">trace_path</span><span class="o">.</span><span class="n">exists</span><span class="p">():</span>
+            <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s2">&quot;trace уже существует; выбери новое имя запуска&quot;</span><span class="p">)</span>
+    <span class="n">trace</span> <span class="o">=</span> <span class="n">TraceRecorder</span><span class="p">(</span><span class="n">trace_path</span><span class="p">)</span>
+</code></pre></div>
+<p>Слово <code>def</code> начинает описание функции <code>run_agent</code>, а в скобках перечислены параметры. Условия <code>if</code> проверяют допустимость значений и пути; при нарушении программа сообщает об ошибке через <code>raise ValueError</code>. В последней строке создаётся <code>TraceRecorder</code>.</p>
+<p>Для пути используется <code>trace_relative_path</code>. Значение <code>None</code> означает, что путь не передан. Если путь указан, программа проверяет два условия:</p>
+<ol>
+<li>Файл должен находиться внутри <code>workspace/traces/</code>. Переданный путь не даёт модели права записать журнал в произвольное место.</li>
+<li>Файл с выбранным именем ещё не должен существовать. Для нового запуска нужно новое имя, иначе прежние свидетельства могли бы быть потеряны.</li>
+</ol>
+<p>Параметр <code>profile</code> необязателен. Он предназначен для настройки собственного «Дежурного» в папке <code>workspace/my_agent/</code>. Без переданного параметра действует маршрут, описанный в этой главе.</p>
+<p>Фрагмент показывает проверки пути и правило «не перезаписывать существующий Trace». Внутреннего устройства <code>TraceRecorder</code> и содержимого будущих записей здесь нет. Поэтому по фрагменту нельзя заключить, что любой текст журнала безопасно публиковать.</p>
+<h3 id="7-практика-a-собери-запуск-из-карточек">7. Практика A: собери запуск из карточек<a class="headerlink" href="#7-практика-a-собери-запуск-из-карточек" title="Permanent link">&para;</a></h3>
+<p>Объединись с двумя одноклассниками и получи вместе с группой семь перемешанных карточек:</p>
+<ul>
+<li><code>tool_observation call-2</code>;</li>
+<li><code>model_response</code>;</li>
+<li><code>run_finished</code>;</li>
+<li><code>tool_requested call-1</code>;</li>
+<li><code>model_response</code>;</li>
+<li><code>tool_observation call-1</code>;</li>
+<li><code>tool_requested call-2</code>.</li>
+</ul>
+<p>На каждой карточке указаны initiator и минимальные поля, но нет номера позиции в запуске.</p>
+<p>Собери с группой последовательность только по причинным связям. Проверь три правила:</p>
+<ol>
+<li>Запрос tool предшествует observation с соответствующим <code>call_id</code>.</li>
+<li>Если в маршруте есть загрузка ресурса, запрос модели должен предшествовать загрузке.</li>
+<li>После <code>run_finished</code> не должно быть выполненных шагов продолжающегося маршрута.</li>
+</ol>
+<p>Передай карту соседней группе для проверки. Соседняя группа выбирает две связи и спрашивает, почему одна карточка должна предшествовать другой. Объясни порядок через <code>call_id</code>, тип события или правило инициатора. Ответ «так логичнее» доказательства не даёт.</p>
+<p><strong>Результат практики A:</strong> собранная карта Trace и две доказанные связи между событиями.</p>
+<h3 id="8-практика-b-запиши-новый-trace">8. Практика B: запиши новый Trace<a class="headerlink" href="#8-практика-b-запиши-новый-trace" title="Permanent link">&para;</a></h3>
+<p>Запиши Trace с помощью существующего <code>run_agent</code>. Команда главы 12 запускает знакомый replay-маршрут и передаёт путь нового файла внутри <code>workspace/traces/</code>; отдельный agent loop команда не создаёт.</p>
+<p>Файл имеет расширение <code>.jsonl</code>. <strong>JSONL — текстовый формат, где каждая строка содержит отдельный JSON-объект.</strong> В JSONL каждая строка читается отдельно. В нашем файле одна строка описывает одно событие, поэтому порядок строк задаёт последовательность записанных событий. Формат файла не добавляет агенту новых действий.</p>
+<p>Перед запуском сделай прогноз. В сценарии <code>missing_file</code> две выполненные попытки чтения завершаются терминалом <code>error</code>. Должна ли программа перезаписать старый Trace-файл с тем же именем, если файл уже существует?</p>
+<div class="highlight"><pre><span></span><code><span class="c1"># запуск из корня starter</span>
+python<span class="w"> </span>trace_demo.py<span class="w"> </span>record<span class="w"> </span>--scenario<span class="w"> </span>missing_file<span class="w"> </span>--out<span class="w"> </span>traces/ch12_lesson23.jsonl
+</code></pre></div>
+<div class="highlight"><pre><span></span><code>mode: replay
+trace: traces/ch12_lesson23.jsonl
+terminal: error
+origin: synthetic_script — авторский сценарий, не запись модели
+</code></pre></div>
+<p>Новый файл содержит события учебного запуска, а не скрытые рассуждения модели. Прочитай запись в компактном виде:</p>
+<div class="highlight"><pre><span></span><code><span class="c1"># запуск из корня starter</span>
+python<span class="w"> </span>trace_demo.py<span class="w"> </span>show<span class="w"> </span>traces/ch12_lesson23.jsonl
+</code></pre></div>
+<div class="highlight"><pre><span></span><code>trace: traces/ch12_lesson23.jsonl
+run_started | initiator: harness
+context_prepared | initiator: harness
+model_response | initiator: model
+ tool_requested | initiator: model | call_id: m1 | tool: read_task_cards
+ tool_observation | initiator: harness | call_id: m1 | outcome: tool error | decision: continue
+context_prepared | initiator: harness
+model_response | initiator: model
+ tool_requested | initiator: model | call_id: m2 | tool: read_task_cards
+ tool_observation | initiator: harness | call_id: m2 | outcome: tool error | decision: error
+run_finished | initiator: harness | terminal: error | steps: 2
+</code></pre></div>
+<p>Пометка <code>initiator: model</code> здесь обозначает роль запроса в авторском replay-сценарии. Пометка не означает, что запрос получен от живой модели: происхождение явно указано как <code>synthetic_script</code>. Выполнение и observation фиксирует harness.</p>
+<p>Запрос <code>m1</code> связан со своим observation и решением <code>continue</code>, запрос <code>m2</code> связан со своим observation и решением <code>error</code>. Компактный вывод показывает два исхода <code>tool error</code> и итог <code>steps: 2</code>. Само слово <code>tool error</code> не различает отказ до выполнения и ошибку начатой операции; две выполненные попытки заданы условиями сценария <code>missing_file</code>.</p>
+<p>Идентификаторы <code>m1</code> и <code>m2</code> заданы сценарием, а не программой записи. В главе 7 использовались <code>call-1</code> и <code>call-2</code>. В текущем показе используется общий курсовой replay, а не случай главы 7. Имена позволяют различить показанные сценарии, но правило связи запроса с observation остаётся прежним.</p>
+<p>После просмотра напиши 5–7 строк собственного объяснения. В объяснении укажи:</p>
+<ol>
+<li>Какое событие доказывает выбор tool.</li>
+<li>Какое событие показывает наблюдаемый результат обработки вызова.</li>
+<li>Где видно решение продолжить.</li>
+<li>Где указан терминал.</li>
+<li>Почему финальный <code>error</code> не позволяет стереть первый вызов из истории.</li>
+</ol>
+<p>Объясни связи своими словами, а не переписывай готовый вывод программы.</p>
+<p><img alt="Фигура 34. Карта Trace" src="../../figures/34_karta-trace.svg" /></p>
+<p><em>Фигура 34. Карта Trace</em></p>
+<h3 id="9-мини-проверка-урока-23">9. Мини-проверка урока 23<a class="headerlink" href="#9-мини-проверка-урока-23" title="Permanent link">&para;</a></h3>
+<ol>
+<li>Что такое Trace и чего он не обязан содержать?</li>
+<li>Чем <code>tool_requested</code> отличается от <code>tool_observation</code>?</li>
+<li>Зачем Trace хранит <code>call_id</code>?</li>
+<li>Почему загрузка skill/resource должна следовать за наблюдаемым запросом модели?</li>
+<li>Что доказывает правило «существующий Trace не перезаписывать»?</li>
+</ol>
+<h4 id="ответы">Ответы<a class="headerlink" href="#ответы" title="Permanent link">&para;</a></h4>
+<ol>
+<li>Trace — последовательность наблюдаемых событий одного запуска; скрытые рассуждения модели в него не входят как обязательный артефакт.</li>
+<li>Первое событие фиксирует запрос модели; второе — результат обработки конкретного вызова приложением.</li>
+<li>Чтобы однозначно связать запрос и его result/error.</li>
+<li>Иначе запись выглядела бы так, будто harness сам выбрал и загрузил процедуру без запроса модели.</li>
+<li>Что один запуск не уничтожает свидетельства другого; для нового запуска выбирается новое имя файла.</li>
+</ol>
+<h3 id="выходной-билет-урока-23">Выходной билет урока 23<a class="headerlink" href="#выходной-билет-урока-23" title="Permanent link">&para;</a></h3>
+<p>Запиши четыре строки:</p>
+<div class="highlight"><pre><span></span><code>Trace нужен, чтобы …
+tool_requested доказывает …
+tool_observation доказывает …
+Trace не является …
+</code></pre></div>
+<p>Если в первой строке ты написал «чтобы узнать мысли модели», вернись к определению Trace. Если две средние строки означают одно и то же, проверь, различил ли ты запрос операции и обработку вызова приложением.</p>
+<hr />
+<h2 id="lesson-24">Урок 24. Ищем ошибку по Trace<a class="headerlink" href="#lesson-24" title="Permanent link">&para;</a></h2>
+<h3 id="1-один-терминал--три-разных-маршрута">1. Один терминал — три разных маршрута<a class="headerlink" href="#1-один-терминал--три-разных-маршрута" title="Permanent link">&para;</a></h3>
+<p>Представь три запуска, каждый из которых заканчивается строкой <code>terminal: error</code>. По последней строке легко решить, что причина одна: «система сломалась». Но до остановки произошли разные события.</p>
+<ol>
+<li>В первом запуске модель запросила имя tool, которого нет в allowlist. Приложение отклонило вызов.</li>
+<li>Во втором запуске имя разрешено, но в arguments отсутствует обязательное поле. Проверка не пропустила вызов к выполнению.</li>
+<li>В третьем запуске запрос прошёл проверки, runtime начал разрешённую операцию, и операция встретила недоступные данные.</li>
+</ol>
+<p>Три одинаковых терминала сообщают о неуспешном завершении, но не различают три места сбоя. Поэтому диагностику начинают с начала маршрута. Нужно найти первое наблюдаемое событие, после которого фактические шаги перестали соответствовать ожидаемым. Лишь после этого можно обосновать причину и выбрать место исправления.</p>
+<h3 id="2-observability-можем-ли-мы-вообще-понять-систему">2. Observability: можем ли мы вообще понять систему<a class="headerlink" href="#2-observability-можем-ли-мы-вообще-понять-систему" title="Permanent link">&para;</a></h3>
+<p>Журнал может содержать только две строки: «старт» и «ошибка». Команда узнает, что запуск начался и завершился неуспешно, но не сможет объяснить, что случилось между этими событиями. Само наличие записи ещё не делает поведение системы понятным.</p>
+<p><strong>Observability / наблюдаемость — возможность понять поведение системы по журналам, traces, состоянию и проверкам.</strong></p>
+<p><strong><em>Observability</em></strong>, или наблюдаемость, позволяет по сохранённым свидетельствам ответить на вопросы:</p>
+<ol>
+<li>Какой запрос пришёл?</li>
+<li>Что было выполнено?</li>
+<li>Что вернулось?</li>
+<li>Почему маршрут остановился?</li>
+</ol>
+<p>На первый взгляд предложение Ани «сохранить побольше строк» должно помочь. Но объём журнала не заменяет нужных полей и связей. Если среди сотен посторонних строк нет результата нужного вызова, вопрос о результате останется без ответа. Лишние строки могут и мешать: нужное событие теряется среди посторонних записей.</p>
+<p>Observability не равна безопасности, качеству модели или полной записи контекста. Хорошо наблюдаемая система тоже может ошибаться. Отличие состоит в том, что по сохранённым свидетельствам можно найти место ошибки.</p>
+<p>Наблюдаемость похожа на приборную панель лабораторной установки: несколько подходящих измерений помогают понять режим работы лучше, чем непрерывная съёмка всего кабинета. Выбранным измерениям в сравнении соответствуют события, нужные для диагностики. Однако программные события выбирают по контракту системы; физическими датчиками события не служат.</p>
+<blockquote>
+<p><strong>Проверь себя на ходу.</strong> В Trace записаны только <code>run_started</code> и <code>run_finished: error</code>. Журнал существует. Достаточно ли этого для хорошей Observability именно при поиске причины сбоя?</p>
+</blockquote>
+<h3 id="3-failure-point-где-маршрут-впервые-стал-неправильным">3. Failure point: где маршрут впервые стал неправильным<a class="headerlink" href="#3-failure-point-где-маршрут-впервые-стал-неправильным" title="Permanent link">&para;</a></h3>
+<p>Терминал сообщает, чем закончилась работа. Для исправления нужно найти другое место: событие, после которого маршрут впервые перестал соответствовать ожидаемому. <strong>Failure point — первое наблюдаемое событие, после которого фактический маршрут перестаёт соответствовать ожидаемому для данного случая.</strong></p>
+<p><strong><em>Failure point</em></strong> можно перевести как «точка отклонения». В трёх рассматриваемых случаях точка находится на разных этапах:</p>
+<ol>
+<li>Если модель запросила <code>delete_everything</code>, которого нет в allowlist, неверный выбор уже виден в <code>tool_requested</code>.</li>
+<li>Если имя tool правильное, но arguments не прошли проверку, анализ связывает отклонение с отказом при обработке вызова.</li>
+<li>Если проверки пройдены, а операция встретила недоступные карточки, отклонение видно на стороне выполнения и observation.</li>
+</ol>
+<p>Должна ли точка отклонения находиться непосредственно перед терминалом? Не обязательно. После первой ошибки программа может записать служебные события и корректно завершить работу, в том числе добавить <code>run_finished</code>. Последняя строка показывает завершение, но не переносит первое отклонение в конец журнала.</p>
+<p>Сходное различие есть в решении задачи на доске. Первая неверная строка важнее последней: дальнейшие шаги могут опираться на ошибку. Первой неверной строке здесь соответствует первое наблюдаемое отклонение. Однако в Trace проверяют программный маршрут, а не математические преобразования.</p>
+<p><img alt="Фигура 35. Один терминал — три маршрута" src="../../figures/35_odin-terminal-tri-marshruta.svg" /></p>
+<p><em>Фигура 35. Один терминал — три маршрута</em></p>
+<h3 id="4-root-cause-не-место-а-существенная-причина">4. Root cause: не место, а существенная причина<a class="headerlink" href="#4-root-cause-не-место-а-существенная-причина" title="Permanent link">&para;</a></h3>
+<p>Failure point отвечает на вопрос «где впервые видно отклонение?». Следующий вопрос касается причины: что привело к отклонению? Одного указания места для ответа недостаточно.</p>
+<p><strong>Root cause / первопричина — первая существенная причина, из-за которой маршрут выполнения отклонился от ожидаемого.</strong></p>
+<p><strong><em>Root cause</em></strong>, или первопричину, нужно подтвердить конкретным событием Trace. В рассматриваемых случаях причины различаются:</p>
+<ol>
+<li>Запрошенная операция отсутствует в allowlist.</li>
+<li>В arguments не передано обязательное поле.</li>
+<li>После разрешённого начала операции нужные данные оказались недоступны.</li>
+</ol>
+<p>Фраза «что-то пошло не так» не различает эти причины и не помогает выбрать место исправления. Но и подробная догадка не заменяет свидетельства. Допустим, после попытки чтения карточек записано <code>cards_unavailable</code>. Версия «кто-то удалил карточки» могла бы объяснить недоступность, однако без записи об удалении Trace не подтверждает именно эту версию.</p>
+<p>Root cause не означает «виновник». Задача не состоит в том, чтобы обвинить модель, программиста или пользователя. Нужно найти первую существенную причину, подтверждённую наблюдением, и предложить направленную на причину техническую правку.</p>
+<p>Различие симптома и причины можно сравнить с неработающей лампой в лабораторной установке. Лампа не горит, а причина может находиться раньше по цепи, например в перегоревшем предохранителе. Неработающей лампе соответствует видимый симптом; возможную причину ещё требуется подтвердить. При разборе программы подтверждением служат события Trace, а не физический осмотр устройства.</p>
+<p>Если Trace показывает разрешённый Tool call с корректными arguments и лишь затем <code>cards_unavailable</code>, нельзя без доказательств объявлять причиной выбор модели. Если же первым отклонением был запрос неизвестного имени, нет основания обвинять runtime: выполнение вообще не началось.</p>
+<h3 id="5-центральный-приём-диагностики-симптом--point--cause">5. Центральный приём диагностики: симптом → point → cause<a class="headerlink" href="#5-центральный-приём-диагностики-симптом--point--cause" title="Permanent link">&para;</a></h3>
+<p>Один сбой нужно описать с нескольких сторон. Симптом показывает проблему, точка отклонения указывает место, а причина объясняет отклонение. Для каждого утверждения требуется наблюдаемое свидетельство.</p>
+<table>
+<thead>
+<tr>
+<th>Вопрос</th>
+<th>Что ищем</th>
+<th>Пример</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Как выглядит проблема?</td>
+<td>симптом</td>
+<td><code>terminal: error</code></td>
+</tr>
+<tr>
+<td>Где впервые отклонился маршрут?</td>
+<td>failure point</td>
+<td><code>tool_requested</code> с неизвестным именем</td>
+</tr>
+<tr>
+<td>Почему это отклонение произошло?</td>
+<td>Root cause</td>
+<td>имя отсутствует в allowlist</td>
+</tr>
+<tr>
+<td>Чем доказываем?</td>
+<td>конкретное событие Trace</td>
+<td><code>call-X</code>, <code>execution: not performed</code></td>
+</tr>
+</tbody>
+</table>
+<p>Сложная статистика для такой проверки не нужна. Нужен определённый порядок:</p>
+<ol>
+<li>Найди факты в Trace.</li>
+<li>По фактам установи точку отклонения.</li>
+<li>Обоснуй Root cause.</li>
+</ol>
+<p>Если начать с любимой гипотезы, легко выбрать только строки, которые с гипотезой согласуются, и пропустить остальные.</p>
+<p>Короткий <strong><em>incident report</em></strong>, или отчёт о сбое, объединяет симптом, failure point, Root cause и доказательство. К четырём полям добавляют пятое: «локальная правка». В поле записывают предложение, что именно исправить, например выбор tool, arguments или обработку недоступных данных. Предложение ещё не означает, что процедура изменена и исправление принято.</p>
+<p><img alt="Фигура 36. Incident report" src="../../figures/36_incident-report.svg" /></p>
+<p><em>Фигура 36. Incident report</em></p>
+<h3 id="6-практика-a-три-одинаковых-error">6. Практика A: три одинаковых <code>error</code><a class="headerlink" href="#6-практика-a-три-одинаковых-error" title="Permanent link">&para;</a></h3>
+<p>Объединись с одноклассниками и получи вместе с группой три бумажных Trace. Во всех трёх последняя карточка содержит <code>run_finished | terminal: error</code>, а предшествующие события различаются:</p>
+<ol>
+<li>В Trace A есть запрос неизвестного tool и отказ до выполнения.</li>
+<li>В Trace B имя разрешено, но arguments отклонены до runtime.</li>
+<li>В Trace C запрос прошёл проверки, операция началась и вернула ошибку данных.</li>
+</ol>
+<p>Сначала отметь карандашом первое событие отклонения в каждом маршруте. Пока не называй Root cause. Затем вместе с группой заполни таблицу из пяти полей:</p>
+<ol>
+<li><code>симптом</code>.</li>
+<li><code>failure point</code>.</li>
+<li><code>Root cause</code>.</li>
+<li><code>доказательство</code>.</li>
+<li><code>локальная правка</code>.</li>
+</ol>
+<p>Передай отчёт соседней группе сначала без исходного Trace. Пусть группа определит, какую запись нужно искать по указанному доказательству. Затем передай соответствующий Trace, чтобы соседи нашли запись и проверили, подтверждает ли запись вывод отчёта.</p>
+<p><strong>Результат практики A:</strong> три incident reports и одно объяснение, почему одинаковый терминал не означает одинаковую Root cause.</p>
+<h3 id="7-практика-b-анализатор-трёх-traces">7. Практика B: анализатор трёх traces<a class="headerlink" href="#7-практика-b-анализатор-трёх-traces" title="Permanent link">&para;</a></h3>
+<p>Для анализа подготовлены три файла. Программа читает файлы, не изменяя их. Во всех трёх случаях записан одинаковый плохой терминал, но первое наблюдаемое отклонение находится в разных местах. Анализатор считает известные типы событий и применяет правила к подготовленным учебным случаям; мысли модели программа не определяет.</p>
+<p>Запусти анализ случая с неверным именем tool:</p>
+<div class="highlight"><pre><span></span><code><span class="c1"># запуск из корня starter</span>
+python<span class="w"> </span>trace_demo.py<span class="w"> </span>analyze<span class="w"> </span>workspace/ch12/cases/wrong_tool.jsonl
+</code></pre></div>
+<div class="highlight"><pre><span></span><code>trace: ch12/cases/wrong_tool.jsonl
+terminal: error
+tool_calls: 1
+errors: 1
+approval_events: 0
+failure_point: tool_requested call-X delete_everything
+root_cause: unknown_tool
+</code></pre></div>
+<p>Затем проверь случай с неверными arguments:</p>
+<div class="highlight"><pre><span></span><code><span class="c1"># запуск из корня starter</span>
+python<span class="w"> </span>trace_demo.py<span class="w"> </span>analyze<span class="w"> </span>workspace/ch12/cases/invalid_arguments.jsonl
+</code></pre></div>
+<div class="highlight"><pre><span></span><code>trace: ch12/cases/invalid_arguments.jsonl
+terminal: error
+tool_calls: 1
+errors: 1
+approval_events: 0
+failure_point: tool_observation call-2 validate_task_card
+root_cause: invalid_arguments
+</code></pre></div>
+<p>Наконец, проверь ошибку уже начавшейся операции:</p>
+<div class="highlight"><pre><span></span><code><span class="c1"># запуск из корня starter</span>
+python<span class="w"> </span>trace_demo.py<span class="w"> </span>analyze<span class="w"> </span>workspace/ch12/cases/tool_exception.jsonl
+</code></pre></div>
+<div class="highlight"><pre><span></span><code>trace: ch12/cases/tool_exception.jsonl
+terminal: error
+tool_calls: 1
+errors: 1
+approval_events: 0
+failure_point: tool_observation call-3 read_task_cards
+root_cause: cards_unavailable
+</code></pre></div>
+<p>Во всех трёх сводках указаны один Tool call, одна ошибка и ноль записанных событий подтверждения. Терминал тоже совпадает. Счётчики позволяют сравнить число событий, но не различают причины.</p>
+<p>Для диагностики сравни две последние строки каждого вывода. Первый маршрут отклонился при выборе неизвестного имени, второй отклонился при проверке arguments, а третий встретил проблему после начала разрешённой операции. Поэтому одинаковые счётчики не дают основания предложить одинаковое исправление.</p>
+<p>Напиши 5–7 строк своего incident report для одного случая. Не переписывай машинный вывод. Объясни:</p>
+<ol>
+<li>Почему выбран именно этот failure point.</li>
+<li>Какое событие служит доказательством.</li>
+<li>Какую область системы нужно проверить первой.</li>
+</ol>
+<p>Фраза «модель плохая» без ссылки на событие не подтверждает причину сбоя.</p>
+<h3 id="8-ошибка-trace-тоже-должна-быть-наблюдаемой">8. Ошибка Trace тоже должна быть наблюдаемой<a class="headerlink" href="#8-ошибка-trace-тоже-должна-быть-наблюдаемой" title="Permanent link">&para;</a></h3>
+<p>До сих пор мы предполагали, что JSONL читается без ошибок. Но диагностический файл тоже может быть непригоден для анализа. Например:</p>
+<ol>
+<li>Строка оборвалась.</li>
+<li>Обязательное поле отсутствует.</li>
+<li><code>call_id</code> observation не соответствует ни одному запросу.</li>
+</ol>
+<p>При таком входе анализатор должен явно сообщить, что Trace нельзя считать пригодным для расследования. Если молча пропустить повреждённую строку, получится отчёт, внешне убедительный, но основанный на неполной истории.</p>
+<p>Допустим, бюро видит запрос чтения карточек, а соответствующего observation нет. Приложение могло остановиться до обработки запроса; мог быть потерян и сам фрагмент журнала с результатом. Оба объяснения остаются версиями, а не установленными фактами. Без дополнительных свидетельств отсутствие строки не доказывает, что tool сломался.</p>
+<p>Отдельная проверка касается пути к файлу. Анализатор читает учебные Trace только внутри разрешённой рабочей области. Путь <code>../outside.jsonl</code> не даёт права исследовать произвольные файлы компьютера.</p>
+<h3 id="9-обязательные-проверки-должен--не-должен--ошибка--граница">9. Обязательные проверки: должен / не должен / ошибка / граница<a class="headerlink" href="#9-обязательные-проверки-должен--не-должен--ошибка--граница" title="Permanent link">&para;</a></h3>
+<h4 id="должен">Должен<a class="headerlink" href="#должен" title="Permanent link">&para;</a></h4>
+<p>Trace должен сохранять порядок наблюдаемых событий одного запуска и связывать Tool call с observation по <code>call_id</code>. Для запроса модели поле initiator должно содержать <code>model</code>. Выполнение и observation фиксирует harness.</p>
+<h4 id="не-должен">Не должен<a class="headerlink" href="#не-должен" title="Permanent link">&para;</a></h4>
+<p>Финальный ответ или терминал не должен заменять Trace при диагностике. Анализатор не должен печатать скрытые рассуждения модели и автоматически считать любой <code>terminal: error</code> доказательством ошибки модели.</p>
+<h4 id="ошибка">Ошибка<a class="headerlink" href="#ошибка" title="Permanent link">&para;</a></h4>
+<p>Если JSONL повреждён, <code>call_id</code> не связан с запросом или обязательное событие отсутствует, анализатор должен явно отказать в диагностике. Программа не должна представлять неполный Trace как основание для полноценного incident report.</p>
+<h4 id="граница">Граница<a class="headerlink" href="#граница" title="Permanent link">&para;</a></h4>
+<p>Новый Trace записывается только внутри <code>workspace/traces/</code> и не перезаписывает существующий файл. Анализ read-only, то есть только чтение, не меняет карточки проекта. Автоматическое скрытие значений по названиям ключей не доказывает отсутствия секретов: секрет мог попасть внутрь произвольной текстовой строки.</p>
+<h3 id="10-врезка-безопасности-журнал-не-должен-стать-складом-данных">10. Врезка безопасности: журнал не должен стать складом данных<a class="headerlink" href="#10-врезка-безопасности-журнал-не-должен-стать-складом-данных" title="Permanent link">&para;</a></h3>
+<blockquote>
+<p><strong>Безопасность</strong></p>
+<p>Для диагностики сохраняют не «всё на всякий случай», а события и минимальные поля, нужные для восстановления маршрута:</p>
+<ol>
+<li>Тип события.</li>
+<li>Инициатора, указанного в поле initiator.</li>
+<li>Идентификатор вызова.</li>
+<li>Наблюдаемый результат.</li>
+<li>Решение.</li>
+<li>Терминал.</li>
+</ol>
+<p>Не записывай в Trace пароли, API-токены и другие секреты. Не сохраняй в Trace скрытые рассуждения модели. Программа может скрывать значения полей по названиям. Такой фильтр полезен, но не даёт гарантии: секрет может оказаться в свободном тексте под неожиданным ключом.</p>
+<p>Перед публикацией или передачей Trace другой группе человек отдельно просматривает журнал. Observability требует достаточных свидетельств, а не максимального копирования данных.</p>
+</blockquote>
+<h3 id="11-мини-проверка-урока-24">11. Мини-проверка урока 24<a class="headerlink" href="#11-мини-проверка-урока-24" title="Permanent link">&para;</a></h3>
+<ol>
+<li>Что такое Observability?</li>
+<li>Чем failure point отличается от последнего события Trace?</li>
+<li>Что такое Root cause?</li>
+<li>Почему <code>terminal: error</code> недостаточно для вывода «ошибка модели»?</li>
+<li>В каком случае проблема находится до runtime, а в каком — уже во время выполнения?</li>
+<li>Почему повреждённый Trace нельзя тихо анализировать как полный?</li>
+</ol>
+<h4 id="ответы_1">Ответы<a class="headerlink" href="#ответы_1" title="Permanent link">&para;</a></h4>
+<ol>
+<li>Возможность понять поведение системы по журналам, traces, состоянию и проверкам.</li>
+<li>Failure point — первое наблюдаемое существенное отклонение; после него могут идти корректные служебные события завершения.</li>
+<li>Первая существенная причина, из-за которой маршрут отклонился от ожидаемого.</li>
+<li>Потому что одинаковый терминал может возникать из разных мест и причин: выбора tool, arguments, runtime или обработки observation.</li>
+<li>Неизвестное имя/некорректные arguments могут быть остановлены до выполнения; <code>cards_unavailable</code> после <code>execution: performed</code> относится к уже начавшейся операции.</li>
+<li>Иначе incident report будет выглядеть доказанным, хотя часть наблюдаемых событий потеряна.</li>
+</ol>
+<h3 id="выходной-билет-урока-24">Выходной билет урока 24<a class="headerlink" href="#выходной-билет-урока-24" title="Permanent link">&para;</a></h3>
+<p>Выбери один Trace и запиши четыре строки:</p>
+<div class="highlight"><pre><span></span><code>симптом: …
+failure point: …
+Root cause: …
+evidence: …
+</code></pre></div>
+<p>Проверь поле <code>evidence</code> («доказательство»): укажи конкретное наблюдаемое событие, а не повторяй свою гипотезу другими словами.</p>
+<hr />
+<h2 id="why">Зачем это тебе<a class="headerlink" href="#why" title="Permanent link">&para;</a></h2>
+<p>На лабораторной работе программа может выдать странный итоговый график. Команда спорит: датчик вернул плохие данные, формула обработки дала ошибку или выбрана не та серия измерений? По сохранённым шагам можно найти первое отклонение и не переделывать всю работу вслепую.</p>
+<p>В общем проекте класса файл итоговой презентации может не появиться, хотя программа сообщила «готово». По сообщению нельзя установить, запрашивалось ли сохранение, выполнилась ли операция и куда записан результат. Trace помогает искать свидетельство выполненного действия, а не доверять словам о действии.</p>
+<p>При программировании тест может сообщить <code>fail</code>. Сообщение показывает только симптом. События запуска помогают различить ситуации: функция не была вызвана, получила неверные входные данные или начала работу и вернула ошибку. Когда место сбоя найдено, можно исправлять соответствующий участок, а не всю программу.</p>
+<h2 id="dezhurny">Шаг сквозного проекта<a class="headerlink" href="#dezhurny" title="Permanent link">&para;</a></h2>
+<p>После главы 11 «Дежурный» умеет проходить Eval-набор, а команда хранит Baseline. Теперь к результату неуспешного Test case добавляется Trace конкретного запуска. Eval отвечает на вопрос «какой случай не прошёл критерий?», а Trace помогает восстановить наблюдаемый маршрут этого случая.</p>
+<p>В проекте появляются схема Trace и короткий incident report. Для расследуемого сбоя команда записывает:</p>
+<ol>
+<li>Симптом.</li>
+<li>Failure point.</li>
+<li>Root cause.</li>
+<li>Событие-доказательство.</li>
+</ol>
+<p>Если свидетельства нет, причина остаётся гипотезой. Нельзя выдавать предположение за установленный факт.</p>
+<p>На этапе <strong>Контрольная точка 6</strong> команда должна уметь диагностировать собственный запуск. Требование не состоит в том, чтобы система никогда не ошибалась. Команда должна находить место существенного сбоя по наблюдаемым данным и объяснять вывод другой группе.</p>
+<h3 id="достраиваем-дежурного">Достраиваем «Дежурного»<a class="headerlink" href="#достраиваем-дежурного" title="Permanent link">&para;</a></h3>
+<p>Помести в папку <code>workspace/my_agent/</code> файл <code>12_trace.json</code> с содержимым <code>{"enabled": true}</code>. Настройка включает запись Trace запусков в <code>workspace/traces/dezhurny/</code>.</p>
+<p>Выполни две команды ниже строго в указанном порядке, без другого <code>run</code> между ними. Команда <code>trace --last</code> читает последний Trace, поэтому должна прочитать запись именно первого запуска. В проверочном выводе файл называется <code>run-001.jsonl</code>; в твоей папке номер может отличаться, поскольку зависит от уже существующих файлов Trace.</p>
+<div class="highlight"><pre><span></span><code><span class="c1"># запуск из корня starter</span>
+<span class="c1"># фикстура: tests/fixtures/ch12/12_trace.json -&gt; workspace/my_agent/12_trace.json</span>
+python<span class="w"> </span>dezhurny.py<span class="w"> </span>run
+</code></pre></div>
+<div class="highlight"><pre><span></span><code>dezhurny: run
+goal: не настроено (глава 1)
+config: workspace/my_agent
+model: replay — авторский сценарий, не запись модели
+scenario: success
+stop_policy: max_steps 5, max_retries 1 (по умолчанию, глава 2)
+tools: allowlist диспетчера (по умолчанию, глава 7)
+Шаг 1 | read_task_cards | continue
+Шаг 2 | validate_task_card | continue
+Шаг 3 | validate_task_card | continue
+Шаг 4 | validate_task_card | continue
+Шаг 5 | build_status_report | success
+Остановка: success
+# Черновик статуса проекта
+
+Всего задач: 3.
+Незавершённых: 2.
+Заблокированных: 1.
+
+## Незавершённые задачи
+- `task-002` — Подготовить макет афиши (in_progress)
+- `task-003` — Проверить список оборудования (blocked)
+
+## Блокеры
+- `task-003`: Нет подтверждённого списка оборудования
+
+Черновик. Отправка и изменение карточек не выполнялись.
+contract: не настроено (глава 5)
+save: не настроено (глава 3)
+state: не настроено (глава 10)
+trace: workspace/traces/dezhurny/run-001.jsonl
+Качество модели не подтверждено этим техническим прогоном.
+</code></pre></div>
+<p>Теперь прочитай сведения о записанном запуске:</p>
+<div class="highlight"><pre><span></span><code><span class="c1"># запуск из корня starter</span>
+python<span class="w"> </span>dezhurny.py<span class="w"> </span>trace<span class="w"> </span>--last
+</code></pre></div>
+<div class="highlight"><pre><span></span><code>trace: workspace/traces/dezhurny/run-001.jsonl
+terminal: success
+tool_calls: 5
+errors: 0
+failure_point: нет наблюдаемого отклонения
+</code></pre></div>
+<p>Сводка показывает terminal, число Tool calls, ошибки и failure point последнего запуска. Число <code>tool_calls: 5</code> можно сопоставить с пятью шагами выше: один вызов читает карточки, три вызова проверяют карточки и один вызов строит сводку.</p>
+<p>Фраза <code>failure_point: нет наблюдаемого отклонения</code> относится к разобранному запуску. Она не подтверждает качество модели: запросы заданы авторским сценарием. Номер файла может быть другим, но обе команды должны ссылаться на один запуск.</p>
+<h2 id="return">Возвращаемся к сцене<a class="headerlink" href="#return" title="Permanent link">&para;</a></h2>
+<p>В начале главы Аня предположила, что модель выбрала не тот tool. Марк указал на возможную ошибку чтения, а третий участник предположил неверное решение после observation. Как различить три версии? Нужно проверить, какие события подтверждают каждую из них.</p>
+<p>Команда открывает Trace конкретного запуска и читает события сверху вниз. Если записаны правильный <code>tool_requested</code>, корректные arguments и только затем <code>tool_observation</code> с <code>cards_unavailable</code>, журнал не поддерживает версию о неверном выборе tool. Если первым отклонением было неизвестное <code>name</code>, нет оснований начинать расследование с runtime, который не выполнил запрос.</p>
+<p>Для ответа на вопрос-прогноз нужно сохранять события, позволяющие восстановить маршрут:</p>
+<ol>
+<li>Запрос модели.</li>
+<li>Связь Tool call и observation.</li>
+<li>Результат проверки или выполнения.</li>
+<li>Решение о продолжении или остановке.</li>
+<li>Завершение запуска.</li>
+</ol>
+<p>Количество строк само по себе ничего из перечисленного не доказывает. Если нужных свидетельств в Trace нет, вывод звучит так: «Причина не доказана». Более уверенная догадка недостающих событий не заменит.</p>
+<h2 id="check">Проверь себя<a class="headerlink" href="#check" title="Permanent link">&para;</a></h2>
+<ol>
+<li>Что такое Trace и чем он отличается от финального ответа?</li>
+<li>Почему Trace не должен содержать скрытые рассуждения модели как обязательный артефакт?</li>
+<li>Зачем событию Tool call нужен <code>call_id</code>?</li>
+<li>Чем Event log главы 7 уже, чем Trace главы 12?</li>
+<li>Что означает Observability?</li>
+<li>Чем failure point отличается от Root cause?</li>
+<li>Почему три <code>terminal: error</code> могут иметь три разные Root causes?</li>
+<li>Почему фильтр, скрывающий значения полей по названиям ключей, не доказывает отсутствие секретов во всём Trace?</li>
+<li>Как Eval главы 11 и Trace главы 12 работают вместе?</li>
+</ol>
+<h3 id="ответы_2">Ответы<a class="headerlink" href="#ответы_2" title="Permanent link">&para;</a></h3>
+<ol>
+<li>Trace — последовательность наблюдаемых событий одного запуска; финальный ответ показывает только один результат и не восстанавливает маршрут.</li>
+<li>Потому что цель Trace — наблюдаемые действия и результаты, а не внутренний ход рассуждений модели.</li>
+<li>Чтобы однозначно связать запрос с соответствующим result/error и не перепутать несколько вызовов.</li>
+<li>Event log главы 7 фокусировался на запросах tools, observation и решениях; Trace охватывает более широкую последовательность наблюдаемых событий запуска.</li>
+<li>Возможность понять поведение системы по журналам, traces, состоянию и проверкам.</li>
+<li>Failure point — первое наблюдаемое место отклонения; Root cause — первая существенная причина этого отклонения.</li>
+<li>Ошибка может возникнуть при выборе имени, проверке arguments, выполнении или обработке результата; терминал показывает итог, а не место причины.</li>
+<li>Потому что секрет может оказаться внутри произвольной строки или поля с неожиданным именем; перед публикацией нужен отдельный человеческий просмотр.</li>
+<li>Eval показывает, какой случай прошёл или не прошёл критерий; Trace помогает восстановить наблюдаемый маршрут конкретного запуска и диагностировать причину сбоя.</li>
+</ol>
+<h2 id="glossary">Словарь главы<a class="headerlink" href="#glossary" title="Permanent link">&para;</a></h2>
+<table>
+<thead>
+<tr>
+<th>Термин</th>
+<th>Рабочая формулировка</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Trace / трассировка</strong></td>
+<td>последовательность наблюдаемых событий одного запуска; может включать вход, запрос tool, результат, ошибку, событие подтверждения и завершение; не включает скрытые рассуждения модели как обязательный учебный артефакт</td>
+</tr>
+<tr>
+<td><strong>Event / событие</strong></td>
+<td>одна наблюдаемая запись внутри Trace: что произошло, кем инициировано и с какими диагностическими полями связано</td>
+</tr>
+<tr>
+<td><strong>Tool call record / запись Tool call</strong></td>
+<td>event, фиксирующий наблюдаемый Tool call с его <code>call_id</code>, именем и arguments; запись запроса не доказывает выполнение</td>
+</tr>
+<tr>
+<td><strong>Approval event / событие подтверждения</strong></td>
+<td>event о наблюдаемом факте запроса, получения или отказа подтверждения; сам механизм и правила подтверждения в этой главе не определяются</td>
+</tr>
+<tr>
+<td><strong>Observability / наблюдаемость</strong></td>
+<td>возможность понять поведение системы по журналам, traces, состоянию и проверкам</td>
+</tr>
+<tr>
+<td><strong>Failure point</strong></td>
+<td>первое наблюдаемое событие, после которого фактический маршрут перестаёт соответствовать ожидаемому для данного случая</td>
+</tr>
+<tr>
+<td><strong>Root cause / первопричина</strong></td>
+<td>первая существенная причина, из-за которой маршрут выполнения отклонился от ожидаемого</td>
+</tr>
+</tbody>
+</table>
+<h2 id="bridge">Мост к главе 13<a class="headerlink" href="#bridge" title="Permanent link">&para;</a></h2>
+<p>Команда уже умеет не только увидеть <code>fail</code> в Eval, но и восстановить наблюдаемый маршрут запуска. Incident report связывает симптом, failure point, Root cause и событие-доказательство. После разбора кажется естественным сразу исправить процедуру и считать проблему закрытой.</p>
+<p>Но достаточно ли найденной причины, чтобы перенести конкретную поправку на будущие запуски? Ещё нет. Слишком частное исправление может помочь разобранному случаю и испортить другие. После диагностики нужно решить, как изменять процедуру, чтобы исправление не оценивалось только по одному удачному результату.</p>
+<blockquote>
+<p><strong>Следующий вопрос.</strong> Когда исправление должно менять процедуру?</p>
+</blockquote>
+<p>Ответ ты найдёшь в главе 13, «Обратная связь и версии».</p>
+
+
+
+
+
+
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+    
+      
+      <nav class="md-footer__inner md-grid" aria-label="Нижний колонтитул" >
+        
+          
+          <a href="../ch11/" class="md-footer__link md-footer__link--prev" aria-label="Назад: Глава 11. Тесты и evals: как доказать качество не одним удачным запуском?">
+            <div class="md-footer__button md-icon">
+              
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+            </div>
+            <div class="md-footer__title">
+              <span class="md-footer__direction">
+                Назад
+              </span>
+              <div class="md-ellipsis">
+                Глава 11. Тесты и evals: как доказать качество не одним удачным запуском?
+              </div>
+            </div>
+          </a>
+        
+        
+          
+          <a href="../ch13/" class="md-footer__link md-footer__link--next" aria-label="Вперед: Глава 13. Обратная связь и версии: когда исправление должно менять процедуру?">
+            <div class="md-footer__title">
+              <span class="md-footer__direction">
+                Вперед
+              </span>
+              <div class="md-ellipsis">
+                Глава 13. Обратная связь и версии: когда исправление должно менять процедуру?
+              </div>
+            </div>
+            <div class="md-footer__button md-icon">
+              
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M4 11v2h12l-5.5 5.5 1.42 1.42L19.84 12l-7.92-7.92L10.5 5.5 16 11z"/></svg>
+            </div>
+          </a>
+        
+      </nav>
+    
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+    <div class="md-copyright__highlight">
+      ARISTOTEL · Редакция r0003 · 2026-10-15 · техническая редакция, пилот не проводился
+    </div>
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    
+      
+      
+      <script id="__config" type="application/json">{"annotate": null, "base": "../..", "features": ["navigation.tabs", "navigation.tabs.sticky", "navigation.sections", "navigation.indexes", "search.suggest", "search.highlight", "content.code.copy", "navigation.footer"], "search": "../../assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "\u0421\u043a\u043e\u043f\u0438\u0440\u043e\u0432\u0430\u043d\u043e \u0432 \u0431\u0443\u0444\u0435\u0440", "clipboard.copy": "\u041a\u043e\u043f\u0438\u0440\u043e\u0432\u0430\u0442\u044c \u0432 \u0431\u0443\u0444\u0435\u0440", "search.result.more.one": "\u0415\u0449\u0451 1 \u043d\u0430 \u044d\u0442\u043e\u0439 \u0441\u0442\u0440\u0430\u043d\u0438\u0446\u0435", "search.result.more.other": "\u0415\u0449\u0451 # \u043d\u0430 \u044d\u0442\u043e\u0439 \u0441\u0442\u0440\u0430\u043d\u0438\u0446\u0435", "search.result.none": "\u0421\u043e\u0432\u043f\u0430\u0434\u0435\u043d\u0438\u0439 \u043d\u0435 \u043d\u0430\u0439\u0434\u0435\u043d\u043e", "search.result.one": "\u041d\u0430\u0439\u0434\u0435\u043d\u043e 1 \u0441\u043e\u0432\u043f\u0430\u0434\u0435\u043d\u0438\u0435", "search.result.other": "\u041d\u0430\u0439\u0434\u0435\u043d\u043e \u0441\u043e\u0432\u043f\u0430\u0434\u0435\u043d\u0438\u0439: #", "search.result.placeholder": "\u041d\u0430\u0447\u043d\u0438\u0442\u0435 \u043f\u0435\u0447\u0430\u0442\u0430\u0442\u044c \u0434\u043b\u044f \u043f\u043e\u0438\u0441\u043a\u0430", "search.result.term.missing": "\u041e\u0442\u0441\u0443\u0442\u0441\u0442\u0432\u0443\u0435\u0442", "select.version": "\u0412\u044b\u0431\u0435\u0440\u0438\u0442\u0435 \u0432\u0435\u0440\u0441\u0438\u044e"}, "version": {"provider": "mike"}}</script>
+    
+    
+      <script src="../../assets/javascripts/bundle.79ae519e.min.js"></script>
+      
+    
+  </body>
+</html>

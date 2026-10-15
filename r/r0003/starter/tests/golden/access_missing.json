@@ -1,0 +1,1 @@
+{"operation": "read", "path": "tasks/missing.json", "status": "error", "boundary": "inside_workspace", "reason": "not_found", "os_sandbox_proven": false}

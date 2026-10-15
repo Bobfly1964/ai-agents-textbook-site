@@ -1,0 +1,1 @@
+{"operation": "write", "path": "tasks/task-003.json", "status": "denied", "boundary": "inside_workspace", "reason": "operation_not_allowed", "os_sandbox_proven": false}

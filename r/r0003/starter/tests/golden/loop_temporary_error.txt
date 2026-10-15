@@ -1,0 +1,10 @@
+step: 1
+state: observed
+action: read_task_cards
+observation: {"ok": false, "error": "Ошибка: учебные карточки недоступны"}
+decision: continue
+step: 2
+state: observed
+action: read_task_cards
+observation: {"ok": true, "matches": ["task-003"]}
+decision: success

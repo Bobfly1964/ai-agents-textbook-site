@@ -1,0 +1,3267 @@
+
+<!doctype html>
+<html lang="ru" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+        <meta name="description" content="Учебник для 9–10 классов">
+      
+      
+      
+        <link rel="canonical" href="https://book.stemschool.online/r0003/student/ch03/">
+      
+      
+        <link rel="prev" href="../ch02/">
+      
+      
+        <link rel="next" href="../ch04/">
+      
+      
+        
+      
+      
+      <link rel="icon" href="../../assets/images/logo.png">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.6">
+    
+    
+      
+        <title>Глава 3. Agent harness: что работает вокруг модели? - ИИ-агенты и Agent Skills</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../assets/stylesheets/main.484c7ddc.min.css">
+      
+        
+        <link rel="stylesheet" href="../../assets/stylesheets/palette.ab4e12ef.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+      <link rel="stylesheet" href="../../assets/stylesheets/extra.css">
+    
+    <script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+  </head>
+  
+  
+    
+    
+      
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="deep-purple" data-md-color-accent="cyan">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#глава-3-agent-harness-что-работает-вокруг-модели" class="md-skip">
+          Перейти к содержанию
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+        <aside class="md-banner">
+          <div class="md-banner__inner md-grid md-typeset">
+            
+            
+  
+    <strong>Техническая редакция: пилот не проводился</strong> · редакция r0003
+  
+
+          </div>
+          
+        </aside>
+      
+    </div>
+    
+      <div data-md-color-scheme="default" data-md-component="outdated" hidden>
+        
+      </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow md-header--lifted" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Верхний колонтитул">
+    <a href="../.." title="ИИ-агенты и Agent Skills" class="md-header__button md-logo" aria-label="ИИ-агенты и Agent Skills" data-md-component="logo">
+      
+  <img src="../../assets/images/logo.png" alt="logo">
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            ИИ-агенты и Agent Skills
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Глава 3. Agent harness: что работает вокруг модели?
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+        <form class="md-header__option" data-md-component="palette">
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="(prefers-color-scheme: light)" data-md-color-scheme="default" data-md-color-primary="deep-purple" data-md-color-accent="cyan"  aria-label="Переключить на тёмную"  type="radio" name="__palette" id="__palette_0">
+    
+      <label class="md-header__button md-icon" title="Переключить на тёмную" for="__palette_1" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 18c-.89 0-1.74-.2-2.5-.55C11.56 16.5 13 14.42 13 12s-1.44-4.5-3.5-5.45C10.26 6.2 11.11 6 12 6a6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12z"/></svg>
+      </label>
+    
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="(prefers-color-scheme: dark)" data-md-color-scheme="slate" data-md-color-primary="deep-purple" data-md-color-accent="cyan"  aria-label="Переключить на светлую"  type="radio" name="__palette" id="__palette_1">
+    
+      <label class="md-header__button md-icon" title="Переключить на светлую" for="__palette_0" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a4 4 0 0 0-4 4 4 4 0 0 0 4 4 4 4 0 0 0 4-4 4 4 0 0 0-4-4m0 10a6 6 0 0 1-6-6 6 6 0 0 1 6-6 6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12z"/></svg>
+      </label>
+    
+  
+</form>
+      
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+      
+      
+        <label class="md-header__button md-icon" for="__search">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        </label>
+        <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Поиск" placeholder="Поиск" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Поиск">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Очистить" aria-label="Очистить" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+        <div class="md-search__suggest" data-md-component="search-suggest"></div>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Инициализация поиска
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+      
+    
+    
+  </nav>
+  
+    
+      
+<nav class="md-tabs" aria-label="Вкладки" data-md-component="tabs">
+  <div class="md-grid">
+    <ul class="md-tabs__list">
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../.." class="md-tabs__link">
+        
+  
+  
+    
+  
+  Главная
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+    
+  
+  
+    
+    
+      <li class="md-tabs__item md-tabs__item--active">
+        <a href="../intro/" class="md-tabs__link">
+          
+  
+  
+    
+  
+  Ученик
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../teacher/teacher-guide/" class="md-tabs__link">
+          
+  
+  
+    
+  
+  Учитель
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../../routes/" class="md-tabs__link">
+        
+  
+  
+    
+  
+  Маршруты A/B
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../../files/" class="md-tabs__link">
+        
+  
+  
+    
+  
+  Файлы практикума
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../../about/" class="md-tabs__link">
+        
+  
+  
+    
+  
+  Выходные данные
+
+      </a>
+    </li>
+  
+
+      
+    </ul>
+  </div>
+</nav>
+    
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+  
+
+
+<nav class="md-nav md-nav--primary md-nav--lifted" aria-label="Навигация" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../.." title="ИИ-агенты и Agent Skills" class="md-nav__button md-logo" aria-label="ИИ-агенты и Agent Skills" data-md-component="logo">
+      
+  <img src="../../assets/images/logo.png" alt="logo">
+
+    </a>
+    ИИ-агенты и Agent Skills
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../.." class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Главная
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+        
+        
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2" checked>
+        
+          
+          <label class="md-nav__link" for="__nav_2" id="__nav_2_label" tabindex="">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Ученик
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_2">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Ученик
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../intro/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Введение
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../tour/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Экскурсия по AI: что есть что
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../ch01/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Глава 1. Модель, приложение и агент: кто отвечает, а кто действует?
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../ch02/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Глава 2. Агентный цикл: как результат действия меняет следующий шаг?
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Глава 3. Agent harness: что работает вокруг модели?
+  
+
+    
+  </span>
+  
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Глава 3. Agent harness: что работает вокруг модели?
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Содержание">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Содержание
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#scene" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Два одинаковых вывода
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#goals" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        После главы ты сможешь
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#lesson-5" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Урок 5. Кто организует знакомый цикл
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Урок 5. Кто организует знакомый цикл">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#1-начинаем-со-знакомых-обязанностей" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1. Начинаем со знакомых обязанностей
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#2-машина-вокруг-работающего-цикла" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2. Машина вокруг работающего цикла
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#3-выполнение-и-порядок-работы-отвечают-на-разные-вопросы" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3. Выполнение и порядок работы отвечают на разные вопросы
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#4-выносим-управление-порядком-и-не-ломаем-главу-2" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        4. Выносим управление порядком и не ломаем главу 2
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#5-что-одинаковый-вывод-доказывает-а-чего-нет" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        5. Что одинаковый вывод доказывает, а чего нет
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#6-ещё-одна-обязанность-выбрать-что-доступно-сейчас" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        6. Ещё одна обязанность: выбрать, что доступно сейчас
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#7-мини-проверка-урока-5" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        7. Мини-проверка урока 5
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="7. Мини-проверка урока 5">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#ответы" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Ответы
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#8-практика-a-карта-из-пяти-частей" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        8. Практика A: карта из пяти частей
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#9-практика-b-найди-и-вынеси" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        9. Практика B: найди и вынеси
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#10-выходной-билет-урока-5" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        10. Выходной билет урока 5
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#lesson-6" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Урок 6. Что видно сейчас и что действительно разрешено
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Урок 6. Что видно сейчас и что действительно разрешено">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#1-две-фразы--две-разные-границы" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1. Две фразы — две разные границы
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#2-почему-нельзя-передать-всё-сразу" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2. Почему нельзя передать всё сразу
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#3-единая-карта-из-семи-частей" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3. Единая карта из семи частей
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#4-права-доступа-проверяются-до-операции" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        4. Права доступа проверяются до операции
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#5-почему-трёх-проверок-недостаточно-для-полной-изоляции" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        5. Почему трёх проверок недостаточно для полной изоляции
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#6-четыре-observation-доступа" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        6. Четыре observation доступа
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="6. Четыре observation доступа">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#должен-существующий-файл-внутри-workspace" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        «Должен»: существующий файл внутри workspace
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#не-должен-запись-остановлена-гейтом" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        «Не должен»: запись остановлена гейтом
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#ошибка-допустимого-файла-нет" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        «Ошибка»: допустимого файла нет
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#граница-путь-выходит-из-workspace" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        «Граница»: путь выходит из workspace
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#7-короткое-авторское-действие-в-track-b" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        7. Короткое авторское действие в Track B
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#8-один-результат-в-двух-формах" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        8. Один результат в двух формах
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#9-завершаем-карту-из-семи-частей" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        9. Завершаем карту из семи частей
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#10-мини-проверка-урока-6" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        10. Мини-проверка урока 6
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="10. Мини-проверка урока 6">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#ответы_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Ответы
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#11-практика-a-данные-и-границы" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        11. Практика A: данные и границы
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#12-практика-b-код-и-проверяемая-граница" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        12. Практика B: код и проверяемая граница
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#13-выходной-билет-урока-6" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        13. Выходной билет урока 6
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#безопасность-проверка-пути--ещё-не-изоляция-процесса" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Безопасность: проверка пути — ещё не изоляция процесса
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#why" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Зачем это тебе
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#dezhurny" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Шаг сквозного проекта
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Шаг сквозного проекта">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#1-карта-harness-v01" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1. Карта harness v0.1
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#2-политика-workspace-v01" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2. Политика workspace v0.1
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#достраиваем-дежурного" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Достраиваем «Дежурного»
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#check" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Проверь себя
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Проверь себя">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#ответы_2" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Ответы
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#эталон-ветки-практики-b" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Эталон ветки практики B
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#glossary" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Словарь главы
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#bridge" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Мост к главе 4
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../ch04/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Глава 4. Prompt, structured output, tool, MCP и Agent Skill: какие задачи решают разные уровни системы?
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../ch05/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Глава 5. Договор задачи: что нужно определить до реализации?
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../ch06/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Глава 6. Первый tool
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../ch07/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Глава 7. Диспетчер и ошибки
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../ch08/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Глава 8. Хороший tool
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../ch09/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Глава 9. Первый Agent Skill
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../ch10/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Глава 10. Состояние и память
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../ch11/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Глава 11. Тесты и evals: как доказать качество не одним удачным запуском?
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../ch12/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Глава 12. Traces: как понять, что происходило на самом деле?
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../ch13/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Глава 13. Обратная связь и версии: когда исправление должно менять процедуру?
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../ch14/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Глава 14. Permissions и участие человека
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../ch15/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Глава 15. Prompt injection и недоверенные подключения: что делать с данными и кодом, которым нельзя автоматически доверять?
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../ch16/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Глава 16. Долгая и совместная работа
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../ch17/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Глава 17. Итоговый проект: может ли команда доказать качество и ограниченность системы?
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../app-a/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Приложение А. Урок 0. Готовность рабочего места
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../app-b/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Приложение Б. Словарь курса
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../app-c/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Приложение В. Список фигур
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3" >
+        
+          
+          <label class="md-nav__link" for="__nav_3" id="__nav_3_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Учитель
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Учитель
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../teacher/teacher-guide/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Методическое руководство для учителя
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../teacher/lesson-map/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Поурочная карта
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../routes/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Маршруты A/B
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../files/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Файлы практикума
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../about/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Выходные данные
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Содержание">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Содержание
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#scene" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Два одинаковых вывода
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#goals" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        После главы ты сможешь
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#lesson-5" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Урок 5. Кто организует знакомый цикл
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Урок 5. Кто организует знакомый цикл">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#1-начинаем-со-знакомых-обязанностей" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1. Начинаем со знакомых обязанностей
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#2-машина-вокруг-работающего-цикла" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2. Машина вокруг работающего цикла
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#3-выполнение-и-порядок-работы-отвечают-на-разные-вопросы" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3. Выполнение и порядок работы отвечают на разные вопросы
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#4-выносим-управление-порядком-и-не-ломаем-главу-2" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        4. Выносим управление порядком и не ломаем главу 2
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#5-что-одинаковый-вывод-доказывает-а-чего-нет" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        5. Что одинаковый вывод доказывает, а чего нет
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#6-ещё-одна-обязанность-выбрать-что-доступно-сейчас" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        6. Ещё одна обязанность: выбрать, что доступно сейчас
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#7-мини-проверка-урока-5" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        7. Мини-проверка урока 5
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="7. Мини-проверка урока 5">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#ответы" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Ответы
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#8-практика-a-карта-из-пяти-частей" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        8. Практика A: карта из пяти частей
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#9-практика-b-найди-и-вынеси" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        9. Практика B: найди и вынеси
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#10-выходной-билет-урока-5" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        10. Выходной билет урока 5
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#lesson-6" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Урок 6. Что видно сейчас и что действительно разрешено
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Урок 6. Что видно сейчас и что действительно разрешено">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#1-две-фразы--две-разные-границы" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1. Две фразы — две разные границы
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#2-почему-нельзя-передать-всё-сразу" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2. Почему нельзя передать всё сразу
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#3-единая-карта-из-семи-частей" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3. Единая карта из семи частей
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#4-права-доступа-проверяются-до-операции" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        4. Права доступа проверяются до операции
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#5-почему-трёх-проверок-недостаточно-для-полной-изоляции" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        5. Почему трёх проверок недостаточно для полной изоляции
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#6-четыре-observation-доступа" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        6. Четыре observation доступа
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="6. Четыре observation доступа">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#должен-существующий-файл-внутри-workspace" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        «Должен»: существующий файл внутри workspace
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#не-должен-запись-остановлена-гейтом" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        «Не должен»: запись остановлена гейтом
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#ошибка-допустимого-файла-нет" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        «Ошибка»: допустимого файла нет
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#граница-путь-выходит-из-workspace" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        «Граница»: путь выходит из workspace
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#7-короткое-авторское-действие-в-track-b" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        7. Короткое авторское действие в Track B
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#8-один-результат-в-двух-формах" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        8. Один результат в двух формах
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#9-завершаем-карту-из-семи-частей" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        9. Завершаем карту из семи частей
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#10-мини-проверка-урока-6" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        10. Мини-проверка урока 6
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="10. Мини-проверка урока 6">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#ответы_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Ответы
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#11-практика-a-данные-и-границы" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        11. Практика A: данные и границы
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#12-практика-b-код-и-проверяемая-граница" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        12. Практика B: код и проверяемая граница
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#13-выходной-билет-урока-6" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        13. Выходной билет урока 6
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#безопасность-проверка-пути--ещё-не-изоляция-процесса" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Безопасность: проверка пути — ещё не изоляция процесса
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#why" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Зачем это тебе
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#dezhurny" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Шаг сквозного проекта
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Шаг сквозного проекта">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#1-карта-harness-v01" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1. Карта harness v0.1
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#2-политика-workspace-v01" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2. Политика workspace v0.1
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#достраиваем-дежурного" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Достраиваем «Дежурного»
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#check" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Проверь себя
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Проверь себя">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#ответы_2" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Ответы
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#эталон-ветки-практики-b" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Эталон ветки практики B
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#glossary" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Словарь главы
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#bridge" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Мост к главе 4
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+
+<h1 id="глава-3-agent-harness-что-работает-вокруг-модели">Глава 3. Agent harness: что работает вокруг модели?<a class="headerlink" href="#глава-3-agent-harness-что-работает-вокруг-модели" title="Permanent link">&para;</a></h1>
+<h2 id="scene">Два одинаковых вывода<a class="headerlink" href="#scene" title="Permanent link">&para;</a></h2>
+<p>В главе 2 программа-помощник «Дежурный» научилась принимать решения по результатам действий. Сегодня Аня принесла в бюро две версии программы. Знакомый файл <a href="../../starter/loop_demo.py"><code>loop_demo.py</code></a> содержит первую версию, а новый файл <a href="../../starter/harness_demo.py"><code>harness_demo.py</code></a> содержит вторую версию. По ссылкам доступны полные тексты программ. Оба запуска выполни из <strong>корня starter</strong>, то есть из самой папки учебного комплекта, как во врезке «Как устроен наш практикум» главы 1. До запуска предположи, достаточно ли совпадения результатов, чтобы узнать устройство программ. Запусти первую программу:</p>
+<div class="highlight"><pre><span></span><code><span class="c1"># запуск из корня starter</span>
+python<span class="w"> </span>loop_demo.py<span class="w"> </span>--scenario<span class="w"> </span>one_match
+</code></pre></div>
+<div class="highlight"><pre><span></span><code>step: 1
+state: observed
+action: read_task_cards
+observation: {&quot;ok&quot;: true, &quot;matches&quot;: [&quot;task-003&quot;]}
+decision: success
+</code></pre></div>
+<p>Теперь запусти вторую программу:</p>
+<div class="highlight"><pre><span></span><code><span class="c1"># запуск из корня starter</span>
+python<span class="w"> </span>harness_demo.py<span class="w"> </span>--scenario<span class="w"> </span>one_match
+</code></pre></div>
+<div class="highlight"><pre><span></span><code>step: 1
+state: observed
+action: read_task_cards
+observation: {&quot;ok&quot;: true, &quot;matches&quot;: [&quot;task-003&quot;]}
+decision: success
+</code></pre></div>
+<p>Выводы совпадают побайтно, то есть полностью, включая пробелы и переносы строк. В главе 1 мы уже видели, что одинаковый текст на экране может скрывать разное устройство программ. Значит ли одинаковый вывод, что программы устроены одинаково?</p>
+<blockquote>
+<p><strong>Вопрос-Прогноз.</strong> Что нужно увидеть, кроме пяти строк результата, чтобы сравнить <em>устройство</em> двух программ, а не только их результат? Запиши версию.</p>
+</blockquote>
+<p>В пяти строках вывода ты уже узнаёшь запись шага из главы 2:</p>
+<ul>
+<li><code>step</code> показывает номер шага;</li>
+<li><code>state</code> отмечает этап;</li>
+<li><code>action</code> называет выполненную операцию;</li>
+<li><code>observation</code> содержит полученное наблюдение;</li>
+<li><code>decision</code> сообщает принятое решение.</li>
+</ul>
+<p>Значение <code>observed</code> сообщает, что результат сохранён, а значение <code>success</code> означает, что цель этого учебного случая достигнута.</p>
+<p>Глава 2 закончилась вопросом: какая программная среда вокруг модели хранит состояние, исполняет разрешённые действия, применяет ограничения и возвращает observation? Мы найдём такую среду в знакомой программе, дадим ей имя и разберём обязанности её частей.</p>
+<blockquote>
+<p><strong>Главный вопрос главы.</strong> Как код вокруг компонента выбора организует выполнение, хранит данные текущего запуска и проверяет, какие операции разрешены?</p>
+</blockquote>
+<h2 id="goals">После главы ты сможешь<a class="headerlink" href="#goals" title="Permanent link">&para;</a></h2>
+<ul>
+<li>находить в схеме и в коде семь частей программы вокруг компонента выбора и объяснять их обязанности;</li>
+<li>отличать выбор действия от решения после полученного observation;</li>
+<li>различать выполнение операции и управление порядком вызовов;</li>
+<li>отличать сведения, переданные для текущего выбора, от данных всего запуска и от внешнего файла;</li>
+<li>объяснять, кто выбирает информацию для конкретного обращения;</li>
+<li>предсказывать результат проверок пути и операции;</li>
+<li>отличать текстовую просьбу и отдельную проверку в коде от среды, технически ограничивающей последствия выполнения.</li>
+</ul>
+<h2 id="lesson-5">Урок 5. Кто организует знакомый цикл<a class="headerlink" href="#lesson-5" title="Permanent link">&para;</a></h2>
+<h3 id="1-начинаем-со-знакомых-обязанностей">1. Начинаем со знакомых обязанностей<a class="headerlink" href="#1-начинаем-со-знакомых-обязанностей" title="Permanent link">&para;</a></h3>
+<p>Вспомни упряжь: ремни и вожжи, которые соединяют лошадь с повозкой. В английском языке упряжь называют <code>harness</code>. Одной силы лошади недостаточно: нужна упряжь, которая передаёт эту силу повозке, а вожжи позволяют задавать направление и удерживать лошадь. Лошади в этом сравнении соответствует модель, а упряжи соответствует программная среда вокруг модели. Такую среду называют <strong><em>harness</em></strong> (упряжь), или agent harness. На экскурсии мы называли её обвязкой.</p>
+<p>У аналогии есть предел. Модель не тянет программу физической силой, а код не состоит из ремней. Программа принимает данные, вызывает функции и применяет проверки в определённом порядке. Сравнение с упряжью помогает представить связь частей, но устройство и надёжность программы нужно устанавливать по её коду.</p>
+<p>Вместе с циклом из главы 2 ты уже построил harness. Открой <code>loop_demo.py</code> и задай себе вопрос:</p>
+<blockquote>
+<p><strong>Где в <code>loop_demo.py</code> уже живёт harness?</strong></p>
+</blockquote>
+<p>Функции с именем harness в файле нет. Ищи обязанности: какую работу должна выполнить программа, чтобы состоялся один шаг цикла? В знакомом коде можно найти пять таких обязанностей:</p>
+<ul>
+<li><code>show_loop</code> принимает параметры запуска и показывает результат человеку;</li>
+<li><code>planner_stub</code> выбирает действие, но сам его не выполняет;</li>
+<li><code>run_loop</code> вызывает остальные функции в нужном порядке, от выбора действия до решения после observation;</li>
+<li><code>perform_action</code> фактически выполняет учебное действие в среде;</li>
+<li><code>new_state</code> и <code>update_state</code> создают и меняют состояние запуска.</li>
+</ul>
+<p>Пять найденных обязанностей образуют первые пять частей карты harness; эту карту мы будем собирать всю главу:</p>
+<table>
+<thead>
+<tr>
+<th>Часть</th>
+<th>Что делает в starter</th>
+<th>Где увидеть</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Интерфейс</strong></td>
+<td>Разбирает параметры команды и печатает результат</td>
+<td><code>show_loop</code>; в новом файле также <code>main</code></td>
+</tr>
+<tr>
+<td><strong>Выбор</strong></td>
+<td>В этом опыте всегда предлагает <code>read_task_cards</code></td>
+<td><code>planner_stub</code></td>
+</tr>
+<tr>
+<td><strong><em>Оркестрация</em></strong> (orchestration), управление порядком работы</td>
+<td>Задаёт порядок конкретных вызовов</td>
+<td><code>run_loop</code>, затем <code>run_harness</code></td>
+</tr>
+<tr>
+<td><strong><em>runtime</em></strong> (среда выполнения), исполнение выбранной операции</td>
+<td>Вызывает учебное выполнение действия</td>
+<td><code>perform_action</code></td>
+</tr>
+<tr>
+<td><strong>Состояние</strong></td>
+<td><code>new_state</code> создаёт словарь, <code>update_state</code> сохраняет observation и счётчики</td>
+<td><code>new_state</code>, <code>update_state</code></td>
+</tr>
+</tbody>
+</table>
+<p>Здесь легко объединить <code>planner_stub</code> и <code>decide</code>: обе функции «что-то решают». Но <code>planner_stub</code> выбирает действие до выполнения, а <code>decide</code> вызывается после observation, в том же шаге. Вызов <code>decide</code> относится к порядку работы, который поддерживает оркестрация. Сохрани знакомое из главы 2 различие: выбор действия и решение после результата занимают две разные точки цикла.</p>
+<p><img alt="Фигура 6. Упряжь и модель: где кончается аналогия" src="../../figures/06_upryazh-i-model-gde-konchaetsya-analogiya.png" /></p>
+<p><em>Фигура 6. Упряжь и модель: где кончается аналогия</em></p>
+<h3 id="2-машина-вокруг-работающего-цикла">2. Машина вокруг работающего цикла<a class="headerlink" href="#2-машина-вокруг-работающего-цикла" title="Permanent link">&para;</a></h3>
+<p>Цикл из главы 2 проходит в знакомом порядке:</p>
+<ol>
+<li>Компонент выбора предлагает действие.</li>
+<li>Программа выполняет действие.</li>
+<li>Программа получает observation.</li>
+<li>Программа обновляет состояние.</li>
+<li>Программа принимает решение.</li>
+</ol>
+<p>Но кто вызывает функции и хранит состояние? Кто перехватывает ошибки и проверяет, разрешена ли операция? За такую работу отвечает harness.</p>
+<p><strong>Harness — программная среда вокруг модели, которая организует цикл, выполнение действий, состояние, ограничения, ошибки и взаимодействие с человеком.</strong> Определение объединяет обязанности, которые мы нашли в знакомом цикле. Речь идёт о совокупности обязанностей, а не об одном обязательном файле или названии функции.</p>
+<p>Harness нельзя считать разновидностью модели или названием её способности рассуждать. В нашем starter обязанности harness выполняет обычный Python-код. В обязательных опытах этой главы живой модели нет: <code>planner_stub</code> остаётся заранее заданной учебной заменой компонента выбора и при каждом обращении предлагает одну и ту же операцию. Выбор не меняется, а harness всё равно организует работу программы.</p>
+<h3 id="3-выполнение-и-порядок-работы-отвечают-на-разные-вопросы">3. Выполнение и порядок работы отвечают на разные вопросы<a class="headerlink" href="#3-выполнение-и-порядок-работы-отвечают-на-разные-вопросы" title="Permanent link">&para;</a></h3>
+<p>Как отличить выполнение операции от управления порядком работы? Проследим один шаг цикла и найдём обе обязанности в цепочке вызовов:</p>
+<div class="highlight"><pre><span></span><code>planner_stub → action → perform_action → observation → update_state → decide
+</code></pre></div>
+<p>В цепочке есть вызов, который выполняет действие, и есть порядок, в котором сделаны все вызовы. Различие этих двух обязанностей пригодится во всех следующих главах.</p>
+<p><strong>Runtime — часть программной среды, в которой фактически выполняются программы, функции или команды.</strong></p>
+<p>В учебном цикле runtime виден в вызове <code>perform_action(action, state)</code>. Функция получает выбранное действие, выполняет его и возвращает observation. Функция <code>perform_action</code> не выбирает цель и не решает, завершён ли запуск. Исполнителя можно условно сравнить с «руками» системы.</p>
+<p>Но исполнитель в нашем цикле тоже учебный: <code>perform_action</code> возвращает подготовленное observation, а не открывает файлы. Сравнение с руками показывает, кто отвечает за выполнение. Сама аналогия не доказывает, что в каждом опыте произведено физическое действие.</p>
+<p><strong>Оркестрация — программная логика, которая связывает этапы работы, маршрутизацию, вызовы и проверки.</strong> <strong><em>Маршрутизация</em></strong> здесь означает выбор того, какому участку программы передать работу дальше.</p>
+<p>Оркестрация не означает «рассуждение модели». Обычный код задаёт порядок операций:</p>
+<ol>
+<li>вызывает выбор действия;</li>
+<li>вызывает выполнение;</li>
+<li>сохраняет observation;</li>
+<li>принимает решение по сохранённому результату.</li>
+</ol>
+<p>Роль оркестрации можно сравнить с ролью дирижёра: дирижёр не играет на инструментах, но задаёт, кто и когда вступает. В программе вместо дирижёра работают явные вызовы и условия. У программы нет слуха или намерений. Например, код должен вызвать сохранение результата раньше проверки завершения, иначе решение будет основано на старых данных.</p>
+<blockquote>
+<p><strong>Проверь себя на ходу.</strong> Если <code>perform_action</code> вернула observation, а <code>update_state</code> не была вызвана, к какой части программы относится ошибка: к runtime или к оркестрации?</p>
+</blockquote>
+<h3 id="4-выносим-управление-порядком-и-не-ломаем-главу-2">4. Выносим управление порядком и не ломаем главу 2<a class="headerlink" href="#4-выносим-управление-порядком-и-не-ломаем-главу-2" title="Permanent link">&para;</a></h3>
+<p>В этом практикуме <code>loop_demo.py</code> из главы 2 остаётся без изменений: полный текст программы напечатан в учебнике, и с ним связаны эталонные выводы. Поэтому в starter есть второй файл, <code>harness_demo.py</code>. Новый файл использует знакомые функции, а оркестрацию, то есть порядок шагов, выделяет под более точным именем.</p>
+<p>Ниже приведён фрагмент из <a href="../../starter/harness_demo.py"><code>harness_demo.py</code></a>. По ссылке доступен полный файл.</p>
+<div class="highlight"><pre><span></span><code><span class="c1"># фрагмент: harness_demo.py</span>
+<span class="k">def</span><span class="w"> </span><span class="nf">run_harness</span><span class="p">(</span>
+    <span class="n">scenario</span><span class="o">=</span><span class="s2">&quot;one_match&quot;</span><span class="p">,</span>
+    <span class="n">max_steps</span><span class="o">=</span><span class="n">MAX_STEPS</span><span class="p">,</span>
+    <span class="n">max_retries</span><span class="o">=</span><span class="n">MAX_RETRIES</span><span class="p">,</span>
+<span class="p">):</span>
+    <span class="n">state</span> <span class="o">=</span> <span class="n">new_state</span><span class="p">(</span><span class="n">scenario</span><span class="p">,</span> <span class="n">max_steps</span><span class="p">,</span> <span class="n">max_retries</span><span class="p">)</span>
+    <span class="n">events</span> <span class="o">=</span> <span class="p">[]</span>
+    <span class="k">while</span> <span class="ow">not</span> <span class="n">state</span><span class="p">[</span><span class="s2">&quot;done&quot;</span><span class="p">]:</span>
+        <span class="n">action</span> <span class="o">=</span> <span class="n">planner_stub</span><span class="p">(</span><span class="n">state</span><span class="p">)</span>
+        <span class="n">observation</span> <span class="o">=</span> <span class="n">perform_action</span><span class="p">(</span><span class="n">action</span><span class="p">,</span> <span class="n">state</span><span class="p">)</span>
+        <span class="n">update_state</span><span class="p">(</span><span class="n">state</span><span class="p">,</span> <span class="n">observation</span><span class="p">)</span>
+        <span class="n">decision</span> <span class="o">=</span> <span class="n">decide</span><span class="p">(</span><span class="n">state</span><span class="p">)</span>
+        <span class="n">events</span><span class="o">.</span><span class="n">append</span><span class="p">({</span>
+            <span class="s2">&quot;step&quot;</span><span class="p">:</span> <span class="n">state</span><span class="p">[</span><span class="s2">&quot;steps&quot;</span><span class="p">],</span>
+            <span class="s2">&quot;state&quot;</span><span class="p">:</span> <span class="n">state</span><span class="p">[</span><span class="s2">&quot;phase&quot;</span><span class="p">],</span>
+            <span class="s2">&quot;action&quot;</span><span class="p">:</span> <span class="n">action</span><span class="p">,</span>
+            <span class="s2">&quot;observation&quot;</span><span class="p">:</span> <span class="n">observation</span><span class="p">,</span>
+            <span class="s2">&quot;decision&quot;</span><span class="p">:</span> <span class="n">decision</span><span class="p">,</span>
+        <span class="p">})</span>
+        <span class="n">state</span><span class="p">[</span><span class="s2">&quot;done&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">decision</span> <span class="o">!=</span> <span class="s2">&quot;continue&quot;</span>
+        <span class="k">if</span> <span class="n">state</span><span class="p">[</span><span class="s2">&quot;done&quot;</span><span class="p">]:</span>
+            <span class="n">state</span><span class="p">[</span><span class="s2">&quot;terminal&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">decision</span>
+    <span class="k">return</span> <span class="p">{</span><span class="s2">&quot;terminal&quot;</span><span class="p">:</span> <span class="n">state</span><span class="p">[</span><span class="s2">&quot;terminal&quot;</span><span class="p">],</span> <span class="s2">&quot;state&quot;</span><span class="p">:</span> <span class="n">state</span><span class="p">,</span> <span class="s2">&quot;events&quot;</span><span class="p">:</span> <span class="n">events</span><span class="p">}</span>
+</code></pre></div>
+<p>Положи рядом <code>run_loop</code> из главы 2 и сравни код строку за строкой. Что изменилось: имя функции или правила работы цикла? Имя изменилось и обозначило ответственность за оркестрацию, а проверяемые правила остались прежними:</p>
+<ul>
+<li>цикл сохраняет четыре стадии и принимает решение после observation;</li>
+<li><code>continue</code> разрешает новый шаг, но не становится терминалом;</li>
+<li><code>success</code>, <code>needs_input</code>, <code>error</code>, <code>limit</code> завершают запуск;</li>
+<li>решение принимает та же функция, что в <code>run_loop</code>, и по-прежнему не читает имя сценария.</li>
+</ul>
+<p>Обрати внимание на <code>update_state</code>: функция выполняет внутреннюю работу harness, а не добавляет новый tool (инструмент). В этом опыте обновляется только состояние запуска; статус карточки проекта никто не записывает.</p>
+<p>В начале главы мы сравнили выводы только одного сценария. В starter есть и более широкая техническая проверка: она сравнивает полные результаты <code>run_harness</code> и <code>run_loop</code> на всех семи подготовленных сценариях. Такую проверку совпадения результатов называют <strong><em>тестом эквивалентности</em></strong>.</p>
+<p>Семь проверенных случаев дают больше сведений, чем один, но не охватывают любые входы. Проверка подтверждает совпадение результатов на этих семи случаях и не заменяет чтение кода: границы вывода должны совпадать с границами проверки.</p>
+<h3 id="5-что-одинаковый-вывод-доказывает-а-чего-нет">5. Что одинаковый вывод доказывает, а чего нет<a class="headerlink" href="#5-что-одинаковый-вывод-доказывает-а-чего-нет" title="Permanent link">&para;</a></h3>
+<p>Вернись к вопросу-прогнозу из начала главы. Легко решить, что пять совпавших строк означают одинаковое устройство программ. Но совпадение показывает только результат в проверенном сценарии.</p>
+<p>Представим две программы бюро, которые печатают название одной карточки. Первая программа читает название из файла, вторая хранит готовую строку. Выводы могут совпасть, хотя программы получают текст разными способами. По одному выводу различить способы не получится.</p>
+<p>Устройство нужно искать в коде. В нашем практикуме код <code>harness_demo.py</code> показывает, что ответственность за оркестрацию названа и отделена. Совпавший вывод сам по себе такого различия не раскрывает.</p>
+<p>Новое имя функции тоже не доказывает правильности программы: при переделке можно нарушить прежнюю работу, даже если части названы понятно. Поэтому нужны два вида свидетельств:</p>
+<ol>
+<li>схема ответственности объясняет устройство;</li>
+<li>тест эквивалентности защищает прежнее поведение на проверяемых случаях.</li>
+</ol>
+<p>Схема объясняет устройство, тест защищает прежнее поведение. Сохрани эту пару обязанностей: она понадобится, когда ты будешь переделывать работающую программу.</p>
+<h3 id="6-ещё-одна-обязанность-выбрать-что-доступно-сейчас">6. Ещё одна обязанность: выбрать, что доступно сейчас<a class="headerlink" href="#6-ещё-одна-обязанность-выбрать-что-доступно-сейчас" title="Permanent link">&para;</a></h3>
+<p>Вернёмся к доске бюро. Представь, что до фестиваля доска разрослась до ста карточек всех групп. Кроме карточек у программы есть журнал прошлых запусков «Дежурного» и длинное описание задачи. Нужно ли передавать все сведения компоненту выбора при каждом обращении? Не обязательно. Вспомни главу 1: контекст содержит сведения конкретного обращения, а не всё, что есть в проекте.</p>
+<p>Допустим, для текущего выбора нужны сведения только о двух из ста карточек. Приложение может передать данные о двух карточках, а сведения об остальных 98 оставить в файлах. Все сто карточек остаются в проекте, но в конкретном обращении участвуют только выбранные сведения.</p>
+<p>Большой объём сам по себе не гарантирует, что передана нужная информация. Приложение должно определить:</p>
+<ol>
+<li>какие сведения понадобятся сейчас;</li>
+<li>какие сведения можно сократить;</li>
+<li>какие сведения можно оставить во внешнем файле до следующего шага.</li>
+</ol>
+<p>Информацию, доступную для текущего обращения, будем называть <strong><em>активным контекстом</em></strong>. Знакомое понятие контекста здесь уточнено словами «доступен сейчас». Запись может находиться в файле, но одного наличия записи недостаточно, чтобы запись попала в активный контекст.</p>
+<p><strong>Управление контекстом</strong> (context management) — решение о том, что оставить в активном контексте, что сократить, записать во внешнее состояние или загрузить позже. Приложение готовит сведения для определённого шага, но не выбирает ответ за модель. Управление контекстом также не обещает, что все сведения проекта сохранятся в одном обращении.</p>
+<p>В <code>planner_stub</code> живой модели нет, поэтому мы не имитируем обращение к модели. Но механизм подготовки сведений можно и нужно спроектировать: отметить, какие данные harness передал бы компоненту выбора, а какие оставил бы снаружи. Эту часть карты закончим на следующем уроке.</p>
+<h3 id="7-мини-проверка-урока-5">7. Мини-проверка урока 5<a class="headerlink" href="#7-мини-проверка-урока-5" title="Permanent link">&para;</a></h3>
+<p>Сопоставь работу и функцию.</p>
+<ol>
+<li>Выбрать действие.</li>
+<li>Выполнить действие.</li>
+<li>Сохранить observation.</li>
+<li>Связать этапы в порядке.</li>
+<li>Принять решение после observation.</li>
+<li>Показать результат человеку.</li>
+</ol>
+<p>Функции: <code>show_loop</code>, <code>planner_stub</code>, <code>perform_action</code>, <code>update_state</code>, <code>run_harness</code>, <code>decide</code>.</p>
+<h4 id="ответы">Ответы<a class="headerlink" href="#ответы" title="Permanent link">&para;</a></h4>
+<p>1 — <code>planner_stub</code>; 2 — <code>perform_action</code>; 3 — <code>update_state</code>; 4 — <code>run_harness</code>; 5 — <code>decide</code>; 6 — <code>show_loop</code>.</p>
+<p>Допустима подпись «управление циклом» рядом с <code>run_harness</code>, если на схеме всё равно отдельно видны <code>planner_stub</code> до действия и <code>decide</code> после observation. Подпись «выбор и решение» одной точкой не засчитывается.</p>
+<h3 id="8-практика-a-карта-из-пяти-частей">8. Практика A: карта из пяти частей<a class="headerlink" href="#8-практика-a-карта-из-пяти-частей" title="Permanent link">&para;</a></h3>
+<p>Работай в группе. Возьми карточки функций и пять карточек частей: <strong>интерфейс, выбор, оркестрация, runtime, состояние</strong>.</p>
+<ol>
+<li>Разложи функции по частям.</li>
+<li>Проведи путь действия (action) и путь observation.</li>
+<li>Помести <code>decide</code> внутрь оркестрации после observation.</li>
+<li>Защити одну стрелку: объясни, что сломается, если стрелку переставить.</li>
+</ol>
+<p><strong>Результат:</strong> первые пять частей карты harness v0.1.</p>
+<h3 id="9-практика-b-найди-и-вынеси">9. Практика B: найди и вынеси<a class="headerlink" href="#9-практика-b-найди-и-вынеси" title="Permanent link">&para;</a></h3>
+<p>Начни с вопроса: «Где в <code>loop_demo.py</code> уже живёт harness?» Отметь первые пять частей в <code>loop_demo.py</code> и в <code>school_agent/lesson_support.py</code>.</p>
+<p>До второго запуска запиши прогноз:</p>
+<blockquote>
+<p>Совпадут ли выводы <code>run_loop</code> и <code>run_harness</code>? Почему одного совпавшего запуска недостаточно для доказательства?</p>
+</blockquote>
+<p>Затем сравни два запуска из начала главы. В <code>harness_demo.py</code> найди полный <code>run_harness</code> и соотнеси его строки с прежним <code>run_loop</code>.</p>
+<p><strong>Результат:</strong> карта harness v0.1 из пяти частей с именами функций и письменный прогноз.</p>
+<h3 id="10-выходной-билет-урока-5">10. Выходной билет урока 5<a class="headerlink" href="#10-выходной-билет-урока-5" title="Permanent link">&para;</a></h3>
+<p>Назови одну работу, которую выполняет harness, но не <code>planner_stub</code>. Покажи соответствующую строку или функцию starter.</p>
+<h2 id="lesson-6">Урок 6. Что видно сейчас и что действительно разрешено<a class="headerlink" href="#lesson-6" title="Permanent link">&para;</a></h2>
+<h3 id="1-две-фразы--две-разные-границы">1. Две фразы — две разные границы<a class="headerlink" href="#1-две-фразы--две-разные-границы" title="Permanent link">&para;</a></h3>
+<p>На следующий день Марк спросил: «А “Дежурный” может сам проставить в карточке статус done, когда я закончу?» Аня напряглась: «А вдруг он проставит не там? Я ему напишу в задании: “Ничего не меняй и не выходи из рабочей папки”». Сравни две фразы:</p>
+<blockquote>
+<p>«Пожалуйста, не выходи из рабочей папки».</p>
+</blockquote>
+<p>и</p>
+<blockquote>
+<p>«Перед открытием файла код проверяет путь; перед записью код проверяет разрешённую операцию».</p>
+</blockquote>
+<p>Первая фраза сообщает требование. Вторая фраза описывает механизм проверки, который выполняет программа. Текстовую просьбу могут проигнорировать или неверно понять. Другой текст может переопределить просьбу.</p>
+<p>В показанном коде проверки выполняются независимо от формулировки задания. Но описание механизма тоже не доказывает, что операция будет остановлена: для такого вывода нужны код и проверочные запуски. Кроме того, названный механизм ограничивает не все действия программы. Чтобы точно увидеть границы проверок, сначала отделим сведения, доступные компоненту выбора, от разрешённых операций.</p>
+<h3 id="2-почему-нельзя-передать-всё-сразу">2. Почему нельзя передать всё сразу<a class="headerlink" href="#2-почему-нельзя-передать-всё-сразу" title="Permanent link">&para;</a></h3>
+<p>В главе 1 мы отделили контекст конкретного обращения от всех данных проекта. Теперь возникает другой вопрос: какой объём выбранных сведений модель может использовать за один вызов? Такой объём ограничен.</p>
+<p><strong>Окно контекста</strong> (context window) — ограниченный объём информации, который модель может использовать в конкретном вызове. Окно контекста задаёт границу объёма, а не список всех файлов проекта. Состав сведений и допустимый объём нужно различать: даже маленький файл не окажется в обращении сам собой.</p>
+<p>Числовое значение запоминать не нужно: допустимый объём зависит от конкретной модели, а живую модель мы пока не вызываем. Для устройства нашей программы нужен другой вывод: наличие файла в проекте ещё не означает, что содержимое файла оказалось в активном контексте.</p>
+<p>В таблице <code>workspace/</code> обозначает рабочую папку учебного приложения. Путь <code>../outside.json</code> предлагает подняться на папку выше и открыть файл снаружи. Запись пути относительно выбранной папки называется <strong><em>относительным путём</em></strong>; такая запись не задаёт полный адрес от начала диска. Последняя колонка показывает, что правила приложения не разрешают доступ по указанному внешнему пути.</p>
+<p>Разнеси примеры по четырём колонкам и сверь распределение с таблицей:</p>
+<table>
+<thead>
+<tr>
+<th>Пример</th>
+<th style="text-align: center;">Активно сейчас</th>
+<th style="text-align: center;">Состояние запуска</th>
+<th style="text-align: center;">Внешний файл</th>
+<th style="text-align: center;">Недоступно по политике</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>title</code> выбранной карточки, переданный для выбора</td>
+<td style="text-align: center;">✓</td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+</tr>
+<tr>
+<td><code>steps</code> и последнее observation</td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;">✓</td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+</tr>
+<tr>
+<td><code>workspace/tasks/task-003.json</code> между запусками</td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;">✓</td>
+<td style="text-align: center;"></td>
+</tr>
+<tr>
+<td><code>../outside.json</code></td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;">✓</td>
+</tr>
+</tbody>
+</table>
+<p>Один и тот же фрагмент данных со временем может переходить из колонки в колонку. Содержимое внешнего файла не станет активным контекстом, пока harness не прочитает разрешённые данные и не выберет сведения для передачи. После вызова часть результата можно оставить в состоянии или сохранить снаружи. Программа выбирает, какие сведения будут доступны для обращения; модель не получает способности «видеть проект» целиком. Так работает управление контекстом.</p>
+<h3 id="3-единая-карта-из-семи-частей">3. Единая карта из семи частей<a class="headerlink" href="#3-единая-карта-из-семи-частей" title="Permanent link">&para;</a></h3>
+<p>На уроке 5 мы нашли пять частей программы. К пяти частям добавим ещё две: активный контекст и технические права доступа. Получится карта из семи частей; состав карты дальше не меняется.</p>
+<p><strong>Permissions</strong> (разрешения) — технически заданные права на чтение, запись, сеть, процессы или другие ресурсы. <strong><em>Процесс</em></strong> — работающая программа. Например, запрет создавать новые процессы ограничивает запуск других программ. Права определяют, что разрешено выполнять, а не только что модель видит в текущем обращении.</p>
+<div class="highlight"><pre><span></span><code>flowchart TD
+    I[&quot;1. Интерфейс&quot;] --&gt; O[&quot;3. Оркестрация&quot;]
+    O --&gt; V[&quot;2. Выбор: planner_stub&quot;]
+    V --&gt;|action| O
+    O --&gt; R[&quot;4. Runtime&quot;]
+    P[&quot;7. Permissions&quot;] --&gt; R
+    R --&gt;|observation| O
+    O --&gt; S[&quot;5. Состояние&quot;]
+    S --&gt; C[&quot;6. Активный контекст&quot;]
+    C --&gt; V
+    O -. &quot;решение после observation: decide&quot; .-&gt; I
+</code></pre></div>
+<p>Стрелка от permissions к runtime пока обозначает обязанность в устройстве системы. Проверка доступа выполняется в отдельном демо и ещё не подключена к runtime учебного цикла. Соединять их будем постепенно: в главе 6 контракт операции запретит модели передавать путь, в главе 7 диспетчер начнёт проверять имя операции до вызова, а полная политика прав появится в главе 14.</p>
+<p>Семь частей карты во всех заданиях одинаковы:</p>
+<ol>
+<li>интерфейс;</li>
+<li>выбор;</li>
+<li>оркестрация;</li>
+<li>runtime;</li>
+<li>состояние;</li>
+<li>активный контекст;</li>
+<li>permissions.</li>
+</ol>
+<p>На карте <code>decide</code> показан отдельно внутри оркестрации. Выбор действия происходит до выполнения, а решение по observation принимается после выполнения; объединять эти точки нельзя.</p>
+<h3 id="4-права-доступа-проверяются-до-операции">4. Права доступа проверяются до операции<a class="headerlink" href="#4-права-доступа-проверяются-до-операции" title="Permanent link">&para;</a></h3>
+<p>Вернёмся к вопросу Марка про запись. Где программа должна остановить запрещённую операцию? До того, как операция начнёт выполняться.</p>
+<p>В обязательной практике есть две файловые операции: <code>read</code> означает чтение, <code>write</code> означает запись. В <a href="../../starter/access_demo.py"><code>access_demo.py</code></a> имена <code>ALLOWED_OPERATIONS</code> и <code>WRITABLE_PREFIX</code> обозначают постоянные настройки, или <strong><em>константы</em></strong>. Настройка <code>ALLOWED_OPERATIONS</code> хранит набор разрешённых операций; <code>frozenset</code> создаёт набор, который нельзя изменить по элементам. Настройка <code>WRITABLE_PREFIX</code> задаёт разрешённое начало пути для записи, <code>drafts/</code>, то есть папку черновиков. По умолчанию разрешена одна операция, а для записи дополнительно задана область:</p>
+<div class="highlight"><pre><span></span><code><span class="c1"># фрагмент: access_demo.py</span>
+<span class="n">ALLOWED_OPERATIONS</span> <span class="o">=</span> <span class="nb">frozenset</span><span class="p">({</span><span class="s2">&quot;read&quot;</span><span class="p">})</span>
+<span class="n">WRITABLE_PREFIX</span> <span class="o">=</span> <span class="s2">&quot;drafts/&quot;</span>
+</code></pre></div>
+<p>Фрагмент взят из <a href="../../starter/access_demo.py"><code>access_demo.py</code></a>, отдельного демонстрационного файла проверки доступа. Параметр <code>--path</code> получает интерфейс приложения и передаёт проверке harness. Функция <code>planner_stub</code> путь не получает; будущей модели путь тоже передаваться не будет.</p>
+<p>Само имя константы ничего не запрещает. Настройка ограничивает выполнение лишь там, где программа проверяет операцию до исполнения. В следующем фрагменте условие <code>operation not in ALLOWED_OPERATIONS</code> означает «операции нет в разрешённом наборе».</p>
+<p>Вызов <code>_observation</code> собирает результат проверки. Значения в результате объясняют отказ:</p>
+<ul>
+<li><code>denied</code> означает, что в доступе отказано;</li>
+<li><code>inside_workspace</code> сообщает, что путь находится внутри рабочей папки;</li>
+<li><code>operation_not_allowed</code> указывает, что операция не разрешена.</li>
+</ul>
+<p>Подчёркивание в имени <code>_observation</code> не даёт функции дополнительных прав. Прочитай ветку проверки:</p>
+<div class="highlight"><pre><span></span><code><span class="c1"># фрагмент: access_demo.py</span>
+    <span class="k">if</span> <span class="n">operation</span> <span class="ow">not</span> <span class="ow">in</span> <span class="n">ALLOWED_OPERATIONS</span><span class="p">:</span>
+        <span class="k">return</span> <span class="n">_observation</span><span class="p">(</span>
+            <span class="n">operation</span><span class="p">,</span>
+            <span class="n">relative_path</span><span class="p">,</span>
+            <span class="s2">&quot;denied&quot;</span><span class="p">,</span>
+            <span class="s2">&quot;inside_workspace&quot;</span><span class="p">,</span>
+            <span class="s2">&quot;operation_not_allowed&quot;</span><span class="p">,</span>
+        <span class="p">)</span>
+</code></pre></div>
+<p>Заметь принцип, который пригодится в главе 15: поле вроде <code>"allowed": true</code> внутри карточки не меняет набор разрешённых операций. Право назначает код harness, а не текст в данных.</p>
+<p><strong><em>Байтами</em></strong> называют единицы представления данных в файле. Когда ниже сравнивают байты, проверяют содержимое файла, а не только его имя.</p>
+<p>В полном файле есть <code>target.write_text(...)</code>, то есть настоящая запись. Техническая проверка устроена так:</p>
+<ol>
+<li>временно добавляет <code>write</code> в разрешённые операции;</li>
+<li>направляет запись на служебный черновик во временной папке;</li>
+<li>проверяет, что байты черновика изменились.</li>
+</ol>
+<p>В обычном запуске операция <code>write</code> останавливается раньше: метод записи даже не вызывается.</p>
+<p>Запись в этом демо реально достижима, но до записи работает <strong><em>проверка допуска</em></strong>, которую иногда называют гейтом. Код либо пропускает операцию, либо возвращает отказ. Даже если проверка операции временно разрешит <code>write</code>, второй гейт оставит доступной только область <code>workspace/drafts/</code>. При попытке записи в учебную карточку проверка вернёт <code>denied/path_not_writable</code>, а карточка не изменится.</p>
+<p>Теперь можно ответить Марку: в будущей версии «Дежурный» сможет предложить изменение статуса. Применять изменение будет отдельный код только после подтверждения человека. Разрешение записи в черновики не разрешает менять карточки: в этом демо карточки защищены и при включённой операции <code>write</code>.</p>
+<h3 id="5-почему-трёх-проверок-недостаточно-для-полной-изоляции">5. Почему трёх проверок недостаточно для полной изоляции<a class="headerlink" href="#5-почему-трёх-проверок-недостаточно-для-полной-изоляции" title="Permanent link">&para;</a></h3>
+<p><strong>Sandbox</strong> (изолированная среда) — техническая среда, ограничивающая возможные последствия выполнения. Ограничения задаются вокруг выполняемой программы. Одна проверка пути отвечает лишь за один способ доступа к файлам и не описывает все возможные действия процесса.</p>
+<p>Какие ограничения проверяет наше демо? Проследим три проверки по порядку:</p>
+<ol>
+<li>Функция <code>resolve_workspace_path</code> из <a href="../../starter/school_agent/paths.py"><code>school_agent/paths.py</code></a> проверяет, куда фактически ведёт путь. Запись <code>..</code> поднимает на родительскую папку, а <strong><em>символическая ссылка</em></strong> перенаправляет файловое имя к другому месту. После обработки таких переходов путь должен остаться внутри <code>workspace/</code>.</li>
+<li>Гейт операции проверяет <code>read</code> или <code>write</code>.</li>
+<li>Отдельный гейт записи проверяет, находится ли путь в области <code>workspace/drafts/</code>.</li>
+</ol>
+<p>Все три проверки задают конкретные технические ограничения.</p>
+<p>Три проверки не доказывают запрет пользоваться сетью или запускать другие процессы. Проверки доступа также не доказывают, что процесс не может обращаться к ресурсам другим кодом. Поэтому называть три проверки полной изоляцией средствами операционной системы нельзя.</p>
+<h3 id="6-четыре-observation-доступа">6. Четыре observation доступа<a class="headerlink" href="#6-четыре-observation-доступа" title="Permanent link">&para;</a></h3>
+<p>Для каждой из четырёх команд сначала предскажи результат: <code>allowed</code> («разрешено»), <code>denied</code> («отказано») или <code>error</code> («ошибка выполнения»). Объясни причину своего прогноза и только потом выполняй команду.</p>
+<h4 id="должен-существующий-файл-внутри-workspace">«Должен»: существующий файл внутри workspace<a class="headerlink" href="#должен-существующий-файл-внутри-workspace" title="Permanent link">&para;</a></h4>
+<div class="highlight"><pre><span></span><code><span class="c1"># запуск из корня starter</span>
+python<span class="w"> </span>access_demo.py<span class="w"> </span>--access<span class="w"> </span><span class="nb">read</span><span class="w"> </span>--path<span class="w"> </span>tasks/task-003.json
+</code></pre></div>
+<div class="highlight"><pre><span></span><code>операция: read
+путь: tasks/task-003.json
+результат: allowed
+граница: внутри workspace
+причина: файл существует
+</code></pre></div>
+<p>Разрешённая ветка действительно открывает файл для чтения, но не печатает содержимое файла. В этом запуске ты проверяешь доступ, а не читаешь карточку.</p>
+<h4 id="не-должен-запись-остановлена-гейтом">«Не должен»: запись остановлена гейтом<a class="headerlink" href="#не-должен-запись-остановлена-гейтом" title="Permanent link">&para;</a></h4>
+<div class="highlight"><pre><span></span><code><span class="c1"># запуск из корня starter</span>
+python<span class="w"> </span>access_demo.py<span class="w"> </span>--access<span class="w"> </span>write<span class="w"> </span>--path<span class="w"> </span>tasks/task-003.json
+</code></pre></div>
+<div class="highlight"><pre><span></span><code>операция: write
+путь: tasks/task-003.json
+результат: denied
+граница: внутри workspace
+причина: операция запрещена политикой демо
+</code></pre></div>
+<p>Файл существует, но <code>write</code> отсутствует в <code>ALLOWED_OPERATIONS</code>. Проверка останавливает запись: ветка записи не открыла файл, байты файла не изменились.</p>
+<h4 id="ошибка-допустимого-файла-нет">«Ошибка»: допустимого файла нет<a class="headerlink" href="#ошибка-допустимого-файла-нет" title="Permanent link">&para;</a></h4>
+<div class="highlight"><pre><span></span><code><span class="c1"># запуск из корня starter</span>
+python<span class="w"> </span>access_demo.py<span class="w"> </span>--access<span class="w"> </span><span class="nb">read</span><span class="w"> </span>--path<span class="w"> </span>tasks/missing.json
+</code></pre></div>
+<div class="highlight"><pre><span></span><code>операция: read
+путь: tasks/missing.json
+результат: error
+граница: внутри workspace
+причина: файл не найден
+</code></pre></div>
+<p>Расположение файла допустимо, операция разрешена, но самого файла нет. Значение <code>error</code> в этом выводе относится к локальной проверке доступа. Здесь не запускается новый цикл и не меняется значение терминала из главы 2.</p>
+<h4 id="граница-путь-выходит-из-workspace">«Граница»: путь выходит из workspace<a class="headerlink" href="#граница-путь-выходит-из-workspace" title="Permanent link">&para;</a></h4>
+<div class="highlight"><pre><span></span><code><span class="c1"># запуск из корня starter</span>
+python<span class="w"> </span>access_demo.py<span class="w"> </span>--access<span class="w"> </span><span class="nb">read</span><span class="w"> </span>--path<span class="w"> </span>../outside.json
+</code></pre></div>
+<div class="highlight"><pre><span></span><code>операция: read
+путь: ../outside.json
+результат: denied
+граница: вне workspace
+причина: путь выходит за workspace
+</code></pre></div>
+<p>Программа отклоняет путь до открытия файла. При отказе программа не сообщает, где на диске лежит рабочая папка, чтобы не давать лишнюю подсказку.</p>
+<p>Если на уроке мало времени, обязательно выполни первые две проверки. Случаи «ошибка» и «граница» выполни при самостоятельной сверке до конца главы: без них не видно различия между отсутствующим файлом и запрещённым путём.</p>
+<h3 id="7-короткое-авторское-действие-в-track-b">7. Короткое авторское действие в Track B<a class="headerlink" href="#7-короткое-авторское-действие-в-track-b" title="Permanent link">&para;</a></h3>
+<p>Теперь ты восстановишь несколько строк программы. В эталонном starter обработка отсутствующего файла уже заполнена, чтобы команды и эталонные выводы можно было воспроизвести. Сделай отдельную рабочую копию всей папки starter: так в рабочей копии сохранятся модули и данные. В файле <code>access_demo.py</code> рабочей копии найди обработку отсутствующего файла. Учитель выдаёт эту копию с пропущенной веткой либо отмечает участок для восстановления.</p>
+<p><strong><em>Ветка</em></strong> — участок, выполняемый при указанном условии. <code>FileNotFoundError</code> обозначает ошибку Python «файл не найден». Восстанови ветку по требованию:</p>
+<blockquote>
+<p>При <code>FileNotFoundError</code> вернуть <code>status="error"</code>, <code>boundary="inside_workspace"</code>, <code>reason="not_found"</code>.</p>
+</blockquote>
+<p>Не открывай блок «Эталон ветки практики B» в конце главы, пока не попробуешь сам.</p>
+<ol>
+<li>Предскажи три значения результата.</li>
+<li>Восстанови ветку и сохрани свой <code>access_demo.py</code>.</li>
+<li>Снова выполни команду «ошибка» из корня рабочей копии starter.</li>
+<li>Сравни вывод с <a href="../../starter/tests/golden/access_missing.txt"><code>access_missing.txt</code></a>.</li>
+<li>Только после сравнения вывода сверь код с эталоном.</li>
+</ol>
+<p>В эталоне девять строк вместе со строкой-меткой. Обработка ошибки нужна не для запрета пути, а для различения допустимого отсутствующего файла и выхода за <code>workspace/</code>.</p>
+<h3 id="8-один-результат-в-двух-формах">8. Один результат в двух формах<a class="headerlink" href="#8-один-результат-в-двух-формах" title="Permanent link">&para;</a></h3>
+<p>Если время урока закончилось, разделы 8 и 9 выполни как самостоятельную сверку до следующего занятия: они закрепляют форматы вывода и итоговую карту, но не добавляют новой обязательной практики.</p>
+<p>По умолчанию <code>access_demo.py</code> печатает пять понятных строк. Для машинно-читаемого вывода служит знакомая запись JSON с именами полей. Программа выводит результат в JSON только по явному <strong><em>флагу</em></strong>, дополнительному переключателю команды. Здесь таким флагом служит <code>--json</code>, как в главе 1. Перед запуском предположи: изменится право чтения или только способ показать результат?</p>
+<div class="highlight"><pre><span></span><code><span class="c1"># запуск из корня starter</span>
+python<span class="w"> </span>access_demo.py<span class="w"> </span>--access<span class="w"> </span><span class="nb">read</span><span class="w"> </span>--path<span class="w"> </span>tasks/task-003.json<span class="w"> </span>--json
+</code></pre></div>
+<div class="highlight"><pre><span></span><code><span class="p">{</span><span class="nt">&quot;operation&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;read&quot;</span><span class="p">,</span><span class="w"> </span><span class="nt">&quot;path&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;tasks/task-003.json&quot;</span><span class="p">,</span><span class="w"> </span><span class="nt">&quot;status&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;allowed&quot;</span><span class="p">,</span><span class="w"> </span><span class="nt">&quot;boundary&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;inside_workspace&quot;</span><span class="p">,</span><span class="w"> </span><span class="nt">&quot;reason&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;existing_file&quot;</span><span class="p">,</span><span class="w"> </span><span class="nt">&quot;os_sandbox_proven&quot;</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">}</span>
+</code></pre></div>
+<p>Флаг <code>--json</code> изменил форму вывода, а не право чтения. Посмотри на последнее поле: <code>os_sandbox_proven: false</code>. Эту запись сделала сама программа. Значение <code>false</code> означает «нет» и предупреждает, что полная изоляция не доказана. Но предупреждение не служит независимым доказательством.</p>
+<p>Программа могла бы написать и <code>true</code>; смена надписи не изменила бы ограничений. Доказательства дают конкретный код и проверки. Здесь проверены путь, операция и область записи, а не вся среда операционной системы.</p>
+<p>В таблице приведены полные эталоны обоих режимов:</p>
+<table>
+<thead>
+<tr>
+<th>Случай</th>
+<th>Человекочитаемый эталон</th>
+<th>JSON-эталон</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>чтение внутри</td>
+<td><a href="../../starter/tests/golden/access_read_inside.txt"><code>access_read_inside.txt</code></a></td>
+<td><a href="../../starter/tests/golden/access_read_inside.json"><code>access_read_inside.json</code></a></td>
+</tr>
+<tr>
+<td>запись запрещена</td>
+<td><a href="../../starter/tests/golden/access_write_denied.txt"><code>access_write_denied.txt</code></a></td>
+<td><a href="../../starter/tests/golden/access_write_denied.json"><code>access_write_denied.json</code></a></td>
+</tr>
+<tr>
+<td>файл отсутствует</td>
+<td><a href="../../starter/tests/golden/access_missing.txt"><code>access_missing.txt</code></a></td>
+<td><a href="../../starter/tests/golden/access_missing.json"><code>access_missing.json</code></a></td>
+</tr>
+<tr>
+<td>путь снаружи</td>
+<td><a href="../../starter/tests/golden/access_outside.txt"><code>access_outside.txt</code></a></td>
+<td><a href="../../starter/tests/golden/access_outside.json"><code>access_outside.json</code></a></td>
+</tr>
+</tbody>
+</table>
+<h3 id="9-завершаем-карту-из-семи-частей">9. Завершаем карту из семи частей<a class="headerlink" href="#9-завершаем-карту-из-семи-частей" title="Permanent link">&para;</a></h3>
+<p>Все семь частей уже известны. Предскажи подписи частей и получи эталон карты от самой программы:</p>
+<div class="highlight"><pre><span></span><code><span class="c1"># запуск из корня starter</span>
+python<span class="w"> </span>harness_demo.py<span class="w"> </span>--show-parts
+</code></pre></div>
+<div class="highlight"><pre><span></span><code>интерфейс: show_loop, main
+выбор: planner_stub
+оркестрация: run_harness
+  решение_после_observation: decide
+runtime: perform_action
+состояние: new_state, update_state
+активный_контекст: state -&gt; planner_stub
+permissions: access_demo.check_workspace_access (отдельное демо главы 3)
+</code></pre></div>
+<p>Семь строк без отступа обозначают семь частей карты. Дополнительная строка с отступом показывает <code>decide</code> внутри оркестрации и не создаёт восьмой части. Сверь эталон со своей бумажной или кодовой картой из практики.</p>
+<p><img alt="Фигура 7. Карта harness из семи частей" src="../../figures/07_karta-harness-iz-semi-chastey.svg" /></p>
+<p><em>Фигура 7. Карта harness из семи частей</em></p>
+<p><img alt="Фигура 8. Три проверки допуска" src="../../figures/08_tri-proverki-dopuska.svg" /></p>
+<p><em>Фигура 8. Три проверки допуска</em></p>
+<h3 id="10-мини-проверка-урока-6">10. Мини-проверка урока 6<a class="headerlink" href="#10-мини-проверка-урока-6" title="Permanent link">&para;</a></h3>
+<p>Для каждого утверждения выбери подходящее понятие:</p>
+<ul>
+<li><strong>текстовая просьба</strong>;</li>
+<li><strong>управление контекстом</strong>;</li>
+<li><strong>permissions</strong>;</li>
+<li><strong>проверка пути</strong>;</li>
+<li>
+<p><strong>sandbox</strong>.</p>
+</li>
+<li>
+<p>«Не открывай ничего лишнего» написано в задании.</p>
+</li>
+<li>Harness оставил в текущем вызове только одну нужную карточку.</li>
+<li>Операция <code>write</code> не входит в технически разрешённое множество.</li>
+<li><code>../outside.json</code> отклонён до открытия.</li>
+<li>Среда ограничивает возможные последствия выполнения по нескольким видам ресурсов.</li>
+</ul>
+<h4 id="ответы_1">Ответы<a class="headerlink" href="#ответы_1" title="Permanent link">&para;</a></h4>
+<p>1 — текстовая просьба; 2 — управление контекстом; 3 — permissions; 4 — проверка пути; 5 — sandbox.</p>
+<p>Допустимо назвать пункты 3 и 4 частями будущего sandbox, но нельзя утверждать, что они уже доказывают полную изоляцию процесса.</p>
+<h3 id="11-практика-a-данные-и-границы">11. Практика A: данные и границы<a class="headerlink" href="#11-практика-a-данные-и-границы" title="Permanent link">&para;</a></h3>
+<ol>
+<li>Дополни бумажную карту урока 5 карточками «активный контекст» и «permissions».</li>
+<li>Подготовь восемь бумажных карточек данных:</li>
+<li>вопрос Ани и <code>title</code> задачи, переданные сейчас компоненту выбора;</li>
+<li><code>steps</code> и <code>failures</code>, оставленные в состоянии;</li>
+<li>два файла задач, не переданные в обращение;</li>
+<li>два пути за пределы рабочей папки.</li>
+</ol>
+<p>Разложи карточки по категориям «активно сейчас / состояние / внешний файл / недоступно». Объясни, почему в другом запуске распределение разрешённых данных может измениться.
+3. Для четырёх ситуаций доступа выбери <code>allowed</code>, <code>denied</code> или <code>error</code> и объясни причину.
+4. Найди ошибку в схеме, где <code>planner_stub</code> напрямую открывает <code>../outside.json</code>, а для защиты добавлена только фраза «не выходи из папки».</p>
+<p><strong>Результат:</strong> карта harness v0.1 из семи частей и политика <code>workspace/</code> из пяти правил.</p>
+<h3 id="12-практика-b-код-и-проверяемая-граница">12. Практика B: код и проверяемая граница<a class="headerlink" href="#12-практика-b-код-и-проверяемая-граница" title="Permanent link">&para;</a></h3>
+<ol>
+<li>Дополни карту частями «активный контекст» и «permissions».</li>
+<li>Найди <code>resolve_workspace_path</code>, <code>ALLOWED_OPERATIONS</code> и реальную ветку <code>target.write_text</code>.</li>
+<li>Восстанови ветку <code>FileNotFoundError</code> в рабочей копии и проверь случай отсутствующего файла.</li>
+<li>Сделай прогнозы и выполни четыре access-команды.</li>
+<li>Сравни человекочитаемый и JSON-режимы. Объясни, почему поле в JSON не доказывает полную изоляцию.</li>
+</ol>
+<p><strong>Результат:</strong> карта harness v0.1 и политика <code>workspace/</code>, дополненные именами функций и ссылками на эталоны.</p>
+<h3 id="13-выходной-билет-урока-6">13. Выходной билет урока 6<a class="headerlink" href="#13-выходной-билет-урока-6" title="Permanent link">&para;</a></h3>
+<p>Поле <code>os_sandbox_proven: false</code> написала сама программа. Почему запись в поле <code>os_sandbox_proven</code> не доказывает изоляцию? Назови три проверки, которые действительно выполнены, и два ресурса, которые опыт не проверял.</p>
+<blockquote>
+<p><strong>Проверь себя на ходу.</strong> Приложение разрешило чтение файла. Доказывает ли разрешение на чтение, что каждая фраза внутри файла верна или разрешает новые операции? Объясни различие между доступом к данным и правами программы.</p>
+</blockquote>
+<h2 id="безопасность-проверка-пути--ещё-не-изоляция-процесса">Безопасность: проверка пути — ещё не изоляция процесса<a class="headerlink" href="#безопасность-проверка-пути--ещё-не-изоляция-процесса" title="Permanent link">&para;</a></h2>
+<blockquote>
+<p>Текстовая просьба не ограничивает права процесса. В этой главе код проверяет только относительный путь внутри <code>workspace/</code>, операцию по <code>ALLOWED_OPERATIONS</code> и область записи <code>workspace/drafts/</code>. Эти проверки реальны, но они не доказывают запрет сети, процессов или всех остальных файловых действий. Не добавляй реальные секреты в учебные файлы и не называй демо полной изоляцией средствами операционной системы.</p>
+</blockquote>
+<h2 id="why">Зачем это тебе<a class="headerlink" href="#why" title="Permanent link">&para;</a></h2>
+<ol>
+<li><strong>Школьный проект.</strong> Если «Дежурный» выдал неверную сводку, карта из семи частей поможет задать вопрос о конкретной обязанности. Ошибся ли компонент выбора? Какое observation вернул runtime и вовремя ли оркестрация обновила состояние? Вместо общего «ИИ ошибся» ты сможешь указать, какое место нужно проверить.</li>
+<li><strong>Папка школьного кружка.</strong> Если программа собирает учебные материалы, отдели выбор нужного файла от проверки доступа к нему. По карте можно показать, где запрещена запись и какая операция проверена до исполнения.</li>
+<li><strong>Командная работа к фестивалю.</strong> Один участник меняет интерфейс, другой меняет выполнение операций, третий правит проверки. Карта показывает договорённости участников, а повторные запуски помогают обнаружить, не нарушено ли прежнее поведение.</li>
+</ol>
+<h2 id="dezhurny">Шаг сквозного проекта<a class="headerlink" href="#dezhurny" title="Permanent link">&para;</a></h2>
+<p>Добавь к «Дежурному» — «Агенту школьного проектного бюро» — два сохраняемых результата работы.</p>
+<h3 id="1-карта-harness-v01">1. Карта harness v0.1<a class="headerlink" href="#1-карта-harness-v01" title="Permanent link">&para;</a></h3>
+<p>Используй ровно семь частей:</p>
+<ol>
+<li>интерфейс;</li>
+<li>выбор;</li>
+<li>оркестрация;</li>
+<li>runtime;</li>
+<li>состояние;</li>
+<li>активный контекст;</li>
+<li>permissions.</li>
+</ol>
+<p>Внутри оркестрации отдельно подпиши: <code>decide</code> после observation. Возле выбора напиши: «в обязательной практике — <code>planner_stub</code>, живой модели нет».</p>
+<h3 id="2-политика-workspace-v01">2. Политика workspace v0.1<a class="headerlink" href="#2-политика-workspace-v01" title="Permanent link">&para;</a></h3>
+<ul>
+<li>приложение принимает только относительные пути внутри <code>workspace/</code>;</li>
+<li>обязательное демо по умолчанию разрешает <code>read</code> и блокирует <code>write</code> до открытия файла;</li>
+<li>даже разрешённый <code>write</code> ограничен областью <code>workspace/drafts/</code>;</li>
+<li>отсутствие файла отличается от выхода за границу;</li>
+<li>проверены только путь, операция и область записи; полная изоляция средствами операционной системы не доказана.</li>
+</ul>
+<p>Так ты уточняешь устройство проекта. Нового механизма сохранения работы между запусками здесь не добавляется.</p>
+<h3 id="достраиваем-дежурного">Достраиваем «Дежурного»<a class="headerlink" href="#достраиваем-дежурного" title="Permanent link">&para;</a></h3>
+<p>Политика workspace v0.1 сохраняется в файле <code>03_workspace_policy.json</code>: файл фиксирует разрешённые операции и область записи <code>drafts/</code>. В папке-примере политика специально направляет черновик в <code>tasks/dezhurny_report.md</code>, хотя запись разрешена только внутри <code>drafts/</code>. Поэтому строка <code>save: denied | path_not_writable | tasks/dezhurny_report.md</code> означает, что файл не создан. Действуют те же три проверки, что в <code>access_demo.py</code>: проверка пути, операции и разрешённой области записи.</p>
+<p>Команда ниже обращается к папке-примеру, поэтому в выводе стоит <code>goal: не настроено (глава 1)</code>. В твоей <code>my_agent/</code> цель уже настроена; смотри на строку своей главы. Остальные служебные строки полного <code>run</code> читай так же, как в главе 1.
+<div class="highlight"><pre><span></span><code><span class="c1"># запуск из корня starter</span>
+python<span class="w"> </span>dezhurny.py<span class="w"> </span>run<span class="w"> </span>--dir<span class="w"> </span>workspace/my_agent/examples/denied
+</code></pre></div>
+<div class="highlight"><pre><span></span><code>dezhurny: run
+goal: не настроено (глава 1)
+config: workspace/my_agent/examples/denied
+model: replay — авторский сценарий, не запись модели
+scenario: success
+stop_policy: max_steps 5, max_retries 1 (по умолчанию, глава 2)
+tools: allowlist диспетчера (по умолчанию, глава 7)
+Шаг 1 | read_task_cards | continue
+Шаг 2 | validate_task_card | continue
+Шаг 3 | validate_task_card | continue
+Шаг 4 | validate_task_card | continue
+Шаг 5 | build_status_report | success
+Остановка: success
+# Черновик статуса проекта
+
+Всего задач: 3.
+Незавершённых: 2.
+Заблокированных: 1.
+
+## Незавершённые задачи
+- `task-002` — Подготовить макет афиши (in_progress)
+- `task-003` — Проверить список оборудования (blocked)
+
+## Блокеры
+- `task-003`: Нет подтверждённого списка оборудования
+
+Черновик. Отправка и изменение карточек не выполнялись.
+contract: не настроено (глава 5)
+save: denied | path_not_writable | tasks/dezhurny_report.md
+state: не настроено (глава 10)
+trace: не настроено (глава 12)
+Качество модели не подтверждено этим техническим прогоном.
+</code></pre></div></p>
+<h2 id="check">Проверь себя<a class="headerlink" href="#check" title="Permanent link">&para;</a></h2>
+<ol>
+<li>Что такое harness и почему harness нельзя считать моделью?</li>
+<li>Чем runtime отличается от оркестрации?</li>
+<li>Где в знакомом цикле происходит выбор, а где решение после observation?</li>
+<li>Назови семь частей карты harness.</li>
+<li>Почему файл в <code>workspace/</code> не обязательно находится в активном контексте?</li>
+<li>Чем отсутствующий файл отличается от пути <code>../outside.json</code>?</li>
+<li>Почему запрет записи в access-демо настоящий, хотя обычная команда ничего не записывает?</li>
+<li>Найди ошибку: «JSON сообщает <code>os_sandbox_proven: false</code>, значит запись в поле доказывает, какие границы sandbox есть у программы, а каких нет».</li>
+</ol>
+<h3 id="ответы_2">Ответы<a class="headerlink" href="#ответы_2" title="Permanent link">&para;</a></h3>
+<ol>
+<li>Harness — обычная программная среда вокруг модели; он организует вызовы, выполнение, состояние, ограничения, ошибки и взаимодействие с человеком.</li>
+<li>Runtime фактически исполняет функцию или команду; оркестрация связывает этапы и проверки в нужном порядке.</li>
+<li><code>planner_stub</code> выбирает действие до выполнения; <code>decide</code> получает уже обновлённое после observation состояние.</li>
+<li>Интерфейс, выбор, оркестрация, runtime, состояние, активный контекст, permissions.</li>
+<li>Наличие внешнего файла не передаёт его содержимое в конкретный вызов; состав активного контекста выбирает harness.</li>
+<li>В первом случае путь допустим, но ресурса нет — <code>error/not_found</code>; во втором путь отклонён как внешний — <code>denied/path_outside_workspace</code>.</li>
+<li>Ветка записи существует и выполняется в служебной временной проверке после разрешения; по умолчанию гейт операции останавливает её до <code>write_text</code>, а при включённом <code>write</code> второй гейт оставляет доступной только папку drafts.</li>
+<li>Поле — утверждение той же программы, не независимое доказательство. Код и тесты подтверждают только три проверки: путь, операцию и область записи.</li>
+</ol>
+<h3 id="эталон-ветки-практики-b">Эталон ветки практики B<a class="headerlink" href="#эталон-ветки-практики-b" title="Permanent link">&para;</a></h3>
+<p>Сверяй фрагмент только после собственной попытки. Эталон взят из полного файла <a href="../../starter/access_demo.py"><code>access_demo.py</code></a>:</p>
+<div class="highlight"><pre><span></span><code><span class="c1"># фрагмент: access_demo.py</span>
+        <span class="k">except</span> <span class="ne">FileNotFoundError</span><span class="p">:</span>
+            <span class="k">return</span> <span class="n">_observation</span><span class="p">(</span>
+                <span class="n">operation</span><span class="p">,</span>
+                <span class="n">relative_path</span><span class="p">,</span>
+                <span class="s2">&quot;error&quot;</span><span class="p">,</span>
+                <span class="s2">&quot;inside_workspace&quot;</span><span class="p">,</span>
+                <span class="s2">&quot;not_found&quot;</span><span class="p">,</span>
+            <span class="p">)</span>
+</code></pre></div>
+<h2 id="glossary">Словарь главы<a class="headerlink" href="#glossary" title="Permanent link">&para;</a></h2>
+<table>
+<thead>
+<tr>
+<th>Термин</th>
+<th>Рабочая формулировка</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Harness / agent harness</td>
+<td>программная среда вокруг модели, которая организует цикл, выполнение действий, состояние, ограничения, ошибки и взаимодействие с человеком</td>
+</tr>
+<tr>
+<td>Runtime / среда выполнения</td>
+<td>часть программной среды, в которой фактически выполняются программы, функции или команды</td>
+</tr>
+<tr>
+<td>Оркестрация / orchestration</td>
+<td>программная логика, которая связывает этапы работы, маршрутизацию, вызовы и проверки</td>
+</tr>
+<tr>
+<td>Окно контекста / context window</td>
+<td>ограниченный объём информации, который модель может использовать в конкретном вызове</td>
+</tr>
+<tr>
+<td>Управление контекстом / context management</td>
+<td>решение о том, что оставить в активном контексте, что сократить, записать во внешнее состояние или загрузить позже</td>
+</tr>
+<tr>
+<td>Permissions / разрешения</td>
+<td>технически заданные права на чтение, запись, сеть, процессы или другие ресурсы</td>
+</tr>
+<tr>
+<td>Sandbox / изолированная среда</td>
+<td>техническая среда, ограничивающая возможные последствия выполнения</td>
+</tr>
+</tbody>
+</table>
+<h2 id="bridge">Мост к главе 4<a class="headerlink" href="#bridge" title="Permanent link">&para;</a></h2>
+<p>Мы разобрали harness по семи обязанностям и увидели, что доступ к действию не появляется из одного текста. Но в нашем цикле всё ещё нет живой модели.</p>
+<p>«Дежурному» предстоит научиться получать инструкции и возвращать ответ в нужной форме. Ещё помощнику нужно будет вызывать операции и подключать чужие возможности. Для такой работы служат разные механизмы. Чтобы различить механизмы, нужно сопоставить их обязанности.</p>
+<blockquote>
+<p>Какие разные механизмы передают модели инструкцию, задают форму результата, исполняют операцию, подключают внешние возможности и описывают повторяемую работу — и почему их нельзя смешивать?</p>
+</blockquote>
+<p>Ответ на этот вопрос ты найдёшь в главе 4.</p>
+
+
+
+
+
+
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+    
+      
+      <nav class="md-footer__inner md-grid" aria-label="Нижний колонтитул" >
+        
+          
+          <a href="../ch02/" class="md-footer__link md-footer__link--prev" aria-label="Назад: Глава 2. Агентный цикл: как результат действия меняет следующий шаг?">
+            <div class="md-footer__button md-icon">
+              
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+            </div>
+            <div class="md-footer__title">
+              <span class="md-footer__direction">
+                Назад
+              </span>
+              <div class="md-ellipsis">
+                Глава 2. Агентный цикл: как результат действия меняет следующий шаг?
+              </div>
+            </div>
+          </a>
+        
+        
+          
+          <a href="../ch04/" class="md-footer__link md-footer__link--next" aria-label="Вперед: Глава 4. Prompt, structured output, tool, MCP и Agent Skill: какие задачи решают разные уровни системы?">
+            <div class="md-footer__title">
+              <span class="md-footer__direction">
+                Вперед
+              </span>
+              <div class="md-ellipsis">
+                Глава 4. Prompt, structured output, tool, MCP и Agent Skill: какие задачи решают разные уровни системы?
+              </div>
+            </div>
+            <div class="md-footer__button md-icon">
+              
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M4 11v2h12l-5.5 5.5 1.42 1.42L19.84 12l-7.92-7.92L10.5 5.5 16 11z"/></svg>
+            </div>
+          </a>
+        
+      </nav>
+    
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+    <div class="md-copyright__highlight">
+      ARISTOTEL · Редакция r0003 · 2026-10-15 · техническая редакция, пилот не проводился
+    </div>
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    
+      
+      
+      <script id="__config" type="application/json">{"annotate": null, "base": "../..", "features": ["navigation.tabs", "navigation.tabs.sticky", "navigation.sections", "navigation.indexes", "search.suggest", "search.highlight", "content.code.copy", "navigation.footer"], "search": "../../assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "\u0421\u043a\u043e\u043f\u0438\u0440\u043e\u0432\u0430\u043d\u043e \u0432 \u0431\u0443\u0444\u0435\u0440", "clipboard.copy": "\u041a\u043e\u043f\u0438\u0440\u043e\u0432\u0430\u0442\u044c \u0432 \u0431\u0443\u0444\u0435\u0440", "search.result.more.one": "\u0415\u0449\u0451 1 \u043d\u0430 \u044d\u0442\u043e\u0439 \u0441\u0442\u0440\u0430\u043d\u0438\u0446\u0435", "search.result.more.other": "\u0415\u0449\u0451 # \u043d\u0430 \u044d\u0442\u043e\u0439 \u0441\u0442\u0440\u0430\u043d\u0438\u0446\u0435", "search.result.none": "\u0421\u043e\u0432\u043f\u0430\u0434\u0435\u043d\u0438\u0439 \u043d\u0435 \u043d\u0430\u0439\u0434\u0435\u043d\u043e", "search.result.one": "\u041d\u0430\u0439\u0434\u0435\u043d\u043e 1 \u0441\u043e\u0432\u043f\u0430\u0434\u0435\u043d\u0438\u0435", "search.result.other": "\u041d\u0430\u0439\u0434\u0435\u043d\u043e \u0441\u043e\u0432\u043f\u0430\u0434\u0435\u043d\u0438\u0439: #", "search.result.placeholder": "\u041d\u0430\u0447\u043d\u0438\u0442\u0435 \u043f\u0435\u0447\u0430\u0442\u0430\u0442\u044c \u0434\u043b\u044f \u043f\u043e\u0438\u0441\u043a\u0430", "search.result.term.missing": "\u041e\u0442\u0441\u0443\u0442\u0441\u0442\u0432\u0443\u0435\u0442", "select.version": "\u0412\u044b\u0431\u0435\u0440\u0438\u0442\u0435 \u0432\u0435\u0440\u0441\u0438\u044e"}, "version": {"provider": "mike"}}</script>
+    
+    
+      <script src="../../assets/javascripts/bundle.79ae519e.min.js"></script>
+      
+    
+  </body>
+</html>

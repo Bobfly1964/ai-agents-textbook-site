@@ -1,0 +1,3117 @@
+
+<!doctype html>
+<html lang="ru" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+        <meta name="description" content="Учебник для 9–10 классов">
+      
+      
+      
+        <link rel="canonical" href="https://book.stemschool.online/r0003/student/ch07/">
+      
+      
+        <link rel="prev" href="../ch06/">
+      
+      
+        <link rel="next" href="../ch08/">
+      
+      
+        
+      
+      
+      <link rel="icon" href="../../assets/images/logo.png">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.6">
+    
+    
+      
+        <title>Глава 7. Диспетчер и ошибки - ИИ-агенты и Agent Skills</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../assets/stylesheets/main.484c7ddc.min.css">
+      
+        
+        <link rel="stylesheet" href="../../assets/stylesheets/palette.ab4e12ef.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+      <link rel="stylesheet" href="../../assets/stylesheets/extra.css">
+    
+    <script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+  </head>
+  
+  
+    
+    
+      
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="deep-purple" data-md-color-accent="cyan">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#глава-7-диспетчер-и-ошибки" class="md-skip">
+          Перейти к содержанию
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+        <aside class="md-banner">
+          <div class="md-banner__inner md-grid md-typeset">
+            
+            
+  
+    <strong>Техническая редакция: пилот не проводился</strong> · редакция r0003
+  
+
+          </div>
+          
+        </aside>
+      
+    </div>
+    
+      <div data-md-color-scheme="default" data-md-component="outdated" hidden>
+        
+      </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow md-header--lifted" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Верхний колонтитул">
+    <a href="../.." title="ИИ-агенты и Agent Skills" class="md-header__button md-logo" aria-label="ИИ-агенты и Agent Skills" data-md-component="logo">
+      
+  <img src="../../assets/images/logo.png" alt="logo">
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            ИИ-агенты и Agent Skills
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Глава 7. Диспетчер и ошибки
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+        <form class="md-header__option" data-md-component="palette">
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="(prefers-color-scheme: light)" data-md-color-scheme="default" data-md-color-primary="deep-purple" data-md-color-accent="cyan"  aria-label="Переключить на тёмную"  type="radio" name="__palette" id="__palette_0">
+    
+      <label class="md-header__button md-icon" title="Переключить на тёмную" for="__palette_1" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 18c-.89 0-1.74-.2-2.5-.55C11.56 16.5 13 14.42 13 12s-1.44-4.5-3.5-5.45C10.26 6.2 11.11 6 12 6a6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12z"/></svg>
+      </label>
+    
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="(prefers-color-scheme: dark)" data-md-color-scheme="slate" data-md-color-primary="deep-purple" data-md-color-accent="cyan"  aria-label="Переключить на светлую"  type="radio" name="__palette" id="__palette_1">
+    
+      <label class="md-header__button md-icon" title="Переключить на светлую" for="__palette_0" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a4 4 0 0 0-4 4 4 4 0 0 0 4 4 4 4 0 0 0 4-4 4 4 0 0 0-4-4m0 10a6 6 0 0 1-6-6 6 6 0 0 1 6-6 6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12z"/></svg>
+      </label>
+    
+  
+</form>
+      
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+      
+      
+        <label class="md-header__button md-icon" for="__search">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        </label>
+        <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Поиск" placeholder="Поиск" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Поиск">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Очистить" aria-label="Очистить" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+        <div class="md-search__suggest" data-md-component="search-suggest"></div>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Инициализация поиска
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+      
+    
+    
+  </nav>
+  
+    
+      
+<nav class="md-tabs" aria-label="Вкладки" data-md-component="tabs">
+  <div class="md-grid">
+    <ul class="md-tabs__list">
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../.." class="md-tabs__link">
+        
+  
+  
+    
+  
+  Главная
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+    
+  
+  
+    
+    
+      <li class="md-tabs__item md-tabs__item--active">
+        <a href="../intro/" class="md-tabs__link">
+          
+  
+  
+    
+  
+  Ученик
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../teacher/teacher-guide/" class="md-tabs__link">
+          
+  
+  
+    
+  
+  Учитель
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../../routes/" class="md-tabs__link">
+        
+  
+  
+    
+  
+  Маршруты A/B
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../../files/" class="md-tabs__link">
+        
+  
+  
+    
+  
+  Файлы практикума
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../../about/" class="md-tabs__link">
+        
+  
+  
+    
+  
+  Выходные данные
+
+      </a>
+    </li>
+  
+
+      
+    </ul>
+  </div>
+</nav>
+    
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+  
+
+
+<nav class="md-nav md-nav--primary md-nav--lifted" aria-label="Навигация" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../.." title="ИИ-агенты и Agent Skills" class="md-nav__button md-logo" aria-label="ИИ-агенты и Agent Skills" data-md-component="logo">
+      
+  <img src="../../assets/images/logo.png" alt="logo">
+
+    </a>
+    ИИ-агенты и Agent Skills
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../.." class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Главная
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+        
+        
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2" checked>
+        
+          
+          <label class="md-nav__link" for="__nav_2" id="__nav_2_label" tabindex="">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Ученик
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_2">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Ученик
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../intro/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Введение
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../tour/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Экскурсия по AI: что есть что
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../ch01/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Глава 1. Модель, приложение и агент: кто отвечает, а кто действует?
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../ch02/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Глава 2. Агентный цикл: как результат действия меняет следующий шаг?
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../ch03/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Глава 3. Agent harness: что работает вокруг модели?
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../ch04/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Глава 4. Prompt, structured output, tool, MCP и Agent Skill: какие задачи решают разные уровни системы?
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../ch05/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Глава 5. Договор задачи: что нужно определить до реализации?
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../ch06/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Глава 6. Первый tool
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Глава 7. Диспетчер и ошибки
+  
+
+    
+  </span>
+  
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Глава 7. Диспетчер и ошибки
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Содержание">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Содержание
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#scene" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        С чего всё началось
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#goals" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        После главы ты сможешь
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#lesson-13" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Урок 13. Диспетчер и белый список
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Урок 13. Диспетчер и белый список">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#1-какое-звено-отсутствовало-в-карте-главы-6" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1. Какое звено отсутствовало в карте главы 6
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#2-список-который-существует-до-запроса" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2. Список, который существует до запроса
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#3-где-видно-соответствие-имя--реализация" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3. Где видно соответствие «имя → реализация»
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#4-читаем-настоящий-dispatcher" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        4. Читаем настоящий Dispatcher
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#5-три-похожих-запроса--три-разных-исхода" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        5. Три похожих запроса — три разных исхода
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#6-почему-нельзя-выполнять-входную-строку-как-код" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        6. Почему нельзя выполнять входную строку как код
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#7-практика-a-стойка-dispatcher" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        7. Практика A: стойка Dispatcher
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#8-практика-b-найди-границы-в-коде-и-сверь-их-с-выводом" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        8. Практика B: найди границы в коде и сверь их с выводом
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#9-мини-проверка-урока-13" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        9. Мини-проверка урока 13
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="9. Мини-проверка урока 13">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#ответы" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Ответы
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#выходной-билет-урока-13" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Выходной билет урока 13
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#lesson-14" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Урок 14. Ошибки, несколько вызовов и возврат результата
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Урок 14. Ошибки, несколько вызовов и возврат результата">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#1-разрешённое-имя-тоже-может-закончиться-ошибкой" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1. Разрешённое имя тоже может закончиться ошибкой
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#2-один-формат-для-разных-неуспешных-вызовов" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2. Один формат для разных неуспешных вызовов
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#3-не-терять-порядок-и-связь-с-id" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3. Не терять порядок и связь с id
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#4-два-вызова-первый-результат-не-исчезает-из-за-второй-ошибки" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        4. Два вызова: первый результат не исчезает из-за второй ошибки
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#5-после-решения-остановиться-оставшийся-пакет-не-исполняется" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        5. После решения остановиться оставшийся пакет не исполняется
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#6-где-это-видно-в-run_agent" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        6. Где это видно в run_agent
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#7-повтор-после-ошибки-решение-видно-отдельно-от-сообщения" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        7. Повтор после ошибки: решение видно отдельно от сообщения
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#8-практика-a-события-по-call_id" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        8. Практика A: события по call_id
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#9-практика-b-прочитай-фрагмент-затем-проверь-три-сценария" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        9. Практика B: прочитай фрагмент, затем проверь три сценария
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#10-bridge-тот-же-контракт-на-одном-реальном-ответе" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        10. Bridge: тот же контракт на одном реальном ответе
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#11-мини-проверка-урока-14" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        11. Мини-проверка урока 14
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="11. Мини-проверка урока 14">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#ответы_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Ответы
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#выходной-билет-урока-14" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Выходной билет урока 14
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#домашняя-работа" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Домашняя работа
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#центральная-схема-главы" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Центральная схема главы
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#обязательные-проверки-должен--не-должен--ошибка--граница" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Обязательные проверки: должен / не должен / ошибка / граница
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#безопасность" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Безопасность
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#why" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Зачем это тебе
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#dezhurny" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Шаг сквозного проекта
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Шаг сквозного проекта">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#достраиваем-дежурного" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Достраиваем «Дежурного»
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#return" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Возвращаемся к сцене
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#check" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Проверь себя
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Проверь себя">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#ответы_2" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Ответы
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#glossary" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Словарь главы
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#bridge" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Мост к главе 8
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../ch08/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Глава 8. Хороший tool
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../ch09/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Глава 9. Первый Agent Skill
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../ch10/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Глава 10. Состояние и память
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../ch11/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Глава 11. Тесты и evals: как доказать качество не одним удачным запуском?
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../ch12/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Глава 12. Traces: как понять, что происходило на самом деле?
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../ch13/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Глава 13. Обратная связь и версии: когда исправление должно менять процедуру?
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../ch14/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Глава 14. Permissions и участие человека
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../ch15/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Глава 15. Prompt injection и недоверенные подключения: что делать с данными и кодом, которым нельзя автоматически доверять?
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../ch16/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Глава 16. Долгая и совместная работа
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../ch17/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Глава 17. Итоговый проект: может ли команда доказать качество и ограниченность системы?
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../app-a/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Приложение А. Урок 0. Готовность рабочего места
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../app-b/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Приложение Б. Словарь курса
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../app-c/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Приложение В. Список фигур
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3" >
+        
+          
+          <label class="md-nav__link" for="__nav_3" id="__nav_3_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Учитель
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Учитель
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../teacher/teacher-guide/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Методическое руководство для учителя
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../teacher/lesson-map/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Поурочная карта
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../routes/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Маршруты A/B
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../files/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Файлы практикума
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../about/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Выходные данные
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Содержание">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Содержание
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#scene" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        С чего всё началось
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#goals" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        После главы ты сможешь
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#lesson-13" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Урок 13. Диспетчер и белый список
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Урок 13. Диспетчер и белый список">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#1-какое-звено-отсутствовало-в-карте-главы-6" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1. Какое звено отсутствовало в карте главы 6
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#2-список-который-существует-до-запроса" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2. Список, который существует до запроса
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#3-где-видно-соответствие-имя--реализация" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3. Где видно соответствие «имя → реализация»
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#4-читаем-настоящий-dispatcher" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        4. Читаем настоящий Dispatcher
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#5-три-похожих-запроса--три-разных-исхода" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        5. Три похожих запроса — три разных исхода
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#6-почему-нельзя-выполнять-входную-строку-как-код" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        6. Почему нельзя выполнять входную строку как код
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#7-практика-a-стойка-dispatcher" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        7. Практика A: стойка Dispatcher
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#8-практика-b-найди-границы-в-коде-и-сверь-их-с-выводом" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        8. Практика B: найди границы в коде и сверь их с выводом
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#9-мини-проверка-урока-13" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        9. Мини-проверка урока 13
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="9. Мини-проверка урока 13">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#ответы" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Ответы
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#выходной-билет-урока-13" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Выходной билет урока 13
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#lesson-14" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Урок 14. Ошибки, несколько вызовов и возврат результата
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Урок 14. Ошибки, несколько вызовов и возврат результата">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#1-разрешённое-имя-тоже-может-закончиться-ошибкой" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1. Разрешённое имя тоже может закончиться ошибкой
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#2-один-формат-для-разных-неуспешных-вызовов" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2. Один формат для разных неуспешных вызовов
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#3-не-терять-порядок-и-связь-с-id" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3. Не терять порядок и связь с id
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#4-два-вызова-первый-результат-не-исчезает-из-за-второй-ошибки" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        4. Два вызова: первый результат не исчезает из-за второй ошибки
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#5-после-решения-остановиться-оставшийся-пакет-не-исполняется" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        5. После решения остановиться оставшийся пакет не исполняется
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#6-где-это-видно-в-run_agent" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        6. Где это видно в run_agent
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#7-повтор-после-ошибки-решение-видно-отдельно-от-сообщения" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        7. Повтор после ошибки: решение видно отдельно от сообщения
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#8-практика-a-события-по-call_id" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        8. Практика A: события по call_id
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#9-практика-b-прочитай-фрагмент-затем-проверь-три-сценария" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        9. Практика B: прочитай фрагмент, затем проверь три сценария
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#10-bridge-тот-же-контракт-на-одном-реальном-ответе" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        10. Bridge: тот же контракт на одном реальном ответе
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#11-мини-проверка-урока-14" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        11. Мини-проверка урока 14
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="11. Мини-проверка урока 14">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#ответы_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Ответы
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#выходной-билет-урока-14" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Выходной билет урока 14
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#домашняя-работа" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Домашняя работа
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#центральная-схема-главы" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Центральная схема главы
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#обязательные-проверки-должен--не-должен--ошибка--граница" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Обязательные проверки: должен / не должен / ошибка / граница
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#безопасность" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Безопасность
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#why" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Зачем это тебе
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#dezhurny" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Шаг сквозного проекта
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Шаг сквозного проекта">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#достраиваем-дежурного" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Достраиваем «Дежурного»
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#return" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Возвращаемся к сцене
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#check" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Проверь себя
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Проверь себя">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#ответы_2" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Ответы
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#glossary" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Словарь главы
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#bridge" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Мост к главе 8
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+
+<h1 id="глава-7-диспетчер-и-ошибки">Глава 7. Диспетчер и ошибки<a class="headerlink" href="#глава-7-диспетчер-и-ошибки" title="Permanent link">&para;</a></h1>
+<h2 id="scene">С чего всё началось<a class="headerlink" href="#scene" title="Permanent link">&para;</a></h2>
+<p>До Фестиваля науки остаётся несколько дней. На доске проектного бюро прибавляются карточки. Программа «Дежурный» уже получает структурированные запросы на tool (инструмент) и проверяет <code>arguments</code> (аргументы), а разрешённую операцию выполняет приложение. Аня запускает очередную учебную проверку и показывает Марку два tool calls — запроса на вызов инструмента — одинаковой формы.</p>
+<div class="highlight"><pre><span></span><code><span class="p">{</span><span class="nt">&quot;id&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;call-1&quot;</span><span class="p">,</span><span class="w"> </span><span class="nt">&quot;name&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;read_task_cards&quot;</span><span class="p">,</span><span class="w"> </span><span class="nt">&quot;arguments&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{}}</span>
+<span class="p">{</span><span class="nt">&quot;id&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;call-X&quot;</span><span class="p">,</span><span class="w"> </span><span class="nt">&quot;name&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;delete_everything&quot;</span><span class="p">,</span><span class="w"> </span><span class="nt">&quot;arguments&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{}}</span>
+</code></pre></div>
+<p>Марк смотрит на вторую строку и пожимает плечами:</p>
+<p>— Раз поле называется <code>name</code>, приложение просто найдёт функцию с таким именем и вызовет её. Иначе зачем вообще передавать имя?</p>
+<p>Аня открывает архитектурную схему из главы 3. Между проверками приложения и runtime — средой выполнения — на схеме оставлено место для выбора: какое имя разрешено связать с реальной функцией? Но Аня пока не рисует механизм выбора и не сообщает, что произойдёт со второй строкой.</p>
+<p>На вид оба запроса устроены одинаково: каждый содержит <code>id</code>, <code>name</code> и <code>arguments</code>. В главе 6 мы отличали tool call от выполненного действия на примерах с заранее известными именами. Теперь в запросе появилось незнакомое имя. Одной формы запроса уже недостаточно, чтобы объяснить, что сделает приложение.</p>
+<blockquote>
+<p><strong>Вопрос-Прогноз.</strong> Если поле <code>name</code> содержит строку, похожую на имя функции, достаточно ли этого, чтобы приложение выполнило её? Что должно произойти до runtime и какое наблюдение докажет, что неизвестное имя не исполнялось?</p>
+</blockquote>
+<p>Запиши прогноз в двух строках. В первой строке назови условие, при котором имя можно передать дальше. Во второй строке укажи признак, по которому ты отличишь отказ до выполнения от уже выполненной попытки. К этим двум строкам мы вернёмся после практики урока 14.</p>
+<blockquote>
+<p><strong>Главный вопрос главы.</strong> Как безопасно связать имя tool с разрешённой функцией?</p>
+</blockquote>
+<p><img alt="Фигура 18. Имя есть, разрешения ещё нет" src="../../figures/18_imya-est-razresheniya-eshche-net.png" /></p>
+<p><em>Фигура 18. Имя есть, разрешения ещё нет</em></p>
+<h2 id="goals">После главы ты сможешь<a class="headerlink" href="#goals" title="Permanent link">&para;</a></h2>
+<ul>
+<li>показывать место программного слоя, который связывает разрешённое имя tool с конкретной реализацией, и читать явную таблицу разрешённых имён как техническую границу доступных операций;</li>
+<li>объяснять, почему строка, похожая на имя функции, не даёт права искать и выполнять произвольный код;</li>
+<li>отличать отказ до выполнения от ошибки уже начатой операции;</li>
+<li>объяснять, почему неуспешный исход одного вызова не равен терминалу <code>error</code> всего запуска;</li>
+<li>связывать result или ошибку с исходным <code>id</code> и читать порядок наблюдаемых событий;</li>
+<li>объяснять, почему после терминального решения оставшиеся tool calls пакета не должны выполняться;</li>
+<li>сохранять проверяемое свидетельство одного сеанса с ручным переносом ответа живой модели, не выдавая один запуск за общую оценку её поведения.</li>
+</ul>
+<hr />
+<h2 id="lesson-13">Урок 13. Диспетчер и белый список<a class="headerlink" href="#lesson-13" title="Permanent link">&para;</a></h2>
+<p><strong>Вопрос урока.</strong> Как связать имя tool с разрешённой функцией и не выполнять произвольный код?</p>
+<h3 id="1-какое-звено-отсутствовало-в-карте-главы-6">1. Какое звено отсутствовало в карте главы 6<a class="headerlink" href="#1-какое-звено-отсутствовало-в-карте-главы-6" title="Permanent link">&para;</a></h3>
+<p>В конце главы 6 мы проследили такую цепочку:</p>
+<ol>
+<li>Модель формирует tool call.</li>
+<li>Приложение получает <code>name</code> и <code>arguments</code>.</li>
+<li>Приложение проверяет arguments.</li>
+<li>Приложение вызывает функцию.</li>
+<li>Функция возвращает tool result — результат вызова.</li>
+</ol>
+<p>Для разобранных примеров цепочка верна: мы заранее выбирали знакомые имена операций. Но откуда приложение знает, с какой именно функцией разрешено связать строку <code>name</code>?</p>
+<p>На первый взгляд мысль Марка кажется убедительной: <code>read_task_cards</code> и <code>delete_everything</code> выглядят как имена действий. Первое имя уже знакомо по проекту, второе тоже записано обычной строкой. Однако сходство записи ничего не разрешает. Если программа начнёт искать функцию по любой входной строке, модель получит возможность указывать исполняемый код. Наш договор задачи такой возможности модели не давал.</p>
+<p>Между чтением имени и runtime нужен программный слой, который сравнивает строку с заранее известными разрешёнными именами. Только точное совпадение позволяет выбрать конкретную реализацию. Поиск «чего-нибудь похожего» здесь не подходит.</p>
+<p><strong>Dispatcher / диспетчер — программный слой, который сопоставляет разрешённое имя tool с конкретной реализацией.</strong></p>
+<p><strong><em>Dispatcher</em></strong> проверяет, есть ли для полученного имени точное разрешённое соответствие. При совпадении работа может перейти к следующей проверке. Без совпадения приложение отклоняет имя, не вызывая функцию.</p>
+<p>Dispatcher не выбирает цель задачи и не проверяет истинность данных. Успех разрешённой операции Dispatcher тоже не гарантирует. Dispatcher — обычный программный код, а не модель. Он также не заменяет OS-sandbox — изоляцию средствами операционной системы. Задача Dispatcher уже: связать разрешённое имя с заранее заданной реализацией и отклонить неизвестное имя.</p>
+<p>Работу Dispatcher можно сравнить со стойкой выдачи ключей из нумерованных ячеек. Номер ячейки соответствует имени tool, а лежащий в ячейке ключ соответствует реализации. Сотрудник выдаёт ключ только из существующей ячейки, а не ищет по зданию «дверь с похожим названием». Сходство ограничено выбором по точному обозначению: Dispatcher не человек и не физический замок, правило задаёт код программы.</p>
+<p><img alt="Фигура 19. Dispatcher: точное имя → разрешённая реализация" src="../../figures/19_dispatcher-tochnoe-imya-razreshennaya-realizatsiya.svg" /></p>
+<p><em>Фигура 19. Dispatcher: точное имя → разрешённая реализация</em></p>
+<h3 id="2-список-который-существует-до-запроса">2. Список, который существует до запроса<a class="headerlink" href="#2-список-который-существует-до-запроса" title="Permanent link">&para;</a></h3>
+<p>Разрешённые имена должны быть известны ещё до получения запроса. Иначе Dispatcher будет не проверять строку, а принимать новые правила от самой модели. Список не дополняется ни из-за уверенного ответа модели, ни из-за сходства нового имени с разрешённым.</p>
+<p><strong>Allowlist / белый список — заранее определённый перечень разрешённых действий, имён или ресурсов.</strong></p>
+<p><strong><em>Allowlist</em></strong> в этой главе относится к именам tools. Приложение заранее знает набор имён, для которых предусмотрены реализации. Входная строка либо точно совпадает с одним из разрешённых имён, либо отклоняется.</p>
+<p>Allowlist не проверяет <code>arguments</code> и не выдаёт приложению новые системные права. Наличие имени в списке также не делает сам tool безопасным во всех отношениях. Запрос с разрешённым именем ещё должен пройти остальные проверки. Неизвестное имя отклоняется до runtime, без поиска «ближайшей» функции.</p>
+<p>Представим, что школьная лаборатория принимает заявки на выдачу приборов. Выдача прибора разрешена, но в заявке не указан нужный прибор. Здесь приходится отдельно проверить вид действия и сведения для действия. Так же allowlist проверяет имя операции, а проверка arguments проверяет данные запроса. Сравнение касается только разделения проверок.</p>
+<h3 id="3-где-видно-соответствие-имя--реализация">3. Где видно соответствие «имя → реализация»<a class="headerlink" href="#3-где-видно-соответствие-имя--реализация" title="Permanent link">&para;</a></h3>
+<p>В starter разрешённые имена и соответствующие функции записаны попарно. Для такой записи используется <strong><em>словарь Python</em></strong> — структура данных, в которой ключ связан со значением. Здесь ключом служит имя tool, а значением служит конкретная функция. Функции операций проекта объединены в классе <code>Tools</code>. Чтобы прочитать таблицу, достаточно различать две стороны записи: слева от двоеточия стоит имя в кавычках, справа указана функция из <code>Tools</code>.</p>
+<p><strong>Dispatch table / таблица соответствий — явное соответствие каждого разрешённого имени tool одной конкретной реализации; в starter — словарь <code>AVAILABLE_TOOLS</code>.</strong></p>
+<p><strong><em>Dispatch table</em></strong> позволяет увидеть, какие операции доступны Dispatcher. В таблице ниже четырём разрешённым именам соответствуют четыре конкретные реализации. Таблица не создаёт второй Dispatcher и не вводит другой способ выполнения функций. Приложение выбирает функцию по записанному соответствию, а не ищет любые функции программы по входной строке и не исполняет текст как код.</p>
+<blockquote>
+<p><strong>Проверь себя на ходу.</strong> В allowlist есть только <code>read_task_cards</code>, а запрос содержит <code>read_task_card</code>. Следует ли Dispatcher «догадаться», что пропущена буква <code>s</code>, и вызвать ближайшее имя? Какой принцип главы нарушило бы такое исправление?</p>
+</blockquote>
+<h3 id="4-читаем-настоящий-dispatcher">4. Читаем настоящий Dispatcher<a class="headerlink" href="#4-читаем-настоящий-dispatcher" title="Permanent link">&para;</a></h3>
+<p>Ниже приведён полный файл <code>school_agent/dispatcher.py</code> из starter. Переменная <code>call_id</code> хранит знакомый по главе 6 <code>id</code> конкретного запроса. В части <code>try</code> программа пробует выполнить операцию; ветви <code>except</code> обрабатывают предусмотренные ошибки выполнения.</p>
+<p>Прочитай листинг и найди четыре места:</p>
+<ol>
+<li>Найди dispatch table с разрешёнными именами.</li>
+<li>Найди проверку неизвестного имени.</li>
+<li>Найди проверку arguments до вызова.</li>
+<li>Найди ветви, которые превращают ошибку выполнения в структурированный результат.</li>
+</ol>
+<div class="highlight"><pre><span></span><code><span class="c1"># файл: school_agent/dispatcher.py</span>
+<span class="sd">&quot;&quot;&quot;Только четыре доменных tools; никакого выполнения имени как кода.&quot;&quot;&quot;</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">.tools</span><span class="w"> </span><span class="kn">import</span> <span class="n">Tools</span><span class="p">,</span> <span class="n">ToolDataError</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">.paths</span><span class="w"> </span><span class="kn">import</span> <span class="n">WorkspaceBoundaryError</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">.validation</span><span class="w"> </span><span class="kn">import</span> <span class="n">validate_tool_arguments</span>
+
+<span class="n">AVAILABLE_TOOLS</span> <span class="o">=</span> <span class="p">{</span>
+    <span class="s2">&quot;read_task_cards&quot;</span><span class="p">:</span> <span class="n">Tools</span><span class="o">.</span><span class="n">read_task_cards</span><span class="p">,</span>
+    <span class="s2">&quot;validate_task_card&quot;</span><span class="p">:</span> <span class="n">Tools</span><span class="o">.</span><span class="n">validate_task_card</span><span class="p">,</span>
+    <span class="s2">&quot;build_status_report&quot;</span><span class="p">:</span> <span class="n">Tools</span><span class="o">.</span><span class="n">build_status_report</span><span class="p">,</span>
+    <span class="s2">&quot;propose_status_update&quot;</span><span class="p">:</span> <span class="n">Tools</span><span class="o">.</span><span class="n">propose_status_update</span><span class="p">,</span>
+<span class="p">}</span>
+
+
+<span class="k">def</span><span class="w"> </span><span class="nf">call_tool</span><span class="p">(</span><span class="n">tool_call</span><span class="p">,</span> <span class="n">tools</span><span class="p">):</span>
+    <span class="n">name</span> <span class="o">=</span> <span class="n">tool_call</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;name&quot;</span><span class="p">)</span> <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">tool_call</span><span class="p">,</span> <span class="nb">dict</span><span class="p">)</span> <span class="k">else</span> <span class="kc">None</span>
+    <span class="n">call_id</span> <span class="o">=</span> <span class="n">tool_call</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;id&quot;</span><span class="p">,</span> <span class="s2">&quot;unknown&quot;</span><span class="p">)</span> <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">tool_call</span><span class="p">,</span> <span class="nb">dict</span><span class="p">)</span> <span class="k">else</span> <span class="s2">&quot;unknown&quot;</span>
+    <span class="n">result</span> <span class="o">=</span> <span class="p">{</span><span class="s2">&quot;call_id&quot;</span><span class="p">:</span> <span class="n">call_id</span><span class="p">,</span> <span class="s2">&quot;name&quot;</span><span class="p">:</span> <span class="n">name</span><span class="p">,</span> <span class="s2">&quot;ok&quot;</span><span class="p">:</span> <span class="kc">False</span><span class="p">,</span> <span class="s2">&quot;executed&quot;</span><span class="p">:</span> <span class="kc">False</span><span class="p">}</span>
+    <span class="k">if</span> <span class="ow">not</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">name</span><span class="p">,</span> <span class="nb">str</span><span class="p">)</span> <span class="ow">or</span> <span class="n">name</span> <span class="ow">not</span> <span class="ow">in</span> <span class="n">AVAILABLE_TOOLS</span><span class="p">:</span>
+        <span class="n">result</span><span class="p">[</span><span class="s2">&quot;error&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="p">{</span><span class="s2">&quot;code&quot;</span><span class="p">:</span> <span class="s2">&quot;unknown_tool&quot;</span><span class="p">,</span> <span class="s2">&quot;message&quot;</span><span class="p">:</span> <span class="s2">&quot;имя отсутствует в allowlist&quot;</span><span class="p">}</span>
+        <span class="k">return</span> <span class="n">result</span>
+    <span class="n">errors</span> <span class="o">=</span> <span class="n">validate_tool_arguments</span><span class="p">(</span><span class="n">name</span><span class="p">,</span> <span class="n">tool_call</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;arguments&quot;</span><span class="p">))</span>
+    <span class="k">if</span> <span class="n">errors</span><span class="p">:</span>
+        <span class="n">result</span><span class="p">[</span><span class="s2">&quot;error&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="p">{</span><span class="s2">&quot;code&quot;</span><span class="p">:</span> <span class="s2">&quot;invalid_arguments&quot;</span><span class="p">,</span> <span class="s2">&quot;message&quot;</span><span class="p">:</span> <span class="s2">&quot;; &quot;</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">errors</span><span class="p">)}</span>
+        <span class="k">return</span> <span class="n">result</span>
+    <span class="n">result</span><span class="p">[</span><span class="s2">&quot;executed&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="kc">True</span>
+    <span class="k">try</span><span class="p">:</span>
+        <span class="n">value</span> <span class="o">=</span> <span class="n">AVAILABLE_TOOLS</span><span class="p">[</span><span class="n">name</span><span class="p">](</span><span class="n">tools</span><span class="p">,</span> <span class="o">**</span><span class="n">tool_call</span><span class="p">[</span><span class="s2">&quot;arguments&quot;</span><span class="p">])</span>
+        <span class="n">result</span><span class="o">.</span><span class="n">update</span><span class="p">(</span><span class="n">ok</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">result</span><span class="o">=</span><span class="n">value</span><span class="p">)</span>
+    <span class="k">except</span> <span class="n">WorkspaceBoundaryError</span><span class="p">:</span>
+        <span class="n">result</span><span class="p">[</span><span class="s2">&quot;error&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="p">{</span><span class="s2">&quot;code&quot;</span><span class="p">:</span> <span class="s2">&quot;outside_workspace&quot;</span><span class="p">,</span> <span class="s2">&quot;message&quot;</span><span class="p">:</span> <span class="s2">&quot;доступ вне workspace запрещён&quot;</span><span class="p">}</span>
+    <span class="k">except</span> <span class="n">ToolDataError</span> <span class="k">as</span> <span class="n">exc</span><span class="p">:</span>
+        <span class="n">result</span><span class="p">[</span><span class="s2">&quot;error&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="p">{</span><span class="s2">&quot;code&quot;</span><span class="p">:</span> <span class="n">exc</span><span class="o">.</span><span class="n">code</span><span class="p">,</span> <span class="s2">&quot;message&quot;</span><span class="p">:</span> <span class="nb">str</span><span class="p">(</span><span class="n">exc</span><span class="p">)}</span>
+    <span class="k">except</span> <span class="p">(</span><span class="ne">OSError</span><span class="p">,</span> <span class="ne">ValueError</span><span class="p">,</span> <span class="ne">TypeError</span><span class="p">):</span>
+        <span class="n">result</span><span class="p">[</span><span class="s2">&quot;error&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="p">{</span><span class="s2">&quot;code&quot;</span><span class="p">:</span> <span class="s2">&quot;tool_error&quot;</span><span class="p">,</span> <span class="s2">&quot;message&quot;</span><span class="p">:</span> <span class="s2">&quot;операция с учебными данными не выполнена&quot;</span><span class="p">}</span>
+    <span class="k">return</span> <span class="n">result</span>
+</code></pre></div>
+<p>Таблица <code>AVAILABLE_TOOLS</code> связывает четыре разрешённых имени с четырьмя реализациями. Функция <code>call_tool</code> сначала извлекает <code>name</code> и <code>id</code>, не запуская инструмент. Если имя неизвестно, <code>call_tool</code> возвращает ошибку <code>unknown_tool</code> при <code>executed: False</code>: выполнение не началось.</p>
+<p>После успешной проверки имени программа проверяет arguments по правилам схемы. Разрешённое имя не исправляет неверные arguments: при ошибке данных результат снова возвращается с <code>executed: False</code>. Только после обеих проверок программа ставит <code>executed = True</code> и переходит в <code>try</code>, где вызывает функцию из <code>AVAILABLE_TOOLS</code>.</p>
+<p>Allowlist отвечает на вопрос «разрешено ли такое имя?», а проверка arguments отвечает на вопрос «подходят ли данные конкретного вызова?». Проверки идут последовательно и не заменяют друг друга.</p>
+<h3 id="5-три-похожих-запроса--три-разных-исхода">5. Три похожих запроса — три разных исхода<a class="headerlink" href="#5-три-похожих-запроса--три-разных-исхода" title="Permanent link">&para;</a></h3>
+<p>В трёх случаях ниже только один запрос даст обычный result. Два других будут отклонены: один из-за неизвестного имени, другой из-за неверных arguments. Что должно вернуть приложение, если функция даже не запускалась? Нужен структурированный исход, по которому можно установить причину отказа.</p>
+<p><strong>Tool error / ошибка tool — структурированный результат неуспешного вызова: отклонение до выполнения (неизвестное имя, неверные arguments) или ошибка во время выполнения; не равен терминалу <code>error</code> всего запуска.</strong></p>
+<p><strong><em>Tool error</em></strong> описывает неуспешный исход одного tool call. Такой исход возможен даже при <code>execution: not performed</code>, когда функция не запускалась. В уроке 14 мы разберём и другой случай: разрешённая функция начала выполняться, но завершилась ошибкой.</p>
+<p>По одному tool error нельзя установить, завершён ли весь запуск. Агентный цикл, или agent loop, принимает отдельное решение после observation — наблюдения, полученного от операции или проверки.</p>
+<p>Начнём с разрешённого запроса. Команда <code>case allowed</code> передаёт один подготовленный tool call в функцию <code>call_tool</code> из напечатанного листинга.</p>
+<div class="highlight"><pre><span></span><code><span class="c1"># запуск из корня starter</span>
+python<span class="w"> </span>dispatcher_demo.py<span class="w"> </span><span class="k">case</span><span class="w"> </span>allowed
+</code></pre></div>
+<div class="highlight"><pre><span></span><code>call_id: call-1
+tool: read_task_cards
+allowlist: allowed
+arguments: valid
+execution: performed
+outcome: result
+</code></pre></div>
+<p>Строка <code>execution: performed</code> показывает, что приложение дошло до вызова реализации. Перед вызовом точное имя прошло allowlist, а arguments прошли проверку данных. Строка <code>outcome: result</code> сообщает отдельно, что в этом случае операция вернула обычный результат.</p>
+<p>Теперь проверим неизвестное имя из вводной сцены.</p>
+<div class="highlight"><pre><span></span><code><span class="c1"># запуск из корня starter</span>
+python<span class="w"> </span>dispatcher_demo.py<span class="w"> </span><span class="k">case</span><span class="w"> </span>unknown-tool
+</code></pre></div>
+<div class="highlight"><pre><span></span><code>call_id: call-X
+tool: delete_everything
+allowlist: denied
+arguments: not checked
+execution: not performed
+outcome: tool error
+error: имя отсутствует в allowlist
+</code></pre></div>
+<p>Для неизвестного имени программа печатает <code>allowlist: denied</code> и <code>execution: not performed</code>: запрос отклонён, выполнение не начиналось. Строка <code>arguments: not checked</code> показывает, что программа не переходила даже к проверке arguments. Именно отказ до выполнения нам нужен для ответа на вопрос-прогноз.</p>
+<p>Третий запрос остановится на другой проверке. Имя <code>validate_task_card</code> разрешено, но в arguments отсутствует обязательное поле <code>task_id</code>.</p>
+<div class="highlight"><pre><span></span><code><span class="c1"># запуск из корня starter</span>
+python<span class="w"> </span>dispatcher_demo.py<span class="w"> </span><span class="k">case</span><span class="w"> </span>invalid-arguments
+</code></pre></div>
+<div class="highlight"><pre><span></span><code>call_id: call-2
+tool: validate_task_card
+allowlist: allowed
+arguments: invalid
+execution: not performed
+outcome: tool error
+error: arguments: нет обязательного поля task_id
+</code></pre></div>
+<p>Имя прошло allowlist, однако проверка arguments остановила запрос до выполнения. Запись <code>allowlist ≠ schema</code> означает, что список разрешённых имён не заменяет схему данных. Запись <code>allowed name ≠ guaranteed success</code> напоминает: разрешённое имя не гарантирует успеха операции.</p>
+<h3 id="6-почему-нельзя-выполнять-входную-строку-как-код">6. Почему нельзя выполнять входную строку как код<a class="headerlink" href="#6-почему-нельзя-выполнять-входную-строку-как-код" title="Permanent link">&para;</a></h3>
+<p>Можно написать программу, которая пытается выполнить полученную строку <code>name</code> как код, например передаёт строку Python-функции <code>eval</code>. Другой вариант — искать функцию с указанным названием во всём модуле или подбирать ближайшее имя по сходству. Для учебного «Дежурного» такие изменения разрушили бы границу Dispatcher: программа стала бы выбирать код не только по заранее записанным соответствиям.</p>
+<p>В нашем starter строка запроса сравнивается только с ключами <code>AVAILABLE_TOOLS</code>. Приложение не превращает неизвестное имя в команду для <strong><em>shell</em></strong> (командной оболочки) и не подключает по входной строке программный модуль. Разрешённый набор остаётся явным: ты можешь проверить список имён по коду.</p>
+<p>Явный список имён ещё не доказывает полной безопасности программы. Allowlist ограничивает только один слой — связь имени tool с предусмотренной реализацией. Поведение разрешённой функции и доступ функции к файлам проверяются другими механизмами. Отдельно действуют permissions из главы 3 — технически заданные права на чтение, запись, сеть, процессы или другие ресурсы.</p>
+<h3 id="7-практика-a-стойка-dispatcher">7. Практика A: стойка Dispatcher<a class="headerlink" href="#7-практика-a-стойка-dispatcher" title="Permanent link">&para;</a></h3>
+<p>Объединись с одноклассниками в группу из трёх–четырёх человек. Договорись с группой, кто выполняет каждую роль:</p>
+<ol>
+<li>Один ученик играет Dispatcher.</li>
+<li>Второй ученик проверяет arguments.</li>
+<li>Третий ученик играет runtime.</li>
+<li>Если вас четверо, четвёртый ученик ведёт журнал наблюдений.</li>
+</ol>
+<p>Положи на стол карточки tool calls с полями <code>id</code>, <code>name</code>, <code>arguments</code> и отдельные карточки четырёх разрешённых имён проекта.</p>
+<p>Dispatcher передаёт карточку дальше только при точном совпадении имени. Проверь с группой три маршрута:</p>
+<ol>
+<li>Передай карточку с <code>delete_everything</code> в область <code>tool error</code>. До станции arguments карточка не доходит.</li>
+<li>Передай карточку <code>validate_task_card</code> с пустыми <code>{}</code> через Dispatcher. На станции проверки arguments карточка останавливается.</li>
+<li>Передай карточку <code>read_task_cards</code> с <code>{}</code> через обе проверки. Только после проверок карточка доходит до runtime.</li>
+</ol>
+<p>Не оценивай, «разумно» ли выглядит имя. Следи за маршрутом карточки: какая проверка сработала и начиналось ли выполнение. Если кто-то предлагает исправить неизвестное имя «по смыслу», запиши предложение как найденную ошибку проектирования.</p>
+<p><strong>Результат практики A:</strong> таблица из трёх случаев <code>allowed / unknown / invalid arguments</code> с тремя колонками:</p>
+<ol>
+<li>«имя прошло allowlist?»</li>
+<li>«arguments проверены?»</li>
+<li>«выполнение началось?»</li>
+</ol>
+<p>Последняя колонка заполняется только фактом, а не предположением.</p>
+<h3 id="8-практика-b-найди-границы-в-коде-и-сверь-их-с-выводом">8. Практика B: найди границы в коде и сверь их с выводом<a class="headerlink" href="#8-практика-b-найди-границы-в-коде-и-сверь-их-с-выводом" title="Permanent link">&para;</a></h3>
+<p>Вернись к листингу <code>school_agent/dispatcher.py</code> и отметь четыре строки или блока:</p>
+<ol>
+<li>Отметь <code>AVAILABLE_TOOLS</code>.</li>
+<li>Отметь условие <code>name not in AVAILABLE_TOOLS</code>.</li>
+<li>Отметь вызов <code>validate_tool_arguments(...)</code>.</li>
+<li>Отметь строку, где <code>executed</code> становится <code>True</code>.</li>
+</ol>
+<p>Сопоставь каждую пометку с тремя уже выполненными сценариями <code>case</code>.</p>
+<p>По пометкам восстанови один маршрут: точное имя → проверка arguments → фактический вызов. Если вывод сообщает <code>execution: not performed</code>, найди в коде ветвь, которая вернула результат раньше строки <code>executed = True</code>.</p>
+<p><strong>Результат практики B:</strong> листинг с четырьмя пометками на полях и короткое объяснение каждого из трёх сценариев по формуле «какая граница остановила или пропустила запрос → началось ли выполнение».</p>
+<h3 id="9-мини-проверка-урока-13">9. Мини-проверка урока 13<a class="headerlink" href="#9-мини-проверка-урока-13" title="Permanent link">&para;</a></h3>
+<ol>
+<li>Что делает Dispatcher?</li>
+<li>Что хранит allowlist в этой главе?</li>
+<li>Почему неизвестное имя не должно доходить до runtime?</li>
+<li>Чем allowlist отличается от проверки arguments?</li>
+<li>Почему «поиск похожего имени» ломает смысл Dispatcher?</li>
+</ol>
+<h4 id="ответы">Ответы<a class="headerlink" href="#ответы" title="Permanent link">&para;</a></h4>
+<ol>
+<li>Сопоставляет разрешённое имя tool с конкретной реализацией и отклоняет неизвестное имя.</li>
+<li>Заранее заданный набор разрешённых имён tools.</li>
+<li>Потому что входная строка сама не является разрешением на выполнение функции.</li>
+<li>Allowlist проверяет допустимость имени, а следующая проверка — данные конкретного вызова.</li>
+<li>Потому что тогда неизвестная строка могла бы превратиться в другую операцию без точного заранее заданного соответствия.</li>
+</ol>
+<h3 id="выходной-билет-урока-13">Выходной билет урока 13<a class="headerlink" href="#выходной-билет-урока-13" title="Permanent link">&para;</a></h3>
+<p>Восстанови цепочку урока. Между <code>name</code> и <code>runtime</code> нужно вписать три звена. Заполни пропуски без подглядывания:</p>
+<div class="highlight"><pre><span></span><code>name → … → … → … → runtime
+</code></pre></div>
+<p>Рядом допиши правые части двух записей о границах:</p>
+<div class="highlight"><pre><span></span><code>unknown name ≠ …
+allowed name ≠ …
+</code></pre></div>
+<p>Если в первой строке у тебя есть стрелка от неизвестного имени прямо к runtime, вернись к выводу <code>case unknown-tool</code>: программа показывает <code>execution: not performed</code>.</p>
+<hr />
+<h2 id="lesson-14">Урок 14. Ошибки, несколько вызовов и возврат результата<a class="headerlink" href="#lesson-14" title="Permanent link">&para;</a></h2>
+<p><strong>Вопрос урока.</strong> Как агент продолжает работу после ошибки или нескольких tool calls?</p>
+<h3 id="1-разрешённое-имя-тоже-может-закончиться-ошибкой">1. Разрешённое имя тоже может закончиться ошибкой<a class="headerlink" href="#1-разрешённое-имя-тоже-может-закончиться-ошибкой" title="Permanent link">&para;</a></h3>
+<p>В уроке 13 оба отказа произошли до выполнения. Неизвестное имя не прошло allowlist, а запрос с разрешённым именем остановился на неверных arguments. Теперь рассмотрим третий случай: имя разрешено, данные корректны, runtime начинает выполнять функцию, но операция не может завершиться обычным результатом.</p>
+<p>Например, <code>read_task_cards</code> может начать чтение и обнаружить, что учебные карточки недоступны. Запись <code>execution: not performed</code> уже не соответствует случившемуся: попытка началась. Программе нужно сообщить об ошибке. Если программа аварийно остановится или скроет сбой в пустой ветви <code>except</code>, следующий шаг не сможет понять причину неудачи.</p>
+<p><strong>Exception / исключение — программная ошибка, возникшая во время уже начатого выполнения функции; приложение перехватывает её и превращает в наблюдаемый результат, а не в аварийную остановку.</strong></p>
+<p><strong><em>Exception</em></strong> возникает во время уже начатого выполнения функции. При неизвестном имени или неверных arguments функция ещё не запускалась. В нашем <code>dispatcher.py</code> предусмотренные ошибки выполнения обрабатываются ветвями <code>except</code>: приложение возвращает структурированный объект с <code>ok: False</code> и описанием ошибки.</p>
+<p>После exception весь запуск не обязательно завершается терминалом <code>error</code>. Решение принимает агентный цикл после observation. В зависимости от принятой политики система может:</p>
+<ol>
+<li>Повторить попытку.</li>
+<li>Запросить недостающие данные.</li>
+<li>Завершить запуск.</li>
+</ol>
+<h3 id="2-один-формат-для-разных-неуспешных-вызовов">2. Один формат для разных неуспешных вызовов<a class="headerlink" href="#2-один-формат-для-разных-неуспешных-вызовов" title="Permanent link">&para;</a></h3>
+<p>Обычный result может не появиться по трём причинам:</p>
+<ol>
+<li>Имя операции неизвестно.</li>
+<li>Arguments не соответствуют требованиям.</li>
+<li>Во время выполнения возникло exception.</li>
+</ol>
+<p>В уроке 13 мы назвали структурированный исход неуспешного вызова tool error. Такой исход объединяет отказ до выполнения и ошибку уже начатой функции, но не делает эти случаи одинаковыми.</p>
+<p>Tool error описывает один вызов. Терминал <code>error</code> сообщает об итоге всего запуска. Поэтому строка <code>outcome: tool error</code> сама по себе не означает, что работа закончена. Чтобы установить итог, нужно прочитать решение после observation.</p>
+<p>Вместе с ошибкой должно быть видно и то, запускалась ли функция. Поэтому демонстрация отдельно печатает <code>execution: performed</code> или <code>execution: not performed</code>. Сообщение tool error не заменяет отметку о выполнении.</p>
+<p>В следующем сценарии первый вызов <code>read_task_cards</code> начинается и завершается ошибкой. Второй вызов <code>read_task_cards</code> затем проходит успешно.</p>
+<div class="highlight"><pre><span></span><code><span class="c1"># запуск из корня starter</span>
+python<span class="w"> </span>dispatcher_demo.py<span class="w"> </span><span class="k">case</span><span class="w"> </span>tool-exception
+</code></pre></div>
+<div class="highlight"><pre><span></span><code>call_id: call-3
+tool: read_task_cards
+allowlist: allowed
+arguments: valid
+execution: performed
+outcome: tool error
+error: Ошибка: учебные карточки недоступны
+
+call_id: call-4
+tool: read_task_cards
+allowlist: allowed
+arguments: valid
+execution: performed
+outcome: result
+</code></pre></div>
+<p>Сравни вывод с <code>case unknown-tool</code>. В обоих случаях есть <code>outcome: tool error</code>. Но для неизвестного имени указано <code>execution: not performed</code>, а для ошибки начатой операции указано <code>execution: performed</code>. По одному слову <code>error</code> различить эти случаи нельзя.</p>
+<blockquote>
+<p><strong>Проверь себя на ходу.</strong> В двух выводах есть <code>tool error</code>. В первом <code>execution: not performed</code>, во втором <code>execution: performed</code>. Как по этим двум строкам восстановить, где примерно произошёл сбой: до runtime или уже во время выполнения?</p>
+</blockquote>
+<h3 id="3-не-терять-порядок-и-связь-с-id">3. Не терять порядок и связь с <code>id</code><a class="headerlink" href="#3-не-терять-порядок-и-связь-с-id" title="Permanent link">&para;</a></h3>
+<p>Модель может вернуть несколько tool calls в одном ответе. Тогда нужно сохранить не только исходы, но и порядок событий, а каждый result или tool error связать с исходным запросом.</p>
+<p>Допустим, две группы бюро попросили прочитать карточки. Первый вызов <code>read_task_cards</code> вернул данные. К моменту второго вызова карточки оказались недоступны, и операция завершилась ошибкой. Имя операции одно, а исходы различаются. Разные <code>id</code> позволяют указать, какой запрос получил каждый результат.</p>
+<p><strong>Event log / журнал событий — последовательный список наблюдаемых событий запуска: запрос tool, результат или ошибка, решение; каждый результат связан с <code>id</code> своего вызова.</strong></p>
+<p><strong><em>Event log</em></strong> сохраняет порядок наблюдаемых событий. Сначала записывается запрос <code>call-1</code>, затем его observation и решение. Следующий запрос обрабатывается только при продолжении работы. Знакомое по главе 6 поле <code>id</code> связывает результат с конкретным tool call, даже если несколько запросов содержат одинаковое имя операции.</p>
+<p>Event log главы 7 содержит наблюдаемые события, а не скрытые рассуждения модели. Такой журнал не следует отождествлять с формальной моделью Trace и диагностикой по ней из будущей главы 12.</p>
+<p>В командах <strong><em>bridge</em></strong> — ручного переноса ответа живой модели между доступным чатом и harness — встретятся флаг <code>--trace</code> и папка <code>workspace/traces/</code>. Здесь <code>trace</code> используется как служебное имя для записи журнала событий, без введения формальной модели Trace.</p>
+<h3 id="4-два-вызова-первый-результат-не-исчезает-из-за-второй-ошибки">4. Два вызова: первый результат не исчезает из-за второй ошибки<a class="headerlink" href="#4-два-вызова-первый-результат-не-исчезает-из-за-второй-ошибки" title="Permanent link">&para;</a></h3>
+<p>В сценарии <code>two-calls</code> один ответ содержит два tool calls: сначала чтение карточек, затем проверку карточки с несуществующим <code>task_id</code>. Режим replay здесь воспроизводит заранее подготовленный авторский вход с меткой <code>synthetic_script</code>. Живая модель в этом сценарии не участвует.</p>
+<div class="highlight"><pre><span></span><code><span class="c1"># запуск из корня starter</span>
+python<span class="w"> </span>dispatcher_demo.py<span class="w"> </span>run<span class="w"> </span>two-calls
+</code></pre></div>
+<div class="highlight"><pre><span></span><code>mode: replay
+origin: synthetic_script — авторский сценарий, не запись модели
+event: tool_requested | call_id: call-1 | tool: read_task_cards
+event: tool_observation | call_id: call-1 | tool: read_task_cards | execution: performed | outcome: result | decision: continue
+event: tool_requested | call_id: call-2 | tool: validate_task_card
+event: tool_observation | call_id: call-2 | tool: validate_task_card | execution: performed | outcome: tool error | decision: needs_input | error: нет карточки с указанным id
+event: run_finished | terminal: needs_input | steps: 2
+</code></pre></div>
+<p>Первый вызов <code>call-1</code> выполняется и даёт result. Решение <code>continue</code> позволяет обработать следующий запрос. Вызов <code>call-2</code> тоже выполняется, но заканчивается tool error: карточки с указанным <code>task_id</code> нет. После observation вызова <code>call-2</code> принимается решение <code>needs_input</code>.</p>
+<p>После ошибки второго вызова легко описать весь запуск одним словом: «неудача». Но такое описание потеряет результат первого вызова. В event log у каждого исхода сохранён свой <code>call_id</code>, поэтому видно, что чтение удалось, а проверка карточки дала ошибку. Запуск завершился терминалом <code>needs_input</code>, не <code>error</code>.</p>
+<h3 id="5-после-решения-остановиться-оставшийся-пакет-не-исполняется">5. После решения остановиться оставшийся пакет не исполняется<a class="headerlink" href="#5-после-решения-остановиться-оставшийся-пакет-не-исполняется" title="Permanent link">&para;</a></h3>
+<p>Вернёмся к сцене с <code>delete_everything</code> и добавим второй вызов в пакет. Первым идёт неизвестное имя с <code>id</code> <code>call-X</code>, за ним идёт разрешённый <code>read_task_cards</code> с <code>id</code> <code>call-2</code>. Достаточно ли разрешённого имени, чтобы второй вызов состоялся? Нет: после первого observation приложение может принять терминальное решение и прекратить обработку пакета.</p>
+<div class="highlight"><pre><span></span><code><span class="c1"># запуск из корня starter</span>
+python<span class="w"> </span>dispatcher_demo.py<span class="w"> </span>run<span class="w"> </span>stop-after-decision
+</code></pre></div>
+<div class="highlight"><pre><span></span><code>mode: replay
+origin: synthetic_script — авторский сценарий, не запись модели
+event: tool_requested | call_id: call-X | tool: delete_everything
+event: tool_observation | call_id: call-X | tool: delete_everything | execution: not performed | outcome: tool error | decision: error | error: имя отсутствует в allowlist
+event: run_finished | terminal: error | steps: 0
+not executed: call-2 read_task_cards
+</code></pre></div>
+<p>В пакете было два запроса, но ни один не привёл к выполненной попытке. Вывод позволяет проверить причину для каждого запроса:</p>
+<ol>
+<li>У неизвестного имени напечатано <code>execution: not performed</code>: выполнение первого вызова не началось.</li>
+<li>Счётчик <code>steps</code> равен нулю: отклонённый до выполнения запрос не считается выполненной попыткой.</li>
+<li>Строка <code>not executed: call-2 read_task_cards</code> показывает, что второй вызов не исполнялся после терминального решения.</li>
+</ol>
+<p>В этом сценарии действует инвариант главы 2: решение принимается после observation. При терминальном решении новый шаг не начинается. Второй запрос в том же ответе модели не обязывает harness продолжать работу после решения остановиться.</p>
+<h3 id="6-где-это-видно-в-run_agent">6. Где это видно в <code>run_agent</code><a class="headerlink" href="#6-где-это-видно-в-run_agent" title="Permanent link">&para;</a></h3>
+<p>Порядок обработки пакета уже задан в starter. Ниже приведён фрагмент <code>school_agent/agent.py</code>: от обработки очередного request (запроса) до команды <code>break</code>, которая прекращает перебор после терминального решения.</p>
+<div class="highlight"><pre><span></span><code><span class="c1"># фрагмент: school_agent/agent.py</span>
+        <span class="k">for</span> <span class="n">request</span> <span class="ow">in</span> <span class="n">response</span><span class="p">[</span><span class="s2">&quot;tool_calls&quot;</span><span class="p">]:</span>
+            <span class="n">trace</span><span class="o">.</span><span class="n">record</span><span class="p">(</span><span class="s2">&quot;tool_requested&quot;</span><span class="p">,</span> <span class="n">initiator</span><span class="o">=</span><span class="s2">&quot;model&quot;</span><span class="p">,</span> <span class="n">request</span><span class="o">=</span><span class="n">request</span><span class="p">)</span>
+            <span class="k">if</span> <span class="n">request</span><span class="p">[</span><span class="s2">&quot;id&quot;</span><span class="p">]</span> <span class="ow">in</span> <span class="n">call_ids</span><span class="p">:</span>
+                <span class="n">terminal</span><span class="p">,</span> <span class="n">reason</span> <span class="o">=</span> <span class="s2">&quot;error&quot;</span><span class="p">,</span> <span class="s2">&quot;duplicate_call_id&quot;</span>
+                <span class="n">trace</span><span class="o">.</span><span class="n">record</span><span class="p">(</span><span class="s2">&quot;tool_rejected&quot;</span><span class="p">,</span> <span class="n">code</span><span class="o">=</span><span class="n">reason</span><span class="p">)</span>
+                <span class="n">state</span><span class="p">[</span><span class="s2">&quot;done&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="kc">True</span>
+                <span class="k">break</span>
+            <span class="n">call_ids</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="n">request</span><span class="p">[</span><span class="s2">&quot;id&quot;</span><span class="p">])</span>
+            <span class="n">observation</span> <span class="o">=</span> <span class="n">call_tool</span><span class="p">(</span><span class="n">request</span><span class="p">,</span> <span class="n">tools</span><span class="p">)</span>
+            <span class="k">if</span> <span class="n">observation</span><span class="p">[</span><span class="s2">&quot;executed&quot;</span><span class="p">]:</span>
+                <span class="n">state</span><span class="p">[</span><span class="s2">&quot;steps&quot;</span><span class="p">]</span> <span class="o">+=</span> <span class="mi">1</span>
+                <span class="n">executed</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">request</span><span class="p">[</span><span class="s2">&quot;name&quot;</span><span class="p">])</span>
+            <span class="k">if</span> <span class="ow">not</span> <span class="n">observation</span><span class="p">[</span><span class="s2">&quot;ok&quot;</span><span class="p">]:</span>
+                <span class="n">state</span><span class="p">[</span><span class="s2">&quot;failures&quot;</span><span class="p">]</span> <span class="o">+=</span> <span class="mi">1</span>
+                <span class="n">state</span><span class="p">[</span><span class="s2">&quot;phase&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="s2">&quot;tool_error&quot;</span>
+            <span class="k">elif</span> <span class="n">request</span><span class="p">[</span><span class="s2">&quot;name&quot;</span><span class="p">]</span> <span class="o">==</span> <span class="s2">&quot;read_task_cards&quot;</span><span class="p">:</span>
+                <span class="n">state</span><span class="p">[</span><span class="s2">&quot;phase&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="s2">&quot;cards_read&quot;</span>
+            <span class="k">elif</span> <span class="n">request</span><span class="p">[</span><span class="s2">&quot;name&quot;</span><span class="p">]</span> <span class="o">==</span> <span class="s2">&quot;validate_task_card&quot;</span><span class="p">:</span>
+                <span class="n">state</span><span class="p">[</span><span class="s2">&quot;phase&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="s2">&quot;cards_validated&quot;</span> <span class="k">if</span> <span class="n">tools</span><span class="o">.</span><span class="n">cards</span> <span class="ow">and</span> <span class="nb">len</span><span class="p">(</span><span class="n">tools</span><span class="o">.</span><span class="n">validated</span><span class="p">)</span> <span class="o">==</span> <span class="nb">len</span><span class="p">(</span><span class="n">tools</span><span class="o">.</span><span class="n">cards</span><span class="p">)</span> <span class="k">else</span> <span class="s2">&quot;validating&quot;</span>
+            <span class="k">elif</span> <span class="n">request</span><span class="p">[</span><span class="s2">&quot;name&quot;</span><span class="p">]</span> <span class="o">==</span> <span class="s2">&quot;build_status_report&quot;</span><span class="p">:</span>
+                <span class="n">state</span><span class="p">[</span><span class="s2">&quot;phase&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="s2">&quot;report_built&quot;</span>
+                <span class="n">report</span> <span class="o">=</span> <span class="n">observation</span><span class="p">[</span><span class="s2">&quot;result&quot;</span><span class="p">][</span><span class="s2">&quot;report&quot;</span><span class="p">]</span>
+            <span class="k">else</span><span class="p">:</span>
+                <span class="n">state</span><span class="p">[</span><span class="s2">&quot;phase&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="s2">&quot;proposal_ready&quot;</span>
+            <span class="n">observations</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">observation</span><span class="p">)</span>
+            <span class="n">decision</span> <span class="o">=</span> <span class="n">decide_after_observation</span><span class="p">(</span><span class="n">observation</span><span class="p">,</span> <span class="n">state</span><span class="p">,</span> <span class="n">max_steps</span><span class="p">,</span> <span class="n">max_retries</span><span class="p">)</span>
+            <span class="n">trace</span><span class="o">.</span><span class="n">record</span><span class="p">(</span><span class="s2">&quot;tool_observation&quot;</span><span class="p">,</span> <span class="n">step</span><span class="o">=</span><span class="n">state</span><span class="p">[</span><span class="s2">&quot;steps&quot;</span><span class="p">],</span> <span class="n">observation</span><span class="o">=</span><span class="n">observation</span><span class="p">,</span>
+                         <span class="n">state</span><span class="o">=</span><span class="n">copy</span><span class="o">.</span><span class="n">deepcopy</span><span class="p">(</span><span class="n">state</span><span class="p">),</span> <span class="n">decision</span><span class="o">=</span><span class="n">decision</span><span class="p">)</span>
+            <span class="k">if</span> <span class="n">decision</span> <span class="o">!=</span> <span class="s2">&quot;continue&quot;</span><span class="p">:</span>
+                <span class="n">terminal</span><span class="p">,</span> <span class="n">reason</span> <span class="o">=</span> <span class="n">decision</span><span class="p">,</span> <span class="s2">&quot;after_observation&quot;</span>
+                <span class="n">state</span><span class="p">[</span><span class="s2">&quot;done&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="kc">True</span>
+                <span class="k">break</span>
+</code></pre></div>
+<p>Найди два условия, которые объясняют вывод предыдущего сценария. Запись <code>if observation["executed"]: state["steps"] += 1</code> означает, что счётчик увеличивается только для выполненной попытки. Запись <code>if decision != "continue": ... break</code> показывает остановку перебора: если решение отличается от <code>continue</code>, программа больше не обрабатывает запросы этого пакета.</p>
+<p>Функция <code>run_agent</code> не повторяет код Dispatcher: каждый request передаётся в существующий <code>call_tool</code>. Поэтому правило allowlist и проверка arguments остаются в одном месте, а не расходятся по нескольким похожим реализациям.</p>
+<blockquote>
+<p><strong>Проверь себя на ходу.</strong> В пакете три tool calls. После observation первого вызова <code>decision</code> стал <code>error</code>. Какие из двух оставшихся вызовов должны увеличить <code>steps</code> и какие события <code>tool_observation</code> должны появиться для них?</p>
+</blockquote>
+<h3 id="7-повтор-после-ошибки-решение-видно-отдельно-от-сообщения">7. Повтор после ошибки: решение видно отдельно от сообщения<a class="headerlink" href="#7-повтор-после-ошибки-решение-видно-отдельно-от-сообщения" title="Permanent link">&para;</a></h3>
+<p>В сценарии <code>missing-file</code> разрешённый <code>read_task_cards</code> запускается два раза и оба раза встречает недоступные карточки. Сообщение об ошибке одинаково, но решения различаются: после первой попытки агентный цикл разрешает <code>continue</code>, после второй завершает запуск терминалом <code>error</code>.</p>
+<div class="highlight"><pre><span></span><code><span class="c1"># запуск из корня starter</span>
+python<span class="w"> </span>dispatcher_demo.py<span class="w"> </span>run<span class="w"> </span>missing-file
+</code></pre></div>
+<div class="highlight"><pre><span></span><code>mode: replay
+origin: synthetic_script — авторский сценарий, не запись модели
+event: tool_requested | call_id: call-1 | tool: read_task_cards
+event: tool_observation | call_id: call-1 | tool: read_task_cards | execution: performed | outcome: tool error | decision: continue | error: Ошибка: учебные карточки недоступны
+event: tool_requested | call_id: call-2 | tool: read_task_cards
+event: tool_observation | call_id: call-2 | tool: read_task_cards | execution: performed | outcome: tool error | decision: error | error: Ошибка: учебные карточки недоступны
+event: run_finished | terminal: error | steps: 2
+</code></pre></div>
+<p>Команда <code>dispatcher_demo.py run missing-file</code> показывает текст ошибки внутри события <code>tool_observation</code>. Знакомая команда <code>agent_demo.py</code> выводит более короткую запись того же учебного сценария, без отдельной строки с сообщением об ошибке.</p>
+<div class="highlight"><pre><span></span><code><span class="c1"># запуск из корня starter</span>
+python<span class="w"> </span>agent_demo.py<span class="w"> </span>--scenario<span class="w"> </span>missing_file
+</code></pre></div>
+<div class="highlight"><pre><span></span><code>Режим: replay
+Шаг 1 | read_task_cards | continue
+Шаг 2 | read_task_cards | error
+Остановка: error
+Качество модели не подтверждено этим техническим прогоном.
+</code></pre></div>
+<p>Оба вывода показывают две выполненные попытки: после первой принято решение <code>continue</code>, после второй запуск завершён терминалом <code>error</code>. Успешного результата нет, но счётчик попыток всё равно равен двум, потому что обе операции начинали выполняться. Команда <code>dispatcher_demo.py run missing-file</code> дополнительно показывает <code>call_id</code>, факт выполнения и текст tool error для каждого вызова.</p>
+<h3 id="8-практика-a-события-по-call_id">8. Практика A: события по <code>call_id</code><a class="headerlink" href="#8-практика-a-события-по-call_id" title="Permanent link">&para;</a></h3>
+<p>Работай в паре или тройке. Подготовь два бумажных tool calls с разными <code>id</code>. Рядом положи карточки <code>result</code>, <code>tool error</code>, <code>continue</code>, <code>needs_input</code>, <code>error</code> и обозначь область <code>not executed</code>. Выкладывай события слева направо в порядке event log.</p>
+<p>В первом раунде свяжи <code>call-1</code> с result и <code>continue</code>, а <code>call-2</code> свяжи с tool error и <code>needs_input</code>. Во втором раунде первым поставь call с неизвестным именем, после которого принято решение <code>error</code>. Второй call оставь в области <code>not executed</code>. Продолжать обработку пакета «для полноты» нельзя: продолжение нарушит правило остановки.</p>
+<p><strong>Результат практики A:</strong> бумажный event log с <code>call_id</code> на каждом result/error и одна фраза о том, почему ошибка второго вызова не стирает результат первого.</p>
+<h3 id="9-практика-b-прочитай-фрагмент-затем-проверь-три-сценария">9. Практика B: прочитай фрагмент, затем проверь три сценария<a class="headerlink" href="#9-практика-b-прочитай-фрагмент-затем-проверь-три-сценария" title="Permanent link">&para;</a></h3>
+<p>В фрагменте <code>agent.py</code> отметь четыре места:</p>
+<ol>
+<li>Найди вызов <code>call_tool</code>.</li>
+<li>Найди увеличение <code>steps</code>.</li>
+<li>Найди вызов <code>decide_after_observation</code>.</li>
+<li>Найди <code>break</code> после терминального решения.</li>
+</ol>
+<p>Затем запусти уже приведённые команды или разбери их напечатанные выводы:</p>
+<ol>
+<li>Проверь <code>run two-calls</code>.</li>
+<li>Проверь <code>run stop-after-decision</code>.</li>
+<li>Проверь <code>run missing-file</code>.</li>
+</ol>
+<p>Для каждого сценария запиши три наблюдения:</p>
+<ol>
+<li>Укажи, сколько попыток действительно выполнено.</li>
+<li>Укажи, какой terminal напечатан.</li>
+<li>Укажи, остались ли неисполненные calls.</li>
+</ol>
+<p>Не выводи ответ из названия сценария. Используй только строки event log и <code>run_finished</code>.</p>
+<p><strong>Результат практики B:</strong> таблица трёх прогонов со ссылкой на строку листинга, которая объясняет каждый итог. Колонки таблицы:</p>
+<ol>
+<li><code>executed attempts</code> — выполненные попытки;</li>
+<li><code>terminal</code> — итог запуска;</li>
+<li><code>remaining calls</code> — оставшиеся запросы.</li>
+</ol>
+<p><img alt="Фигура 20. Два calls, два результата, один порядок событий" src="../../figures/20_dva-calls-dva-rezultata-odin-poryadok.svg" /></p>
+<p><em>Фигура 20. Два calls, два результата, один порядок событий</em></p>
+<h3 id="10-bridge-тот-же-контракт-на-одном-реальном-ответе">10. Bridge: тот же контракт на одном реальном ответе<a class="headerlink" href="#10-bridge-тот-же-контракт-на-одном-реальном-ответе" title="Permanent link">&para;</a></h3>
+<p>Локальные сценарии детерминированы: программа воспроизводит авторский replay, а не поведение живой модели. Что изменится, если ответ действительно составит модель? Проверки harness останутся прежними, но сам ответ придётся получить и сохранить.</p>
+<p>После локальных проверок можно провести один реальный bridge-сеанс. Сохранённые материалы покажут, как ответ доступной модели прошёл через harness. Сеанс не заменяет локальные <strong><em>golden</em></strong> — эталонные результаты проверок — и не даёт общей оценки качества модели.</p>
+<p>Для bridge в этой главе используй только сценарий <code>success</code>. В записи <code>--adapter bridge</code> слово <strong><em>adapter</em></strong> (адаптер) означает выбранный способ получить ответ модели. Здесь ответ переносится вручную.</p>
+<p>Флаг <code>--trace</code> задаёт запись журнала событий в файл; формальное понятие Trace появится позже. Для каждого запуска выбери новое имя файла внутри <code>workspace/traces/</code>, например с названием группы.</p>
+<div class="highlight"><pre><span></span><code>python agent_demo.py --adapter bridge --scenario success --trace traces/bridge-lesson14-group-a.jsonl
+</code></pre></div>
+<p>Для команды bridge не дан заранее напечатанный stdout: результат зависит от фактического сеанса. Для защиты работы сохрани пять материалов:</p>
+<ol>
+<li>Сохрани обезличенный контекст.</li>
+<li>Сохрани сырой ответ модели в пределах правил приватности.</li>
+<li>Сохрани результат проверки ответа.</li>
+<li>Сохрани созданный файл журнала событий.</li>
+<li>Заполни паспорт сеанса по шаблону <code>workspace/ch07/bridge_passport_template.md</code>.</li>
+</ol>
+<p>В паспорте укажи дату, адаптер и сценарий. Добавь название модели или сервиса, если название известно, и наблюдаемый исход. Сохрани пометку «один сеанс — не eval»: один запуск нельзя превращать в общую оценку качества модели. Само понятие <code>eval</code> будет введено позже, в главе 11.</p>
+<p>Если bridge-сеанс не укладывается в отведённые 15 минут, закончи лабораторную работу. Домашний доступ к сервису не становится обязательным. Не заменяй несостоявшийся или неудачный запуск придуманной «удачной записью». Исход <code>error</code> или <code>needs_input</code> можно разобрать как фактическое наблюдение. Если время позволяет, выполни исправленный прогон и запиши журнал в файл с новым именем.</p>
+<h3 id="11-мини-проверка-урока-14">11. Мини-проверка урока 14<a class="headerlink" href="#11-мини-проверка-урока-14" title="Permanent link">&para;</a></h3>
+<ol>
+<li>Чем exception отличается от отказа <code>unknown_tool</code>?</li>
+<li>Почему tool error не равен терминалу <code>error</code>?</li>
+<li>Для чего нужен <code>call_id</code> при нескольких вызовах?</li>
+<li>Что должен содержать минимальный event log этой главы?</li>
+<li>Что произойдёт с оставшимися calls пакета после терминального решения?</li>
+<li>Почему event log главы 7 ещё не является формальным Trace?</li>
+</ol>
+<h4 id="ответы_1">Ответы<a class="headerlink" href="#ответы_1" title="Permanent link">&para;</a></h4>
+<ol>
+<li>При exception выполнение функции уже началось; при <code>unknown_tool</code> оно не начиналось.</li>
+<li>Tool error описывает исход одного вызова, а terminal — итог всего запуска после решения agent loop.</li>
+<li>Чтобы однозначно связать result или error с исходным tool call.</li>
+<li>Последовательность наблюдаемых запросов, результатов или ошибок и решений, с привязкой к <code>id</code>.</li>
+<li>Они не выполняются.</li>
+<li>Здесь используется минимальная последовательность событий; формальная модель Trace отложена до главы 12.</li>
+</ol>
+<h3 id="выходной-билет-урока-14">Выходной билет урока 14<a class="headerlink" href="#выходной-билет-урока-14" title="Permanent link">&para;</a></h3>
+<p>Дополни четыре строки:</p>
+<div class="highlight"><pre><span></span><code>неизвестное имя → …
+invalid arguments → …
+exception во время tool → …
+terminal decision → оставшиеся calls …
+</code></pre></div>
+<p>Проверь факт выполнения в каждой строке. В первых двух строках <code>execution</code> должно быть <code>not performed</code>, а в третьей строке должно быть <code>performed</code>. Если ты указал одинаковый факт выполнения для всех трёх случаев, вернись к четырём <code>case</code>-сценариям.</p>
+<h3 id="домашняя-работа">Домашняя работа<a class="headerlink" href="#домашняя-работа" title="Permanent link">&para;</a></h3>
+<p>По желанию выдели 15–20 минут и разбери уже выполненный bridge-сеанс по сохранённым материалам. Не запускай новый сервис только ради домашней работы. Выпиши три факта:</p>
+<ol>
+<li>Укажи, какой tool call пришёл.</li>
+<li>Укажи, какое наблюдение вернулось.</li>
+<li>Укажи, какой исход зафиксирован в паспорте.</li>
+</ol>
+<p>Отдельно напиши, чего один этот сеанс не доказывает.</p>
+<hr />
+<h2 id="центральная-схема-главы">Центральная схема главы<a class="headerlink" href="#центральная-схема-главы" title="Permanent link">&para;</a></h2>
+<p>Соединим обе части главы в один маршрут. Пройди по схеме от строки <code>name</code> до решения agent loop. На каждой развилке установи, началось ли выполнение.</p>
+<div class="highlight"><pre><span></span><code>ответ модели / replay / bridge
+          ↓
+       tool call
+   id + name + arguments
+          ↓
+      Dispatcher
+          ↓
+       Allowlist
+   ┌──────┴─────────┐
+unknown           allowed
+   ↓                ↓
+tool error     schema arguments
+(no execution)   ┌───┴─────┐
+               invalid    valid
+                  ↓          ↓
+             tool error    runtime
+          (no execution)     ↓
+                         tool executes
+                       ┌──────┴──────┐
+                     result       exception
+                       ↓              ↓
+                  event/result   tool error/event
+                       └──────┬───────┘
+                              ↓
+                         observation
+                              ↓
+                           decision
+                              ↓
+                  continue / terminal
+</code></pre></div>
+<p>Сопоставь маршрут с пятью записями о границах:</p>
+<div class="highlight"><pre><span></span><code>name ≠ permission
+allowlist ≠ schema
+schema valid ≠ execution success
+tool error ≠ terminal error
+event log ≠ Trace
+</code></pre></div>
+<ol>
+<li>Граница <code>name ≠ permission</code> отвечает Марку из вводной сцены: имя в запросе само по себе не даёт разрешения на выполнение.</li>
+<li>Граница <code>allowlist ≠ schema</code> разделяет проверку имени и проверку данных.</li>
+<li>Граница <code>schema valid ≠ execution success</code> напоминает, что даже при корректном запросе во время выполнения может возникнуть exception.</li>
+<li>Граница <code>tool error ≠ terminal error</code> разделяет неуспешный вызов и итог всего запуска.</li>
+<li>Граница <code>event log ≠ Trace</code> отличает используемый здесь журнал событий от формального понятия главы 12.</li>
+</ol>
+<p>Схема связывает главы 6 и 7, сохраняя смысл уже введённых понятий.</p>
+<h2 id="обязательные-проверки-должен--не-должен--ошибка--граница">Обязательные проверки: должен / не должен / ошибка / граница<a class="headerlink" href="#обязательные-проверки-должен--не-должен--ошибка--граница" title="Permanent link">&para;</a></h2>
+<p><strong>Должен.</strong> В сценарии <code>case allowed</code> разрешённое имя <code>read_task_cards</code> с корректными <code>{}</code> должно пройти allowlist и проверку arguments. Для этого сценария вывод показывает <code>execution: performed</code> и <code>outcome: result</code>.</p>
+<p><strong>Не должен.</strong> Неизвестное имя <code>delete_everything</code> не должно запускать никакую реализацию или превращаться в «похожее» разрешённое имя. Отказ виден по строкам <code>allowlist: denied</code> и <code>execution: not performed</code>.</p>
+<p><strong>Ошибка.</strong> Разрешённый вызов может начаться и закончиться tool error. В сценарии <code>case tool-exception</code> напечатаны <code>execution: performed</code> и <code>outcome: tool error</code>. Сообщение не содержит служебного отчёта Python <code>Traceback</code> или абсолютного системного пути.</p>
+<p><strong>Граница.</strong> После терминального решения следующий call того же пакета не выполняется. В сценарии <code>stop-after-decision</code> строка <code>steps: 0</code> показывает отсутствие выполненных попыток. Отдельная строка <code>not executed: call-2 read_task_cards</code> подтверждает, что второй запрос не был исполнен.</p>
+<h2 id="безопасность">Безопасность<a class="headerlink" href="#безопасность" title="Permanent link">&para;</a></h2>
+<blockquote>
+<p><strong>Безопасность</strong></p>
+<p>Allowlist задаёт техническую границу, но не доказывает полную безопасность. Список определяет только то, какое имя разрешено связать с предусмотренной реализацией. Наличие имени в списке не подтверждает безошибочность реализации или правдивость данных и не означает, что операционная система изолировала последствия выполнения.</p>
+<p>Приложение не исполняет неизвестное имя как код, не передаёт имя в shell (командную оболочку) и не подбирает замену «по похожести». Arguments проверяются отдельно до вызова. Предусмотренные ошибки разрешённой операции возвращаются как структурированный tool error. Сообщение об ошибке не должно раскрывать системные пути и секреты.</p>
+<p>В сквозном проекте предложение изменить статус карточки остаётся только предложением. Наличие <code>propose_status_update</code> в dispatch table не означает, что приложение автоматически применит изменение, и не отменяет будущую границу участия человека.</p>
+</blockquote>
+<hr />
+<h2 id="why">Зачем это тебе<a class="headerlink" href="#why" title="Permanent link">&para;</a></h2>
+<ol>
+<li>
+<p>Ты работаешь с общей папкой проекта. Кто-то пишет программе-помощнику: «удали старые файлы», а в tool call появляется неизвестное приложению имя. Вместо оценки, «похоже ли имя на настоящую функцию», ты ищешь точное соответствие в allowlist и проверяешь, дошло ли выполнение до runtime.</p>
+</li>
+<li>
+<p>Ты разбираешь лабораторные измерения. Проверка разрешена, arguments корректны, но файл с данными недоступен. Вместо аварийной остановки или молчаливого пропуска команда должна получить структурированный tool error. По отметке о выполнении можно установить, начиналась ли попытка.</p>
+</li>
+<li>
+<p>Ты готовишь командную сводку. В одном ответе пришли два tool calls: первый дал result, второй дал tool error. По <code>call_id</code> и event log ты можешь установить, какой исход относится к каждому запросу, что успело выполниться и почему после терминального решения последующие действия не запускались.</p>
+</li>
+</ol>
+<h2 id="dezhurny">Шаг сквозного проекта<a class="headerlink" href="#dezhurny" title="Permanent link">&para;</a></h2>
+<p>После главы 6 мы описывали работу «Дежурного» цепочкой <code>tool call → проверка arguments → выполнение → tool result</code>. Все обязательные примеры использовали заранее известные имена. После главы 7 на этой схеме явно виден Dispatcher: он сопоставляет имя только с одной из четырёх разрешённых реализаций <code>AVAILABLE_TOOLS</code>.</p>
+<p>Проект различает три неуспешных пути:</p>
+<ol>
+<li>Неизвестное имя отклоняется до выполнения.</li>
+<li>Неверные arguments разрешённого имени останавливают запрос, не запуская функцию.</li>
+<li>Exception возникает во время выполнения и превращается в наблюдаемый tool error.</li>
+</ol>
+<p>При нескольких calls журнал event log сохраняет порядок событий и <code>call_id</code> каждого результата. Функция <code>run_agent</code> принимает решение после каждого observation. При терминальном решении оставшийся пакет не исполняется. Так достигнута контрольная точка 3: локальный цикл читает, проверяет и сообщает о сбоях.</p>
+<h3 id="достраиваем-дежурного">Достраиваем «Дежурного»<a class="headerlink" href="#достраиваем-дежурного" title="Permanent link">&para;</a></h3>
+<p>В конфигурации «Дежурного» разрешённые имена записаны в файле <code>07_tools.json</code>. В учебной папке-примере выбраны только две из четырёх операций: <code>read_task_cards</code> и <code>build_status_report</code>. Поэтому запрос <code>validate_task_card</code> отклоняется ещё до диспетчера: имя вне выбранного списка не исполняется.</p>
+<p>В таблице Dispatcher реализация <code>validate_task_card</code> существует, но конфигурация примера не разрешает пользоваться этой операцией. Без проверки карточки подготовленный сценарий продолжить нельзя. Хотя сценарий называется <code>success</code>, итогом будет <code>Остановка: error</code>, а не <code>success</code>. Незнакомое имя в allowlist тоже не создаёт новое право: приложение считает такое имя ошибкой конфигурации.</p>
+<p>Команда ниже обращается к папке-примеру, поэтому в выводе есть строка <code>goal: не настроено (глава 1)</code>. В твоей <code>my_agent/</code> цель уже настроена; смотри на строку своей главы.
+<div class="highlight"><pre><span></span><code><span class="c1"># запуск из корня starter</span>
+python<span class="w"> </span>dezhurny.py<span class="w"> </span>run<span class="w"> </span>--dir<span class="w"> </span>workspace/my_agent/examples/tools
+</code></pre></div>
+<div class="highlight"><pre><span></span><code>dezhurny: run
+goal: не настроено (глава 1)
+config: workspace/my_agent/examples/tools
+model: replay — авторский сценарий, не запись модели
+scenario: success
+stop_policy: max_steps 5, max_retries 1 (по умолчанию, глава 2)
+tools: read_task_cards, build_status_report
+Шаг 1 | read_task_cards | continue
+Отклонено: validate_task_card | нет в 07_tools.json
+Остановка: error
+contract: не настроено (глава 5)
+save: не настроено (глава 3)
+state: не настроено (глава 10)
+trace: не настроено (глава 12)
+Качество модели не подтверждено этим техническим прогоном.
+</code></pre></div></p>
+<h2 id="return">Возвращаемся к сцене<a class="headerlink" href="#return" title="Permanent link">&para;</a></h2>
+<p>В начале главы Марк предположил: если <code>name</code> похоже на имя функции, приложение найдёт функцию и вызовет. Что показала проверка двух запросов? Форма у запросов одинаковая, но путь до выполнения прошёл только запрос с разрешённым именем и корректными arguments.</p>
+<p>В сценарии <code>case allowed</code> имя <code>read_task_cards</code> точно присутствует в <code>AVAILABLE_TOOLS</code>, а <code>{}</code> проходят проверку arguments. Вывод показывает <code>execution: performed</code>. Имени <code>delete_everything</code> в allowlist нет. Для этого запроса программа печатает <code>allowlist: denied</code>, <code>arguments: not checked</code> и <code>execution: not performed</code>.</p>
+<p>Когда неизвестный call стоит первым в пакете и после его observation принято терминальное решение, следующий <code>read_task_cards</code> не запускается. Строка <code>not executed: call-2 read_task_cards</code> подтверждает остановку. Поле <code>name</code> содержит только данные запроса; право связать строку с реализацией приложение задаёт заранее.</p>
+<p>Вернись к своему вопросу-прогнозу. В первой строке ответа укажи точное присутствие имени в allowlist/dispatch table как условие перехода к дальнейшей проверке. Во второй строке назови наблюдаемый факт <code>execution: performed</code> или <code>not performed</code>. Если вызовов несколько, подкрепи ответ порядком событий в event log.</p>
+<h2 id="check">Проверь себя<a class="headerlink" href="#check" title="Permanent link">&para;</a></h2>
+<ol>
+<li>Что делает Dispatcher и чего он не делает?</li>
+<li>Что такое allowlist в этой главе?</li>
+<li>Чем dispatch table отличается от поиска функции по произвольной строке?</li>
+<li>Почему разрешённое имя ещё не означает выполнения?</li>
+<li>Чем exception отличается от отказа <code>invalid_arguments</code>?</li>
+<li>Почему tool error одного вызова не равен терминалу <code>error</code> всего запуска?</li>
+<li>Зачем каждому tool call нужен свой <code>id</code>?</li>
+<li>Что должно произойти с оставшимися calls после терминального решения?</li>
+<li>Почему event log главы 7 нельзя называть полной моделью Trace?</li>
+</ol>
+<h3 id="ответы_2">Ответы<a class="headerlink" href="#ответы_2" title="Permanent link">&para;</a></h3>
+<ol>
+<li>Dispatcher сопоставляет разрешённое имя tool с конкретной реализацией; он не угадывает похожие имена и не заменяет остальные проверки.</li>
+<li>Заранее заданный перечень разрешённых имён tools.</li>
+<li>Dispatch table хранит явные пары «разрешённое имя → конкретная реализация»; неизвестная строка не запускает динамический поиск кода.</li>
+<li>После allowlist ещё проверяются arguments, а сама разрешённая операция может завершиться exception.</li>
+<li><code>invalid_arguments</code> останавливает вызов до выполнения; exception возникает во время уже начатой функции.</li>
+<li>Tool error описывает один вызов; итог всего запуска определяется отдельным решением после observation.</li>
+<li>Чтобы result или error можно было однозначно связать с исходным запросом.</li>
+<li>Они не выполняются.</li>
+<li>Здесь фиксируется минимальная последовательность наблюдаемых событий; формальный Trace вводится в главе 12.</li>
+</ol>
+<h2 id="glossary">Словарь главы<a class="headerlink" href="#glossary" title="Permanent link">&para;</a></h2>
+<table>
+<thead>
+<tr>
+<th>Термин</th>
+<th>Рабочая формулировка</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Dispatcher / диспетчер</strong></td>
+<td>программный слой, который сопоставляет разрешённое имя tool с конкретной реализацией</td>
+</tr>
+<tr>
+<td><strong>Allowlist / белый список</strong></td>
+<td>заранее определённый перечень разрешённых действий, имён или ресурсов</td>
+</tr>
+<tr>
+<td><strong>Dispatch table / таблица соответствий</strong></td>
+<td>явное соответствие каждого разрешённого имени tool одной конкретной реализации; в starter — словарь <code>AVAILABLE_TOOLS</code></td>
+</tr>
+<tr>
+<td><strong>Exception / исключение</strong></td>
+<td>программная ошибка, возникшая во время уже начатого выполнения функции; приложение перехватывает её и превращает в наблюдаемый результат, а не в аварийную остановку</td>
+</tr>
+<tr>
+<td><strong>Tool error / ошибка tool</strong></td>
+<td>структурированный результат неуспешного вызова: отклонение до выполнения (неизвестное имя, неверные arguments) или ошибка во время выполнения; не равен терминалу <code>error</code> всего запуска</td>
+</tr>
+<tr>
+<td><strong>Event log / журнал событий</strong></td>
+<td>последовательный список наблюдаемых событий запуска: запрос tool, результат или ошибка, решение; каждый результат связан с <code>id</code> своего вызова</td>
+</tr>
+</tbody>
+</table>
+<h2 id="bridge">Мост к главе 8<a class="headerlink" href="#bridge" title="Permanent link">&para;</a></h2>
+<p>Теперь «Дежурный» не выполняет произвольное имя. Dispatcher пропускает только разрешённые имена операций, arguments проверяются до вызова, а result или tool error сохраняются как наблюдаемые события. Но достаточно ли разрешить имя, чтобы сама операция была хорошо спроектирована? Нет: allowlist отвечает только на вопрос «можно ли вызвать это имя».</p>
+<p>К качеству самого tool относятся другие вопросы:</p>
+<ol>
+<li>Где начинается и заканчивается задача операции?</li>
+<li>Когда следует применять операцию?</li>
+<li>Какими случаями проверять её границы?</li>
+</ol>
+<p>Ответов на эти вопросы в таблице разрешённых имён нет.</p>
+<blockquote>
+<p><strong>Следующий вопрос.</strong> Как сделать tool точным и проверяемым?</p>
+</blockquote>
+<p>Ответ ты найдёшь в главе 8, «Хороший tool».</p>
+
+
+
+
+
+
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+    
+      
+      <nav class="md-footer__inner md-grid" aria-label="Нижний колонтитул" >
+        
+          
+          <a href="../ch06/" class="md-footer__link md-footer__link--prev" aria-label="Назад: Глава 6. Первый tool">
+            <div class="md-footer__button md-icon">
+              
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+            </div>
+            <div class="md-footer__title">
+              <span class="md-footer__direction">
+                Назад
+              </span>
+              <div class="md-ellipsis">
+                Глава 6. Первый tool
+              </div>
+            </div>
+          </a>
+        
+        
+          
+          <a href="../ch08/" class="md-footer__link md-footer__link--next" aria-label="Вперед: Глава 8. Хороший tool">
+            <div class="md-footer__title">
+              <span class="md-footer__direction">
+                Вперед
+              </span>
+              <div class="md-ellipsis">
+                Глава 8. Хороший tool
+              </div>
+            </div>
+            <div class="md-footer__button md-icon">
+              
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M4 11v2h12l-5.5 5.5 1.42 1.42L19.84 12l-7.92-7.92L10.5 5.5 16 11z"/></svg>
+            </div>
+          </a>
+        
+      </nav>
+    
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+    <div class="md-copyright__highlight">
+      ARISTOTEL · Редакция r0003 · 2026-10-15 · техническая редакция, пилот не проводился
+    </div>
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    
+      
+      
+      <script id="__config" type="application/json">{"annotate": null, "base": "../..", "features": ["navigation.tabs", "navigation.tabs.sticky", "navigation.sections", "navigation.indexes", "search.suggest", "search.highlight", "content.code.copy", "navigation.footer"], "search": "../../assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "\u0421\u043a\u043e\u043f\u0438\u0440\u043e\u0432\u0430\u043d\u043e \u0432 \u0431\u0443\u0444\u0435\u0440", "clipboard.copy": "\u041a\u043e\u043f\u0438\u0440\u043e\u0432\u0430\u0442\u044c \u0432 \u0431\u0443\u0444\u0435\u0440", "search.result.more.one": "\u0415\u0449\u0451 1 \u043d\u0430 \u044d\u0442\u043e\u0439 \u0441\u0442\u0440\u0430\u043d\u0438\u0446\u0435", "search.result.more.other": "\u0415\u0449\u0451 # \u043d\u0430 \u044d\u0442\u043e\u0439 \u0441\u0442\u0440\u0430\u043d\u0438\u0446\u0435", "search.result.none": "\u0421\u043e\u0432\u043f\u0430\u0434\u0435\u043d\u0438\u0439 \u043d\u0435 \u043d\u0430\u0439\u0434\u0435\u043d\u043e", "search.result.one": "\u041d\u0430\u0439\u0434\u0435\u043d\u043e 1 \u0441\u043e\u0432\u043f\u0430\u0434\u0435\u043d\u0438\u0435", "search.result.other": "\u041d\u0430\u0439\u0434\u0435\u043d\u043e \u0441\u043e\u0432\u043f\u0430\u0434\u0435\u043d\u0438\u0439: #", "search.result.placeholder": "\u041d\u0430\u0447\u043d\u0438\u0442\u0435 \u043f\u0435\u0447\u0430\u0442\u0430\u0442\u044c \u0434\u043b\u044f \u043f\u043e\u0438\u0441\u043a\u0430", "search.result.term.missing": "\u041e\u0442\u0441\u0443\u0442\u0441\u0442\u0432\u0443\u0435\u0442", "select.version": "\u0412\u044b\u0431\u0435\u0440\u0438\u0442\u0435 \u0432\u0435\u0440\u0441\u0438\u044e"}, "version": {"provider": "mike"}}</script>
+    
+    
+      <script src="../../assets/javascripts/bundle.79ae519e.min.js"></script>
+      
+    
+  </body>
+</html>

@@ -1,0 +1,97 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 780" width="800" height="780" role="img" aria-labelledby="t d">
+  <title id="t">Фигура 31. От Test case к Eval</title>
+  <desc id="d">Глава 11, урок 21, раздел 3 «Центральный артефакт: таблица доказательств». Несколько test cases входят в центральную таблицу (случай, слой, ожидаемое наблюдаемое поведение, входит в счёт?), затем расходятся на две дорожки: harness входит в счёт, scripted-ветка model_behavior — excluded from scoring: нет подтверждённого живого результата, это не провал и не успех модели.</desc>
+  <defs>
+    <marker id="arrow" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="8" markerHeight="8" orient="auto-start-reverse">
+      <path d="M0,0 L10,5 L0,10 z" fill="#52606D"/>
+    </marker>
+  </defs>
+  <rect x="0" y="0" width="800" height="780" fill="#FFFFFF"/>
+  <g font-family="PT Sans, DejaVu Sans, Arial, sans-serif" font-size="18" fill="#1F2933">
+    <!-- несколько test cases -->
+    <text x="8" y="34" fill="#52606D">несколько test cases</text>
+    <g font-family="PT Mono, DejaVu Sans Mono, monospace" text-anchor="middle">
+      <rect class="case" data-role="case" x="8" y="46" width="190" height="60" rx="6" fill="#F5F7FA" stroke="#52606D" stroke-width="1.5"/>
+      <text x="103" y="82">one_match</text>
+      <rect class="case" data-role="case" x="206" y="46" width="190" height="60" rx="6" fill="#F5F7FA" stroke="#52606D" stroke-width="1.5"/>
+      <text x="301" y="82">two_matches</text>
+      <rect class="case" data-role="case" x="404" y="46" width="190" height="60" rx="6" fill="#F5F7FA" stroke="#52606D" stroke-width="1.5"/>
+      <text x="499" y="82">missing_file</text>
+      <rect class="case" data-role="case" x="602" y="46" width="190" height="60" rx="6" fill="#F5F7FA" stroke="#52606D" stroke-width="1.5"/>
+    </g>
+    <text x="697" y="71" text-anchor="middle">поведение</text>
+    <text x="697" y="95" text-anchor="middle">модели A</text>
+    <!-- входят в центральную таблицу -->
+    <g stroke="#52606D" stroke-width="1.5" fill="none" marker-end="url(#arrow)">
+      <line x1="103" y1="106" x2="300" y2="144"/>
+      <line x1="301" y1="106" x2="360" y2="144"/>
+      <line x1="499" y1="106" x2="440" y2="144"/>
+      <line x1="697" y1="106" x2="500" y2="144"/>
+    </g>
+    <rect data-role="table" x="250" y="146" width="300" height="44" rx="6" fill="#F5F7FA" stroke="#1D4ED8" stroke-width="1.5"/>
+    <text x="400" y="175" font-size="20" text-anchor="middle">таблица доказательств</text>
+    <!-- заголовки столбцов -->
+    <g fill="#52606D">
+      <text x="18" y="240">случай</text>
+      <text x="190" y="240">слой</text>
+      <text x="390" y="218">ожидаемое</text>
+      <text x="390" y="240">наблюдаемое поведение</text>
+      <text x="660" y="218">входит</text>
+      <text x="660" y="240">в счёт?</text>
+    </g>
+    <!-- строки таблицы главы: отдельные прямоугольники -->
+    <rect class="row" data-role="row" x="8" y="252" width="784" height="60" rx="6" fill="#F5F7FA" stroke="#1D4ED8" stroke-width="1.5"/>
+    <text x="18" y="288" font-family="PT Mono, DejaVu Sans Mono, monospace">one_match</text>
+    <text x="190" y="288">harness</text>
+    <text x="390" y="276">терминал</text>
+    <text x="390" y="300" font-family="PT Mono, DejaVu Sans Mono, monospace">success</text>
+    <text x="660" y="288">да</text>
+    <rect class="row" data-role="row" x="8" y="320" width="784" height="60" rx="6" fill="#F5F7FA" stroke="#1D4ED8" stroke-width="1.5"/>
+    <text x="18" y="356" font-family="PT Mono, DejaVu Sans Mono, monospace">two_matches</text>
+    <text x="190" y="356">harness</text>
+    <text x="390" y="344">терминал</text>
+    <text x="390" y="368" font-family="PT Mono, DejaVu Sans Mono, monospace">needs_input</text>
+    <text x="660" y="356">да</text>
+    <rect class="row" data-role="row" x="8" y="388" width="784" height="60" rx="6" fill="#F5F7FA" stroke="#1D4ED8" stroke-width="1.5"/>
+    <text x="18" y="424" font-family="PT Mono, DejaVu Sans Mono, monospace">missing_file</text>
+    <text x="190" y="424">harness</text>
+    <text x="390" y="412">явная ошибка после</text>
+    <text x="390" y="436">разрешённого повтора</text>
+    <text x="660" y="424">да</text>
+    <rect class="row" data-role="row" x="8" y="456" width="784" height="60" rx="6" fill="#F5F7FA" stroke="#52606D" stroke-width="1.5"/>
+    <text x="18" y="480">поведение</text>
+    <text x="18" y="504">модели A</text>
+    <text x="190" y="492" font-family="PT Mono, DejaVu Sans Mono, monospace">model_behavior</text>
+    <text x="390" y="480">заранее записанный</text>
+    <text x="390" y="504">критерий</text>
+    <text x="660" y="492">нет</text>
+    <g stroke="#52606D" stroke-width="1" stroke-dasharray="3 3">
+      <line x1="180" y1="252" x2="180" y2="516"/>
+      <line x1="380" y1="252" x2="380" y2="516"/>
+      <line x1="650" y1="252" x2="650" y2="516"/>
+    </g>
+    <!-- расходятся на две дорожки -->
+    <g stroke="#52606D" stroke-width="1.5" fill="none">
+      <line x1="400" y1="516" x2="400" y2="540"/>
+      <polyline points="400,540 200,540 200,574" marker-end="url(#arrow)"/>
+      <polyline points="400,540 600,540 600,574" marker-end="url(#arrow)"/>
+    </g>
+    <!-- дорожка harness -->
+    <rect class="track" data-role="harness" x="8" y="576" width="384" height="180" rx="6" fill="#F5F7FA" stroke="#1D4ED8" stroke-width="1.5"/>
+    <g text-anchor="middle">
+      <text x="200" y="630" font-size="20" font-family="PT Mono, DejaVu Sans Mono, monospace">harness</text>
+      <text x="200" y="668">программный инвариант</text>
+      <text x="200" y="700">входит в счёт: да</text>
+    </g>
+    <!-- scripted-ветка model_behavior: не неудача, а исключение из счёта -->
+    <rect class="track" data-role="model-behavior" x="408" y="576" width="384" height="180" rx="6" fill="#F5F7FA" stroke="#52606D" stroke-width="1.5"/>
+    <g text-anchor="middle">
+      <text x="600" y="606" font-size="20" font-family="PT Mono, DejaVu Sans Mono, monospace">model_behavior</text>
+      <text x="600" y="634" font-family="PT Mono, DejaVu Sans Mono, monospace">scripted</text>
+      <text x="600" y="660" font-family="PT Mono, DejaVu Sans Mono, monospace">excluded from scoring</text>
+      <text x="600" y="690">нет подтверждённого</text>
+      <text x="600" y="714">живого результата</text>
+      <text x="600" y="742">не провал и не успех</text>
+    </g>
+  </g>
+</svg>

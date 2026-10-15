@@ -1,0 +1,1 @@
+{"operation": "read", "path": "tasks/task-003.json", "status": "allowed", "boundary": "inside_workspace", "reason": "existing_file", "os_sandbox_proven": false}

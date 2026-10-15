@@ -1,0 +1,71 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 620" width="800" height="620" role="img" aria-labelledby="t d">
+  <title id="t">Фигура 10. Матрица пяти механизмов</title>
+  <desc id="d">Глава 4, урок 7, раздел 8 «Центральный артефакт: матрица пяти механизмов». Пять параллельных строк — prompt, structured output, tool, MCP, Agent Skill; у каждой главный вопрос, что механизм задаёт и наблюдаемый признак (по таблице главы). Строки не соединены стрелками: это не лестница.</desc>
+  <rect x="0" y="0" width="800" height="620" fill="#FFFFFF"/>
+  <g font-family="PT Sans, DejaVu Sans, Arial, sans-serif" font-size="18" fill="#1F2933">
+    <!-- заголовки столбцов -->
+    <text x="18" y="46" fill="#52606D">Механизм</text>
+    <text x="146" y="46" fill="#52606D">Главный вопрос</text>
+    <text x="364" y="46" fill="#52606D">Что задаёт</text>
+    <text x="537" y="46" fill="#52606D">Наблюдаемый признак</text>
+    <!-- пять параллельных строк, без стрелок между ними -->
+    <rect class="row" data-role="row" x="8" y="60" width="784" height="88" rx="6" fill="#F5F7FA" stroke="#1D4ED8" stroke-width="1.5"/>
+    <text x="18" y="111" font-family="PT Mono, DejaVu Sans Mono, monospace">prompt</text>
+    <text x="146" y="87">Какую текстовую</text>
+    <text x="146" y="111">инструкцию</text>
+    <text x="146" y="135">получает модель?</text>
+    <text x="364" y="99">содержание</text>
+    <text x="364" y="123">инструкции</text>
+    <text x="537" y="99">модели передан</text>
+    <text x="537" y="123">конкретный текст</text>
+    <rect class="row" data-role="row" x="8" y="160" width="784" height="88" rx="6" fill="#F5F7FA" stroke="#1D4ED8" stroke-width="1.5"/>
+    <text x="18" y="199" font-family="PT Mono, DejaVu Sans Mono, monospace">structured</text>
+    <text x="18" y="223" font-family="PT Mono, DejaVu Sans Mono, monospace">output</text>
+    <text x="146" y="187">В какой заранее</text>
+    <text x="146" y="211">заданной структуре</text>
+    <text x="146" y="235">вернуть результат?</text>
+    <text x="364" y="199">форму</text>
+    <text x="364" y="223">результата</text>
+    <text x="537" y="199">результат имеет</text>
+    <text x="537" y="223">ожидаемые поля/части</text>
+    <rect class="row" data-role="row" x="8" y="260" width="784" height="112" rx="6" fill="#F5F7FA" stroke="#1D4ED8" stroke-width="1.5"/>
+    <text x="18" y="323" font-family="PT Mono, DejaVu Sans Mono, monospace">tool</text>
+    <text x="146" y="299">Какое отдельное</text>
+    <text x="146" y="323">действие может</text>
+    <text x="146" y="347">выполнить система?</text>
+    <text x="364" y="311">доступную</text>
+    <text x="364" y="335">операцию</text>
+    <text x="537" y="287">runtime может</text>
+    <text x="537" y="311">выполнить конкретную</text>
+    <text x="537" y="335">операцию и вернуть</text>
+    <text x="537" y="359">observation</text>
+    <rect class="row" data-role="row" x="8" y="384" width="784" height="112" rx="6" fill="#F5F7FA" stroke="#1D4ED8" stroke-width="1.5"/>
+    <text x="18" y="447" font-family="PT Mono, DejaVu Sans Mono, monospace">MCP</text>
+    <text x="146" y="411">Как подключить</text>
+    <text x="146" y="435">внешнюю систему и</text>
+    <text x="146" y="459">обнаружить её</text>
+    <text x="146" y="483">возможности?</text>
+    <text x="364" y="423">правила</text>
+    <text x="364" y="447">подключения и</text>
+    <text x="364" y="471">взаимодействия</text>
+    <text x="537" y="411">у host/client есть</text>
+    <text x="537" y="435">описание доступных</text>
+    <text x="537" y="459">возможностей внешней</text>
+    <text x="537" y="483">стороны</text>
+    <rect class="row" data-role="row" x="8" y="508" width="784" height="88" rx="6" fill="#F5F7FA" stroke="#1D4ED8" stroke-width="1.5"/>
+    <text x="18" y="547" font-family="PT Mono, DejaVu Sans Mono, monospace">Agent</text>
+    <text x="18" y="571" font-family="PT Mono, DejaVu Sans Mono, monospace">Skill</text>
+    <text x="146" y="535">Как выполнить</text>
+    <text x="146" y="559">повторяемую</text>
+    <text x="146" y="583">работу?</text>
+    <text x="364" y="535">процедуру и</text>
+    <text x="364" y="559">порядок</text>
+    <text x="364" y="583">действий</text>
+    <text x="537" y="535">есть переносимая</text>
+    <text x="537" y="559">процедура с SKILL.md</text>
+    <text x="537" y="583">и нужными ресурсами</text>
+    <line x1="138" y1="60" x2="138" y2="596" stroke="#52606D" stroke-width="1" stroke-dasharray="3 3"/>
+    <line x1="356" y1="60" x2="356" y2="596" stroke="#52606D" stroke-width="1" stroke-dasharray="3 3"/>
+    <line x1="529" y1="60" x2="529" y2="596" stroke="#52606D" stroke-width="1" stroke-dasharray="3 3"/>
+  </g>
+</svg>

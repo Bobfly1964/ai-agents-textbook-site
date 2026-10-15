@@ -1,0 +1,52 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 460" width="800" height="460" role="img" aria-labelledby="t d">
+  <title id="t">Фигура 5. Ветви decide: продолжение и четыре терминала</title>
+  <desc id="d">Глава 2, урок 4, раздел 7 «Продолжение и завершение запуска». После observation точка решения decide выбирает одну ветвь: continue ведёт к новому состоянию и следующему выбору того же запуска; success, needs_input, error и limit завершают запуск. У error — счётчик отказов и один повтор, у limit — счётчик действий.</desc>
+  <defs>
+    <marker id="arrow" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="8" markerHeight="8" orient="auto-start-reverse">
+      <path d="M0,0 L10,5 L0,10 z" fill="#52606D"/>
+    </marker>
+  </defs>
+  <rect x="0" y="0" width="800" height="460" fill="#FFFFFF"/>
+  <g font-family="PT Sans, DejaVu Sans, Arial, sans-serif" font-size="20" fill="#1F2933" text-anchor="middle">
+    <!-- observation и точка решения -->
+    <rect data-role="observation" x="66" y="40" width="184" height="56" rx="6" fill="#F5F7FA" stroke="#1D4ED8" stroke-width="1.5"/>
+    <text x="158" y="75">observation</text>
+    <line x1="158" y1="96" x2="158" y2="148" stroke="#52606D" stroke-width="1.5" marker-end="url(#arrow)"/>
+    <rect class="decision" data-role="decision" x="66" y="150" width="184" height="76" rx="6" fill="#F5F7FA" stroke="#1F2933" stroke-width="1.5"/>
+    <text x="158" y="182" font-family="PT Mono, DejaVu Sans Mono, monospace">decide</text>
+    <text x="158" y="210" font-size="18">точка решения</text>
+    <!-- continue: назад в цикл, не терминал -->
+    <line x1="158" y1="226" x2="158" y2="318" stroke="#1D4ED8" stroke-width="1.5" marker-end="url(#arrow)"/>
+    <text x="168" y="278" font-size="18" text-anchor="start" fill="#1D4ED8" font-family="PT Mono, DejaVu Sans Mono, monospace">continue</text>
+    <rect class="next" data-role="continue" x="24" y="320" width="226" height="76" rx="6" fill="#F5F7FA" stroke="#1D4ED8" stroke-width="1.5"/>
+    <text x="137" y="352" font-size="18">новое состояние</text>
+    <text x="137" y="378" font-size="18">и следующий выбор</text>
+    <polyline points="40,320 40,68 64,68" fill="none" stroke="#1D4ED8" stroke-width="1.5" marker-end="url(#arrow)"/>
+    <text x="24" y="436" font-size="18" text-anchor="start">continue — не терминал: следующий виток того же запуска</text>
+    <!-- четыре терминала -->
+    <polyline points="250,188 275,188" fill="none" stroke="#52606D" stroke-width="1.5"/>
+    <line x1="275" y1="62" x2="275" y2="338" stroke="#52606D" stroke-width="1.5"/>
+    <g stroke="#52606D" stroke-width="1.5" fill="none" marker-end="url(#arrow)">
+      <line x1="275" y1="62" x2="298" y2="62"/>
+      <line x1="275" y1="154" x2="298" y2="154"/>
+      <line x1="275" y1="246" x2="298" y2="246"/>
+      <line x1="275" y1="338" x2="298" y2="338"/>
+    </g>
+    <g text-anchor="start">
+      <rect class="terminal" data-role="terminal" x="300" y="24" width="476" height="76" rx="6" fill="#F5F7FA" stroke="#15803D" stroke-width="1.5"/>
+      <text x="324" y="54" fill="#15803D" font-family="PT Mono, DejaVu Sans Mono, monospace">success</text>
+      <text x="324" y="84" font-size="18">завершить успешно</text>
+      <rect class="terminal" data-role="terminal" x="300" y="116" width="476" height="76" rx="6" fill="#F5F7FA" stroke="#B45309" stroke-width="1.5"/>
+      <text x="324" y="146" fill="#B45309" font-family="PT Mono, DejaVu Sans Mono, monospace">needs_input</text>
+      <text x="324" y="176" font-size="18">завершить и передать вопрос человеку</text>
+      <rect class="terminal" data-role="terminal" x="300" y="208" width="476" height="76" rx="6" fill="#FFFFFF" stroke="#B91C1C" stroke-width="1.5"/>
+      <text x="324" y="238" fill="#B91C1C" font-family="PT Mono, DejaVu Sans Mono, monospace">error</text>
+      <text x="752" y="238" font-size="18" text-anchor="end" font-family="PT Mono, DejaVu Sans Mono, monospace">failures, MAX_RETRIES = 1</text>
+      <text x="324" y="268" font-size="18">завершить после исчерпания retry</text>
+      <rect class="terminal" data-role="terminal" x="300" y="300" width="476" height="76" rx="6" fill="#F5F7FA" stroke="#52606D" stroke-width="1.5"/>
+      <text x="324" y="330" font-family="PT Mono, DejaVu Sans Mono, monospace">limit</text>
+      <text x="752" y="330" font-size="18" text-anchor="end" font-family="PT Mono, DejaVu Sans Mono, monospace">steps, MAX_STEPS = 5</text>
+      <text x="324" y="360" font-size="18">завершить после исчерпания бюджета шагов</text>
+    </g>
+  </g>
+</svg>

@@ -1,0 +1,59 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 790" width="800" height="790" role="img" aria-labelledby="t d">
+  <title id="t">Фигура 26. Три слоя загрузки</title>
+  <desc id="d">Глава 9, урок 18, раздел 3 «Reference: подробность отдельно от порядка». Три слоя загрузки Agent Skill project-status сверху вниз: catalog (name + description) → SKILL.md (metadata + instructions) → reference references/report-template.md; каждый слой загружает harness. Под заголовками слоёв — строки вывода skill_demo.py; scripts не выполняются.</desc>
+  <defs>
+    <marker id="arrow" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="8" markerHeight="8" orient="auto-start-reverse">
+      <path d="M0,0 L10,5 L0,10 z" fill="#52606D"/>
+    </marker>
+  </defs>
+  <rect x="0" y="0" width="800" height="790" fill="#FFFFFF"/>
+  <g font-family="PT Sans, DejaVu Sans, Arial, sans-serif" font-size="20" fill="#1F2933" text-anchor="middle">
+    <!-- harness: сторона, которая выполняет загрузку -->
+    <rect data-role="harness" x="24" y="24" width="176" height="574" rx="6" fill="#F5F7FA" stroke="#1D4ED8" stroke-width="1.5"/>
+    <text x="112" y="286" font-size="22">harness</text>
+    <text x="112" y="316" font-size="18">выполняет</text>
+    <text x="112" y="340" font-size="18">загрузку</text>
+    <!-- стрелки загрузки от harness к слоям -->
+    <g stroke="#1D4ED8" stroke-width="1.5" fill="none" marker-end="url(#arrow)">
+      <line x1="200" y1="99" x2="258" y2="99"/>
+      <line x1="200" y1="311" x2="258" y2="311"/>
+      <line x1="200" y1="523" x2="258" y2="523"/>
+    </g>
+    <g font-family="PT Mono, DejaVu Sans Mono, monospace" font-size="18" text-anchor="start">
+      <!-- слой 1: catalog -->
+      <rect class="layer" data-role="catalog" x="260" y="24" width="516" height="150" rx="6" fill="#F5F7FA" stroke="#52606D" stroke-width="1.5"/>
+      <text x="284" y="58" font-size="20">catalog: name + description</text>
+      <text x="284" y="96">layer: catalog</text>
+      <text x="284" y="124">instructions loaded: no</text>
+      <text x="284" y="152">resources read: no</text>
+      <!-- слой 2: SKILL.md -->
+      <rect class="layer" data-role="instructions" x="260" y="236" width="516" height="150" rx="6" fill="#F5F7FA" stroke="#52606D" stroke-width="1.5"/>
+      <text x="284" y="270" font-size="20">SKILL.md: metadata + instructions</text>
+      <text x="284" y="308">layer: instructions</text>
+      <text x="284" y="336">resources read: no</text>
+      <text x="284" y="364">scripts executed: no</text>
+      <!-- слой 3: reference -->
+      <rect class="layer" data-role="resource" x="260" y="448" width="516" height="150" rx="6" fill="#F5F7FA" stroke="#52606D" stroke-width="1.5"/>
+      <text x="284" y="482" font-size="20">reference / asset</text>
+      <text x="284" y="520">resource: references/report-template.md</text>
+      <text x="284" y="548">other resources read: no</text>
+      <text x="284" y="576">scripts executed: no</text>
+    </g>
+    <!-- запросы между слоями -->
+    <g stroke="#52606D" stroke-width="1.5" fill="none" marker-end="url(#arrow)">
+      <line x1="300" y1="174" x2="300" y2="234"/>
+      <line x1="300" y1="386" x2="300" y2="446"/>
+    </g>
+    <text x="316" y="211" font-size="18" text-anchor="start">запросить, если подходит</text>
+    <text x="316" y="423" font-size="18" text-anchor="start">по необходимости</text>
+    <!-- подписи-неравенства -->
+    <g font-family="PT Mono, DejaVu Sans Mono, monospace" font-size="18">
+      <rect x="160" y="630" width="480" height="40" rx="6" fill="#F5F7FA" stroke="#1F2933" stroke-width="1.5" stroke-dasharray="6 4"/>
+      <text class="inequality" x="400" y="656">catalog ≠ active instructions</text>
+      <rect x="160" y="678" width="480" height="40" rx="6" fill="#F5F7FA" stroke="#1F2933" stroke-width="1.5" stroke-dasharray="6 4"/>
+      <text class="inequality" x="400" y="704">resource listed ≠ resource read</text>
+      <rect x="160" y="726" width="480" height="40" rx="6" fill="#F5F7FA" stroke="#1F2933" stroke-width="1.5" stroke-dasharray="6 4"/>
+      <text class="inequality" x="400" y="752">procedure ≠ permission</text>
+    </g>
+  </g>
+</svg>

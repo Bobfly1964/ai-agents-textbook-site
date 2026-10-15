@@ -1,0 +1,2753 @@
+
+<!doctype html>
+<html lang="ru" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+        <meta name="description" content="Учебник для 9–10 классов">
+      
+      
+      
+        <link rel="canonical" href="https://book.stemschool.online/r0003/student/ch01/">
+      
+      
+        <link rel="prev" href="../tour/">
+      
+      
+        <link rel="next" href="../ch02/">
+      
+      
+        
+      
+      
+      <link rel="icon" href="../../assets/images/logo.png">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.6">
+    
+    
+      
+        <title>Глава 1. Модель, приложение и агент: кто отвечает, а кто действует? - ИИ-агенты и Agent Skills</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../assets/stylesheets/main.484c7ddc.min.css">
+      
+        
+        <link rel="stylesheet" href="../../assets/stylesheets/palette.ab4e12ef.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+      <link rel="stylesheet" href="../../assets/stylesheets/extra.css">
+    
+    <script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+  </head>
+  
+  
+    
+    
+      
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="deep-purple" data-md-color-accent="cyan">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#глава-1-модель-приложение-и-агент-кто-отвечает-а-кто-действует" class="md-skip">
+          Перейти к содержанию
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+        <aside class="md-banner">
+          <div class="md-banner__inner md-grid md-typeset">
+            
+            
+  
+    <strong>Техническая редакция: пилот не проводился</strong> · редакция r0003
+  
+
+          </div>
+          
+        </aside>
+      
+    </div>
+    
+      <div data-md-color-scheme="default" data-md-component="outdated" hidden>
+        
+      </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow md-header--lifted" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Верхний колонтитул">
+    <a href="../.." title="ИИ-агенты и Agent Skills" class="md-header__button md-logo" aria-label="ИИ-агенты и Agent Skills" data-md-component="logo">
+      
+  <img src="../../assets/images/logo.png" alt="logo">
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            ИИ-агенты и Agent Skills
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Глава 1. Модель, приложение и агент: кто отвечает, а кто действует?
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+        <form class="md-header__option" data-md-component="palette">
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="(prefers-color-scheme: light)" data-md-color-scheme="default" data-md-color-primary="deep-purple" data-md-color-accent="cyan"  aria-label="Переключить на тёмную"  type="radio" name="__palette" id="__palette_0">
+    
+      <label class="md-header__button md-icon" title="Переключить на тёмную" for="__palette_1" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 18c-.89 0-1.74-.2-2.5-.55C11.56 16.5 13 14.42 13 12s-1.44-4.5-3.5-5.45C10.26 6.2 11.11 6 12 6a6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12z"/></svg>
+      </label>
+    
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="(prefers-color-scheme: dark)" data-md-color-scheme="slate" data-md-color-primary="deep-purple" data-md-color-accent="cyan"  aria-label="Переключить на светлую"  type="radio" name="__palette" id="__palette_1">
+    
+      <label class="md-header__button md-icon" title="Переключить на светлую" for="__palette_0" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a4 4 0 0 0-4 4 4 4 0 0 0 4 4 4 4 0 0 0 4-4 4 4 0 0 0-4-4m0 10a6 6 0 0 1-6-6 6 6 0 0 1 6-6 6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12z"/></svg>
+      </label>
+    
+  
+</form>
+      
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+      
+      
+        <label class="md-header__button md-icon" for="__search">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        </label>
+        <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Поиск" placeholder="Поиск" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Поиск">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Очистить" aria-label="Очистить" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+        <div class="md-search__suggest" data-md-component="search-suggest"></div>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Инициализация поиска
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+      
+    
+    
+  </nav>
+  
+    
+      
+<nav class="md-tabs" aria-label="Вкладки" data-md-component="tabs">
+  <div class="md-grid">
+    <ul class="md-tabs__list">
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../.." class="md-tabs__link">
+        
+  
+  
+    
+  
+  Главная
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+    
+  
+  
+    
+    
+      <li class="md-tabs__item md-tabs__item--active">
+        <a href="../intro/" class="md-tabs__link">
+          
+  
+  
+    
+  
+  Ученик
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../teacher/teacher-guide/" class="md-tabs__link">
+          
+  
+  
+    
+  
+  Учитель
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../../routes/" class="md-tabs__link">
+        
+  
+  
+    
+  
+  Маршруты A/B
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../../files/" class="md-tabs__link">
+        
+  
+  
+    
+  
+  Файлы практикума
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../../about/" class="md-tabs__link">
+        
+  
+  
+    
+  
+  Выходные данные
+
+      </a>
+    </li>
+  
+
+      
+    </ul>
+  </div>
+</nav>
+    
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+  
+
+
+<nav class="md-nav md-nav--primary md-nav--lifted" aria-label="Навигация" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../.." title="ИИ-агенты и Agent Skills" class="md-nav__button md-logo" aria-label="ИИ-агенты и Agent Skills" data-md-component="logo">
+      
+  <img src="../../assets/images/logo.png" alt="logo">
+
+    </a>
+    ИИ-агенты и Agent Skills
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../.." class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Главная
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+        
+        
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2" checked>
+        
+          
+          <label class="md-nav__link" for="__nav_2" id="__nav_2_label" tabindex="">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Ученик
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_2">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Ученик
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../intro/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Введение
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../tour/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Экскурсия по AI: что есть что
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Глава 1. Модель, приложение и агент: кто отвечает, а кто действует?
+  
+
+    
+  </span>
+  
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Глава 1. Модель, приложение и агент: кто отвечает, а кто действует?
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Содержание">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Содержание
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#scene" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        С чего всё началось
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#goals" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        После главы ты сможешь
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#lesson-1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Урок 1. Что скрывается за одним окном чата
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Урок 1. Что скрывается за одним окном чата">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#1-четыре-роли" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1. Четыре роли
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#2-контекст-не-равен-всем-данным-проекта" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2. Контекст не равен всем данным проекта
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#3-что-находится-снаружи" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3. Что находится снаружи
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#4-мини-проверка-ролей" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        4. Мини-проверка ролей
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="4. Мини-проверка ролей">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#ответы" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Ответы
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#5-практика-урока-1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        5. Практика урока 1
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="5. Практика урока 1">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#трек-a-карта-ролей" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Трек A. Карта ролей
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#трек-b-вместо-модели--заранее-заданный-ответ" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Трек B. Вместо модели — заранее заданный ответ
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#выходной-билет-урока-1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Выходной билет урока 1
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#lesson-2" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Урок 2. Когда помощник начинает выбирать
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Урок 2. Когда помощник начинает выбирать">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#6-текст-об-операции-и-выполненная-операция" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        6. Текст об операции и выполненная операция
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#7-три-похожие-системы" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        7. Три похожие системы
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="7. Три похожие системы">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#система-a-модель-формирует-ответ" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Система A. Модель формирует ответ
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#система-b-код-всегда-читает-карточки" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Система B. Код всегда читает карточки
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#система-c-модель-участвует-в-выборе" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Система C. Модель участвует в выборе
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#зачем-это-тебе" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Зачем это тебе
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#8-практика-урока-2" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        8. Практика урока 2
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="8. Практика урока 2">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#трек-a-закрытые-карточки" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Трек A. Закрытые карточки
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#трек-b-два-фактических-запуска" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Трек B. Два фактических запуска
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#9-обязательные-сценарии" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        9. Обязательные сценарии
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#10-шаг-сквозного-проекта" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        10. Шаг сквозного проекта
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="10. Шаг сквозного проекта">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#достраиваем-дежурного" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Достраиваем «Дежурного»
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#11-проверь-себя" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        11. Проверь себя
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#12-домашняя-работа--необязательно" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        12. Домашняя работа — необязательно
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#13-словарь-главы" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        13. Словарь главы
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#bridge" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Мост к главе 2
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../ch02/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Глава 2. Агентный цикл: как результат действия меняет следующий шаг?
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../ch03/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Глава 3. Agent harness: что работает вокруг модели?
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../ch04/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Глава 4. Prompt, structured output, tool, MCP и Agent Skill: какие задачи решают разные уровни системы?
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../ch05/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Глава 5. Договор задачи: что нужно определить до реализации?
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../ch06/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Глава 6. Первый tool
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../ch07/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Глава 7. Диспетчер и ошибки
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../ch08/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Глава 8. Хороший tool
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../ch09/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Глава 9. Первый Agent Skill
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../ch10/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Глава 10. Состояние и память
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../ch11/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Глава 11. Тесты и evals: как доказать качество не одним удачным запуском?
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../ch12/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Глава 12. Traces: как понять, что происходило на самом деле?
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../ch13/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Глава 13. Обратная связь и версии: когда исправление должно менять процедуру?
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../ch14/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Глава 14. Permissions и участие человека
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../ch15/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Глава 15. Prompt injection и недоверенные подключения: что делать с данными и кодом, которым нельзя автоматически доверять?
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../ch16/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Глава 16. Долгая и совместная работа
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../ch17/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Глава 17. Итоговый проект: может ли команда доказать качество и ограниченность системы?
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../app-a/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Приложение А. Урок 0. Готовность рабочего места
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../app-b/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Приложение Б. Словарь курса
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../app-c/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Приложение В. Список фигур
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3" >
+        
+          
+          <label class="md-nav__link" for="__nav_3" id="__nav_3_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Учитель
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Учитель
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../teacher/teacher-guide/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Методическое руководство для учителя
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../teacher/lesson-map/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Поурочная карта
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../routes/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Маршруты A/B
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../files/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Файлы практикума
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../about/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Выходные данные
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Содержание">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Содержание
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#scene" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        С чего всё началось
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#goals" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        После главы ты сможешь
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#lesson-1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Урок 1. Что скрывается за одним окном чата
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Урок 1. Что скрывается за одним окном чата">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#1-четыре-роли" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1. Четыре роли
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#2-контекст-не-равен-всем-данным-проекта" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2. Контекст не равен всем данным проекта
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#3-что-находится-снаружи" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3. Что находится снаружи
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#4-мини-проверка-ролей" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        4. Мини-проверка ролей
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="4. Мини-проверка ролей">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#ответы" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Ответы
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#5-практика-урока-1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        5. Практика урока 1
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="5. Практика урока 1">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#трек-a-карта-ролей" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Трек A. Карта ролей
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#трек-b-вместо-модели--заранее-заданный-ответ" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Трек B. Вместо модели — заранее заданный ответ
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#выходной-билет-урока-1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Выходной билет урока 1
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#lesson-2" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Урок 2. Когда помощник начинает выбирать
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Урок 2. Когда помощник начинает выбирать">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#6-текст-об-операции-и-выполненная-операция" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        6. Текст об операции и выполненная операция
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#7-три-похожие-системы" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        7. Три похожие системы
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="7. Три похожие системы">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#система-a-модель-формирует-ответ" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Система A. Модель формирует ответ
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#система-b-код-всегда-читает-карточки" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Система B. Код всегда читает карточки
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#система-c-модель-участвует-в-выборе" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Система C. Модель участвует в выборе
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#зачем-это-тебе" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Зачем это тебе
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#8-практика-урока-2" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        8. Практика урока 2
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="8. Практика урока 2">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#трек-a-закрытые-карточки" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Трек A. Закрытые карточки
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#трек-b-два-фактических-запуска" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Трек B. Два фактических запуска
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#9-обязательные-сценарии" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        9. Обязательные сценарии
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#10-шаг-сквозного-проекта" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        10. Шаг сквозного проекта
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="10. Шаг сквозного проекта">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#достраиваем-дежурного" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Достраиваем «Дежурного»
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#11-проверь-себя" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        11. Проверь себя
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#12-домашняя-работа--необязательно" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        12. Домашняя работа — необязательно
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#13-словарь-главы" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        13. Словарь главы
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#bridge" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Мост к главе 2
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+
+<h1 id="глава-1-модель-приложение-и-агент-кто-отвечает-а-кто-действует">Глава 1. Модель, приложение и агент: кто отвечает, а кто действует?<a class="headerlink" href="#глава-1-модель-приложение-и-агент-кто-отвечает-а-кто-действует" title="Permanent link">&para;</a></h1>
+<h2 id="scene">С чего всё началось<a class="headerlink" href="#scene" title="Permanent link">&para;</a></h2>
+<p>До Фестиваля науки осталось три недели. В школе фестиваль готовят несколько групп: редакционная согласовывает программу, группа дизайна рисует афишу, лабораторная собирает оборудование для стендов. Чтобы задачи не потерялись, в школе работает <strong><em>проектное бюро</em></strong> — несколько человек, которые следят за всеми задачами сразу. Ты тоже входишь в состав бюро. Аня — координатор: на её компьютере хранится доска задач.</p>
+<p><strong><em>Доска задач</em></strong> — это папка с карточками. Каждой задаче отведена отдельная карточка: в ней написано, что нужно сделать, кто выполняет работу и в каком состоянии дело. Номер карточки начинается с <code>task</code> — по-английски «задача»; дальше стоит число. Последние слова в строках обозначают состояние работы: <code>done</code> означает «сделано», <code>in_progress</code> — «в работе», <code>blocked</code> — «работа остановилась из-за препятствия». Сейчас на доске три карточки, по одной для каждой группы:</p>
+<div class="highlight"><pre><span></span><code>task-001   Согласовать программу фестиваля      редакционная группа    done
+task-002   Подготовить макет афиши              группа дизайна         in_progress
+task-003   Проверить список оборудования        лабораторная группа    blocked
+</code></pre></div>
+<p>Каждый вечер Аня вручную составляет сводку: что сделано, что ещё в работе и что остановилось из-за препятствия. Повторять эту работу ей надоело, и Аня попробовала поручить сводку ИИ-помощнику. Буквы «ИИ» означают «искусственный интеллект»; пока так назовём программу, которой можно задать вопрос обычными словами. На следующий день Аня показывает тебе два экрана с результатами двух запусков.</p>
+<p>В первом запуске программа пишет:</p>
+<blockquote>
+<p>Карточки проекта прочитаны. Задача task-003 заблокирована.</p>
+</blockquote>
+<p>Во втором запуске программа пишет:</p>
+<blockquote>
+<p>Карточки проекта прочитаны. Задача task-003 заблокирована.</p>
+</blockquote>
+<p>Сообщения совпадают слово в слово. Совпадает с доской и названный статус: задача task-003 действительно заблокирована. На первый взгляд кажется, что правильный ответ подтверждает чтение карточек.</p>
+<p>— Смотри, — говорит Аня, — одна из этих двух программ правда открывала папку с карточками. А вторая — нет. Она вообще не умеет открывать файлы и всегда пишет одну и ту же фразу. Угадай, какая из них какая.</p>
+<p>Можно ли по этим экранам определить, какая программа читала карточки? Нельзя: тексты одинаковы. Фразу о чтении написала даже программа, которая не умеет открывать файлы. Значит, по одной этой фразе нельзя доказать, что чтение состоялось.</p>
+<blockquote>
+<p><strong>Вопрос-Прогноз.</strong> Что нужно знать о программе — не о её словах, а о её устройстве, — чтобы доказать, что чтение карточек произошло на самом деле? Запиши свою версию, прежде чем читать дальше.</p>
+</blockquote>
+<p>Чтобы ответить на вопрос о чтении карточек, нужно выяснить, из каких частей состоит ИИ-помощник и какую работу выполняет каждая часть. Отсюда и главный вопрос главы.</p>
+<blockquote>
+<p><strong>Главный вопрос главы.</strong> Кто в ИИ-системе формирует ответ, кто выбирает следующий шаг, а кто действительно выполняет операцию?</p>
+</blockquote>
+<p><img alt="Фигура 1. Уверенная фраза и непрочитанные карточки" src="../../figures/01_uverennaya-fraza-i-neprochitannye-kartochki.png" /></p>
+<p><em>Фигура 1. Уверенная фраза и непрочитанные карточки</em></p>
+<h2 id="goals">После главы ты сможешь<a class="headerlink" href="#goals" title="Permanent link">&para;</a></h2>
+<ul>
+<li>различать четыре роли внутри помощника и объяснять, кто принимает вопрос, кто готовит ответ и кто показывает его человеку;</li>
+<li>объяснять, почему для ответа недостаточно просто иметь файл на диске;</li>
+<li>показывать на схеме, какой код связывает помощника с папкой файлов;</li>
+<li>отличать текст об операции от её выполнения;</li>
+<li>находить конкретную операцию, которую программа умеет выполнять;</li>
+<li>различать заранее заданный маршрут и маршрут, в выборе которого участвует отвечающий компонент;</li>
+<li>формулировать цель и границы нашего учебного помощника.</li>
+</ul>
+<h2 id="lesson-1">Урок 1. Что скрывается за одним окном чата<a class="headerlink" href="#lesson-1" title="Permanent link">&para;</a></h2>
+<h3 id="1-четыре-роли">1. Четыре роли<a class="headerlink" href="#1-четыре-роли" title="Permanent link">&para;</a></h3>
+<p>Посмотри на окно чата, в котором Аня задавала вопрос. В окне видны поле ввода, кнопка «Отправить», история сообщений и ответ. Обычно мы не разделяем работу этих частей и говорим: «ИИ ответил». В повседневном разговоре такого объяснения хватает. Но как доказать, что программа читала файлы? Одного слова «ИИ» уже недостаточно: нужно установить, какая часть помощника могла выполнить чтение. На экскурсии мы назвали части чата обычными словами; теперь дадим этим частям точные имена.</p>
+<p>Проследим путь твоего вопроса: от человека к отвечающему компоненту, а затем путь результата обратно к человеку. По этому описанию мы нарисуем <strong><em>схему пути вопроса</em></strong>. Эту схему мы будем достраивать всю первую часть учебника, поэтому запомни её первый вариант. Начнём со случая Ани, чтобы каждая подпись на рисунке была связана с понятным действием.</p>
+<p>Аня печатает вопрос в окне. Для взаимодействия с программой она использует <strong><em>интерфейс</em></strong>. Вопрос принимает <strong><em>ИИ-приложение</em></strong> и готовит обращение к отвечающему компоненту. Информация, доступная этому компоненту в данном обращении, называется <strong><em>контекстом</em></strong>. Сам отвечающий компонент — <strong><em>языковая модель</em></strong> (LLM, Large Language Model — большая языковая модель): модель получает подготовленную информацию и формирует результат. Затем приложение передаёт результат в окно, где Аня читает ответ.</p>
+<div class="highlight"><pre><span></span><code>человек
+   ↓ запрос
+интерфейс
+   ↓
+ИИ-приложение
+   ↓ обращение с контекстом
+языковая модель (LLM)
+   ↓ результат модели
+ИИ-приложение → интерфейс → человек
+</code></pre></div>
+<p>На схеме показаны четыре роли, хотя человек, интерфейс и приложение встречаются в цепочке дважды: при отправке вопроса и при возвращении результата. Начнём разбор с языковой модели, а затем проследим, как остальные части помогают передать вопрос и получить ответ.</p>
+<p><strong>Языковая модель — компонент, который получает доступный ему контекст и формирует результат.</strong> В наших первых опытах и вход, и результат представлены текстом: приложение передаёт сведения о карточках и получает ответ. Такое устройство учебного опыта не означает, что любые модели работают только с текстом.</p>
+<p>Сама модель не открывает файлы, не нажимает кнопки и не обращается к интернету. У модели есть знания, полученные при обучении. Однако о сегодняшнем содержимом папки Ани модель узнает только из переданного ей текста. Без содержимого карточек модель тоже может написать правдоподобную фразу и даже случайно назвать верный статус. По самой фразе мы не узнаем, на каких сведениях основан ответ.</p>
+<p><strong>ИИ-приложение — программная система, которая обращается к модели и организует взаимодействие с пользователем, кодом, данными и внешними возможностями.</strong> Приложение связывает части помощника: решает, какую информацию передать модели, как использовать ответ и что показать человеку. Код приложения может открывать файлы и запускать <strong><em>функции</em></strong> — именованные участки программы, выполняющие конкретную работу. Доступные операции зависят от написанного кода и выданного приложению доступа. Поэтому, говоря «помощник Ани», мы имеем в виду приложение, внутри которого работает модель.</p>
+<p><strong>Интерфейс — часть или способ взаимодействия с приложением: поле ввода, кнопка, экран результата или программный запрос.</strong> В нашей схеме интерфейс принимает вопрос и показывает ответ. Но интерфейс не обязательно выглядит как окно: одна программа тоже может обращаться к другой через предусмотренный способ обмена. По виду окна нельзя определить, какие операции выполняет код приложения.</p>
+<p><strong>Человек</strong> — тот, кто ставит задачу и решает, годится ли результат. В нашем проекте окончательное решение о пригодности результата остаётся за человеком. Программа может помочь с отдельной проверкой, но за использование сводки по-прежнему отвечает команда.</p>
+<p>Теперь главный вывод первого раздела. Окно чата служит интерфейсом, а за окном работает приложение. Модель составляет лишь часть приложения и сама ничего не открывает. Поэтому вопрос «читал ли помощник карточки» нужно задавать не модели и не экрану, а приложению: <strong>есть ли в приложении часть, которая умеет читать файлы, и была ли эта часть вызвана?</strong></p>
+<blockquote>
+<p><strong>Проверь себя на ходу.</strong> Аня говорит: «Модель прочитала мои карточки». Что здесь неверно сказано? Какой роли на самом деле принадлежит чтение?</p>
+</blockquote>
+<p><img alt="Фигура 2. Путь вопроса через четыре роли" src="../../figures/02_put-voprosa-cherez-chetyre-roli.svg" /></p>
+<p><em>Фигура 2. Путь вопроса через четыре роли</em></p>
+<h3 id="2-контекст-не-равен-всем-данным-проекта">2. Контекст не равен всем данным проекта<a class="headerlink" href="#2-контекст-не-равен-всем-данным-проекта" title="Permanent link">&para;</a></h3>
+<p>Карточки лежат на компьютере Ани. Достаточно ли самого наличия файлов, чтобы модель ответила по карточкам? Нет: в нашем текстовом опыте приложение должно включить сведения из файлов в текущее обращение. Именно переданную для этого обращения информацию мы назвали контекстом.</p>
+<p><strong>Контекст — информация, доступная модели в конкретном обращении.</strong> В нашем опыте контекст содержит текст вопроса и сведения, которые приложение передало вместе с вопросом.</p>
+<p>Представь письменный экзамен, на котором из справочных материалов тебе разрешено пользоваться только выданным листком. Ты можешь прочитать сведения с листка, но не из книги в соседнем кабинете. Контекст в этом сравнении похож на выданный листок. Сходство касается только доступа к сведениям текущей задачи: аналогия не описывает всё устройство модели и не отменяет знаний, полученных при обучении. Общие знания модели не подтверждают, что именно сейчас записано в папке Ани.</p>
+<p>Как приложение передаёт сведения? Приложение составляет текст и включает текст в обращение к модели. Например, контекст мог бы выглядеть так:</p>
+<div class="highlight"><pre><span></span><code>Карточки проекта:
+task-001: done
+task-002: in_progress
+task-003: blocked
+Вопрос: есть ли заблокированные задачи?
+</code></pre></div>
+<p>Теперь модель может ответить: «Да, task-003». В переданном тексте есть строки карточек, поэтому у модели появились сведения для ответа. Строки включило в контекст приложение. Если бы приложение не передало строки, файлы остались бы в папке Ани, а у модели не было бы этих сведений. Модель могла бы угадать статус, но такое совпадение не доказывало бы чтение.</p>
+<p>Чтобы различать доступ к данным и удачную догадку, будем проверять путь от файла к контексту. Во всём курсе нам пригодится следующее правило.</p>
+<blockquote>
+<p><strong>Правило.</strong> Не приписывай модели доступ, которого нет на нашей схеме. Если между моделью и файлом не нарисована программа, которая читает файл и кладёт его в контекст, — модель этого файла не видит.</p>
+</blockquote>
+<p>Допустим, приложение передало только сведения о task-001, а Аня спросила, какие задачи заблокированы. На доске по-прежнему три карточки, но в контексте есть сведения лишь об одной. Статус <code>done</code> у task-001 не позволяет заключить, что заблокированных задач нет: сведения о двух остальных карточках не переданы.</p>
+<p>Посмотрим, как состояние задачи записано в карточке. У каждой задачи на доске бюро есть <strong><em>статус</em></strong> — короткое слово о состоянии дела. В нашем проекте предусмотрены четыре статуса. Карточек на доске сейчас три, и статуса planned среди них нет. Смысл каждого статуса показан в таблице:</p>
+<table>
+<thead>
+<tr>
+<th>Статус</th>
+<th>Смысл в проекте фестиваля</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>planned</td>
+<td>задача запланирована, но работа не началась</td>
+</tr>
+<tr>
+<td>in_progress</td>
+<td>задача в работе</td>
+</tr>
+<tr>
+<td>blocked</td>
+<td>продолжению мешает указанная причина</td>
+</tr>
+<tr>
+<td>done</td>
+<td>задача завершена</td>
+</tr>
+</tbody>
+</table>
+<p>Аня хранит каждую карточку отдельным файлом в формате <strong><em>JSON</em></strong> — текстовом формате представления структурированных данных. Здесь <strong><em>поле</em></strong> — именованная часть записи: после имени и двоеточия стоит значение поля. Программа читает запись по правилам формата, а смысл каждого поля задаёт наш проект.</p>
+<p>Карточка task-003 хранится по пути <code>workspace/tasks/task-003.json</code>; косые черты отделяют имена папок от имени файла. Фигурные скобки ограничивают всю запись, квадратные скобки ограничивают список значений, кавычки выделяют текст. Пока достаточно узнавать поля и их значения; правила записи мы изучим позже. Посмотрим на карточку целиком:</p>
+<div class="highlight"><pre><span></span><code><span class="p">{</span>
+<span class="w">  </span><span class="nt">&quot;id&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;task-003&quot;</span><span class="p">,</span>
+<span class="w">  </span><span class="nt">&quot;title&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;Проверить список оборудования&quot;</span><span class="p">,</span>
+<span class="w">  </span><span class="nt">&quot;status&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;blocked&quot;</span><span class="p">,</span>
+<span class="w">  </span><span class="nt">&quot;team&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;лабораторная группа&quot;</span><span class="p">,</span>
+<span class="w">  </span><span class="nt">&quot;blockers&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[</span>
+<span class="w">    </span><span class="s2">&quot;Нет подтверждённого списка оборудования&quot;</span>
+<span class="w">  </span><span class="p">]</span>
+<span class="p">}</span>
+</code></pre></div>
+<p>В каждой карточке обязательны три поля:</p>
+<ol>
+<li><code>id</code> хранит уникальный номер карточки.</li>
+<li><code>title</code> содержит название задачи.</li>
+<li><code>status</code> указывает статус из таблицы выше.</li>
+</ol>
+<p>Остальные поля добавляют подробности: кто выполняет задачу и что мешает работе. Карточки в курсе учебные, синтетические: настоящих людей и настоящих данных в карточках нет. Мы будем экспериментировать предусмотренными способами и сохранять исходные файлы. Тогда результат можно повторить и сравнить с результатом другой группы.</p>
+<h3 id="3-что-находится-снаружи">3. Что находится снаружи<a class="headerlink" href="#3-что-находится-снаружи" title="Permanent link">&para;</a></h3>
+<p>Приложение обращается к папке с карточками и получает данные либо сообщение о том, что прочитать данные не удалось. Папка находится снаружи модели и приложения, но участвует в выполнении задачи. Здесь нужно следить за обеими сторонами обмена: что запросило приложение и что получило в ответ. Для всего, с чем программа взаимодействует таким образом, есть общее название.</p>
+<p><strong>Среда</strong> — всё, с чем система взаимодействует при выполнении задачи и откуда получает результаты выполненных операций. В проекте фестиваля частью среды служит папка с карточками. В других системах средой могут быть человек, отвечающий на вопрос, база данных, датчик или внешний сервис в интернете. Каждый из перечисленных участников становится частью среды только тогда, когда у приложения действительно есть к нему доступ.</p>
+<p>В схеме легко пропустить программу между моделью и средой: кажется, достаточно соединить модель стрелкой с файлами. Но сама стрелка доступа не даёт. Файлы, сеть и команды доступны модели лишь через программную часть, которая разрешает и выполняет конкретные операции. Разбор этой программной части станет темой урока 2.</p>
+<p><em>Проверь, как ты понял связь модели со средой: найди ошибку в намеренно неверной схеме.</em></p>
+<div class="highlight"><pre><span></span><code>        LLM
+      ↙  ↓  ↘
+  файлы  код  сеть
+</code></pre></div>
+<blockquote>
+<p>Что здесь приписано модели без основания? Какой блок нужно нарисовать между моделью и этими тремя возможностями, чтобы схема стала честной?</p>
+</blockquote>
+<h3 id="4-мини-проверка-ролей">4. Мини-проверка ролей<a class="headerlink" href="#4-мини-проверка-ролей" title="Permanent link">&para;</a></h3>
+<p>Распредели перечисленные работы между четырьмя ролями: <strong>человек</strong>, <strong>интерфейс</strong>, <strong>ИИ-приложение</strong>, <strong>LLM</strong>. Называй конкретную роль: общее слово «ИИ» не показывает, кто выполняет работу.</p>
+<ol>
+<li>Сформулировать цель запроса.</li>
+<li>Показать кнопку «Отправить».</li>
+<li>Собрать контекст и обратиться к модели.</li>
+<li>Написать ответ по переданному контексту.</li>
+<li>Вызвать обычную функцию программы.</li>
+<li>Показать полученный результат на экране.</li>
+<li>Решить, подходит ли результат для реальной задачи.</li>
+</ol>
+<h4 id="ответы">Ответы<a class="headerlink" href="#ответы" title="Permanent link">&para;</a></h4>
+<p>1 — человек; 2 — интерфейс; 3 — ИИ-приложение; 4 — LLM; 5 — ИИ-приложение; 6 — интерфейс; 7 — человек.</p>
+<p>Допустимые уточнения. Человек может формулировать запрос с подсказкой приложения. Приложение может автоматически проверить формат результата, но пригодность результата для настоящей задачи оценивает человек. Нажатие кнопки проходит через интерфейс, а функцию выполняет код приложения. Если ты выбрал другой вариант — объясни, какой именно механизм имел в виду.</p>
+<h3 id="5-практика-урока-1">5. Практика урока 1<a class="headerlink" href="#5-практика-урока-1" title="Permanent link">&para;</a></h3>
+<blockquote>
+<p><strong>Как устроен наш практикум.</strong> К курсу прилагается <strong><em>starter</em></strong> — папка с учебными файлами. Учитель заранее готовит папку и Python — язык, на котором написаны наши программы, вместе со средством их запуска. <strong><em>Терминал</em></strong> — окно, в котором ты вводишь команду запуска и видишь ответ программы. Подготовка описана в <a href="../../starter/docs/WORKPLACE_SETUP/">Приложении А «Урок 0»</a>; обязательная домашняя установка для начала курса не нужна.</p>
+<p><strong>Корень starter</strong> — сама папка учебного комплекта: в ней лежат файлы, которые мы запускаем. Внутри находится рабочая папка <code>workspace/</code>, содержащая папку <code>tasks/</code> с карточками Ани. Чтобы команда нашла нужный файл, рабочей папкой терминала должен быть именно корень комплекта. Перед первым запуском попроси учителя проверить выбор папки: открытое окно терминала ещё не означает, что выбрана нужная папка.</p>
+<p>Код можно читать в учебнике и запускать из соответствующего файла. Комментарий <code># фрагмент: ...</code> показывает, из какого файла взята выдержка; <code># файл: ...</code> отмечает полный листинг, то есть полный текст программы. Пометка <code># пример</code> означает иллюстрацию механизма, а не точную копию готового файла. Комментарий в начале блока запуска указывает, откуда выполнять команду; это пояснение, а не отдельная операция программы.</p>
+</blockquote>
+<p>Выбери один трек, то есть один из двух способов выполнить практику. В треке A ты строишь схему на бумаге, в треке B читаешь и запускаешь код. Способы работы различаются, но оба помогают прийти к одному выводу.</p>
+<h4 id="трек-a-карта-ролей">Трек A. Карта ролей<a class="headerlink" href="#трек-a-карта-ролей" title="Permanent link">&para;</a></h4>
+<p>Вместе с группой возьми карточки с надписями «человек», «интерфейс», «ИИ-приложение», «LLM», «запрос», «контекст», «результат». Выложи на парте путь запроса Ани от человека до модели и обратный путь результата.</p>
+<p>Для каждого блока ответь вместе с группой на два вопроса:</p>
+<ol>
+<li>Что он делает?</li>
+<li>Чего ему нельзя приписывать без доказательства?</li>
+</ol>
+<p><strong>Результат:</strong> схема, по которой другая группа сможет восстановить маршрут запроса, не заглядывая в учебник.</p>
+<h4 id="трек-b-вместо-модели--заранее-заданный-ответ">Трек B. Вместо модели — заранее заданный ответ<a class="headerlink" href="#трек-b-вместо-модели--заранее-заданный-ответ" title="Permanent link">&para;</a></h4>
+<p>В корне starter находится файл <a href="../../starter/chat_stub.py"><code>chat_stub.py</code></a>; по ссылке доступен полный текст программы. Программа устроена так же, как помощник Ани, но вместо настоящей модели использует <strong><em>заглушку</em></strong> — функцию, заменяющую модель заранее заданным ответом. Ниже приведена функция целиком:</p>
+<div class="highlight"><pre><span></span><code><span class="c1"># фрагмент: chat_stub.py</span>
+<span class="k">def</span><span class="w"> </span><span class="nf">model_stub</span><span class="p">(</span><span class="n">text</span><span class="p">):</span>
+    <span class="k">return</span> <span class="s2">&quot;Карточки проекта прочитаны. Задача task-003 заблокирована.&quot;</span>
+</code></pre></div>
+<p>В строке <code>def</code> задано имя функции, а <code>return</code> возвращает результат функции. Кавычки вокруг фразы показывают, что внутри записана текстовая строка, а не команда на чтение файлов. При вызове функции в скобках передают <strong><em>аргумент</em></strong> — данные для её работы; здесь передают текст вопроса.</p>
+<p>Прочитай функцию внимательно. Имя <code>text</code> обозначает принимаемый текст обращения: с таким входом заглушку можно вызвать так же, как модель. Но заглушка не использует полученный текст. Функция всегда возвращает одну и ту же строку и ничего не читает. Такой код объясняет «второй экран» Ани: программа сообщает о чтении, ни разу не открыв файл.</p>
+<p>До запуска запиши прогноз: что появится на экране? Затем открой терминал в корне starter и выполни команду.</p>
+<blockquote>
+<p><strong>Как запускать команды.</strong> В Windows вместо <code>python</code> используй <code>py -3</code>. В macOS/Linux, если команда <code>python</code> не настроена, используй <code>python3</code>.</p>
+</blockquote>
+<div class="highlight"><pre><span></span><code><span class="c1"># запуск из корня starter</span>
+python<span class="w"> </span>chat_stub.py
+</code></pre></div>
+<p>Пока прочитай только первую строку вывода и реши, доказывает ли эта строка чтение. Вторую строку мы разберём на следующем уроке.</p>
+<p><strong>Результат:</strong> напиши два предложения. В первом укажи, какую роль имитирует <code>model_stub</code>, во втором назови операцию, которую эта функция не выполняет.</p>
+<h3 id="выходной-билет-урока-1">Выходной билет урока 1<a class="headerlink" href="#выходной-билет-урока-1" title="Permanent link">&para;</a></h3>
+<p>Назови одну операцию, которую выполняет приложение, и одну работу, которую выполняет LLM. Затем закончи фразу:</p>
+<blockquote>
+<p>«Файл существует, но модель может использовать его содержимое, только если...»</p>
+</blockquote>
+<h2 id="lesson-2">Урок 2. Когда помощник начинает выбирать<a class="headerlink" href="#lesson-2" title="Permanent link">&para;</a></h2>
+<h3 id="6-текст-об-операции-и-выполненная-операция">6. Текст об операции и выполненная операция<a class="headerlink" href="#6-текст-об-операции-и-выполненная-операция" title="Permanent link">&para;</a></h3>
+<p>Что должно произойти, чтобы слова «Карточки проекта прочитаны» описывали выполненную работу? Приложение должно выполнить отдельную операцию из трёх шагов:</p>
+<ol>
+<li>Открыть папку.</li>
+<li>Прочитать файлы.</li>
+<li>Разобрать JSON.</li>
+</ol>
+<p>Убедительная фраза с экрана Ани не выполняет ни одного из этих шагов. Модель сама читать файлы не умеет; чтение выполняет приложение.</p>
+<p>Такая конкретная операция, которую приложение умеет выполнять, называется <strong><em>tool</em></strong>, по-русски «инструмент». Наш первый tool — <code>read_task_cards</code>: он читает карточки из одной, заранее заданной учебной папки.</p>
+<p>Ниже приведён фрагмент файла <a href="../../starter/school_agent/tools.py"><code>school_agent/tools.py</code></a> из starter; полный файл доступен по ссылке:</p>
+<div class="highlight"><pre><span></span><code><span class="c1"># фрагмент: school_agent/tools.py</span>
+<span class="k">def</span><span class="w"> </span><span class="nf">read_task_cards</span><span class="p">():</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;Первый публичный tool: без аргументов, всегда фиксированный workspace/tasks.&quot;&quot;&quot;</span>
+    <span class="k">return</span> <span class="n">Tools</span><span class="p">()</span><span class="o">.</span><span class="n">read_task_cards</span><span class="p">()</span>
+</code></pre></div>
+<p>У функции нет аргументов: в скобках ничего не указано. При вызове нельзя попросить функцию прочитать другую папку. Место чтения задано внутри приложения, и модель не может изменить этот выбор. Так программа не принимает от отвечающего компонента произвольное место для чтения. В главе 3 мы проверим эту границу подробнее.</p>
+<p>Имя <code>Tools</code> пока читай как «готовая часть starter, которая выполняет учебное чтение с заданными проверками». Ограничения относятся к конкретной операции; из этих ограничений не следует, что любой файл безопасен.</p>
+<p>Следующие четыре строки помогают представить чтение внутри <code>Tools()</code>. Эти строки — отдельная иллюстрация, а не дословный фрагмент защищённой функции. Чтобы прочитать пример без знания Python, соотнеси три обозначения с их ролью:</p>
+<ol>
+<li><code>Path("workspace/tasks")</code> указывает папку с карточками.</li>
+<li><code>glob("*.json")</code> выбирает все файлы карточек в этой папке.</li>
+<li><code>json.loads(...)</code> превращает текст файла в данные.</li>
+</ol>
+<div class="highlight"><pre><span></span><code><span class="c1"># пример</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">json</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">pathlib</span><span class="w"> </span><span class="kn">import</span> <span class="n">Path</span>
+<span class="n">paths</span> <span class="o">=</span> <span class="nb">sorted</span><span class="p">(</span><span class="n">Path</span><span class="p">(</span><span class="s2">&quot;workspace/tasks&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">glob</span><span class="p">(</span><span class="s2">&quot;*.json&quot;</span><span class="p">))</span>
+<span class="n">cards</span> <span class="o">=</span> <span class="p">[</span><span class="n">json</span><span class="o">.</span><span class="n">loads</span><span class="p">(</span><span class="n">path</span><span class="o">.</span><span class="n">read_text</span><span class="p">(</span><span class="n">encoding</span><span class="o">=</span><span class="s2">&quot;utf-8&quot;</span><span class="p">))</span> <span class="k">for</span> <span class="n">path</span> <span class="ow">in</span> <span class="n">paths</span><span class="p">]</span>
+</code></pre></div>
+<p>В этом примере карточки становятся данными программы при чтении файлов. Список <code>cards</code> получен после чтения, а не из строки, которую вернула заглушка.</p>
+<p>Настоящий starter выполняет и проверки:</p>
+<ol>
+<li>Проверяет, что папка не выходит за пределы рабочей области.</li>
+<li>Проверяет, что файлы не слишком велики.</li>
+<li>Проверяет, что JSON правильный.</li>
+<li>Проверяет, что номера карточек не повторяются.</li>
+</ol>
+<p>В главе 3 мы разберём, где работают ограничения, а позже подробно проверим содержимое карточек.</p>
+<p>Когда приложение действительно выполняет операцию чтения, оно делает отдельный шаг в среде — <strong><em>действие</em></strong> (action). Полученные карточки или сообщение об ошибке составляют <strong><em>observation</em></strong> (наблюдение), то есть результат выполненной операции. В следующей схеме слово observation обозначает возвращённый результат, а не обещание прочитать карточки.</p>
+<p>Достроим схему пути вопроса. Помимо обращения к модели, приложение теперь выполняет операцию в среде. Покажем эту связь второй линией:</p>
+<div class="highlight"><pre><span></span><code>человек → интерфейс → ИИ-приложение ↔ LLM
+                          │
+                          └─ выполняет read_task_cards()
+                                        ↓
+                               observation из среды
+</code></pre></div>
+<p>В главе 2 мы подробно разберём, как observation влияет на следующий шаг. Пока сравним ответ среды и ответ модели. Ответ среды сообщает, чем закончилась операция; ответ модели содержит результат, который модель сформировала по доступной информации.</p>
+<blockquote>
+<p><strong>Проверь себя на ходу.</strong> Приложение умеет читать карточки, но в данном запуске функцию чтения не вызывали. Можно ли по одному наличию функции утверждать, что карточки прочитаны?</p>
+</blockquote>
+<p>Теперь можно ответить на вопрос-прогноз с начала главы. Для доказательства чтения нужны ответы на три вопроса:</p>
+<ol>
+<li>Есть ли в приложении tool для чтения?</li>
+<li>Было ли выполнено действие с этим tool?</li>
+<li>Что вернула среда?</li>
+</ol>
+<p>Проверяй связь между вызовом операции и полученным результатом: одна фраза на экране чтение не доказывает.</p>
+<p><img alt="Фигура 3. Вторая линия: чтение и observation" src="../../figures/03_vtoraya-liniya-chtenie-i-observation.svg" /></p>
+<p><em>Фигура 3. Вторая линия: чтение и observation</em></p>
+<h3 id="7-три-похожие-системы">7. Три похожие системы<a class="headerlink" href="#7-три-похожие-системы" title="Permanent link">&para;</a></h3>
+<p>Аня воодушевилась и набросала три варианта помощника. У всех трёх снаружи видны окно чата и ответ. По виду окна различий не найти. Проследим, кто выбирает операцию: только в одном из трёх вариантов в выборе участвует отвечающий компонент.</p>
+<h4 id="система-a-модель-формирует-ответ">Система A. Модель формирует ответ<a class="headerlink" href="#система-a-модель-формирует-ответ" title="Permanent link">&para;</a></h4>
+<p>Марк из лабораторной группы спрашивает помощника: «Что значит blocked?» Приложение всегда передаёт таблицу статусов, поэтому определение уже есть в контексте. Модель пишет объяснение по переданным сведениям. Для ответа на этот вопрос открывать файлы не нужно.</p>
+<h4 id="система-b-код-всегда-читает-карточки">Система B. Код всегда читает карточки<a class="headerlink" href="#система-b-код-всегда-читает-карточки" title="Permanent link">&para;</a></h4>
+<p>Аня написала программу, в которой маршрут задан раз и навсегда:</p>
+<div class="highlight"><pre><span></span><code>прочитать карточки → передать их модели → показать текст
+</code></pre></div>
+<p>В системе B есть и модель, и tool. Легко принять само наличие инструмента за признак агента. Но приложение читает карточки перед любым ответом, даже на вопрос «что значит blocked». Маршрут заранее определил разработчик; модель не выбирает, нужно ли чтение.</p>
+<h4 id="система-c-модель-участвует-в-выборе">Система C. Модель участвует в выборе<a class="headerlink" href="#система-c-модель-участвует-в-выборе" title="Permanent link">&para;</a></h4>
+<p>В третьем варианте приложение действует в зависимости от вопроса. На вопрос «что значит blocked» помощник отвечает из контекста. Для ответа на вопрос «что у нас заблокировано» приложение сначала читает карточки: без содержимого карточек нельзя установить, какие задачи заблокированы.</p>
+<p>В выборе участвует модель. Приложение спрашивает модель, хватает ли данных или нужен следующий шаг. Результат шага может изменить дальнейшую работу: если чтение не удалось, помощник не будет сообщать, будто карточки прочитаны.</p>
+<p>Допустим, вместо карточек приложение получило сообщение об ошибке чтения. Такой результат не даёт оснований для сводки «Заблокированных задач нет». Не удалось узнать статусы — значит, вопрос о заблокированных задачах пока остаётся без ответа.</p>
+<p>Сравнение трёх вариантов показывает, зачем нужно отдельное название для системы C.</p>
+<p><strong>ИИ-агент</strong> — система, в которой модель участвует в выборе следующего действия, а результат действия может повлиять на дальнейшие шаги.</p>
+<p>В определении ИИ-агента речь идёт об устройстве всей системы. Модель участвует в выборе, приложение выполняет действия в среде, а полученные результаты возвращаются в систему и могут менять дальнейший ход работы. Поэтому ни особая «умная» модель сама по себе, ни одно лишь окно чата не делают систему агентом.</p>
+<p>А нужен ли агент, если все шаги уже известны? Для заранее заданного маршрута обычная программа проще и надёжнее: программе не приходится выбирать, какой шаг выполнить. Например, задача может состоять из трёх шагов:</p>
+<ol>
+<li>Открыть один заранее известный файл.</li>
+<li>Посчитать строки в файле.</li>
+<li>Показать число строк.</li>
+</ol>
+<p>Все три шага определены заранее, и обычный код выполняет их напрямую. Чтение есть, а агент для такой задачи не нужен. Решить, когда достаточно обычной программы, так же полезно, как уметь построить агента.</p>
+<h3 id="зачем-это-тебе">Зачем это тебе<a class="headerlink" href="#зачем-это-тебе" title="Permanent link">&para;</a></h3>
+<p>Различать текст о действии и выполненное действие полезно и за пределами курса. Например, такое различие поможет тебе в трёх ситуациях.</p>
+<ul>
+<li><strong>Сводка для школьной команды.</strong> Если помощник пишет «все карточки проверены», найди выполненную операцию и её результат. По уверенной фразе нельзя решать, что подготовка стендов закончена.</li>
+<li><strong>Список файлов к уроку.</strong> Если нужно только посчитать работы в известной папке, объясни, почему достаточно обычной программы. Необходимость агента определяется выбором действий, а не желанием добавить чат.</li>
+<li><strong>Общая папка кружка.</strong> Перед чтением файлов уточни, какой код получает к ним доступ и какие данные нужны для задачи. Для учебного опыта используй подготовленные карточки, а не настоящие сведения об участниках.</li>
+</ul>
+<h3 id="8-практика-урока-2">8. Практика урока 2<a class="headerlink" href="#8-практика-урока-2" title="Permanent link">&para;</a></h3>
+<p>Выбери один трек.</p>
+<h4 id="трек-a-закрытые-карточки">Трек A. Закрытые карточки<a class="headerlink" href="#трек-a-закрытые-карточки" title="Permanent link">&para;</a></h4>
+<p>Выполни задание в паре. Один участник играет модель и получает только листок с определением слова blocked. Второй играет приложение и получает закрытый конверт с тремя карточками бюро.</p>
+<p>Раунд 1. Модель получает вопрос: «Что означает blocked?» Контекста хватает, поэтому модель отвечает, а конверт остаётся закрытым.</p>
+<p>Раунд 2. Модель получает вопрос: «Какая задача нашего проекта заблокирована?» Модель честно говорит: «У меня этого нет». Приложению придётся открыть конверт, прочитать карточки и передать результат модели.</p>
+<p>Раунд 3. Примени новое правило: приложение обязано открывать конверт перед любым вопросом, даже перед «что означает blocked». Обсуди с напарником, почему при наличии tool и выполненного чтения такая система всё ещё не агент.</p>
+<p><strong>Результат:</strong> для каждого раунда подпиши вместе с напарником, кто выбрал действие и кто выполнил действие.</p>
+<h4 id="трек-b-два-фактических-запуска">Трек B. Два фактических запуска<a class="headerlink" href="#трек-b-два-фактических-запуска" title="Permanent link">&para;</a></h4>
+<p>Сначала сделай прогноз для нормального сценария: какая строка будет получена без чтения, а какая зависит от вызова tool? Затем выполни запуск:</p>
+<div class="highlight"><pre><span></span><code><span class="c1"># запуск из корня starter</span>
+python<span class="w"> </span>chat_stub.py
+</code></pre></div>
+<p>Фактический вывод:</p>
+<div class="highlight"><pre><span></span><code>Карточки проекта прочитаны. Задача task-003 заблокирована.
+Наблюдение tool: прочитано карточек: 3
+</code></pre></div>
+<p>Сопоставим две строки с кодом. Первую строку вернула заглушка <code>model_stub</code>. Эта строка содержит заранее заданный текст о действии. Вторая строка появилась после вызова <code>read_task_cards()</code> приложением и показывает результат tool, полученный из среды. Число 3 соответствует трём карточкам доски, с которыми мы начали работу.</p>
+<p>До второго запуска запиши прогноз: какая из двух строк изменится, если чтение не удастся? Файлы не удаляй и не переименовывай. В starter предусмотрен переключатель, который изображает ошибку: <code>--scenario</code> — параметр команды для выбора подготовленного случая, а <code>missing_file</code> означает недоступные карточки. Выполни команду с этим параметром:</p>
+<div class="highlight"><pre><span></span><code><span class="c1"># запуск из корня starter</span>
+python<span class="w"> </span>chat_stub.py<span class="w"> </span>--scenario<span class="w"> </span>missing_file
+</code></pre></div>
+<div class="highlight"><pre><span></span><code>Карточки проекта прочитаны. Задача task-003 заблокирована.
+Ошибка: учебные карточки недоступны
+</code></pre></div>
+<p>Фраза заглушки не изменилась ни на букву, хотя чтение не удалось. В одном запуске программа получила карточки, в другом получила ошибку, а первая строка осталась прежней. Сравнение показывает, почему сообщение «прочитаны» само по себе не доказывает чтение. Проверять нужно вторую строку вместе с вызовом функции, после которого появилась эта строка.</p>
+<p>Программа может выводить результат ещё и в формате JSON. Такой режим понадобится для технических опытов в следующих главах. До запуска предположи, изменится ли работа программы или только форма вывода. Включи режим отдельной командой:</p>
+<div class="highlight"><pre><span></span><code><span class="c1"># запуск из корня starter</span>
+python<span class="w"> </span>chat_stub.py<span class="w"> </span>--json
+</code></pre></div>
+<p>На этом уроке достаточно обычного двухстрочного вывода.</p>
+<blockquote>
+<p><strong>Безопасная граница практикума.</strong> Программы этой главы работают только с синтетическими данными и только читают их. Сеть не используется; программы не удаляют и не изменяют файлы. Сценарий ошибки включается параметром команды, поэтому ради опыта не нужно ничего портить в папке starter.</p>
+</blockquote>
+<h3 id="9-обязательные-сценарии">9. Обязательные сценарии<a class="headerlink" href="#9-обязательные-сценарии" title="Permanent link">&para;</a></h3>
+<p>В каждой главе курса мы будем проверять построенное тремя способами:</p>
+<ol>
+<li>В сценарии «должен» проверим, что программа обязана сделать.</li>
+<li>В сценарии «не должен» проверим, чего программа делать не вправе.</li>
+<li>В сценарии «ошибка» проверим поведение программы при сбое.</li>
+</ol>
+<p>Ожидаемые результаты приведены в таблице.</p>
+<table>
+<thead>
+<tr>
+<th>Проверка</th>
+<th>Что должно произойти</th>
+<th>Чего не следует заключать</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Должен</td>
+<td>нормальный запуск получает три синтетические карточки</td>
+<td>строка заглушки сама доказала чтение</td>
+</tr>
+<tr>
+<td>Не должен</td>
+<td>отдельный <code>model_stub(text)</code> возвращает фразу без доступа к файлам</td>
+<td>всякая уверенная фраза основана на данных</td>
+</tr>
+<tr>
+<td>Ошибка</td>
+<td>переключатель <code>missing_file</code> даёт единое сообщение об ошибке</td>
+<td>можно выдумать содержимое недоступных карточек</td>
+</tr>
+</tbody>
+</table>
+<p>Есть и четвёртая ситуация. Если на доске окажутся карточки с похожими номерами <code>task-003</code> и <code>task-003-copy</code>, может быть неясно, какую карточку имел в виду человек. Система не должна молча выбирать одну из двух карточек. Этот маршрут мы запустим в главе 2.</p>
+<h3 id="10-шаг-сквозного-проекта">10. Шаг сквозного проекта<a class="headerlink" href="#10-шаг-сквозного-проекта" title="Permanent link">&para;</a></h3>
+<p>Всю первую часть курса мы будем строить одного помощника для проектного бюро. Эту программу в команде уже прозвали <strong>«Дежурный»</strong>; официальное название проекта — <strong>«Агент школьного проектного бюро»</strong>.</p>
+<p>С чего начать работу над помощником? Прежде чем писать программу, нужно определить задачу и границы действий. Для первой версии договоримся об ограниченной цели:</p>
+<blockquote>
+<p>Агент помогает подготовить проверяемый статус учебного проекта на основе синтетических карточек задач.</p>
+</blockquote>
+<p>Три нецели определяют, чего «Дежурный» в первой версии делать не будет:</p>
+<ol>
+<li>не управлять всем проектом вместо команды;</li>
+<li>не принимать решения за участников;</li>
+<li>не изменять карточки самостоятельно.</li>
+</ol>
+<p>Первая версия только читает синтетические данные, не отправляет настоящих сообщений и не использует персональные сведения.</p>
+<p>Запиши цель и три нецели в тетрадь проекта. Запись станет первым <strong><em>артефактом</em></strong> — сохраняемым результатом твоей работы, к которому мы будем возвращаться. Приложи к записи карту ролей и подпиши стрелку, по которой пришёл результат чтения. По этим двум листам другой участник бюро должен объяснить, что делает помощник и каких полномочий у помощника пока нет.</p>
+<h4 id="достраиваем-дежурного">Достраиваем «Дежурного»<a class="headerlink" href="#достраиваем-дежурного" title="Permanent link">&para;</a></h4>
+<p>Настройки «Дежурного» будут храниться в папке <code>workspace/my_agent/</code> и дополняться по мере работы над проектом. Сейчас подготовь первый файл — <code>01_goal.md</code>:</p>
+<ol>
+<li>Скопируй шаблон из <code>templates/</code>.</li>
+<li>В первой строке после знака <code>#</code> замени текст в угловых скобках на цель первой версии, записанную в тетради проекта.</li>
+<li>Выполни команду ниже.</li>
+</ol>
+<p>В блоках команд вводи только строку с <code>python</code>. Строки, начинающиеся с <code>#</code>, поясняют запуск и не требуют отдельного действия. Вторая служебная строка, <code># фикстура: …</code>, указывает на подготовленный образец, который используют вместо твоего файла при проверке примера. Поэтому в выводах ниже показана цель из образца, а у тебя появится твоя формулировка цели.
+<div class="highlight"><pre><span></span><code><span class="c1"># запуск из корня starter</span>
+<span class="c1"># фикстура: tests/fixtures/ch01/01_goal.md -&gt; workspace/my_agent/01_goal.md</span>
+python<span class="w"> </span>dezhurny.py<span class="w"> </span>status<span class="w"> </span>--chapter<span class="w"> </span><span class="m">1</span>
+</code></pre></div>
+<div class="highlight"><pre><span></span><code>dezhurny: status
+config: workspace/my_agent
+глава 1 | 01_goal.md | настроено: «Готовить черновик статуса проекта бюро по проверенным карточкам» | run: заголовок цитирует первую строку цели
+</code></pre></div></p>
+<p>В выводе следующей команды прочитай прежде всего строку <code>goal:</code>. Программа показывает цель из первой строки файла. Остальные строки пока показывают то, что мы построим в главах 2–12. Пометка <code>не настроено (глава N)</code> относится к файлам будущих глав. Строка <code>model: replay — авторский сценарий, не запись модели</code> означает, что программа использует заранее подготовленный авторами сценарий; к replay мы вернёмся в главе 2.</p>
+<p>Обрати внимание и на последнюю строку: <code>Качество модели не подтверждено этим техническим прогоном.</code> Такое сообщение будет в каждом запуске курса. Технический прогон проверяет работу приложения и его настроек, а не качество настоящей модели.
+<div class="highlight"><pre><span></span><code><span class="c1"># запуск из корня starter</span>
+<span class="c1"># фикстура: tests/fixtures/ch01/01_goal.md -&gt; workspace/my_agent/01_goal.md</span>
+python<span class="w"> </span>dezhurny.py<span class="w"> </span>run
+</code></pre></div>
+<div class="highlight"><pre><span></span><code>dezhurny: run
+goal: Готовить черновик статуса проекта бюро по проверенным карточкам
+config: workspace/my_agent
+model: replay — авторский сценарий, не запись модели
+scenario: success
+stop_policy: max_steps 5, max_retries 1 (по умолчанию, глава 2)
+tools: allowlist диспетчера (по умолчанию, глава 7)
+Шаг 1 | read_task_cards | continue
+Шаг 2 | validate_task_card | continue
+Шаг 3 | validate_task_card | continue
+Шаг 4 | validate_task_card | continue
+Шаг 5 | build_status_report | success
+Остановка: success
+# Черновик статуса проекта
+
+Всего задач: 3.
+Незавершённых: 2.
+Заблокированных: 1.
+
+## Незавершённые задачи
+- `task-002` — Подготовить макет афиши (in_progress)
+- `task-003` — Проверить список оборудования (blocked)
+
+## Блокеры
+- `task-003`: Нет подтверждённого списка оборудования
+
+Черновик. Отправка и изменение карточек не выполнялись.
+contract: не настроено (глава 5)
+save: не настроено (глава 3)
+state: не настроено (глава 10)
+trace: не настроено (глава 12)
+Качество модели не подтверждено этим техническим прогоном.
+</code></pre></div></p>
+<h3 id="11-проверь-себя">11. Проверь себя<a class="headerlink" href="#11-проверь-себя" title="Permanent link">&para;</a></h3>
+<ol>
+<li>Почему фраза «карточки прочитаны» не доказывает чтение?</li>
+<li>Чем интерфейс отличается от ИИ-приложения?</li>
+<li>Что модель может использовать в конкретном обращении, а что — нет?</li>
+<li>Какая операция в этой главе называется tool, а что считается выполненным действием?</li>
+<li>Почему программа с моделью и жёстко зашитым вызовом функции ещё не обязательно агент?</li>
+<li>Какой признак делает систему ИИ-агентом?</li>
+<li>Почему <code>read_task_cards()</code> не принимает путь к папке от модели?</li>
+</ol>
+<p><strong>Выходной билет урока 2.</strong> Закончи фразу: «Модель предлагает или выбирает действие, а выполняет его…». Затем назови одно свидетельство выполнения, которое можно проверить помимо уверенного сообщения.</p>
+<h3 id="12-домашняя-работа--необязательно">12. Домашняя работа — необязательно<a class="headerlink" href="#12-домашняя-работа--необязательно" title="Permanent link">&para;</a></h3>
+<p>Выбери знакомое ИИ-приложение, которым тебе разрешено пользоваться. Набросай карту ролей и связей приложения. Отметь на карте:</p>
+<ol>
+<li>Человека.</li>
+<li>Интерфейс.</li>
+<li>Приложение.</li>
+<li>Модель.</li>
+<li>Доступный контекст.</li>
+<li>Возможные действия.</li>
+<li>Среду.</li>
+</ol>
+<p>Не вводи персональные данные и не проверяй опасные операции. Если приложение недоступно, анализируй схему из этой главы.</p>
+<p>Ответь на три вопроса:</p>
+<ol>
+<li>Какие элементы ты видишь, а о каких только предполагаешь?</li>
+<li>Есть ли доказательство выполненного действия или только текст о нём?</li>
+<li>Участвует ли модель в выборе следующего действия?</li>
+</ol>
+<h3 id="13-словарь-главы">13. Словарь главы<a class="headerlink" href="#13-словарь-главы" title="Permanent link">&para;</a></h3>
+<table>
+<thead>
+<tr>
+<th>Термин</th>
+<th>Рабочая формулировка</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Интерфейс</td>
+<td>часть или способ взаимодействия с приложением: поле ввода, кнопка, экран результата или программный запрос</td>
+</tr>
+<tr>
+<td>ИИ-приложение</td>
+<td>программная система, которая обращается к модели и организует взаимодействие с пользователем, кодом, данными и внешними возможностями</td>
+</tr>
+<tr>
+<td>Языковая модель / LLM</td>
+<td>компонент, который получает доступный ему контекст и формирует результат</td>
+</tr>
+<tr>
+<td>Контекст</td>
+<td>информация, доступная модели в конкретном обращении</td>
+</tr>
+<tr>
+<td>Среда</td>
+<td>всё, с чем система взаимодействует при выполнении задачи и откуда получает результаты действий</td>
+</tr>
+<tr>
+<td>Tool / инструмент</td>
+<td>конкретная операция, которую приложение умеет выполнять</td>
+</tr>
+<tr>
+<td>Действие / action</td>
+<td>отдельный шаг системы в среде — например, вызов tool</td>
+</tr>
+<tr>
+<td>Наблюдение / observation</td>
+<td>наблюдаемый результат действия, полученный из среды</td>
+</tr>
+<tr>
+<td>ИИ-агент</td>
+<td>система, в которой модель участвует в выборе следующего действия, а результат действия может повлиять на дальнейшие шаги</td>
+</tr>
+</tbody>
+</table>
+<h2 id="bridge">Мост к главе 2<a class="headerlink" href="#bridge" title="Permanent link">&para;</a></h2>
+<p>Вернёмся к двум экранам Ани. Почему одинаковые фразы не позволяют определить, какая программа читала карточки? Одну фразу можно получить и после чтения, и без чтения. Для проверки у тебя теперь есть карта ролей, код чтения и observation, полученное после вызова функции.</p>
+<p>Мы различаем ответ модели, действие приложения и участие модели в выборе действия. Осталось проследить, как результат выполненного действия влияет на дальнейшую работу. После чтения карточек «Дежурному» нужно использовать полученный результат. Если чтение не удалось или карточек с нужным номером оказалось две, системе нужно учесть и такой исход.</p>
+<blockquote>
+<p>Как результат действия возвращается в систему, меняет её состояние и приводит к продолжению или к одной из нескольких остановок?</p>
+</blockquote>
+<p>Связь результата действия с продолжением работы и остановкой мы разберём в следующей главе.</p>
+
+
+
+
+
+
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+    
+      
+      <nav class="md-footer__inner md-grid" aria-label="Нижний колонтитул" >
+        
+          
+          <a href="../tour/" class="md-footer__link md-footer__link--prev" aria-label="Назад: Экскурсия по AI: что есть что">
+            <div class="md-footer__button md-icon">
+              
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+            </div>
+            <div class="md-footer__title">
+              <span class="md-footer__direction">
+                Назад
+              </span>
+              <div class="md-ellipsis">
+                Экскурсия по AI: что есть что
+              </div>
+            </div>
+          </a>
+        
+        
+          
+          <a href="../ch02/" class="md-footer__link md-footer__link--next" aria-label="Вперед: Глава 2. Агентный цикл: как результат действия меняет следующий шаг?">
+            <div class="md-footer__title">
+              <span class="md-footer__direction">
+                Вперед
+              </span>
+              <div class="md-ellipsis">
+                Глава 2. Агентный цикл: как результат действия меняет следующий шаг?
+              </div>
+            </div>
+            <div class="md-footer__button md-icon">
+              
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M4 11v2h12l-5.5 5.5 1.42 1.42L19.84 12l-7.92-7.92L10.5 5.5 16 11z"/></svg>
+            </div>
+          </a>
+        
+      </nav>
+    
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+    <div class="md-copyright__highlight">
+      ARISTOTEL · Редакция r0003 · 2026-10-15 · техническая редакция, пилот не проводился
+    </div>
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    
+      
+      
+      <script id="__config" type="application/json">{"annotate": null, "base": "../..", "features": ["navigation.tabs", "navigation.tabs.sticky", "navigation.sections", "navigation.indexes", "search.suggest", "search.highlight", "content.code.copy", "navigation.footer"], "search": "../../assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "\u0421\u043a\u043e\u043f\u0438\u0440\u043e\u0432\u0430\u043d\u043e \u0432 \u0431\u0443\u0444\u0435\u0440", "clipboard.copy": "\u041a\u043e\u043f\u0438\u0440\u043e\u0432\u0430\u0442\u044c \u0432 \u0431\u0443\u0444\u0435\u0440", "search.result.more.one": "\u0415\u0449\u0451 1 \u043d\u0430 \u044d\u0442\u043e\u0439 \u0441\u0442\u0440\u0430\u043d\u0438\u0446\u0435", "search.result.more.other": "\u0415\u0449\u0451 # \u043d\u0430 \u044d\u0442\u043e\u0439 \u0441\u0442\u0440\u0430\u043d\u0438\u0446\u0435", "search.result.none": "\u0421\u043e\u0432\u043f\u0430\u0434\u0435\u043d\u0438\u0439 \u043d\u0435 \u043d\u0430\u0439\u0434\u0435\u043d\u043e", "search.result.one": "\u041d\u0430\u0439\u0434\u0435\u043d\u043e 1 \u0441\u043e\u0432\u043f\u0430\u0434\u0435\u043d\u0438\u0435", "search.result.other": "\u041d\u0430\u0439\u0434\u0435\u043d\u043e \u0441\u043e\u0432\u043f\u0430\u0434\u0435\u043d\u0438\u0439: #", "search.result.placeholder": "\u041d\u0430\u0447\u043d\u0438\u0442\u0435 \u043f\u0435\u0447\u0430\u0442\u0430\u0442\u044c \u0434\u043b\u044f \u043f\u043e\u0438\u0441\u043a\u0430", "search.result.term.missing": "\u041e\u0442\u0441\u0443\u0442\u0441\u0442\u0432\u0443\u0435\u0442", "select.version": "\u0412\u044b\u0431\u0435\u0440\u0438\u0442\u0435 \u0432\u0435\u0440\u0441\u0438\u044e"}, "version": {"provider": "mike"}}</script>
+    
+    
+      <script src="../../assets/javascripts/bundle.79ae519e.min.js"></script>
+      
+    
+  </body>
+</html>
